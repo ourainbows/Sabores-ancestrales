@@ -13,6 +13,11 @@ interface Commentary {
   user: string;
   comment: string;
   commentataryDate: Date;
+  likes: number;
+}
+interface Tag {
+  id: number;
+  name: string;
 }
 
 export interface Recipe {
@@ -22,12 +27,13 @@ export interface Recipe {
   photoUser: string;
   description: string;
   imagePath: string;
-  likes: number; //
+  likes: number; 
+  score: number;
   time: number;
   difficulty: string;
-  price: number;
-  ingredients: Ingredient;
+  price: string;
+  ingredients: Ingredient[];
   steps: Step[];
   tags: Tag[];
-  commentaries: Commentary[];
+  comments: Commentary[];
 }
