@@ -1,13 +1,13 @@
-import { HomePageComponent } from './page/home-page/home-page.component';
+import { ExtraDataPageComponent } from './page/extra-data-page/extra-data-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent}
+  {path:'', component: ExtraDataPageComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class ExtraDataRoutingModule { }
