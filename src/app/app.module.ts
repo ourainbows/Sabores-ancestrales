@@ -6,6 +6,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { CardRecipeComponent } from './shared/components/card-recipe/card-recipe.component';
 
+
 @NgModule({
   declarations: [AppComponent, CardRecipeComponent],
   imports: [BrowserModule, AppRoutingModule, CoreModule],
