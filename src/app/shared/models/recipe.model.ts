@@ -12,6 +12,7 @@ interface Commentary {
   id: number;
   user: string;
   comment: string;
+  photoUser: string;
   commentataryDate: Date;
   likes: number;
 }
