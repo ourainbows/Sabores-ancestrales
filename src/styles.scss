@@ -1,7 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
 
-$titleColor: rgb(162, 162, 160);
-$lineColor1: rgba(196, 196, 196, 0.3);
-$lineColor2: rgb(162, 162, 160);
+$secundaryTextColor: rgb(162, 162, 160);
+$lineColor:#A2A2A0;
+$verticalLineColor:#C4C4C44D;
+$mainColor: #E14D61;
+$backgroundColor: #FFFFFF;
+$fontTitle: 24rem;
+$fontSubtitle: 20rem;
+$fontText: 16rem;
+$boxShadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+$borderRadius: 0.5rem;
 
-$fontTitle: 18px;
+@mixin title {
+    font-size: $fontTitle;
+    font-weight: 600;
+}

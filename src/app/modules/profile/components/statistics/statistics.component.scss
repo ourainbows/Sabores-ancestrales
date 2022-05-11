@@ -1,50 +1,45 @@
-@import '../../../../../styles.scss';
+@import "../../../../../styles.scss";
 
 .statistics-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .line1 {
-    background-color: $lineColor1;
-    border: none;
-    height: 1.5px;
-    width: 100%;
+  background-color: $verticalLineColor;
+  border: none;
+  height: 1.5px;
+  width: 100%;
 }
 
 .statistics-info {
-    display: flex;
-    align-items: center;
-    width: 70%;
+  display: flex;
+  align-items: center;
+  width: 70%;
 }
 
 .statistic {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 p {
-    color: $titleColor;
-    font-size: $fontTitle;
+  color: $secundaryTextColor;
+  font-size: $fontTitle;
 }
 
 .statistic-counter {
-    color: black;
-    font-weight: bold;
+  color: black;
+  font-weight: bold;
 }
 
 .line2 {
-    background-color: $lineColor2;
-    border: none;
-    height: 30px;
-    width: 2px;
+  background-color: $lineColor;
+  border: none;
+  height: 30px;
+  width: 2px;
 }
-
-
-
-
-
