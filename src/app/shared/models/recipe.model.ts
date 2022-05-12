@@ -24,11 +24,12 @@ interface Tag {
 export interface Recipe {
   id: number;
   name: string;
+  idUser: number;
   user: string;
   photoUser: string;
   description: string;
   imagePath: string;
-  likes: number; 
+  likes: number[]; 
   score: number;
   time: number;
   difficulty: string;

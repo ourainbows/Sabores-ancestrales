@@ -14,10 +14,11 @@ export class RecipePageComponent implements OnInit {
       'Delicious pizza with tomato sauce, mozzarella cheese, and basil.',
     imagePath:
       'https://images.unsplash.com/photo-1596223575327-99a5be4faf1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    idUser: 1,
     user: 'Chef John Doe',
     photoUser:
       'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-    likes: 0,
+    likes: [],
     score: 0,
     time: 0,
     difficulty: 'hard',
