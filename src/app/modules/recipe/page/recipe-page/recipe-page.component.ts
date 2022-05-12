@@ -9,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class RecipePageComponent implements OnInit {
   recipe: Recipe = {
     id: 1,
-    name: 'Pizza Napolitana',
+    name: 'Torta de fresa',
     description:
-      'Delicious pizza with tomato sauce, mozzarella cheese, and basil.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas, lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.  Molestie tincidunt egestas, lorem ipsum dolor sit amet.',
     imagePath:
-      'https://images.unsplash.com/photo-1596223575327-99a5be4faf1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      'https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80',
     idUser: 1,
     user: 'Chef John Doe',
     photoUser:

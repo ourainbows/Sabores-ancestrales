@@ -1,8 +1,23 @@
-.container{
-    height: 30rem;
+.container {
+    position: relative;
+  height: 30rem;
 }
-.hero{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hero {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 0 5px 5px;
+}
+.circle-container {
+  position: absolute;
+  top: 1.6rem;
+  left: 0.7rem;
+  height: 3.4rem;
+  width: 3.4rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    126.91deg,
+    #101010 -22.93%,
+    rgba(34, 34, 34, 0) 189.23%
+  );
 }
