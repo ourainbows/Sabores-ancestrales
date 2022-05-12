@@ -18,8 +18,8 @@ export class RecipePageComponent implements OnInit {
     user: 'Chef John Doe',
     photoUser:
       'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-    likes: [],
-    score: 0,
+    likes: [1],
+    score: 4.2,
     time: 0,
     difficulty: 'hard',
     price: '$$-$$$',

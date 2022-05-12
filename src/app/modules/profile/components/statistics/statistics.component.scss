@@ -8,7 +8,7 @@
 }
 
 .line1 {
-  background-color: $verticalLineColor;
+  background-color: $vertical-line-color;
   border: none;
   height: 1.5px;
   width: 100%;
@@ -28,8 +28,8 @@
 }
 
 p {
-  color: $secundaryTextColor;
-  font-size: $fontTitle;
+  color: $secundary-text-color;
+  font-size: $font-title;
 }
 
 .statistic-counter {
@@ -38,7 +38,7 @@ p {
 }
 
 .line2 {
-  background-color: $lineColor;
+  background-color: $line-color;
   border: none;
   height: 30px;
   width: 2px;

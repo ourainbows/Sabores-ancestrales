@@ -1,0 +1,24 @@
+@import '../../../../../styles.scss';
+
+.container{
+    margin: 1.2rem 1.6rem;
+    font-size: $font-text;
+}
+.title{
+    font-size: $font-title;
+}
+.score-container{
+    margin: 1.2rem 0;
+    /* height: 1.2rem; */
+}
+.actions{
+    display: flex;
+    div {
+        margin-right: 1.4rem;
+        color: $secundary-text-color;
+    }
+}
+.line{
+    border: 0;
+    border-top: 0.1rem solid rgba(196, 196, 196, 0.3);
+}

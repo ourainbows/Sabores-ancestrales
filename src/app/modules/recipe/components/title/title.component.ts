@@ -7,11 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TitleComponent implements OnInit {
 
-  @Input() title= ""
-  @Input() score = 0;
-  @Input() likes = 0;
+  @Input() name= ""
+  @Input() score = 0
+  @Input() likes : number[] | null = null
 
-  
+
   constructor() { }
 
   ngOnInit(): void {
