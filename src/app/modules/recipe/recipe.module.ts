@@ -7,6 +7,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { TitleComponent } from './components/title/title.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
+import { StepComponent } from './components/step/step.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { IngredientsComponent } from './components/ingredients/ingredients.compo
        HeroComponent,
        TitleComponent,
        InfoCardComponent,
-       IngredientsComponent
+       IngredientsComponent,
+       StepComponent
   ],
   imports: [
     CommonModule,

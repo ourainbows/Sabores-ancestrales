@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="step-title">Paso {{ stepsIndex }}/{{ stepsLength }}</h2>
+  <img
+    class="step-img"
+    [src]="step.imagePath"
+    alt="Imagen del paso de la receta"
+  />
+  <div class="info-container">
+    <p class="step-description">{{ step.description }}</p>
+    <p class="ingredients-list">
+      <b>Ingredientes:</b>
+      <span *ngFor="let ingredient of step.ingredients; index as i">
+        {{ ingredient.name }}
+        <span *ngIf="i + 1 !== step.ingredients.length">,</span>
+        <span *ngIf="i + 1 === step.ingredients.length">.</span>
+      </span>
+    </p>
+  </div>
+</div>

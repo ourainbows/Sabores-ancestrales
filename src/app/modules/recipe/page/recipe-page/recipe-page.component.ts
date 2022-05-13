@@ -36,14 +36,14 @@ export class RecipePageComponent implements OnInit {
       },
       { id: 2, name: 'Fresa', checked: false, quantity: 1 },
       { id: 3, name: 'Azucar', checked: false, quantity: 1, unit: 'cucharada' },
-      { id: 4, name: 'Huevo', checked: false, quantity: 7},
+      { id: 4, name: 'Huevo', checked: false, quantity: 7 },
     ],
     steps: [
       {
         id: 1,
         imagePath:
           'https://images.unsplash.com/photo-1514986888952-8cd320577b68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80',
-        description: 'lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         ingredients: [
           {
             id: 1,
@@ -52,6 +52,87 @@ export class RecipePageComponent implements OnInit {
             quantity: 1,
             unit: 'tarro',
           },
+          { id: 2, name: 'Fresa', checked: false, quantity: 1 },
+          {
+            id: 3,
+            name: 'Azucar',
+            checked: false,
+            quantity: 1,
+            unit: 'cucharada',
+          },
+          { id: 4, name: 'Huevo', checked: false, quantity: 7 },
+        ],
+      },
+      {
+        id: 1,
+        imagePath:
+          'https://images.unsplash.com/photo-1514986888952-8cd320577b68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        ingredients: [
+          {
+            id: 1,
+            name: 'Salsa de Fresa',
+            checked: false,
+            quantity: 1,
+            unit: 'tarro',
+          },
+          { id: 2, name: 'Fresa', checked: false, quantity: 1 },
+          {
+            id: 3,
+            name: 'Azucar',
+            checked: false,
+            quantity: 1,
+            unit: 'cucharada',
+          },
+          { id: 4, name: 'Huevo', checked: false, quantity: 7 },
+        ],
+      },
+      {
+        id: 1,
+        imagePath:
+          'https://images.unsplash.com/photo-1514986888952-8cd320577b68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        ingredients: [
+          {
+            id: 1,
+            name: 'Salsa de Fresa',
+            checked: false,
+            quantity: 1,
+            unit: 'tarro',
+          },
+          { id: 2, name: 'Fresa', checked: false, quantity: 1 },
+          {
+            id: 3,
+            name: 'Azucar',
+            checked: false,
+            quantity: 1,
+            unit: 'cucharada',
+          },
+          { id: 4, name: 'Huevo', checked: false, quantity: 7 },
+        ],
+      },
+      {
+        id: 1,
+        imagePath:
+          'https://images.unsplash.com/photo-1514986888952-8cd320577b68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        ingredients: [
+          {
+            id: 1,
+            name: 'Salsa de Fresa',
+            checked: false,
+            quantity: 1,
+            unit: 'tarro',
+          },
+          { id: 2, name: 'Fresa', checked: false, quantity: 1 },
+          {
+            id: 3,
+            name: 'Azucar',
+            checked: false,
+            quantity: 1,
+            unit: 'cucharada',
+          },
+          { id: 4, name: 'Huevo', checked: false, quantity: 7 },
         ],
       },
     ],

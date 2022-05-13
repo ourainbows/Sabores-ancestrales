@@ -7,9 +7,9 @@ export interface Ingredient {
   unit?: string;
   checked?: boolean;
 }
-interface Step {
+export interface Step {
   id: number;
-  imagePath: string;
+  imagePath?: string;
   description: string;
   ingredients: Ingredient[];
 }

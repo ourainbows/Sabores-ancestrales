@@ -13,4 +13,10 @@
     [price]="recipe.price"
   ></app-info-card>
   <app-ingredients [ingredients]="recipe.ingredients"></app-ingredients>
+  <app-step
+    [step]="step"
+    *ngFor="let step of recipe.steps; index as i"
+    [stepsLength]="recipe.steps.length"
+    [stepsIndex]="i + 1"
+  ></app-step>
 </div>
