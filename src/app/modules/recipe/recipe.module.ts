@@ -5,6 +5,7 @@ import { RecipeRoutingModule } from './recipe-routing.module';
 import { RecipePageComponent } from './page/recipe-page/recipe-page.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { TitleComponent } from './components/title/title.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { TitleComponent } from './components/title/title.component';
   
     RecipePageComponent,
        HeroComponent,
-       TitleComponent
+       TitleComponent,
+       InfoCardComponent
   ],
   imports: [
     CommonModule,

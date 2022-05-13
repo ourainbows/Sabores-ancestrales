@@ -14,14 +14,15 @@ export class RecipePageComponent implements OnInit {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas, lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.  Molestie tincidunt egestas, lorem ipsum dolor sit amet.',
     imagePath:
       'https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80',
+    
     idUser: 1,
     user: 'Chef John Doe',
     photoUser:
       'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
     likes: [1],
     score: 4.2,
-    time: 0,
-    difficulty: 'hard',
+    time: 33,
+    difficulty: 'Dificil',
     price: '$$-$$$',
     ingredients: [{ id: 1, name: 'Tomato Sauce' }],
     steps: [

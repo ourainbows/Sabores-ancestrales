@@ -1,5 +1,17 @@
 <app-hero [imagePath]="recipe.imagePath" [name]="recipe.name"></app-hero>
-<app-title [likes]="recipe.likes" [score]="recipe.score" [name]="recipe.name"></app-title>
 <div class="container">
-
+  <app-title
+    [likes]="recipe.likes"
+    [score]="recipe.score"
+    [name]="recipe.name"
+  ></app-title>
+  <app-info-card
+    [user]="recipe.user"
+    [idUser]="recipe.idUser"
+    [photoUser]="recipe.photoUser"
+    [description]="recipe.description"
+    [time]="recipe.time"
+    [difficulty]="recipe.difficulty"   
+    [price]="recipe.price" 
+  ></app-info-card>
 </div>
