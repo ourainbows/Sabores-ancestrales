@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Ingredientes</h2>
+  <div class="ingredients-container" *ngFor="let ingredient of ingredients; index as i ">
+      <div class="ingredient-container" [class.checked]="ingredient.checked">
+          <label>
+            <input type="checkbox" (click)="toogleChecked(i)"/>
+            {{ ingredient.quantity}}  {{ingredient?.unit}}
+          </label>
+          <label >{{ingredient.name}}</label>
+      </div>
+  </div>
+</div>

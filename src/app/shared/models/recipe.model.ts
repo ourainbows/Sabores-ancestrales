@@ -1,8 +1,11 @@
 import { CardUserDTO } from './user.model';
 
-interface Ingredient {
+export interface Ingredient {
   id: number;
   name: string;
+  quantity: number;
+  unit?: string;
+  checked?: boolean;
 }
 interface Step {
   id: number;

@@ -6,6 +6,7 @@ import { RecipePageComponent } from './page/recipe-page/recipe-page.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { TitleComponent } from './components/title/title.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
+import { IngredientsComponent } from './components/ingredients/ingredients.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
     RecipePageComponent,
        HeroComponent,
        TitleComponent,
-       InfoCardComponent
+       InfoCardComponent,
+       IngredientsComponent
   ],
   imports: [
     CommonModule,
