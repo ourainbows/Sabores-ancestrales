@@ -1,3 +1,5 @@
+import { CardUserDTO } from './user.model';
+
 interface Ingredient {
   id: number;
   name: string;
@@ -24,9 +26,7 @@ interface Tag {
 export interface Recipe {
   id: number;
   name: string;
-  idUser: number;
-  user: string;
-  photoUser: string;
+  user: CardUserDTO;
   description: string;
   imagePath: string;
   likes: number[]; 

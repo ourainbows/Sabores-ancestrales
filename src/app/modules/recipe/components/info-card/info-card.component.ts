@@ -1,3 +1,4 @@
+import { CardUserDTO } from './../../../../shared/models/user.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,17 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./info-card.component.scss'],
 })
 export class InfoCardComponent implements OnInit {
-  @Input() user = ''
-  @Input() idUser = 0
-  @Input() photoUser = ''
+  @Input() user : CardUserDTO = {
+    id: 0,
+    name: '',
+    photo: '',
+  }
   @Input() description = ''
   @Input() time = 0
   @Input() difficulty = ''
   @Input() price = ''
-
-  
-
-
 
   constructor() {}
 
