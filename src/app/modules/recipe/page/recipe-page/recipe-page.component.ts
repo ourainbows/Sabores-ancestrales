@@ -34,9 +34,9 @@ export class RecipePageComponent implements OnInit {
         quantity: 1,
         unit: 'tarro',
       },
-      { id: 2, name: 'Fresa', checked: false, quantity: 1 },
+      { id: 2, name: 'Fresa', checked: false, quantity: 1},
       { id: 3, name: 'Azucar', checked: false, quantity: 1, unit: 'cucharada' },
-      { id: 4, name: 'Huevo', checked: false, quantity: 7 },
+      { id: 4, name: 'Huevo', checked: false, quantity: 7},
     ],
     steps: [
       {
