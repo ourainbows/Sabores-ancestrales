@@ -1,4 +1,4 @@
-import { CardUserDTO } from './../../../../shared/models/user.model';
+import { CardUserDTO } from '../../../../shared/models/user.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
