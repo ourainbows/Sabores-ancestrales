@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TagComponent } from './components/tag/tag.component';
 
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TagComponent
+  ],
   imports: [
     CommonModule
   ]
