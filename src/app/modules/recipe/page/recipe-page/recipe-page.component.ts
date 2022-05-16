@@ -30,7 +30,6 @@ export class RecipePageComponent implements OnInit {
     comments: [],
   };
   recipeId : string | null = null
-
   constructor(private recipeService: RecipesService, private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -39,6 +38,7 @@ export class RecipePageComponent implements OnInit {
       if (this.recipeId) {
         this.recipeService.getRecipeById(this.recipeId).subscribe((recipe) => {
           this.recipe = recipe;
+          console.log(this.recipe);
         });
       }
     });

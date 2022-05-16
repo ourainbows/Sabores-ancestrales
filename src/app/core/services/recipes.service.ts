@@ -11,6 +11,18 @@ export class RecipesService {
   constructor(private htttp: HttpClient) {}
 
   getRecipeById(id: string): Observable<Recipe> {
-    return this.htttp.get<Recipe>(`${this.apiUrl}/${id}`);
+    return this.htttp.get<Recipe>(`${this.apiUrl}/${id}`).pipe(
+      map((recipe) => {
+        return {
+          ...recipe,
+          steps: recipe.steps.map((step) => {
+            return {
+              ...step,
+              checked: false,
+            };
+          }),
+        };
+      })
+    );
   }
 }

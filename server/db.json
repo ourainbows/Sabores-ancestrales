@@ -88,7 +88,7 @@
             {
               "id": 1,
               "name": "Salsa de Fresa",
-              "checked": false,
+
               "quantity": 1,
               "unit": "tarro"
             },
@@ -96,7 +96,7 @@
             {
               "id": 3,
               "name": "Azucar",
-              "checked": false,
+
               "quantity": 1,
               "unit": "cucharada"
             },
@@ -111,7 +111,7 @@
             {
               "id": 1,
               "name": "Salsa de Fresa",
-              "checked": false,
+
               "quantity": 1,
               "unit": "tarro"
             },
@@ -119,7 +119,7 @@
             {
               "id": 3,
               "name": "Azucar",
-              "checked": false,
+
               "quantity": 1,
               "unit": "cucharada"
             },
@@ -127,7 +127,7 @@
           ]
         }
       ],
-      "tags": [{ "id": 1, "name": "Italiano" }],
+      "tags": [{ "id": 1, "name": "Desayuno" }],
       "comments": [
         {
           "id": 1,
