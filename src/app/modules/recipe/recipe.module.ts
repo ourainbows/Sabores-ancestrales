@@ -10,21 +10,15 @@ import { IngredientsComponent } from './components/ingredients/ingredients.compo
 import { StepComponent } from './components/step/step.component';
 import { CoreModule } from 'src/app/core/core.module';
 
-
 @NgModule({
   declarations: [
-  
     RecipePageComponent,
-       HeroComponent,
-       TitleComponent,
-       InfoCardComponent,
-       IngredientsComponent,
-       StepComponent
+    HeroComponent,
+    TitleComponent,
+    InfoCardComponent,
+    IngredientsComponent,
+    StepComponent,
   ],
-  imports: [
-    CommonModule,
-    RecipeRoutingModule,
-    CoreModule
-  ]
+  imports: [CommonModule, RecipeRoutingModule, CoreModule],
 })
-export class RecipeModule { }
+export class RecipeModule {}

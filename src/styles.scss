@@ -19,7 +19,6 @@ $margin: 0 1.6rem;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Lato", sans-serif;
 }
 html{
     font-size: 62.5%;
@@ -28,4 +27,9 @@ html{
 @mixin title {
     font-size: $fontTitle;
     font-weight: 600;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Lato", sans-serif; }
+md-icon{
+  font-family: 'Material Icons' !important;
 }
