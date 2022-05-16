@@ -13,7 +13,6 @@ export class IngredientsComponent implements OnInit {
 
   toogleChecked(index: number) {
     this.ingredients[index].checked = !this.ingredients[index].checked;
-    console.log(this.ingredients)
   }
 
   constructor() { }
