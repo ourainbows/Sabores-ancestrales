@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -9,7 +10,7 @@ import { CardRecipeComponent } from './shared/components/card-recipe/card-recipe
 
 @NgModule({
   declarations: [AppComponent, CardRecipeComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -11,6 +11,6 @@ import { TagComponent } from './components/tag/tag.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
 })
 export class SharedModule { }

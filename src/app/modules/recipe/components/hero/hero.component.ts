@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
 
-  @Input() imagePath = ''
-  @Input() name = ''
+  @Input() imagePath : string | undefined= undefined
+  @Input() name : string | undefined= undefined
 
 
   constructor() { }

@@ -1,5 +1,6 @@
 import { Recipe } from './../../../../shared/models/recipe.model';
 import { Component, OnInit } from '@angular/core';
+import { RecipesService } from 'src/app/core/services/recipes.service';
 
 @Component({
   selector: 'app-recipe-page',
@@ -8,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipePageComponent implements OnInit {
   recipe: Recipe = {
-    id: 1,
-    name: 'Torta de fresa',
+    id: 0,
+    name: '',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas, lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.  Molestie tincidunt egestas, lorem ipsum dolor sit amet.',
     imagePath:
@@ -149,8 +150,14 @@ export class RecipePageComponent implements OnInit {
       },
     ],
   };
+  
 
-  constructor() {}
+  constructor(private recipeService : RecipesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.recipeService.getRecipe().subscribe(
+      (recipe) => {
+        this.recipe = recipe;
+      })
+  }
 }
