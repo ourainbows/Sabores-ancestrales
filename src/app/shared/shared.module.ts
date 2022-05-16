@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TagComponent } from './components/tag/tag.component';
-
-
-
+import { CardRecipeComponent } from './components/card-recipe/card-recipe.component';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    TagComponent
+    TagComponent,
+    CardRecipeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule,
+    RouterModule,
+  ],
+  exports:[
+    CardRecipeComponent
   ],
 })
 export class SharedModule { }
