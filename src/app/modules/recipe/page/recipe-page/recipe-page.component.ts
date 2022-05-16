@@ -38,7 +38,6 @@ export class RecipePageComponent implements OnInit {
       if (this.recipeId) {
         this.recipeService.getRecipeById(this.recipeId).subscribe((recipe) => {
           this.recipe = recipe;
-          console.log(this.recipe);
         });
       }
     });

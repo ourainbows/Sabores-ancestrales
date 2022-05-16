@@ -1,35 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lustria&display=swap");
 
 $secundary-text-color: rgb(162, 162, 160);
 $text-color: #000000;
-$line-color:#A2A2A0;
-$vertical-line-color:#C4C4C44D;
-$main-color: #E14D61;
-$background-color: #FFFFFF;
+$line-color: #a2a2a0;
+$vertical-line-color: #c4c4c44d;
+$main-color: #e14d61;
+$background-color: #ffffff;
 $font-title: 2.4rem;
-$font-subtitle: 2.0rem;
+$font-subtitle: 2rem;
 $font-text: 1.6rem;
 $box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 $border-radius: 5px;
 $margin: 0 1.6rem;
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 
 @mixin title {
-    font-size: $fontTitle;
-    font-weight: 600;
+  font-size: $fontTitle;
+  font-weight: 600;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Lato", sans-serif; }
-md-icon{
-  font-family: 'Material Icons' !important;
+
+.material-icons {
+  font-family: "Material Icons" !important;
 }
