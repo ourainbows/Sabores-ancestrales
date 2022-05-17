@@ -10,9 +10,7 @@
     <p class="ingredients-list">
       <b>Ingredientes:</b>
       <span *ngFor="let ingredient of step.ingredients; index as i">
-        {{ ingredient.name }}
-        <span *ngIf="i + 1 !== step.ingredients.length">,</span>
-        <span *ngIf="i + 1 === step.ingredients.length">.</span>
+        {{ i + 1 !== step.ingredients.length ? ingredient.name + "," : ingredient.name + "." }}
       </span>
     </p>
   </div>
