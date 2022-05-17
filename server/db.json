@@ -137,7 +137,7 @@
           "id": 1,
           "user": "Artur Morgado",
           "comment": "Una receta deliciosa",
-          "commentataryDate": "2022-05-15T23:10:35.305Z",
+          "date": "15-05-2022",
           "likes": [1],
           "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
         }

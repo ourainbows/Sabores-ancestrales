@@ -13,13 +13,13 @@ export interface Step {
   description: string;
   ingredients: Ingredient[];
 }
-interface Commentary {
+export interface Commentary {
   id: number;
   user: string;
   comment: string;
   photoUser?: string;
-  commentataryDate: Date;
-  likes: number;
+  date: Date;
+  likes: number[];
 }
 export interface Tag {
   id: number;

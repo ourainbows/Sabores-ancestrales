@@ -15,6 +15,7 @@ import { MagicRecipesComponent } from './components/magic-recipes/magic-recipes.
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentaryComponent } from './components/commentary/commentary.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CommentsSectionComponent } from './components/comments-section/comments-section.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
     MagicRecipesComponent,
     CommentsComponent,
     CommentaryComponent,
+    CommentsSectionComponent,
   ],
   imports: [CommonModule, RecipeRoutingModule, CoreModule, SharedModule, MatIconModule],
 })
