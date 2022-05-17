@@ -11,7 +11,7 @@
         {{ ingredient.name }}
       </label>
       <label *ngIf="!ingredient.unit">
-        {{ ingredient.quantity }} {{ ingredient.name }}
+        {{ ingredient.quantity }} {{ ingredient.quantity > 1 ? ingredient.name + 's' : ingredient.name }}
       </label>
     </div>
   </div>
