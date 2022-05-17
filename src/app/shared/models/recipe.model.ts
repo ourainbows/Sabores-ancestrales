@@ -21,7 +21,7 @@ interface Commentary {
   commentataryDate: Date;
   likes: number;
 }
-interface Tag {
+export interface Tag {
   id: number;
   name: string;
 }

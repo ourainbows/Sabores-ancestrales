@@ -8,8 +8,7 @@
   font-size: $font-subtitle;
 }
 .ingredient-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+
   font-size: $font-text;
   &.checked {
     color: $secundary-text-color;
@@ -17,10 +16,10 @@
   }
 }
 
-.ingredient-container label {
+/* .ingredient-container label {
   display: flex;
   align-items: center;
-}
+} */
 .ingredient-container input {
   height: 1.4rem;
   width: 1.4rem;

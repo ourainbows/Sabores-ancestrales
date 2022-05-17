@@ -16,7 +16,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   exports:[
-    CardRecipeComponent
+    CardRecipeComponent,
+    TagComponent
   ],
 })
 export class SharedModule { }

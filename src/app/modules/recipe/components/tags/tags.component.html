@@ -1,0 +1,9 @@
+<div class="container">
+    <h2 class="title">Categorias</h2>
+    <div class="tags">
+      <div class="tag" *ngFor="let tag of tags">
+        <app-tag [tag]="tag.name"></app-tag>
+      </div>
+    </div>
+    <hr class="line"/>
+</div>

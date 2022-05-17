@@ -127,7 +127,11 @@
           ]
         }
       ],
-      "tags": [{ "id": 1, "name": "Desayuno" }],
+      "tags": [
+        { "id": 1, "name": "Desayuno" },
+        { "id": 2, "name": "Postre" },
+        { "id": 3, "name": "Fruta" }
+      ],
       "comments": [
         {
           "id": 1,
