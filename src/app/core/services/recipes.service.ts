@@ -1,3 +1,4 @@
+import { Commentary } from './../../shared/models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
@@ -24,5 +25,9 @@ export class RecipesService {
         };
       })
     );
+  }
+
+  updateComments(id: string, comments: Commentary[]): Observable<Recipe> {
+    return this.htttp.patch<Recipe>(`${this.apiUrl}/${id}`, { comments });
   }
 }

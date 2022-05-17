@@ -1,5 +1,6 @@
 import { Commentary } from './../../../../shared/models/recipe.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-comments',
@@ -9,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CommentsComponent implements OnInit {
 
   @Input() comments: Commentary[] = [];
+  @Output() changeLikeEvent = new EventEmitter<Commentary[]>();
   userId = 1 //temporary 
 
   likeComment(commentary: number) {
@@ -17,6 +19,7 @@ export class CommentsComponent implements OnInit {
     } else {
       this.comments[commentary].likes.push(this.userId);
     }
+    this.changeLikeEvent.emit(this.comments);
   }
 
   constructor() {}

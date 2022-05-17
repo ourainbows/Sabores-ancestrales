@@ -14,12 +14,12 @@ export interface Step {
   ingredients: Ingredient[];
 }
 export interface Commentary {
-  id: number;
+  id?: number;
   user: string;
   comment: string;
   photoUser?: string;
   photoRecipe?: string;
-  date: Date;
+  date: Date | string;
   likes: number[];
 }
 export interface Tag {

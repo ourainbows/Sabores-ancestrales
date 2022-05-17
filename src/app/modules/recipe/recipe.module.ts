@@ -16,6 +16,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { CommentaryComponent } from './components/commentary/commentary.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CommentsSectionComponent } from './components/comments-section/comments-section.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,6 @@ import { CommentsSectionComponent } from './components/comments-section/comments
     CommentaryComponent,
     CommentsSectionComponent,
   ],
-  imports: [CommonModule, RecipeRoutingModule, CoreModule, SharedModule, MatIconModule],
+  imports: [CommonModule, RecipeRoutingModule, CoreModule, SharedModule, MatIconModule, FormsModule],
 })
 export class RecipeModule {}

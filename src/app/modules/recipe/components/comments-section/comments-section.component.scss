@@ -1,5 +1,8 @@
 @import '../../../../../styles.scss';
 
+.section{
+    margin-bottom: 2rem;
+}
 .title{
     font-size: 1.6rem;
     margin-bottom: .8rem;
@@ -7,9 +10,3 @@
 .commentary-container{
     margin-bottom: 2rem;
 }
-/* .comments-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    gap: 1rem 0;
-} */
