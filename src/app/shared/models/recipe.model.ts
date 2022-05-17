@@ -18,6 +18,7 @@ export interface Commentary {
   user: string;
   comment: string;
   photoUser?: string;
+  photoRecipe?: string;
   date: Date;
   likes: number[];
 }

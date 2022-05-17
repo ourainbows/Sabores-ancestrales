@@ -11,16 +11,25 @@
     </div>
     <div class="content">
       <p>{{ commentary.comment }}</p>
+      <img
+        [src]="commentary.photoRecipe"
+        alt="Foto de la receta hecha por un usuario"
+        *ngIf="commentary.photoRecipe"
+      />
     </div>
     <div class="actions">
       <p>Reportar</p>
-      <div class="likes" [class.active]="commentary.likes.includes(userId)" (click)="likeComment(i)">
+      <div
+        class="likes"
+        [class.active]="commentary.likes.includes(userId)"
+        (click)="likeComment(i)"
+      >
         <span>{{ commentary.likes.length }}</span>
         <mat-icon *ngIf="!commentary.likes.includes(userId)">
           favorite_border
         </mat-icon>
         <mat-icon *ngIf="commentary.likes.includes(userId)">
-            favorite
+          favorite
         </mat-icon>
       </div>
     </div>
