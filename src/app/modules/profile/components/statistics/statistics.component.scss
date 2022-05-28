@@ -3,8 +3,6 @@
 .statistics-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .line1 {
@@ -17,7 +15,8 @@
 .statistics-info {
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
+  justify-content: center;
 }
 
 .statistic {
@@ -41,5 +40,6 @@ p {
   background-color: $line-color;
   border: none;
   height: 30px;
-  width: 2px;
+  width: 3px;
+  margin: 30px;
 }

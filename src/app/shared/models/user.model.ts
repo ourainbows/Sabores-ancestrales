@@ -2,13 +2,12 @@ import { Recipe } from './recipe.model';
 
 export interface User {
   id: number;
+  photoUser?: string;
   name: string;
-  email: string;
   description?: string;
-  photo?: string;
   recipes?: Recipe[];
   score?: number;
   savedRecipes?: Recipe[];
 } 
 
-export interface CardUserDTO extends Omit<User, "email" | "description" | "recipes" | "score" | "savedRecipes">{} 
+export interface CardUserDTO extends Omit<User, "description" | "recipes" | "score" | "savedRecipes">{} 

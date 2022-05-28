@@ -1,4 +1,4 @@
-import { RecipesService } from 'src/app/core/services/recipes.service';
+import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
 import { Commentary } from './../../../../shared/models/recipe.model';
 import { Component, OnInit, Input } from '@angular/core';
 
