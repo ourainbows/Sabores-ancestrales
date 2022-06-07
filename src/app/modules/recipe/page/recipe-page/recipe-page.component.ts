@@ -15,9 +15,10 @@ export class RecipePageComponent implements OnInit {
     description: '',
     imagePath: '',
     user: {
-      id: 0,
-      name: '',
-      photo: '',
+      id_User: 0,
+      first_name: '',
+      last_name: '',
+      userPhoto: '',
     },
     likes: [],
     score: 0,

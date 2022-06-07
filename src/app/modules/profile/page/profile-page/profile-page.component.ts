@@ -6,27 +6,30 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.scss']
+  styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
   user: User = {
-    id: 0,
-    photoUser: '',
-    name: '',
-    description: '',
-    recipes: [],
+    id_User: 0,
+    first_name: '',
+    last_name: '',
+    userPhoto: '',
+    userDescription: '',
     score: 0,
-    savedRecipes: [],
+    SavedRecipes: [],
+    recipes: [],
   };
-  userId : string | null = null
-  constructor(private userService: UsersService, private route: ActivatedRoute) {}
-
+  userId: string | null = null;
+  constructor(
+    private userService: UsersService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.userId = params.get('id');
       if (this.userId) {
-        this.userService.getById(this.userId).subscribe((user) => {
+        this.userService.getUserById(this.userId).subscribe((user) => {
           this.user = user;
         });
       }

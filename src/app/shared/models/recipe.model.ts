@@ -30,7 +30,7 @@ export interface Tag {
 export interface Recipe {
   id: number;
   name: string;
-  user: CardUserDTO;
+  user: CardUserDTO | any;
   description: string;
   imagePath: string;
   likes: number[]; 
@@ -43,3 +43,4 @@ export interface Recipe {
   tags: Tag[];
   comments: Commentary[];
 }
+
