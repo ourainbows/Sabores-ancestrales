@@ -11,4 +11,4 @@ export interface User {
   recipes?: Recipe[];
 } 
 
-export interface CardUserDTO extends Omit<User, "first_name" | "last_name" | "userPhoto" | "userDescription" | "NoUserRecipes" | "score" | "NoSavedRecipes" | "recipes">{} 
+export interface CardUserDTO extends Omit<User, "userDescription" | "NoUserRecipes" | "score" | "SavedRecipes" | "recipes">{} 

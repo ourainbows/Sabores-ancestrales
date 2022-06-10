@@ -10,9 +10,9 @@ export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
   constructor(private htttp: HttpClient) {}
 
-  getUserById(id: string): Observable<User> {
-    return this.htttp.get<User>(`${this.apiUsers}/${id}`).pipe(
-      map((user: User) => {
+  getUserById(id_User: string): Observable<User> {
+    return this.htttp.get<User>(`${this.apiUsers}/${id_User}`).pipe(
+      map((user) => {
         return user;
       }),
     );

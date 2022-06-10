@@ -20,6 +20,7 @@ export class ProfilePageComponent implements OnInit {
     recipes: [],
   };
   userId: string | null = null;
+
   constructor(
     private userService: UsersService,
     private route: ActivatedRoute

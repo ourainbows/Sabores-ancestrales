@@ -1,1 +1,8 @@
-<p>user-description works!</p>
+<div class="user-description-container">
+    <div class="user-Photo-Container">
+        <img class="user-Photo" [src]="imagePath" [alt]="'Foto de: '+ firstName + lastName">
+    </div>
+    <div class="user-Summary-Container">
+        <h1>{{firstName}}{{lastName}}</h1>
+    </div>
+</div>
