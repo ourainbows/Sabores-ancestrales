@@ -1,5 +1,5 @@
 <div class="cardRecipe">
-  <div [routerLink]="['/profile']" class="containerImg">
+  <div [routerLink]="['recipe/' + recipe.id]" class="containerImg">
     <img src={{recipe.imagePath}} alt="">
   </div>
   <div class="infoRecipe">
@@ -10,7 +10,7 @@
     <div class="infoTwo">
       <span>{{recipe.time}}</span>
       <div>{{recipe.price}}</div>
-      <span (click)='likeRecipe()' class="favorite">
+      <span (click)='likeRecipe()' class="favorite"  [class.active]="!recipe.likes.includes(userId)">
         <mat-icon *ngIf="recipe.likes.includes(userId)">
           favorite_border
         </mat-icon>

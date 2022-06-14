@@ -299,8 +299,6 @@
         },
         {
           "user": "Chef Teste",
-<<<<<<< HEAD
-=======
           "comment": "Un shift",
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "",
@@ -351,9 +349,7 @@
         "name": "Chef John Doe",
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
-      "likes": [
-        1
-      ],
+      "likes": [],
       "score": 4.2,
       "time": 33,
       "difficulty": "Dificil",
@@ -533,12 +529,13 @@
       "comments": [
         {
           "user": "Chef Teste",
->>>>>>> dev
           "comment": "Un shift",
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "",
           "date": "2022-4-17",
-          "likes": []
+          "likes": [
+            1
+          ]
         },
         {
           "id": 1,
@@ -558,9 +555,7 @@
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "",
           "date": "2022-4-17",
-          "likes": [
-            1
-          ]
+          "likes": []
         },
         {
           "user": "Chef Teste",
