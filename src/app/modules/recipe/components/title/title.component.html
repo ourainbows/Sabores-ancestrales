@@ -1,13 +1,35 @@
 <div class="container">
-    <h1 class="title">{{name}}</h1>
-    <div class="score-container">
-        <!-- put score component here -->
-        ⭐ ⭐ ⭐ ⭐ ⭐ {{score}}
+  <h1 class="title">{{ name }}</h1>
+  <div class="score-container">
+    <!-- put score component here -->
+    ⭐ ⭐ ⭐ ⭐ ⭐ {{ score }}
+  </div>
+  <div class="actions">
+    <div>
+      <mat-icon>bookmark_border</mat-icon>
+      Guardar
     </div>
-    <div class="actions">
-        <div><span>🏴</span>Guardar</div>
-        <div><span>❤️</span>{{likes?.length}}</div>
-        <div><span>📎</span>Compartir</div>
+    <div>
+      <mat-icon
+        *ngIf="recipe.likes.includes(userId)"
+        class="favorite"
+        (click)="likeRecipe()"
+      >
+        favorite_border
+      </mat-icon>
+      <mat-icon
+        *ngIf="!recipe.likes.includes(userId)"
+        class="favorite active"
+        (click)="likeRecipe()"
+      >
+        favorite
+      </mat-icon>
+      Me gusta
     </div>
+    <div (click)="copyText()">
+      <mat-icon>link</mat-icon>
+      Compartir
+    </div>
+  </div>
 </div>
-<hr class="line"/>
+<hr class="line" />

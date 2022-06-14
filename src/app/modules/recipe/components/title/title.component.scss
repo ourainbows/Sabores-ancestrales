@@ -1,24 +1,33 @@
-@import '../../../../../styles.scss';
+@import "../../../../../styles.scss";
 
-.container{
-    margin: 1.2rem 0;
-    font-size: $font-text;
+.container {
+  margin: 1.2rem 0;
+  font-size: $font-text;
 }
-.title{
-    font-size: $font-title;
+.title {
+  font-size: $font-title;
 }
-.score-container{
-    margin: 1.2rem 0;
-    /* height: 1.2rem; */
+.score-container {
+  margin: 1.2rem 0;
+  /* height: 1.2rem; */
 }
-.actions{
+.actions {
+  display: flex;
+  div {
+    margin-right: 1.4rem;
     display: flex;
-    div {
-        margin-right: 1.4rem;
-        color: $secundary-text-color;
-    }
+    align-items: center;
+    color: $secundary-text-color;
+  }
 }
-.line{
-    border: 0;
-    border-top: 0.1rem solid rgba(196, 196, 196, 0.3);
+.line {
+  border: 0;
+  border-top: 0.1rem solid rgba(196, 196, 196, 0.3);
+}
+
+.favorite {
+  color: $secundary-text-color;
+  &.active {
+    color: $main-color;
+  }
 }
