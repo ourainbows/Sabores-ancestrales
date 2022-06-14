@@ -33,7 +33,7 @@ export interface Recipe {
   user: CardUserDTO | any;
   description: string;
   imagePath: string;
-  likes: number[]; 
+  likes: number[];
   score: number;
   time: number;
   difficulty: string;
@@ -44,3 +44,13 @@ export interface Recipe {
   comments: Commentary[];
 }
 
+export interface cardRecipeDTO
+  extends Omit<
+    Recipe,
+    | 'user'
+    | 'description'
+    | 'difficulty'
+    | 'ingredientes'
+    | 'steps'
+    | 'comments'
+  > {}
