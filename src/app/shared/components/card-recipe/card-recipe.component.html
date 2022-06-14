@@ -1,24 +1,28 @@
-<div class="cardRecipe">
+<div class="cardRecipe" [ngStyle]="{width: cardWidth}">
   <div [routerLink]="['recipe/' + recipe.id]" class="containerImg">
-    <img src={{recipe.imagePath}} alt="">
+    <img src="{{ recipe.imagePath }}" alt="" />
   </div>
   <div class="infoRecipe">
     <div class="infoOne">
-      <p>{{recipe.name}}</p>
-      <div><span>★</span>{{recipe.score}}</div>
+      <p>{{ recipe.name }}</p>
+      <div><span>★</span>{{ recipe.score }}</div>
     </div>
     <div class="infoTwo">
-      <span>{{recipe.time}}</span>
-      <div>{{recipe.price}}</div>
-      <span (click)='likeRecipe()' class="favorite"  [class.active]="!recipe.likes.includes(userId)">
+      <span>{{ recipe.time }}</span>
+      <div>{{ recipe.price }}</div>
+<!--       <span
+        (click)="likeRecipe()"
+        class="favorite"
+        [class.active]="!recipe.likes.includes(userId)"
+      >
         <mat-icon *ngIf="recipe.likes.includes(userId)">
           favorite_border
         </mat-icon>
-        <mat-icon *ngIf="!recipe.likes.includes(userId)">
-          favorite
-        </mat-icon>
+        <mat-icon *ngIf="!recipe.likes.includes(userId)"> favorite </mat-icon>
+      </span> -->
+      <span (click)="likeRecipe()" class="favorite active">
+        <mat-icon> favorite </mat-icon>
       </span>
     </div>
   </div>
 </div>
-

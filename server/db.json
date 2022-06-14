@@ -252,6 +252,32 @@
           ]
         }
       ],
+      "recomendations": [
+        {
+          "id": 1,
+          "name": "Torta de fresa",
+          "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+          "score": 4.2,
+          "time": 33,
+          "price": "$$-$$$"
+        },
+        {
+          "id": 1,
+          "name": "Torta de fresa",
+          "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+          "score": 4.2,
+          "time": 33,
+          "price": "$$-$$$"
+        },
+        {
+          "id": 1,
+          "name": "Torta de fresa",
+          "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+          "score": 4.2,
+          "time": 33,
+          "price": "$$-$$$"
+        }
+      ],
       "tags": [
         {
           "id": 1,
@@ -349,7 +375,9 @@
         "name": "Chef John Doe",
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
-      "likes": [],
+      "likes": [
+        1
+      ],
       "score": 4.2,
       "time": 33,
       "difficulty": "Dificil",

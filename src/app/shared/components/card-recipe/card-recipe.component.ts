@@ -1,3 +1,4 @@
+import { cardRecipeDTO } from './../../models/recipe.model';
 import { Component, Input} from '@angular/core';
 import { RecipesService } from 'src/app/core/services/recipes.service';
 import { Recipe } from '../../models/recipe.model';
@@ -9,8 +10,9 @@ import { Recipe } from '../../models/recipe.model';
 })
 export class CardRecipeComponent {
 
-  @Input() recipe!: Recipe;
+  @Input() recipe!: cardRecipeDTO;
   @Input() userId = 1;
+  @Input() cardWidth = '100%';
 
   constructor(private recipeService: RecipesService) {}
   favorite=false
