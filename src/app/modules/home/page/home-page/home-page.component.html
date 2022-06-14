@@ -1,2 +1,4 @@
 <p>home-page works!</p>
-<div class="containerCard"><app-card-recipe></app-card-recipe></div>
+<div class="containerCard">
+  <app-card-recipe [recipe]="card" *ngFor="let card of recipes"></app-card-recipe>
+</div>

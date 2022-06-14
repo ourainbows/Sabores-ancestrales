@@ -1,5 +1,6 @@
-import { CategoriesService } from './../../../../core/services/categories.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { RecipesService } from 'src/app/core/services/recipes.service';
+import { Recipe } from 'src/app/shared/models/recipe.model';
 
 @Component({
   selector: 'app-home-page',
@@ -7,13 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  @Input() recipes: Recipe[] = []
 
-  constructor(private categoriesService : CategoriesService) { }
+  constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {
-    this.categoriesService.getRecipesByCategory("Desayuno", 3).subscribe(data => {
-      console.log(data);
-    })
+    this.recipeService.getRecipes().subscribe(
+      (data) => {
+        this.recipes = data
+      }
+    )
   }
 
 }
