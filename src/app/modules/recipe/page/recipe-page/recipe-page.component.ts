@@ -28,6 +28,7 @@ export class RecipePageComponent implements OnInit {
     steps: [],
     tags: [],
     comments: [],
+    recomendations: []
   };
 
   recipeId: string | null = null

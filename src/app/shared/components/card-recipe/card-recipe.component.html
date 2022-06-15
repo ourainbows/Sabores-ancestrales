@@ -1,11 +1,11 @@
-<div class="cardRecipe">
-  <div [routerLink]="['/profile']" class="containerImg">
-    <img src={{recipe.imagePath}} alt="">
+<div class="cardRecipe" [ngStyle]="{width: cardWidth}">
+  <div [routerLink]="['/recipe/' + recipe.id]" class="containerImg">
+    <img src="{{ recipe.imagePath }}" alt="" />
   </div>
   <div class="infoRecipe">
     <div class="infoOne">
-      <p>{{recipe.name}}</p>
-      <div><span>★</span>{{recipe.score}}</div>
+      <p>{{ recipe.name }}</p>
+      <div><span>★</span>{{ recipe.score }}</div>
     </div>
     <div class="infoTwo">
       <span>{{recipe.time}}</span>
@@ -21,4 +21,3 @@
     </div>
   </div>
 </div>
-

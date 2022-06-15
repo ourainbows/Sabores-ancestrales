@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { StarsComponent } from './components/stars/stars.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ScoreComponent } from './components/score/score.component';
+import { SearcherComponent } from './components/searcher/searcher.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ScoreComponent } from './components/score/score.component';
     CardRecipeComponent,
     StarsComponent,
     ModalComponent,
-    ScoreComponent
+    ScoreComponent,
+    SearcherComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ScoreComponent } from './components/score/score.component';
     CardRecipeComponent,
     TagComponent,
     ModalComponent,
-    ScoreComponent
+    ScoreComponent,
+    SearcherComponent
   ],
 })
 export class SharedModule { }

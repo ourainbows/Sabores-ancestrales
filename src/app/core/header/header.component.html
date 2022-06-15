@@ -1,28 +1,11 @@
-<div>
-  <ul>
-    <li>
-      <a routerLink="/">Home</a>
-    </li>
-    <li>
-      <a routerLink="recipe/1">Recipe</a>
-    </li>
-    <li>
-      <a routerLink="profile">Profile</a>
-    </li>
-    <li>
-      <a routerLink="new-recipe/basics">New Recipe Basics</a>
-    </li>
-    <li>
-      <a routerLink="new-recipe/extra">New Recipe Extra</a>
-    </li>
-    <li>
-      <a routerLink="new-recipe/steps">New Recipe Steps</a>
-    </li>
-    <!-- <li>
-      <a routerLink="">Login</a>
-    </li>
-    <li>
-      <a routerLink="">Register</a>
-    </li> -->
-  </ul>
-</div>
+<nav>
+  <a routerLink="/" class="logo">
+    Sabores Ancestrales
+    <!-- <img src="" alt="Sabores Ancestrales"> -->
+  </a>
+  <a routerLink="register" class="login" *ngIf="!token">Ingresar</a>
+  <a routerLink="profile" class="profile" *ngIf="token" >
+    <img [src]="userImg" alt="Imagen del usuario" />
+  </a>
+</nav>
+

@@ -1,17 +1,19 @@
+import { Recipe } from './../../../../shared/models/recipe.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users.service';
 import { User } from 'src/app/shared/models/user.model';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
-  styleUrls: ['./title.component.scss']
+  styleUrls: ['./title.component.scss'],
 })
 export class TitleComponent implements OnInit {
-
-  @Input() name = ""
-  @Input() score = 0
-  @Input() likes: number[] | null = null
+  @Input() name = '';
+  @Input() score = 0;
+  @Input() likes: number[] | null = null;
+  @Input() recipe!: Recipe;
   @Input() id!: number
   show: boolean = false
 
@@ -30,7 +32,7 @@ export class TitleComponent implements OnInit {
     savedRecipes: []
   };
 
-  constructor(private  usersService: UsersService) {}
+  constructor(private  usersService: UsersService, private clipboardApi: ClipboardService,) {}
 
   ngOnInit(): void {
     this.usersService.getUsers().subscribe((users: User[]) => {
@@ -50,4 +52,8 @@ export class TitleComponent implements OnInit {
     this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
   }
 
+  copyText() {
+    this.clipboardApi.copyFromContent(window.location.href);
+    console.log(window.location.href);
+  }
 }

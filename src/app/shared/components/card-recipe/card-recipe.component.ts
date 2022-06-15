@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users.service';
-import { Recipe } from '../../models/recipe.model';
+import { cardRecipeDTO, Recipe } from '../../models/recipe.model';
 import { User } from '../../models/user.model';
 
 @Component({
@@ -9,6 +9,9 @@ import { User } from '../../models/user.model';
   styleUrls: ['./card-recipe.component.scss'],
 })
 export class CardRecipeComponent implements OnInit {
+  @Input() recipe!: cardRecipeDTO;
+  @Input() userId = 1;
+  @Input() cardWidth = '100%';
   user: User = {
     id: 0,
     name: '',
@@ -23,7 +26,6 @@ export class CardRecipeComponent implements OnInit {
     score: 0,
     savedRecipes: []
   };
-  @Input() recipe!: Recipe;
 
   constructor(private usersService: UsersService) { }
   ngOnInit(): void {
