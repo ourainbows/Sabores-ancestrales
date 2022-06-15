@@ -4,11 +4,17 @@ import { TagComponent } from './components/tag/tag.component';
 import { CardRecipeComponent } from './components/card-recipe/card-recipe.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { StarsComponent } from './components/stars/stars.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { ScoreComponent } from './components/score/score.component';
 
 @NgModule({
   declarations: [
     TagComponent,
-    CardRecipeComponent
+    CardRecipeComponent,
+    StarsComponent,
+    ModalComponent,
+    ScoreComponent
   ],
   imports: [
     CommonModule,
@@ -16,8 +22,11 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   exports:[
+    StarsComponent,
     CardRecipeComponent,
-    TagComponent
+    TagComponent,
+    ModalComponent,
+    ScoreComponent
   ],
 })
 export class SharedModule { }

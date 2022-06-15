@@ -11,10 +11,10 @@
       <span>{{recipe.time}}</span>
       <div>{{recipe.price}}</div>
       <span (click)='likeRecipe()' class="favorite">
-        <mat-icon *ngIf="recipe.likes.includes(userId)">
+        <mat-icon *ngIf="!this.user.recipes.likedRecipes.includes(recipe.id)">
           favorite_border
         </mat-icon>
-        <mat-icon *ngIf="!recipe.likes.includes(userId)">
+        <mat-icon *ngIf="this.user.recipes.likedRecipes.includes(recipe.id)">
           favorite
         </mat-icon>
       </span>

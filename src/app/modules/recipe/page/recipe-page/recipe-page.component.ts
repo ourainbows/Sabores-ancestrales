@@ -29,8 +29,9 @@ export class RecipePageComponent implements OnInit {
     tags: [],
     comments: [],
   };
-  recipeId : string | null = null
-  constructor(private recipeService: RecipesService, private route: ActivatedRoute) {}
+
+  recipeId: string | null = null
+  constructor(private recipeService: RecipesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
