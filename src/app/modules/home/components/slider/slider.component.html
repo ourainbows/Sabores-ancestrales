@@ -1,1 +1,14 @@
-<p>slider works!</p>
+<h3 class="title">{{ category }}</h3>
+<div class="slider">
+  <div class="container-card" *ngFor="let recipe of recipes">
+    <app-card-recipe
+      [recipe]="recipe"
+      [cardWidth]="cardWidth"
+    ></app-card-recipe>
+  </div>
+  <a class="more-recipes" routerLink="/">
+      <div class="background-image"></div>
+      <p>Encontrar más almuerzos Ancestrales</p>
+      <mat-icon> local_dining</mat-icon>
+  </a>
+</div>

@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,14 +9,7 @@ import { SliderComponent } from './components/slider/slider.component';
 
 
 @NgModule({
-  declarations: [
-    HomePageComponent,
-    SliderComponent
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    SharedModule
-  ]
+  declarations: [HomePageComponent, SliderComponent],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, MatIconModule],
 })
-export class HomeModule { }
+export class HomeModule {}

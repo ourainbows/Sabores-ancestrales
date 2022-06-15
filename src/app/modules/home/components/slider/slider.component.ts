@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from './../../../../core/services/categories.service';
+import { cardRecipeDTO } from './../../../../shared/models/recipe.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
+  recipes: cardRecipeDTO[] = [];
+  @Input() category: string = '';
+  cardWidth = '160px'
 
-  constructor() { }
+  constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
+    this.categoriesService
+      .getRecipesByCategory(this.category, 3)
+      .subscribe((data) => {
+        this.recipes = data;
+      });
   }
-
 }
