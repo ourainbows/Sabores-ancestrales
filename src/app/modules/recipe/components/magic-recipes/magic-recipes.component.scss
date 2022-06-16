@@ -1,0 +1,13 @@
+h2 {
+  font-size: 1.6rem;
+}
+.slider {
+  display: flex;
+  padding-bottom: 2rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+.container-card{
+    scroll-snap-align: center;
+}

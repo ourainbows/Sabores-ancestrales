@@ -1,0 +1,13 @@
+<div class="container">
+  <img
+    class="user-image"
+    src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    alt="Imagen propia "
+  />
+  <textarea placeholder="Comentar algo..." class="textarea" name="message" [(ngModel)]="newComment.comment"></textarea>
+  <label for="file-upload" class="custom-file-upload">
+    <mat-icon>camera_alt</mat-icon> Subir una foto
+  </label>
+  <input id="file-upload" type="file" />
+  <button class="comment-button" (click)="createNewComment()">Comentar</button>
+</div>

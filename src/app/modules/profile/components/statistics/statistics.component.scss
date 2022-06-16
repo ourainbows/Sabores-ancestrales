@@ -1,0 +1,45 @@
+@import "../../../../../styles.scss";
+
+.statistics-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.line1 {
+  background-color: $vertical-line-color;
+  border: none;
+  height: 1.5px;
+  width: 100%;
+}
+
+.statistics-info {
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+
+.statistic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  color: $secundary-text-color;
+  font-size: $font-title;
+}
+
+.statistic-counter {
+  color: black;
+  font-weight: bold;
+}
+
+.line2 {
+  background-color: $line-color;
+  border: none;
+  height: 30px;
+  width: 2px;
+}

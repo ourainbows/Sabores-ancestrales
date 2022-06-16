@@ -1,0 +1,11 @@
+<nav>
+  <a routerLink="/" class="logo">
+    Sabores Ancestrales
+    <!-- <img src="" alt="Sabores Ancestrales"> -->
+  </a>
+  <a routerLink="register" class="login" *ngIf="!token">Ingresar</a>
+  <a routerLink="profile" class="profile" *ngIf="token" >
+    <img [src]="userImg" alt="Imagen del usuario" />
+  </a>
+</nav>
+

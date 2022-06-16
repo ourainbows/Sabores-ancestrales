@@ -1,0 +1,37 @@
+<div class="container" *ngFor="let commentary of comments; index as i">
+  <div class="commentary">
+    <div class="head">
+      <div class="user">
+        <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
+        <span>{{ commentary.user }}</span>
+      </div>
+      <div class="date">
+        <span>{{ commentary.date }}</span>
+      </div>
+    </div>
+    <div class="content">
+      <p>{{ commentary.comment }}</p>
+      <img
+        [src]="commentary.photoRecipe"
+        alt="Foto de la receta hecha por un usuario"
+        *ngIf="commentary.photoRecipe"
+      />
+    </div>
+    <div class="actions">
+      <p>Reportar</p>
+      <div
+        class="likes"
+        [class.active]="commentary.likes.includes(userId)"
+        (click)="likeComment(i)"
+      >
+        <span>{{ commentary.likes.length }}</span>
+        <mat-icon *ngIf="!commentary.likes.includes(userId)">
+          favorite_border
+        </mat-icon>
+        <mat-icon *ngIf="commentary.likes.includes(userId)">
+          favorite
+        </mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

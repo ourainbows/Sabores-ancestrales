@@ -1,0 +1,24 @@
+<div class="container">
+  <a class="user-container" routerLink="profile">
+    <img
+      class="user-photo"
+      src="{{ user.photo }}"
+      alt="Foto del cocinero de la receta"
+    />
+    <p>{{ user.name }}</p>
+  </a>
+  <p class="description">
+    {{ description }}
+  </p>
+  <div class="info-container">
+    <p>
+      Tiempo: <span>{{ time }} min</span>
+    </p>
+    <p>
+      Dificultad: <span>{{ difficulty }}</span>
+    </p>
+    <p>
+      Precio: <span>{{ price }}</span>
+    </p>
+  </div>
+</div>
