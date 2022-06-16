@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { ClipboardModule } from 'ngx-clipboard';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     BrowserAnimationsModule,
     MatIconModule,
     ClipboardModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

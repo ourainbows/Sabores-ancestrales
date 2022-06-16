@@ -9,25 +9,25 @@
     <button (click)="openModal(show)" class="rate">Calificar</button>
     <app-modal [show]="show">
       <h3>Califica la receta</h3>
-      <app-stars class="score" [id]="id" [score]="score"></app-stars>
-      <button (click)="openModal(show)" class="rate">Calificar</button>
+      <app-stars class="score" (showModal)="show = $event" [id]="id" [score]="score"></app-stars>
     </app-modal>
   </div>
   <div class="actions">
-    <div class="favorite">
+    <div class="action">
       <span (click)="likeRecipe()">
         <mat-icon *ngIf="!this.user.recipes.likedRecipes.includes(id)">
           favorite_border
         </mat-icon>
-        <mat-icon *ngIf="this.user.recipes.likedRecipes.includes(id)">
+        <mat-icon class="favorite" *ngIf="this.user.recipes.likedRecipes.includes(id)">
           favorite
-        </mat-icon> </span>
-        Guardar
+        </mat-icon>
+      </span>
+      Guardar
     </div>
-    <div><span>📎</span>Compartir</div>
+    <div class="action"><mat-icon>shared</mat-icon>Compartir</div>
 
-    <div (click)="copyText()">
-      <mat-icon>link</mat-icon>
+    <div class="action" (click)="copyText()">
+      <span><mat-icon>link</mat-icon></span>
       Copiar
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RecipesService } from 'src/app/core/services/recipes.service';
 
 @Component({
@@ -9,14 +9,20 @@ import { RecipesService } from 'src/app/core/services/recipes.service';
 export class StarsComponent implements OnInit {
   @Input() score: number = 0;
   @Input() id!: number;
+  @Output() showModal = new EventEmitter;
+  rate: number = 0;
   constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {
 
   }
-  setScore(score: number) {
-    this.score = score;
-    this.recipeService.updateScoreRecipe( this.id, score).subscribe();
+
+  setScore() {
+    console.log(this.rate, 'Confirmado');
+    this.showModal.emit(false)
+    this.recipeService.updateScoreRecipe( this.id, this.rate).subscribe();
   }
 
 }
+
+
