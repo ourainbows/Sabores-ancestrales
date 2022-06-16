@@ -1,0 +1,62 @@
+@import "../../../../../styles.scss";
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+  padding-bottom: 1.2rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+.container-card{
+  @include flex();
+  flex-direction: column;
+}
+
+.containerImg {
+  @include flex();
+  width: 340px;
+  height: 20rem;
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  img {
+    max-width: 100%;
+  }
+}
+
+.detailRecipe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: $background-color;
+  box-shadow: $box-shadow;
+  width: 250px;
+  padding: 1.3rem;
+  border-radius: $border-radius;
+  top: 30%;
+  left: calc(50% - 125px);
+  margin-top: -5rem;
+  p{
+    font-size: 26px;
+    font-style: italic
+  }
+  div{
+    @include flex();
+    flex-direction: row;
+    text-align: center;
+    margin: 0 1rem;
+    font-size: 14px;
+  }
+  span{
+    display: flex;
+    flex-direction: row;
+  }
+}

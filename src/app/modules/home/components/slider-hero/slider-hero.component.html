@@ -1,0 +1,14 @@
+<div class="slider">
+  <div class="container-card" *ngFor="let recipe of recipes">
+    <div [routerLink]="['/recipe/' + recipe.id]" class="containerImg">
+      <img src="{{ recipe.imagePath }}" alt="" />
+    </div>
+    <div class="detailRecipe">
+      <p>{{ recipe.name }}</p>
+      <div>
+        <div><span><mat-icon>query_builder</mat-icon></span>{{recipe.time}}min</div> |
+      <div><span><mat-icon>star</mat-icon></span>{{recipe.score}}</div>
+      </div>
+    </div>
+  </div>
+</div>
