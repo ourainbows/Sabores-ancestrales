@@ -48,10 +48,7 @@
     @include flex();
     width: 16px;
     font-size: 20px;
-    color: $secundary-text-color;
+    color: $main-color;
     margin-bottom: 2px;
-    &.active{
-      color: $main-color;
-    }
   }
 }

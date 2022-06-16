@@ -1,0 +1,10 @@
+@import "../../../../styles.scss";
+
+.stars {
+  display: flex;
+  justify-content: center;
+  color: $main-color;
+}
+.numScore {
+  padding-left: 1rem;
+}

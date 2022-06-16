@@ -90,7 +90,7 @@
       "likes": [
         1
       ],
-      "score": 4.2,
+      "score": 3.5,
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -378,7 +378,7 @@
       "likes": [
         1
       ],
-      "score": 4.2,
+      "score": 3.5,
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -598,11 +598,24 @@
       ]
     }
   ],
-  "users": [
+  "user": [
     {
-      "id": 1,
-      "name": "Artur Morgado",
-      "email": ""
+      "id": 2211718212612,
+      "email": "husherwood0@nsw.gov.au",
+      "name": "Heather",
+      "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
+      "userDescription": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
+      "#userRecipes": 1,
+      "score": 0.7,
+      "#savedRecipes": 1,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": [
+          3,
+          1
+        ]
+      }
     }
   ]
 }

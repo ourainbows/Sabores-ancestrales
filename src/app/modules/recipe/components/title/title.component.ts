@@ -1,6 +1,7 @@
 import { Recipe } from './../../../../shared/models/recipe.model';
-import { RecipesService } from 'src/app/core/services/recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/core/services/users.service';
+import { User } from 'src/app/shared/models/user.model';
 import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
@@ -13,25 +14,42 @@ export class TitleComponent implements OnInit {
   @Input() score = 0;
   @Input() likes: number[] | null = null;
   @Input() recipe!: Recipe;
+  @Input() id!: number
+  show: boolean = false
 
-  userId = 1; // provisioal userId
+  user: User = {
+    id: 0,
+    name: '',
+    email: '',
+    description: '',
+    photo: '',
+    recipes: {
+      userRecipes: [],
+      likedRecipes: [],
+      savedRecipes: [],
+    },
+    score: 0,
+    savedRecipes: []
+  };
 
-  constructor(
-    private recipeService: RecipesService,
-    private clipboardApi: ClipboardService,
-  ) {}
+  constructor(private  usersService: UsersService, private clipboardApi: ClipboardService,) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.usersService.getUsers().subscribe((users: User[]) => {
+      this.user = users[0];
+    })
+  }
+  openModal(show: boolean) {
+    this.show = !show
+  }
 
   likeRecipe() {
-    if (this.recipe.likes.includes(this.userId)) {
-      this.recipe.likes.splice(this.recipe.likes.indexOf(this.userId), 1);
+    if (this.user.recipes.likedRecipes.includes(this.id)) {
+      this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.id), 1);
     } else {
-      this.recipe.likes.push(this.userId);
+      this.user.recipes.likedRecipes.push(this.id);
     }
-    this.recipeService
-      .updateLikesRecipe(this.recipe.id, this.recipe.likes)
-      .subscribe();
+    this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
   }
 
   copyText() {
