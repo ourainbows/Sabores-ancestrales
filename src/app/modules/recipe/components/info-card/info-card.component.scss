@@ -29,12 +29,12 @@
 }
 .info-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     font-size: $font-text;
     p{
-        margin-right: .8rem;
+        margin-right: 3rem;
         margin-bottom: .8rem;
         font-weight: bold;
         span{

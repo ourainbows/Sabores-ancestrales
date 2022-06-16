@@ -8,6 +8,7 @@ import { StarsComponent } from './components/stars/stars.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ScoreComponent } from './components/score/score.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SearcherComponent } from './components/searcher/searcher.component';
     CommonModule,
     MatIconModule,
     RouterModule,
+    FormsModule
   ],
   exports:[
     StarsComponent,

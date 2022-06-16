@@ -49,12 +49,7 @@
   }
 }
 
-.line {
-  border: 0;
-  border-top: 0.1rem solid rgba(196, 196, 196, 0.3);
-}
-
-.favorite {
+.action {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -62,7 +57,14 @@
   span {
     width: auto;
     font-size: 20px;
-    color: $main-color;
     margin-right: 0.5rem;
   }
+}
+.favorite{
+  color: $main-color;
+}
+
+.line {
+  border: 0;
+  border-top: 0.1rem solid rgba(196, 196, 196, 0.3);
 }

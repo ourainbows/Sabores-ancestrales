@@ -1,6 +1,6 @@
 <div *ngIf="show" id="open-modal" class="modal-window">
   <div>
     <div class="contButton"><button class="close" (click)="closeModal(show)"><mat-icon>close</mat-icon></button></div>
-    <ng-content></ng-content>
+    <div class="content"><ng-content></ng-content></div>
   </div>
 </div>

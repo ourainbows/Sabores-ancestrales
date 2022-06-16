@@ -31,6 +31,11 @@ html {
   font-size: $fontTitle;
   font-weight: 600;
 }
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .material-icons {
   font-family: "Material Icons" !important;

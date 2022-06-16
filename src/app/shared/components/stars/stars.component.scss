@@ -7,6 +7,23 @@ fieldset {
     padding: 0;
   }
 }
+.formRate{
+  @include flex();
+  flex-direction: column;
+
+}
+.rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius;
+  color: $button-text-color;
+  background-color: $button-background-color;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  margin: 0 2rem;
+  cursor: pointer;
+}
 
 /****** Style Star Rating Widget *****/
 
