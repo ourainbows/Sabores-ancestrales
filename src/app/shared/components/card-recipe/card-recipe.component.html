@@ -8,10 +8,10 @@
       <div><span>★</span>{{ recipe.score }}</div>
     </div>
     <div class="infoTwo">
-      <span>{{recipe.time}}</span>
-      <div>{{recipe.price}}</div>
+      <div><span><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.time}}</span></div>
+      <span>{{recipe.price}}</span>
       <span (click)='likeRecipe()' class="favorite">
-        <mat-icon *ngIf="!this.user.recipes.likedRecipes.includes(recipe.id)">
+        <mat-icon class="border" *ngIf="!this.user.recipes.likedRecipes.includes(recipe.id)">
           favorite_border
         </mat-icon>
         <mat-icon *ngIf="this.user.recipes.likedRecipes.includes(recipe.id)">
