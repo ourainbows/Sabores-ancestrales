@@ -9,8 +9,10 @@ export class UserDescriptionComponent implements OnInit {
   @Input() imagePath: string | undefined = undefined;
   @Input() firstName: string | undefined = undefined;
   @Input() lastName: string | undefined = undefined;
+  @Input() userDescription: string | undefined = undefined;
 
   constructor() {}
 
   ngOnInit(): void {}
 }
+

@@ -1,8 +1,11 @@
-<div class="user-description-container">
+<div class="user-description-container" >
     <div class="user-Photo-Container">
         <img class="user-Photo" [src]="imagePath" [alt]="'Foto de: '+ firstName + lastName">
     </div>
-    <div class="user-Summary-Container">
+    <div class="user-Name-Container">
         <h1>{{firstName}}{{lastName}}</h1>
+    </div>
+    <div class="user-Summary-Container">
+        <h4>{{userDescription}}</h4>
     </div>
 </div>
