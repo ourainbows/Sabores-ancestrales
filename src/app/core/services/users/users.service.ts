@@ -10,6 +10,10 @@ export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
   constructor(private htttp: HttpClient) {}
 
+  getUsers(): Observable<User[]> {
+    return this.htttp.get<User[]>(this.apiUsers);
+  }
+
   getUserById(id_User: string): Observable<User> {
     return this.htttp.get<User>(`${this.apiUsers}/${id_User}`).pipe(
       map((user) => {
