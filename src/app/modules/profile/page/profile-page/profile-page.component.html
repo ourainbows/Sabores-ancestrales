@@ -1,3 +1,8 @@
-<app-user-description [imagePath]="user.userPhoto" [firstName]="user.first_name" [lastName]="user.last_name" ></app-user-description>
-<app-statistics></app-statistics>
+<div class="containerUserDescription">
+    <app-user-description [user]="description" *ngFor="let description of users"></app-user-description>
+</div>
+<div class="containerStatistics">
+    <app-statistics></app-statistics>
+</div>
+
 
