@@ -14,3 +14,33 @@ h1 {
 h4 {
     margin: 0 0 1.5rem 0;
 }
+
+.user-Photo {
+    width: 50%;
+    justify-content: center;
+    max-width: 25rem;
+    border-radius: 10px;
+}
+
+.user-Photo-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.userDescription {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.user-Summary-Container {
+    display: flex;
+    width: 80%;
+}
+
+.user-Summary-Container h4 {
+    font-size: 1.5rem;
+}
