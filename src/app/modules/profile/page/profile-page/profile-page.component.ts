@@ -1,5 +1,5 @@
 import { User } from './../../../../shared/models/user.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users/users.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,18 +9,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
-  @Input() users: User[] = []
+  user!: User;
 
-  constructor(
-    private userService: UsersService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private userService: UsersService) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(
-      (data) => {
-        this.users = data
-      }
-    )
+    this.userService.getUserById('1').subscribe((data) => {
+      this.user = data;
+    });
   }
 }

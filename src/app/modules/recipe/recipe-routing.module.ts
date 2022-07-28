@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: ':id', component: RecipePageComponent}
+  {path: ':userId', component: RecipePageComponent}
 ];
 
 @NgModule({

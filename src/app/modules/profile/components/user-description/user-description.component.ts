@@ -8,11 +8,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./user-description.component.scss'],
 })
 export class UserDescriptionComponent implements OnInit {
-  @Input() user!: User;
-  @Input() imagePath: string | undefined = undefined;
-  @Input() firstName: string | undefined = undefined;
-  @Input() lastName: string | undefined = undefined;
-  @Input() userDescription: string | undefined = undefined;
+ @Input() user!: User;
 
   constructor(private userService: UsersService) {}
 
