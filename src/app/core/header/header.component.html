@@ -3,9 +3,25 @@
     Sabores Ancestrales
     <!-- <img src="" alt="Sabores Ancestrales"> -->
   </a>
-  <a routerLink="register" class="login" *ngIf="!token">Ingresar</a>
-  <a routerLink="profile" class="profile" *ngIf="token" >
-    <img [src]="userImg" alt="Imagen del usuario" />
-  </a>
-</nav>
+  <div role="navigation" class="primary-navigation">
+    <span>
 
+      <div class="profile dropdownImg">
+        <img [src]="userImg" alt="Imagen del usuario" />
+      </div>
+      <ng-container class="dropdown" *ngIf="(user$ | async) === null; else logOutTemplate">
+        <ul>
+          <li [routerLink]="['/login']">Iniciar sesión</li>
+          <li [routerLink]="['/register']">Registrarse</li>
+        </ul>
+      </ng-container>
+      <ng-template class="dropdown" #logOutTemplate>
+        <ul>
+          <li [routerLink]="['/profile']">Perfil</li>
+          <li [routerLink]="['/']">Configuración</li>
+          <li [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
+        </ul>
+      </ng-template>
+    </span>
+  </div>
+</nav>
