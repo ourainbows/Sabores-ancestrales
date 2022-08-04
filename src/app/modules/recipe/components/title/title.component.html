@@ -2,8 +2,9 @@
   <h1 class="title">{{ name }}</h1>
   <div class="score-container">
     <!-- put score component here -->
-    <div>
+    <div class="qualification">
       <app-score class="stars" [score]="score"></app-score>
+      {{score}}
     </div>
 
     <button (click)="openModal(show)" class="rate">Calificar</button>

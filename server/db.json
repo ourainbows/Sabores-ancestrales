@@ -90,7 +90,7 @@
       "likes": [
         1
       ],
-      "score": 3.5,
+      "score": 4,
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -623,7 +623,8 @@
         "savedRecipes": [],
         "likedRecipes": [
           3,
-          2
+          2,
+          1
         ]
       }
     }

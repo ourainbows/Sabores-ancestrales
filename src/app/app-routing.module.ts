@@ -41,6 +41,7 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 

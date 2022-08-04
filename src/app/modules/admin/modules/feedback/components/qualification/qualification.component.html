@@ -1,0 +1,35 @@
+<div class="container">
+    <p class="title">Calificación</p>
+    <h1 class="title-score">{{score.qualification}}</h1>
+    <div>
+        <app-score class="score" [score]="score.qualification"></app-score>
+    </div>
+    <p class="score-quantity">{{score.quantity}} calificaciones</p>
+    <div class="score-bars">
+        <div class="progress-container">
+            <p>5★</p>
+            <progress [max]="score.quantity" [value]="score['five-star']"></progress>
+            <p>{{score['five-star']}}</p>
+        </div>
+        <div class="progress-container">
+            <p>4★</p>
+            <progress [max]="score.quantity" [value]="score['four-star']"></progress>
+            <p>{{score['four-star']}}</p>
+        </div>
+        <div class="progress-container">
+            <p>3★</p>
+            <progress [max]="score.quantity" [value]="score['three-star']"></progress>
+            <p>{{score['three-star']}}</p>
+        </div>
+        <div class="progress-container">
+            <p>2★</p>
+            <progress [max]="score.quantity" [value]="score['two-star']"></progress>
+            <p>{{score['two-star']}}</p>
+        </div>
+        <div class="progress-container">
+            <p>1★</p>
+            <progress [max]="score.quantity" [value]="score['one-star']"></progress>
+            <p>{{score['one-star']}}</p>
+        </div>
+    </div>
+</div>
