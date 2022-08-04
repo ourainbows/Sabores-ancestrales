@@ -4,6 +4,7 @@
     [likes]="recipe.likes"
     [score]="recipe.score"
     [name]="recipe.name"
+    [id]="recipe.id"
   ></app-title>
   <app-info-card
     [user]="recipe.user"
@@ -20,6 +21,6 @@
     [stepsIndex]="i + 1"
   ></app-step>
   <app-tags [tags]="recipe.tags"></app-tags>
-  <app-magic-recipes></app-magic-recipes>
+  <app-magic-recipes [magicRecipes]="recipe.recomendations"></app-magic-recipes>
   <app-comments-section [comments]="recipe.comments" [recipeId]="recipe.id"></app-comments-section>
 </div>

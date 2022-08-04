@@ -1,0 +1,4 @@
+<div class="stars" *ngFor="let star of stars; index as i">
+  <mat-icon>{{ setStars(score, i) }}</mat-icon>
+</div>
+<p class="numScore">{{ score }}</p>

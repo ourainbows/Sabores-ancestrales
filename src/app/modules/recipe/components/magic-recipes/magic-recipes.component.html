@@ -1,1 +1,9 @@
-<h3>Recomendaciones magicas</h3>
+<h2>Recomendaciones magicas</h2>
+<div class="slider">
+  <div class="container-card" *ngFor="let recipe of magicRecipes">
+    <app-card-recipe
+      [recipe]="recipe"
+      [cardWidth]="cardWidth"
+    ></app-card-recipe>
+  </div>
+</div>

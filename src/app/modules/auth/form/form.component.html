@@ -1,0 +1,66 @@
+<div class="">
+  <form (ngSubmit)="onSubmit(options.id)" [formGroup]="authForm" class="formAuth">
+    <div class="contImg">
+      <img src="../../../../assets/images/imgAuth.png"/>
+    </div>
+    <!-- Validators email -->
+    <div
+      *ngIf=" authForm.get('email')?.hasError('required') && (authForm.get('email')?.touched || authForm.get('email')?.dirty)"
+      class="form-group">
+      <small *ngIf="authForm.get('email')?.errors?.['required']" class="validator">El correo electrónico es
+        requerido</small>
+    </div>
+    <small *ngIf="authForm.get('email')?.hasError('email')" class="validator">El correo electrónico debe ser
+      valido</small>
+    <!-- Email input -->
+    <div class="inputAuth">
+      <label for="email" class="">Correo electrónico</label>
+      <input formControlName="email" type="email" name="email" id="email" class="" placeholder="name@company.com"
+        required="">
+    </div>
+    <!-- Validators password -->
+    <div
+      *ngIf="authForm.get('password')?.hasError('required') && (authForm.get('password')?.touched || authForm.get('password')?.dirty)"
+      class="form-group">
+      <small *ngIf="authForm.get('password')?.errors?.['required']" class="validator">La contraseña es
+        requerida</small>
+    </div>
+    <div class="form-group">
+      <small *ngIf="authForm.get('password')?.errors?.['pattern']" class="validator">La contraseña debe contener <span
+          *ngIf="authForm.get('password')?.errors?.['minlength']" class="validator">al menos 6
+          caracteres,</span>
+        un número, una letra y un símbolo (por ejemplo: @#$%).</small>
+    </div>
+    <!-- Password input -->
+    <div class="inputAuth">
+      <label for="password" class="">Contraseña</label>
+      <input formControlName="password" type="password" name="password" id="password" placeholder="••••••••" class=""
+        required="">
+    </div>
+    <!-- Validators password confirm -->
+    <small
+      *ngIf="authForm.get('password_again')?.value !== authForm.get('password')?.value && options.id === 'register'"
+      class="validator">Las contraseñas no conciden</small>
+
+    <!-- Password confirm input -->
+    <div *ngIf="options.id === signUp" class="inputAuth">
+      <label for="password" class="">Confirmar contraseña</label>
+      <input formControlName="password_again" type="password" name="password_again" id="password_again"
+        placeholder="••••••••" class="" required="">
+    </div>
+    <button type="submit" class="buttonAuth">{{options.label}}</button>
+    <div *ngIf="options.id === signIn" class="linkAuth">
+      <a href="#" class=""> &nbsp; ¿Olvidaste tu contraseña?</a>
+    </div>
+    <div class="linkAuth">
+      <ng-container *ngIf="options.id === signIn; else showSignTemplate">
+        ¿No estas registrado? <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="">¡Crear
+          cuenta aquí!</a>
+      </ng-container>
+      <ng-template #showSignTemplate>
+        ¿Ya tienes una cuenta? <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="">¡Inicia
+          sesión aquí!</a>
+      </ng-template>
+    </div>
+  </form>
+</div>
