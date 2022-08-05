@@ -1,1 +1,17 @@
-<p>user-messages works!</p>
+<section *ngFor="let message of messages" class="container">
+    <div class="commentary">
+        <div class="head">
+          <div class="user">
+            <img src="{{ message.photoUser }}" alt="Imagen de perfil de un usuario" />
+            <span>{{ message.userName }}</span>
+          </div>
+          <div class="date">
+            <span>{{ message.date }}</span>
+          </div>
+        </div>
+        <div class="content">
+          <p>{{ message.comment }}</p>
+          <app-score class="score" [score]="message.score"></app-score>
+        </div>
+    </div>
+</section>
