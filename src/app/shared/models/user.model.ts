@@ -33,6 +33,7 @@ export interface User {
   };
   score?: number;
   savedRecipes?: number[];
+  isActive?: boolean;
 }
 
 export interface CardUserDTO extends Omit<User, "email" | "description" | "recipes" | "score" | "savedRecipes">{}

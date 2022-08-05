@@ -10,11 +10,17 @@ export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUsers);
+  getUsers(offset = 0, limit = 10): Observable<User[]> {
+    console.log(offset, limit);
+    return this.http.get<User[]>(
+      `${this.apiUsers}?limit=${limit}&offset=${offset}`
+    );
   }
 
   getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUsers}/${userId}`)
+    return this.http.get<User>(`${this.apiUsers}/${userId}`);
+  }
+  updateLikesRecipe(id: number, recipes: {}): Observable<User> {
+    return this.http.patch<User>(`${this.apiUsers}/${id}`, { recipes });
   }
 }
