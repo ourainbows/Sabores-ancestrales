@@ -11,7 +11,7 @@
         <div class="dropdown-content">
           <a [routerLink]="'/profile/' + user.id">Ver perfil</a>
           <a [routerLink]="'reportes/' + user.id">Reportes</a>
-          <p (click)="toggleSuspend(user.id)">Suspender</p>
+          <p class="option" (click)="toggleSuspend(user.id)" [ngClass]="{'activateUser' : !user.isActive}">{{user.isActive ? "Suspender" : "Habilitar"}}</p>
         </div>
       </div>
     </div>

@@ -58,8 +58,11 @@
     text-decoration: none;
     color: black;
 }
-.dropdown-content p{
+.option{
     color: $main-color;
+    &.activateUser{
+        color: green;
+    }
 }
 .dropdown:hover .dropdown-content {
     display: flex;
