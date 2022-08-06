@@ -11,8 +11,8 @@ export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
   constructor(private http: HttpClient) {}
 
-  getRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.apiUrl);
+  getRecipes(offset = 0, limit = 10): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}?limit=${limit}&offset=${offset}`);
   }
   updateLikesRecipe(id:number, likes : number[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { likes });
@@ -38,5 +38,8 @@ export class RecipesService {
 
   updateComments(id: string, comments: Commentary[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { comments });
+  }
+  deleteRecipe(id: number): Observable<Recipe> {
+    return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
   }
 }

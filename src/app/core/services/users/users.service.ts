@@ -11,7 +11,6 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
-    console.log(offset, limit);
     return this.http.get<User[]>(
       `${this.apiUsers}?limit=${limit}&offset=${offset}`
     );
