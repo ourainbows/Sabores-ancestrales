@@ -11,7 +11,7 @@
         <div class="dropdown-content">
           <a [routerLink]="'/profile/' + user.id">Ver perfil</a>
           <a [routerLink]="'reportes/' + user.id">Reportes</a>
-          <p>Suspender</p>
+          <p (click)="toggleSuspend(user.id)">Suspender</p>
         </div>
       </div>
     </div>

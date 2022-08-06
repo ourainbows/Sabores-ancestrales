@@ -23,4 +23,8 @@ export class UsersService {
   updateLikesRecipe(id: number, recipes: {}): Observable<User> {
     return this.http.patch<User>(`${this.apiUsers}/${id}`, { recipes });
   }
+
+  updateUser(id: number, user: any): Observable<User> {
+    return this.http.patch<any>(`${this.apiUsers}/${id}`, user);
+  }
 }

@@ -27,5 +27,11 @@ export class TableUsersPageComponent implements OnInit {
     }
     )
   }
-
+  toggleSuspend(id : number){
+    const user = this.users.find(user => user.id === id)
+    this.userService.updateUser(id, {isActive: !user?.isActive}).subscribe(user => {
+      this.users = this.users.map(u => u.id === id ? user : u)
+    }
+    )
+  }
 }
