@@ -2,18 +2,57 @@
   Reporte: <span>{{ name }}</span>
 </h1>
 
-<!-- <div *ngIf="type === 'user'">
-  <div *ngFor="let report of reports">
-    <div class="report-container">
-        <div class="head">
-            <div class="user">
-              <img src="{{ report.photoUser }}" alt="Imagen de perfil de un usuario" />
-              <span>{{ report.userName }}</span>
-            </div>
-            <div class="date">
-              <span>{{ message.date }}</span>
-            </div>
-          </div>
+<div *ngFor="let report of reports">
+  <div class="report-container">
+    <div class="head">
+      <div class="user">
+        <img
+          src="{{ report.photoUser }}"
+          alt="Imagen de perfil del usuario que reporta"
+        />
+        <span class="user-name">{{ report.user }}</span>
+      </div>
+      <div>
+        <span class="date">{{ report.date }}</span>
+      </div>
     </div>
+    <p class="report-message">{{ report.message }}</p>
+
+    <a class="reported-card" [routerLink]="'/recipe/' + report.idRecipe">
+      <div class="reported-head">
+        <img
+          src="{{ report.photoReportedUser }}"
+          alt="Imagen de perfil del usuario reportado"
+        />
+        <span>{{ report.reportedUser }}</span>
+      </div>
+
+      <div *ngIf="report.reportedComment" class="reported-comment">
+        <span>{{ report.reportedComment }}</span>
+      </div>
+
+      <div *ngIf="report.recipeName">
+        <div class="recipe-data">
+          <div class="recipe-data-text">
+            <span>{{ report.recipeName }}</span>
+            <span class="recipe-data-text-description">{{report.recipeDescription}}</span>
+          </div>
+          <div class="recipe-image-container">
+            <img [src]="report.recipeImage" alt="Imagen de la receta reportada">
+          </div>
+        </div>
+      </div>
+
+    </a>
+
+    <div class="buttons">
+      <button class="delete-button" *ngIf="type === 'user'">Eliminar</button>
+      <button class="suspend-button" [ngClass]="{'onlyButton': type === 'recipe'}">Ignorar</button>
+    </div>
+
   </div>
-</div> -->
+</div>
+
+<div class="action-container">
+  {{type === 'user' ? "Suspender usuario" : "Eliminar receta"}}
+</div>

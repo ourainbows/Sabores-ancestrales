@@ -1,3 +1,4 @@
+import { Report } from './../../../../../../shared/models/report.model';
 import { ReportService } from './../../../../../../core/services/report/report.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -13,11 +14,12 @@ export class ReportPageComponent implements OnInit {
   id : string | null = this.route.snapshot.queryParamMap.get('id')
   name : string | null = this.route.snapshot.queryParamMap.get('name')
 
-  reports = []
+  reports : Report[] = []
 
   constructor( private route: ActivatedRoute, private reportService: ReportService) { }
 
   ngOnInit(): void {
+    console.log(this.type, this.id, this.name)
     this.reportService.getReports(this.id, this.type).subscribe(data => {
       this.reports = data
     })
