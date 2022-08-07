@@ -42,6 +42,7 @@ export class ReportPageComponent implements OnInit {
   deleteRecipe() {
     this.recipesService.deleteRecipe(this.id).subscribe((data) => {
       this.reports = this.reports.filter((report) => report.id.toString() != this.id);
+      this.router.navigate(['/admin/table-recipes'])
     } );
   }
 
