@@ -39,9 +39,9 @@ export class ReportPageComponent implements OnInit {
     });
   }
 
-  deleteRecipe(id: number) {
-    this.recipesService.deleteRecipe(id).subscribe((data) => {
-      this.reports = this.reports.filter((report) => report.id != id);
+  deleteRecipe() {
+    this.recipesService.deleteRecipe(this.id).subscribe((data) => {
+      this.reports = this.reports.filter((report) => report.id.toString() != this.id);
     } );
   }
 
