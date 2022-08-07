@@ -34,4 +34,10 @@ export class TableUsersPageComponent implements OnInit {
     }
     )
   }
+  deleteUser(id : number){
+    this.userService.deleteUser(id).subscribe(() => {
+      this.users = this.users.filter(user => user.id !== id)
+    }
+    )
+  }
 }

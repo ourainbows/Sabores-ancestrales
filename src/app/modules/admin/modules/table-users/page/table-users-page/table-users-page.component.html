@@ -12,6 +12,7 @@
           <a [routerLink]="'/profile/' + user.id">Ver perfil</a>
           <a [routerLink]="'reportes/' + user.id">Reportes</a>
           <p class="option" (click)="toggleSuspend(user.id)" [ngClass]="{'activateUser' : !user.isActive}">{{user.isActive ? "Suspender" : "Habilitar"}}</p>
+          <p class="option" (click)="deleteUser(user.id)">Eliminar</p>
         </div>
       </div>
     </div>
