@@ -23,10 +23,11 @@ export class UsersService {
     return this.http.patch<User>(`${this.apiUsers}/${id}`, { recipes });
   }
 
-  updateUser(id: number, user: any): Observable<User> {
+  updateUser(id: number | string | null, user: any): Observable<User> {
     return this.http.patch<any>(`${this.apiUsers}/${id}`, user);
   }
-  deleteUser(id: number): Observable<any> {
+  deleteUser(id: number | null | string): Observable<any> {
     return this.http.delete<any>(`${this.apiUsers}/${id}`);
   }
+
 }
