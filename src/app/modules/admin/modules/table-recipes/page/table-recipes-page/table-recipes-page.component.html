@@ -10,7 +10,7 @@
   
           <div class="dropdown-content">
             <a [routerLink]="'/recipe/' + recipe.id">Ver receta</a>
-            <a [routerLink]="'reportes/' + recipe.id">Reportes</a>
+            <a routerLink="/admin/report" [queryParams]="{ name: recipe.name, id: recipe.id, type: 'recipe' }" >Reportes</a>
             <p (click)="deleteRecipe(recipe.id)">Eliminar</p>
           </div>
         </div>

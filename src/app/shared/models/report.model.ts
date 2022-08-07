@@ -8,6 +8,7 @@ export interface Report {
     idRecipe : number;
     reportedUser : string;
     photoReportedUser : string;
+    idReportedComment : number;
     reportedComment? : string;
     recipeDescription? : string;
     recipeImage? : string;

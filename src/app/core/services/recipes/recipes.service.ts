@@ -42,4 +42,7 @@ export class RecipesService {
   deleteRecipe(id: number | string | null): Observable<Recipe> {
     return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
   }
+  deleteComment(id: number | string | null, idComment: number | string | null): Observable<Recipe> {
+    return this.http.delete<Recipe>(`${this.apiUrl}/${id}/comment/${idComment}`);
+  }
 }

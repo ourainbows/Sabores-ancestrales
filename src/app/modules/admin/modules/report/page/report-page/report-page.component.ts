@@ -51,12 +51,15 @@ export class ReportPageComponent implements OnInit {
       this.router.navigate(['/admin/table-users'])
     } );
   }
+  deleteComment(idComment : number) {
+    this.recipesService.deleteComment(this.id, idComment).subscribe((data) => {
+      this.reports = this.reports.filter((report) => report.id.toString() != this.id);
+    })} 
 
-  deleteUser() {
-    this.userService.deleteUser(this.id).subscribe((data) => {
-      this.router.navigate(['/admin/table-users'])
-    } );
-  }
-
+  // deleteUser() {
+  //   this.userService.deleteUser(this.id).subscribe((data) => {
+  //     this.router.navigate(['/admin/table-users'])
+  //   } );
+  // }
 
 }

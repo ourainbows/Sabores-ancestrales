@@ -46,7 +46,7 @@
     </a>
 
     <div class="buttons">
-      <button class="delete-button" *ngIf="type === 'user'" (click)="deleteUser">Eliminar</button>
+      <button class="delete-button" *ngIf="type === 'user'" (click)="deleteComment(report.idReportedComment)">Eliminar</button>
       <button class="suspend-button" [ngClass]="{'onlyButton': type === 'recipe'}" (click)="deleteReport(report.id)">Ignorar</button>
     </div>
 
