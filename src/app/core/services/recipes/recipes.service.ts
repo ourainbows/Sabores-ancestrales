@@ -9,6 +9,39 @@ import { Recipe } from 'src/app/shared/models/recipe.model';
 })
 export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
+  
+  private newRecipe : Recipe = {
+    id: 0,
+    name: '',
+    user: {
+      id: 0,
+      name: '',
+      email: '',
+      description: '',
+      photo: '',
+      recipes: {
+        userRecipes: [],
+        likedRecipes: [],
+        savedRecipes: [],
+      },
+      score: 0,
+      savedRecipes: [],
+      isActive: true,
+    },
+    description: '',
+    imagePath: '',
+    likes: [],
+    score: 0,
+    time: 0,
+    difficulty: '',
+    price: '',
+    ingredients: [],
+    steps: [],
+    tags: [],
+    comments: [],
+    recomendations: [],
+  };
+  
   constructor(private http: HttpClient) {}
 
   getRecipes(offset = 0, limit = 10): Observable<Recipe[]> {
@@ -45,4 +78,6 @@ export class RecipesService {
   deleteComment(id: number | string | null, idComment: number | string | null): Observable<Recipe> {
     return this.http.delete<Recipe>(`${this.apiUrl}/${id}/comment/${idComment}`);
   }
+
+  // Create a new recipe
 }
