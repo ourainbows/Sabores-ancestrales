@@ -79,5 +79,7 @@ export class RecipesService {
     return this.http.delete<Recipe>(`${this.apiUrl}/${id}/comment/${idComment}`);
   }
 
-  // Create a new recipe
+  createRecipe() : Observable<Recipe> {
+    return this.http.post<Recipe>(this.apiUrl, this.newRecipe);
+  }
 }
