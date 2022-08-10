@@ -8,10 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InfoCardComponent implements OnInit {
   @Input() user : CardUserDTO = {
-    id_User: 0,
-    first_name: '',
-    last_name: '',
-    userPhoto: '',
+    id: 0,
+    name: '',
+    photo: '',
+    email: '',
   }
   @Input() description = ''
   @Input() time = 0

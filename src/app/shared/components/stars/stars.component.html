@@ -1,0 +1,26 @@
+<form class="formRate"(ngSubmit)="setScore()">
+  <fieldset class="rating">
+    <input type="radio" id="star5" name="score" value="5.0" [checked]="rate == 5" /><label class="full" for="star5"
+      title="Increíble - 5 stars" (click)="rate = 5.0"></label>
+    <input type="radio" id="star4half" name="score" value="4 and a half" [checked]="rate == 4.5" /><label class="half"
+      for="star4half" title="Delicioso - 4.5 stars" (click)="rate = 4.5"></label>
+    <input type="radio" id="star4" name="score" value={{4.0}} [checked]="rate == 4" /><label class="full" for="star4"
+      title="Delicioso - 4 stars" (click)="rate = 4.0"></label>
+    <input type="radio" id="star3half" name="score" value="3 and a half" [checked]="rate == 3.5" /><label class="half"
+      for="star3half" title="Me gusta - 3.5 stars" (click)="rate = 3.5"></label>
+    <input type="radio" id="star3" name="score" value="3.0" [checked]="rate == 3" /><label class="full" for="star3"
+      title="Meh - 3 stars" (click)="rate = 3.0"></label>
+    <input type="radio" id="star2half" name="score" value="2 and a half" [checked]="rate == 2.5" /><label class="half"
+      for="star2half" title="Puede Mejorar - 2.5 stars" (click)="rate = 2.5"></label>
+    <input type="radio" id="star2" name="score" value="2.0" [checked]="rate == 2" /><label class="full" for="star2"
+      title="Puede Mejorar - 2 stars" (click)="rate = 2.0"></label>
+    <input type="radio" id="star1half" name="score" value="1 and a half" [checked]="rate == 1.5" /><label class="half"
+      for="star1half" title="No muy delicioso - 1.5 stars" (click)="rate = 1.5" ></label>
+    <input type="radio" id="star1" name="score" value="1.0" [checked]="rate == 1"/><label class="full" for="star1"
+      title="No me gusta - 1 star" (click)="rate = 1.0"></label>
+    <input type="radio" id="starhalf" name="score" value="half" [checked]="rate == 0.5" /><label class="half"
+      for="starhalf" title="No me gusta - 0.5 stars" (click)="rate = 0.5"></label>
+  </fieldset>
+  {{ rate }}
+  <input class="rate" type="submit" value="Calificar">
+</form>

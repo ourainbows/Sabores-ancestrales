@@ -1,5 +1,5 @@
 {
-  "categories": [
+  "category": [
     {
       "id": 1,
       "name": "Torta de fresa",
@@ -90,7 +90,11 @@
       "likes": [
         1
       ],
+<<<<<<< HEAD
       "score": 4.2,
+=======
+      "score": 1.5,
+>>>>>>> db2a1224afd118bfa0473d5db5e5d3b59ee32cc1
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -252,6 +256,32 @@
           ]
         }
       ],
+      "recomendations": [
+        {
+          "id": 1,
+          "name": "Torta de fresa",
+          "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+          "score": 4.2,
+          "time": 33,
+          "price": "$$-$$$"
+        },
+        {
+          "id": 1,
+          "name": "Torta de fresa",
+          "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+          "score": 4.2,
+          "time": 33,
+          "price": "$$-$$$"
+        },
+        {
+          "id": 1,
+          "name": "Torta de fresa",
+          "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+          "score": 4.2,
+          "time": 33,
+          "price": "$$-$$$"
+        }
+      ],
       "tags": [
         {
           "id": 1,
@@ -269,6 +299,14 @@
       "comments": [
         {
           "user": "Chef Teste",
+          "comment": "",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-5-16",
+          "likes": []
+        },
+        {
+          "user": "Chef Teste",
           "comment": "Hola",
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "",
@@ -283,9 +321,7 @@
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "",
           "date": "2022-4-31",
-          "likes": [
-            1
-          ]
+          "likes": []
         },
         {
           "user": "Chef Teste",
@@ -293,9 +329,7 @@
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "",
           "date": "2022-4-27",
-          "likes": [
-            1
-          ]
+          "likes": []
         },
         {
           "user": "Chef Teste",
@@ -325,9 +359,7 @@
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "",
           "date": "2022-4-17",
-          "likes": [
-            1
-          ]
+          "likes": []
         },
         {
           "user": "Chef Teste",
@@ -354,7 +386,11 @@
       "likes": [
         1
       ],
+<<<<<<< HEAD
       "score": 4.2,
+=======
+      "score": 3.5,
+>>>>>>> db2a1224afd118bfa0473d5db5e5d3b59ee32cc1
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -576,6 +612,7 @@
   ],
   "user": [
     {
+<<<<<<< HEAD
       "id": "1",
       "email": "cpedler0@mozilla.com",
       "first_name": "Cy",
@@ -734,9 +771,25 @@
   ],
   "users": [
     {
+=======
+>>>>>>> db2a1224afd118bfa0473d5db5e5d3b59ee32cc1
       "id": 1,
-      "name": "Artur Morgado",
-      "email": ""
+      "email": "husherwood0@nsw.gov.au",
+      "name": "Heather",
+      "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
+      "description": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
+      "#userRecipes": 1,
+      "score": 0.7,
+      "#savedRecipes": 1,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": [
+          3,
+          2,
+          1
+        ]
+      }
     }
   ]
 }

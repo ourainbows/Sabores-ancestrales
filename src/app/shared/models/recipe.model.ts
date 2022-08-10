@@ -42,6 +42,7 @@ export interface Recipe {
   steps: Step[];
   tags: Tag[];
   comments: Commentary[];
+  recomendations : cardRecipeDTO[];
 }
 
 export interface cardRecipeDTO
