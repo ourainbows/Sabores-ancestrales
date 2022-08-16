@@ -16,10 +16,12 @@ body {
     width: 100%;
 }
 
-.containerStatistics{
-    width: 85%;
-}
-
 .containerTabRecipes {
     width: 100%;
+}
+
+app-back-button {
+    position: fixed;
+    left: 0;
+    top: 7rem;
 }

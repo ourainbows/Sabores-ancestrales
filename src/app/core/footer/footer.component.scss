@@ -4,34 +4,41 @@
     display: flex;
     flex-direction: column;
     background-color: $background-footer;
-    height: 70px;
+    height: 14rem;
     justify-content: center;
     font-size: $font-text;
     color: $font-textFooter;
 }
 
-.icon-socialMedias {
-    width: 35px;
-}
-
-
 .textContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
+
+.icon-socialMedias {
+    width: 30px;
 }
 
 .AllRightsReserved {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 1.5rem;
 }
 
 .socialMedias {
     display: flex;
     align-items: center;
-    justify-content: center;
-
 }
+
+.socialMedias a {
+    margin: 0 0.5rem 0 0.5rem;
+}
+
 
