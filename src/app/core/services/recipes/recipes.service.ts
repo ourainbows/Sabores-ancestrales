@@ -10,7 +10,7 @@ import { Recipe } from 'src/app/shared/models/recipe.model';
 export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
   
-  private newRecipe : Recipe = {
+  newRecipe : Recipe = {
     id: 0,
     name: '',
     user: {

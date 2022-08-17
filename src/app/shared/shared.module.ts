@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     StarsComponent,
     ModalComponent,
     ScoreComponent,
-    SearcherComponent
+    SearcherComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     TagComponent,
     ModalComponent,
     ScoreComponent,
-    SearcherComponent
+    SearcherComponent,
   ],
 })
 export class SharedModule { }
