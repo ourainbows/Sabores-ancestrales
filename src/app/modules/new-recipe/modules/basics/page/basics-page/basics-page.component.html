@@ -5,7 +5,7 @@
     <input type="text" id="name" formControlName="name">
     
     <label for="image"></label>
-    <input type="file" accept="image/*" formControlName="image">
+    <input type="file" accept="image/*" formControlName="image" (change)="readURL($event)">
 
     <label for="description">Agrega una descripcion</label>
     <textarea id="description" formControlName="description"></textarea>
@@ -15,6 +15,7 @@
     <button (click)="submit()">+</button>
     
     <button type="submit" [disabled]="formBasics.invalid">Siguiente Paso</button>
+    <img id="blah" [src]="imageSrc" alt="your image" *ngIf="imageSrc"/>
 </form>
 
 

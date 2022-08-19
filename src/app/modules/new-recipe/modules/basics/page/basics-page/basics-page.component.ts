@@ -14,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicsPageComponent implements OnInit {
   formBasics! : FormGroup;
+  imageSrc: string | null | ArrayBuffer = '';
 
   constructor(private readonly formBuilder: FormBuilder, private recipeService : RecipesService) {}
 
@@ -43,4 +44,15 @@ export class BasicsPageComponent implements OnInit {
   viewRecipe = () => {
     console.log(this.recipeService.newRecipe);
   }
+
+  readURL(event: any): void {
+    if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+
+        const reader = new FileReader();
+        reader.onload = e => this.imageSrc = reader.result;
+
+        reader.readAsDataURL(file);
+    }
+}
 }

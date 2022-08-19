@@ -2,7 +2,7 @@ import { Commentary } from '../../../shared/models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Recipe } from 'src/app/shared/models/recipe.model';
+import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +10,7 @@ import { Recipe } from 'src/app/shared/models/recipe.model';
 export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
   
-  newRecipe : Recipe = {
-    id: 0,
+  newRecipe : newRecipeDTO = {
     name: '',
     user: {
       id: 0,
