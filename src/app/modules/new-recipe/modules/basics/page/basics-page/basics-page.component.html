@@ -9,15 +9,18 @@
 
     <label for="description">Agrega una descripcion</label>
     <textarea id="description" formControlName="description"></textarea>
+
     
     <label for="categories">Agrega categorias a la receta</label>
     <input type="text" id="categories" formControlName="categories">
-    <button (click)="submit()">+</button>
+    <div *ngFor="let category of categories">
+        <p>Categoria: {{category}}</p>
+    </div>
+    <input type="button" value="+" (click)="addCategory()">
+
+    <button (click)="submit()">Submit</button>
     
     <button type="submit" [disabled]="formBasics.invalid">Siguiente Paso</button>
     <img id="blah" [src]="imageSrc" alt="your image" *ngIf="imageSrc"/>
 </form>
-
-
-<button (click)="viewRecipe()">Ver Receta</button>
     

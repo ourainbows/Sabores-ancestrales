@@ -13,10 +13,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basics-page.component.scss'],
 })
 export class BasicsPageComponent implements OnInit {
-  formBasics! : FormGroup;
+  formBasics!: FormGroup;
   imageSrc: string | null | ArrayBuffer = '';
+  categories: string[] = [];
 
-  constructor(private readonly formBuilder: FormBuilder, private recipeService : RecipesService) {}
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private recipeService: RecipesService
+  ) {}
 
   ngOnInit(): void {
     this.formBasics = this.initForm();
@@ -32,27 +36,28 @@ export class BasicsPageComponent implements OnInit {
   }
 
   submit = () => {
-    console.warn('submit', this.formBasics.value);
     this.recipeService.newRecipe = {
       ...this.recipeService.newRecipe,
       name: this.formBasics.value.name,
       description: this.formBasics.value.description,
       imagePath: this.formBasics.value.image,
-      tags: this.formBasics.value.categories
-    }
+      tags: this.categories,
+    };
   };
-  viewRecipe = () => {
-    console.log(this.recipeService.newRecipe);
-  }
 
   readURL(event: any): void {
     if (event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
+      const file = event.target.files[0];
 
-        const reader = new FileReader();
-        reader.onload = e => this.imageSrc = reader.result;
+      const reader = new FileReader();
+      reader.onload = (e) => (this.imageSrc = reader.result);
 
-        reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
     }
-}
+  }
+
+  addCategory = () => {
+    this.categories.push(this.formBasics.value.categories);
+    this.formBasics.controls["categories"].setValue('');
+  }
 }

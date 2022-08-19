@@ -45,7 +45,9 @@ export interface Recipe {
   recomendations : cardRecipeDTO[];
 }
 
-export interface newRecipeDTO extends Omit<Recipe, 'id'> {}
+export interface newRecipeDTO extends Omit<Recipe, 'id' | 'tags'> {
+  tags: string[];
+}
 
 export interface cardRecipeDTO
   extends Omit<
