@@ -7,6 +7,9 @@ import {
 } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
+import { AngularFireStorage } from "@angular/fire/compat/storage";
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-basics-page',
   templateUrl: './basics-page.component.html',
@@ -19,18 +22,25 @@ export class BasicsPageComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private recipeService: RecipesService
+    private recipeService: RecipesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.formBasics = this.initForm();
+    this.formBasics.patchValue({
+      // image: this.recipeService.newRecipe.imagePath,
+      name: this.recipeService.newRecipe.name,
+      description: this.recipeService.newRecipe.description,
+    });
+    this.categories = this.recipeService.newRecipe.tags;
   }
 
   initForm(): FormGroup {
     return this.formBuilder.group({
+      //image: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
-      image: ['', Validators.required],
       categories: ['', Validators.required],
     });
   }
@@ -40,9 +50,10 @@ export class BasicsPageComponent implements OnInit {
       ...this.recipeService.newRecipe,
       name: this.formBasics.value.name,
       description: this.formBasics.value.description,
-      imagePath: this.formBasics.value.image,
+      //imagePath: this.formBasics.value.image,
       tags: this.categories,
     };
+    this.router.navigate(['/new-recipe/extra']);
   };
 
   readURL(event: any): void {
@@ -53,11 +64,16 @@ export class BasicsPageComponent implements OnInit {
       reader.onload = (e) => (this.imageSrc = reader.result);
 
       reader.readAsDataURL(file);
+      this.recipeService.newRecipe.imagePath = file;
     }
   }
 
   addCategory = () => {
     this.categories.push(this.formBasics.value.categories);
     this.formBasics.controls["categories"].setValue('');
+  }
+
+  deleteTag = (tag : any) => {
+    this.categories = this.categories.filter(item => item !== tag);
   }
 }

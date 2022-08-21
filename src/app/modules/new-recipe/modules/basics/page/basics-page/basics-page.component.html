@@ -5,7 +5,7 @@
     <input type="text" id="name" formControlName="name">
     
     <label for="image"></label>
-    <input type="file" accept="image/*" formControlName="image" (change)="readURL($event)">
+    <input type="file" accept="image/*" (change)="readURL($event)">
 
     <label for="description">Agrega una descripcion</label>
     <textarea id="description" formControlName="description"></textarea>
@@ -14,13 +14,12 @@
     <label for="categories">Agrega categorias a la receta</label>
     <input type="text" id="categories" formControlName="categories">
     <div *ngFor="let category of categories">
-        <p>Categoria: {{category}}</p>
+        <p (click)="deleteTag(category)">Categoria: {{category}}</p>
     </div>
     <input type="button" value="+" (click)="addCategory()">
-
-    <button (click)="submit()">Submit</button>
     
     <button type="submit" [disabled]="formBasics.invalid">Siguiente Paso</button>
+    
     <img id="blah" [src]="imageSrc" alt="your image" *ngIf="imageSrc"/>
 </form>
     
