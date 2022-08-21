@@ -59,18 +59,18 @@ export class BasicsPageComponent implements OnInit {
   readURL(event: any): void {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
+      this.recipeService.newRecipe.imagePath = file;
 
       const reader = new FileReader();
       reader.onload = (e) => (this.imageSrc = reader.result);
 
       reader.readAsDataURL(file);
-      this.recipeService.newRecipe.imagePath = file;
     }
   }
 
   addCategory = () => {
     this.categories.push(this.formBasics.value.categories);
-    this.formBasics.controls["categories"].setValue('');
+    this.formBasics.controls["categories"].setValue(' ');
   }
 
   deleteTag = (tag : any) => {

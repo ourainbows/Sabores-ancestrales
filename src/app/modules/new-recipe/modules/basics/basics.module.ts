@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,8 @@ import { BasicsPageComponent } from './page/basics-page/basics-page.component';
     CommonModule,
     BasicsRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
   ]
 })
 export class BasicsModule { }
