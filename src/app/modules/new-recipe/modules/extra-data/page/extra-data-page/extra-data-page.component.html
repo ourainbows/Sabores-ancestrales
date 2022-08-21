@@ -1,1 +1,30 @@
-<p>extra-data-page works!</p>
+<p>Indica el tiempo, dificultad, precio e ingredientes de la receta:</p>
+
+<h2>Tiempo</h2>
+
+<form action="">
+
+    <h2>Tiempo</h2>
+    <label for="hours"></label>
+    <input type="number" id="hours">
+    <label for="minutes"></label>
+    <input type="number" id="minutes">
+
+    <h2>Dificultar</h2>
+    <input type="button" value="Facil">
+    <input type="button" value="Media">
+    <input type="button" value="Dificil">
+
+    <h2>Precio</h2>
+    <input type="button" value="$">
+    <input type="button" value="$$-$$$">
+    <input type="button" value="$$$$">
+
+    <label for="ingredient">Agregar ingrediente</label>
+    <input type="text" id="ingredient">
+    <input type="button" value="+" (click)="addIngredient()">
+
+    <ul *ngFor="let ingredient of ingredients">
+        <li (click)="deleteIngredient(ingredient)">Ingrediente: {{ingredient}}</li>
+    </ul>
+</form>

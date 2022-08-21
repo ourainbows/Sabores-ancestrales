@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExtraDataPageComponent implements OnInit {
 
+  ingredients = []
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  addIngredient = () => {
+  }
+  
+  deleteIngredient = (ingredient : any) => {
   }
 
 }

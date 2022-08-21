@@ -4,12 +4,12 @@
     <label for="name">Agrega un nombre a tú receta</label>
     <input type="text" id="name" formControlName="name">
     
-    <label for="image"></label>
+    <label for="image">Agrega una image</label>
     <input type="file" accept="image/*" (change)="readURL($event)">
+    <!-- <img id="blah" [src]="imageSrc" alt="your image" *ngIf="imageSrc"/> -->
 
     <label for="description">Agrega una descripcion</label>
     <textarea id="description" formControlName="description"></textarea>
-
     
     <label for="categories">Agrega categorias a la receta</label>
     <input type="text" id="categories" formControlName="categories">
@@ -19,7 +19,5 @@
     <input type="button" value="+" (click)="addCategory()">
     
     <button type="submit" [disabled]="formBasics.invalid">Siguiente Paso</button>
-    
-    <img id="blah" [src]="imageSrc" alt="your image" *ngIf="imageSrc"/>
 </form>
     
