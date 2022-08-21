@@ -34,6 +34,7 @@ export class BasicsPageComponent implements OnInit {
       description: this.recipeService.newRecipe.description,
     });
     this.categories = this.recipeService.newRecipe.tags;
+    this.recipeService.newRecipe.imagePath && this.readURLRecipe();
   }
 
   initForm(): FormGroup {
@@ -66,6 +67,12 @@ export class BasicsPageComponent implements OnInit {
 
       reader.readAsDataURL(file);
     }
+  }
+  readURLRecipe() {
+    const file : any = this.recipeService.newRecipe.imagePath;
+    const reader = new FileReader();
+    reader.onload = (e) => (this.imageSrc = reader.result);
+    reader.readAsDataURL(file);
   }
 
   addCategory = () => {
