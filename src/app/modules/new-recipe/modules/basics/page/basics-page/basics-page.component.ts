@@ -1,13 +1,8 @@
 import { RecipesService } from './../../../../../../core/services/recipes/recipes.service';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-import { AngularFireStorage } from "@angular/fire/compat/storage";
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,7 +29,15 @@ export class BasicsPageComponent implements OnInit {
       description: this.recipeService.newRecipe.description,
     });
     this.categories = this.recipeService.newRecipe.tags;
-    this.recipeService.newRecipe.imagePath && this.readURLRecipe();
+    console.log(typeof this.recipeService.newRecipe.imagePath);
+    if (
+      this.recipeService.newRecipe.imagePath &&
+      typeof this.recipeService.newRecipe.imagePath == 'object'
+    ) {
+      this.readURLRecipe();
+    } else {
+      this.imageSrc = this.recipeService.newRecipe.imagePath;
+    }
   }
 
   initForm(): FormGroup {
@@ -69,7 +72,7 @@ export class BasicsPageComponent implements OnInit {
     }
   }
   readURLRecipe() {
-    const file : any = this.recipeService.newRecipe.imagePath;
+    const file: any = this.recipeService.newRecipe.imagePath;
     const reader = new FileReader();
     reader.onload = (e) => (this.imageSrc = reader.result);
     reader.readAsDataURL(file);
@@ -77,10 +80,10 @@ export class BasicsPageComponent implements OnInit {
 
   addCategory = () => {
     this.categories.push(this.formBasics.value.categories);
-    this.formBasics.controls["categories"].setValue(' ');
-  }
+    this.formBasics.controls['categories'].setValue(' ');
+  };
 
-  deleteTag = (tag : any) => {
-    this.categories = this.categories.filter(item => item !== tag);
-  }
+  deleteTag = (tag: any) => {
+    this.categories = this.categories.filter((item) => item !== tag);
+  };
 }

@@ -1,30 +1,116 @@
-<p>Indica el tiempo, dificultad, precio e ingredientes de la receta:</p>
+<p class="descriptionStep">
+  Indica el tiempo, dificultad, precio e ingredientes de la receta:
+</p>
 
-<h2>Tiempo</h2>
+<form action="" [formGroup]="formExtra" (submit)="submit()" class="form">
+  <h2 class="subtitle">Tiempo</h2>
+  <div class="timeContainer">
+    <p class="duration">Insertar duración</p>
+    <div class="clockContainer">
+      <div>
+        <input type="number" id="hours" formControlName="hours" />
+        <label for="hours">Horas</label>
+      </div>
+      <p class="dotsTime">:</p>
+      <div>
+        <input type="number" id="minutes" formControlName="minutes" max="59" />
+        <label for="minutes">Minutos</label>
+      </div>
+    </div>
+  </div>
 
-<form action="">
+  <h2 class="subtitle">Dificultad</h2>
+  <div class="tagContainer">
+    <input
+      type="button"
+      value="Facil"
+      (click)="onChangeOption('difficulty', 'facil')"
+      [ngClass]="{ activeInput: difficulty === 'facil' }"
+    />
+    <input
+      type="button"
+      value="Media"
+      (click)="onChangeOption('difficulty', 'medio')"
+      [ngClass]="{ activeInput: difficulty === 'medio' }"
+    />
+    <input
+      type="button"
+      value="Dificil"
+      (click)="onChangeOption('difficulty', 'dificil')"
+      [ngClass]="{ activeInput: difficulty === 'dificil' }"
+    />
+  </div>
 
-    <h2>Tiempo</h2>
-    <label for="hours"></label>
-    <input type="number" id="hours">
-    <label for="minutes"></label>
-    <input type="number" id="minutes">
+  <h2 class="subtitle">Precio</h2>
+  <div class="tagContainer">
+    <input
+      type="button"
+      value="$"
+      (click)="onChangeOption('price', '$')"
+      [ngClass]="{ activeInput: price === '$' }"
+    />
+    <input
+      type="button"
+      value="$$-$$$"
+      (click)="onChangeOption('price', '$$-$$$')"
+      [ngClass]="{ activeInput: price === '$$-$$$' }"
+    />
+    <input
+      type="button"
+      value="$$$$"
+      (click)="onChangeOption('price', '$$$$')"
+      [ngClass]="{ activeInput: price === '$$$$' }"
+    />
+  </div>
 
-    <h2>Dificultar</h2>
-    <input type="button" value="Facil">
-    <input type="button" value="Media">
-    <input type="button" value="Dificil">
+  <h2 class="subtitle">Agregar ingredientes</h2>
+  <div class="ingredientInfoContainer">
+    <div>
+      <label for="quantity">Cantidad</label>
+      <input type="number" id="quantity" formControlName="ingredientQuantity" />
+    </div>
+    <div>
+      <label for="measure">Medida</label>
+      <select id="measure" formControlName="ingredientUnit">
+        <option value="" selected disabled hidden>Seleccionar</option>
+        <option value="gr">gr</option>
+        <option value="ml">ml</option>
+        <option value="cucharada">cucharada</option>
+        <option value="taza">taza</option>
+        <option value="tarro">tarro</option>
+      </select>
+    </div>
+  </div>
 
-    <h2>Precio</h2>
-    <input type="button" value="$">
-    <input type="button" value="$$-$$$">
-    <input type="button" value="$$$$">
+  <label for="ingredient" class="ingredientLabel">Ingrediente</label>
+  <div class="ingredienContainer">
+    <input type="text" id="ingredient" formControlName="ingredientName" />
+    <input type="button" value="+" (click)="addIngredient()" />
+  </div>
 
-    <label for="ingredient">Agregar ingrediente</label>
-    <input type="text" id="ingredient">
-    <input type="button" value="+" (click)="addIngredient()">
+  <h2 class="subtitle ingredientListTitle" *ngIf="ingredients.length">
+    Lista de Ingredientes
+  </h2>
+  <ul *ngIf="ingredients.length" class="ingredientList">
+    <li *ngFor="let ingredient of ingredients">
+      <p *ngIf="ingredient.unit" class="ingredient">
+        {{
+          ingredient.quantity + " " + ingredient.unit + " de " + ingredient.name
+        }}
+      </p>
+      <p *ngIf="!ingredient.unit" class="ingredient">
+        {{ ingredient.quantity + " " + ingredient.name }}
+      </p>
 
-    <ul *ngFor="let ingredient of ingredients">
-        <li (click)="deleteIngredient(ingredient)">Ingrediente: {{ingredient}}</li>
-    </ul>
+      <p class="deleteIngredient" (click)="deleteIngredient(ingredient.name)">x</p>
+    </li>
+  </ul>
+
+  <button
+    type="submit"
+    [disabled]="formExtra.invalid || !ingredients.length"
+    class="nextStep"
+  >
+    Siguiente Paso
+  </button>
 </form>
