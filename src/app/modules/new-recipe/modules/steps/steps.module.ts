@@ -1,3 +1,5 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -27,6 +29,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     }),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    MatIconModule,
+    ReactiveFormsModule,
   ]
 })
 export class StepsModule { }

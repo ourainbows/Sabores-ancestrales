@@ -1,3 +1,5 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RecipesService } from './../../../../../../core/services/recipes/recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs';
@@ -8,12 +10,35 @@ import { finalize } from 'rxjs';
   styleUrls: ['./steps-page.component.scss'],
 })
 export class StepsPageComponent implements OnInit {
+  formSteps!: FormGroup;
+  imageSrc: string | null | ArrayBuffer = '';
 
-  constructor(private storage: AngularFireStorage) {}
+  constructor(
+    private storage: AngularFireStorage,
+    private recipeService: RecipesService,
+    private readonly formBuilder: FormBuilder
+  ) {}
 
-  upload(event: any) {
-    const file = event.target.files[0];
-    this.uploadImage(file);
+  ngOnInit(): void {
+    this.formSteps = this.initForm();
+  }
+
+  initForm(): FormGroup {
+    return this.formBuilder.group({
+      description: ['', Validators.required],
+    });
+  }
+
+  readURL(event: any): void {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      this.recipeService.newRecipe.imagePath = file;
+
+      const reader = new FileReader();
+      reader.onload = (e) => (this.imageSrc = reader.result);
+
+      reader.readAsDataURL(file);
+    }
   }
 
   uploadImage(fileUpload: any) {
@@ -25,15 +50,12 @@ export class StepsPageComponent implements OnInit {
       .pipe(
         finalize(() => {
           storageRef.getDownloadURL().subscribe((downloadURL) => {
-            console.log( downloadURL);
+            console.log(downloadURL);
           });
         })
       )
       .subscribe();
   }
 
-  ngOnInit(): void {}
-  
-
-  
+  submit() {}
 }

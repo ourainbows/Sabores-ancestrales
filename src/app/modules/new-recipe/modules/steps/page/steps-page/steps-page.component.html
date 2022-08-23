@@ -1,3 +1,44 @@
-<label for="file">File:</label>
-<input type="file" (change)="upload($event)" accept=".png,.jpg" />
-<!-- <button (click)="uploadImage()">Upload Image</button> -->
+<p>Crea los pasos detalladamente que tendra la receta:</p>
+
+<form [formGroup]="formSteps" (submit)="submit()" class="form">
+  <label for="image" class="form-label">Agrega una imagen</label>
+  <label
+    for="image"
+    class="label-image"
+    [ngStyle]="{ 'background-image': imageSrc && 'url(' + imageSrc + ')' }"
+  >
+    <mat-icon class="camera-icon" *ngIf="!imageSrc">camera_alt</mat-icon>
+    <p class="image-description" *ngIf="!imageSrc">
+      Selecciona una imagen de tu dispositivo para subir
+    </p>
+    <p class="image-support" *ngIf="!imageSrc">
+      Soportado: PNG, JPG, WPG, WEBP
+    </p>
+  </label>
+  <input
+    type="file"
+    accept="image/*"
+    (change)="readURL($event)"
+    class="inputImage"
+    id="image"
+  />
+
+  <label for="description" class="form-label">Agrega una descripcion</label>
+  <textarea
+    id="description"
+    formControlName="description"
+    class="inputDescription"
+  ></textarea>
+
+  <!-- <div class="tagContainer">
+    <input
+      type="button"
+      value="$"
+      (click)="onChangeOption('price', '$')"
+      [ngClass]="{ activeInput: price === '$' }"
+    />
+</div> -->
+  <button type="submit" [disabled]="formSteps.invalid" class="nextStep">
+    Siguiente Paso
+  </button>
+</form>
