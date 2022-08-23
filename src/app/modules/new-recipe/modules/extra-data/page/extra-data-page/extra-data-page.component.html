@@ -73,11 +73,16 @@
       <label for="measure">Medida</label>
       <select id="measure" formControlName="ingredientUnit">
         <option value="" selected disabled hidden>Seleccionar</option>
+        <option value=" ">unidad</option>
         <option value="gr">gr</option>
-        <option value="ml">ml</option>
+        <option value="miligramo">mg</option>
+        <option value="kilogramo">kg</option>
+        <option value="mL">mL</option>
+        <option value="L">L</option>
         <option value="cucharada">cucharada</option>
         <option value="taza">taza</option>
-        <option value="tarro">tarro</option>
+        <option value="lata">lata</option>
+        <option value="pizca">pizca</option>
       </select>
     </div>
   </div>
@@ -85,7 +90,12 @@
   <label for="ingredient" class="ingredientLabel">Ingrediente</label>
   <div class="ingredienContainer">
     <input type="text" id="ingredient" formControlName="ingredientName" />
-    <input type="button" value="+" (click)="addIngredient()" [disabled]=""/>
+    <input
+      type="button"
+      value="+"
+      (click)="addIngredient()"
+      [disabled]="!formExtra.value.ingredientQuantity || !formExtra.value.ingredientName || !formExtra.value.ingredientUnit"
+    />
   </div>
 
   <h2 class="subtitle ingredientListTitle" *ngIf="ingredients.length">
@@ -102,7 +112,9 @@
         {{ ingredient.quantity + " " + ingredient.name }}
       </p>
 
-      <p class="deleteIngredient" (click)="deleteIngredient(ingredient.name)">x</p>
+      <p class="deleteIngredient" (click)="deleteIngredient(ingredient.name)">
+        x
+      </p>
     </li>
   </ul>
 

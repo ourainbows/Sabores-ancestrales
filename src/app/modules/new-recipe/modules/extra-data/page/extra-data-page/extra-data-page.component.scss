@@ -145,7 +145,7 @@
     color: white;
     border: none;
 }
-.nextStep:disabled{
+.nextStep:disabled, .ingredienContainer input[type="button"]:disabled{
     background-color:#e14d619c;
 }
 .ingredientListTitle{

@@ -29,6 +29,8 @@ export class ExtraDataPageComponent implements OnInit {
       price: this.recipeService.newRecipe.price,
     });
     this.ingredients = this.recipeService.newRecipe.ingredients;
+    this.price = this.recipeService.newRecipe.price;
+    this.difficulty = this.recipeService.newRecipe.difficulty;
   }
 
   initForm(): FormGroup {
@@ -37,9 +39,9 @@ export class ExtraDataPageComponent implements OnInit {
       minutes: ['', Validators.required],
       difficulty: ['', Validators.required],
       price: ['', Validators.required],
-      ingredientQuantity: ['', Validators.required],
-      ingredientName: ['', Validators.required],
-      ingredientUnit: ['', Validators.required],
+      ingredientQuantity: [''],
+      ingredientName: [''],
+      ingredientUnit: [''],
     });
   }
 
@@ -50,9 +52,9 @@ export class ExtraDataPageComponent implements OnInit {
       unit: this.formExtra.value.ingredientUnit,
     });
     this.formExtra.patchValue({
-      ingredientQuantity: ' ',
-      ingredientName: ' ',
-      ingredientUnit: ' ',
+      ingredientQuantity: '',
+      ingredientName: '',
+      ingredientUnit: '',
     });
   }
   deleteIngredient(ingredientName: string) {
