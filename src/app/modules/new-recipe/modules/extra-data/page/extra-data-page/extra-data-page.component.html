@@ -85,7 +85,7 @@
   <label for="ingredient" class="ingredientLabel">Ingrediente</label>
   <div class="ingredienContainer">
     <input type="text" id="ingredient" formControlName="ingredientName" />
-    <input type="button" value="+" (click)="addIngredient()" />
+    <input type="button" value="+" (click)="addIngredient()" [disabled]=""/>
   </div>
 
   <h2 class="subtitle ingredientListTitle" *ngIf="ingredients.length">

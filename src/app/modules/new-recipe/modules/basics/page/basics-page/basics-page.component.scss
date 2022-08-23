@@ -115,6 +115,6 @@
     color: white;
     border: none;
 }
-.nextStep:disabled{
+.nextStep:disabled, .tagInputContainer input[type="button"]:disabled{
     background-color:#e14d619c;
 }

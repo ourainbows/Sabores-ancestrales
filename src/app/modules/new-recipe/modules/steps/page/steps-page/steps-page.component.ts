@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize, Observable } from 'rxjs';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-steps-page',
@@ -8,7 +8,7 @@ import { finalize, Observable } from 'rxjs';
   styleUrls: ['./steps-page.component.scss'],
 })
 export class StepsPageComponent implements OnInit {
-  private basePath = '/uploads';
+
   constructor(private storage: AngularFireStorage) {}
 
   upload(event: any) {
@@ -33,4 +33,7 @@ export class StepsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  
+
+  
 }

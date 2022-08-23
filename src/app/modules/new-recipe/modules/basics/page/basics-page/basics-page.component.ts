@@ -45,7 +45,7 @@ export class BasicsPageComponent implements OnInit {
       //image: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
-      categories: ['', Validators.required],
+      categories: [''],
     });
   }
 
@@ -79,6 +79,7 @@ export class BasicsPageComponent implements OnInit {
   }
 
   addCategory = () => {
+    console.log(this.formBasics.value.categories)
     this.categories.push(this.formBasics.value.categories);
     this.formBasics.controls['categories'].setValue(' ');
   };
