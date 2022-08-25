@@ -90,11 +90,7 @@
       "likes": [
         1
       ],
-<<<<<<< HEAD
-      "score": 4.2,
-=======
       "score": 1.5,
->>>>>>> db2a1224afd118bfa0473d5db5e5d3b59ee32cc1
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -386,11 +382,7 @@
       "likes": [
         1
       ],
-<<<<<<< HEAD
-      "score": 4.2,
-=======
       "score": 3.5,
->>>>>>> db2a1224afd118bfa0473d5db5e5d3b59ee32cc1
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -612,7 +604,6 @@
   ],
   "user": [
     {
-<<<<<<< HEAD
       "id": "1",
       "email": "cpedler0@mozilla.com",
       "first_name": "Cy",
@@ -771,8 +762,6 @@
   ],
   "users": [
     {
-=======
->>>>>>> db2a1224afd118bfa0473d5db5e5d3b59ee32cc1
       "id": 1,
       "email": "husherwood0@nsw.gov.au",
       "name": "Heather",
