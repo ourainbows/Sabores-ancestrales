@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ExtraDataRoutingModule } from './extra-data-routing.module';
 import { ExtraDataPageComponent } from './page/extra-data-page/extra-data-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ExtraDataPageComponent } from './page/extra-data-page/extra-data-page.c
   ],
   imports: [
     CommonModule,
-    ExtraDataRoutingModule
+    ExtraDataRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class ExtraDataModule { }

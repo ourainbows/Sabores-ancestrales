@@ -846,7 +846,8 @@
         "userRecipes": [],
         "savedRecipes": [],
         "likedRecipes": []
-      }
+      },
+      "isActive": false
     }
   ],
   "feedback": [
