@@ -9,7 +9,7 @@
       <div class="profile dropdownImg">
         <img [src]="userImg" alt="Imagen del usuario" />
       </div>
-      <ng-container class="dropdown" *ngIf="(user$ | async) === null; else logOutTemplate">
+      <ng-container class="dropdown" *ngIf="(user$ | async) === false; else logOutTemplate">
         <ul>
           <li [routerLink]="['/login']">Iniciar sesión</li>
           <li [routerLink]="['/register']">Registrarse</li>

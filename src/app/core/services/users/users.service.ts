@@ -19,6 +19,10 @@ export class UsersService {
   getUserById(userId: string): Observable<User> {
     return this.http.get<User>(`${this.apiUsers}/${userId}`);
   }
+
+  postUser(user: User): any {
+    return this.http.post(this.apiUsers, user);
+  }
   updateLikesRecipe(id: number, recipes: {}): Observable<User> {
     return this.http.patch<User>(`${this.apiUsers}/${id}`, { recipes });
   }

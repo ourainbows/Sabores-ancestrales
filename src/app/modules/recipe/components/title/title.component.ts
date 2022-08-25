@@ -29,7 +29,6 @@ export class TitleComponent implements OnInit {
       savedRecipes: [],
     },
     score: 0,
-    savedRecipes: []
   };
 
   constructor(private  usersService: UsersService, private clipboardApi: ClipboardService,) {}

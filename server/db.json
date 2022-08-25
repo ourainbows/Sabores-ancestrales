@@ -767,9 +767,23 @@
       "name": "Heather",
       "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
       "description": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
-      "#userRecipes": 1,
       "score": 0.7,
-      "#savedRecipes": 1,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": [
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "email": "husherwood0@nsw.gov.au",
+      "name": "Vale",
+      "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
+      "description": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
+      "score": 0.7,
       "recipes": {
         "userRecipes": [],
         "savedRecipes": [],
@@ -820,6 +834,19 @@
         ]
       },
       "isActive": true
+    },
+    {
+      "id": "nmb6UXMpnGUFPXfjZSkCCiWgxz52",
+      "name": "Laura Valentina Rippe Forero",
+      "email": "ft.laura.rippe@unilatina.edu.co",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucoezEdsun_Zq_d85k76O7ZMJdrxbPQ8dpWddma5=s96-c",
+      "description": "",
+      "score": 0,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": []
+      }
     }
   ],
   "feedback": [
@@ -864,6 +891,14 @@
       "recipeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
       "recipeImage": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
       "recipeName": "Torta de Fresas"
+      }
+  ],
+  "login": [
+    {
+      "email": "lauravalentina200102@gmail.com",
+      "password": "1qaz2ws*",
+      "token": "1qAZ2WS43EFDY5RT6GH7UJ8IKLM9NOpQRSTvbxw"
     }
-  ]
+  ],
+  "register": []
 }

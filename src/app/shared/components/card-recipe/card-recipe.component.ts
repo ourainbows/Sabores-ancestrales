@@ -25,7 +25,6 @@ export class CardRecipeComponent implements OnInit {
       savedRecipes: [],
     },
     score: 0,
-    savedRecipes: []
   };
 
   constructor(private usersService: UsersService) { }

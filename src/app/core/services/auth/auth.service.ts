@@ -1,57 +1,112 @@
 import { Injectable } from '@angular/core';
-import { ApiError, createClient, Session, SupabaseClient, User, UserCredentials } from '@supabase/supabase-js';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { USER_STORAGE_KEY } from '../../const/const';
-
-type supabaseRes = User | Session | ApiError | null
+import { BehaviorSubject, catchError, map, Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
+import { UsersService } from '../users/users.service';
+import {
+  User,
+  UserLogin,
+  UserRegister,
+} from 'src/app/shared/models/user.model';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  auth = 'http://localhost:3000/';
+  user!: User;
 
-  private supabaseClient: SupabaseClient;
-  private userSubject = new BehaviorSubject<User | null>(null);
+  private userSubject = new BehaviorSubject<boolean>(false);
 
-  constructor() {
-    this.supabaseClient = createClient(environment.supabase.api, environment.supabase.publicKey);
-    this.setUser();
-   }
+  constructor(
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private userSvc: UsersService,
+    private http: HttpClient
+  ) {}
 
-   get user$(): Observable<User | null> {
+  get user$(): Observable<boolean> {
     return this.userSubject.asObservable();
   }
 
-  async login(credentials: UserCredentials): Promise<supabaseRes> {
-    try{
-      const {user, error, ...rest} = await this.supabaseClient.auth.signIn(credentials);
-      this.setUser();
-      return error ? error : user;
-    }catch(err: any){
-      console.log(err);
-      return err
-    }
-  }
-
-  async register(credentials: UserCredentials): Promise<supabaseRes> {
+  async onGoogle() {
     try {
-      const { user, error, ...rest } = await this.supabaseClient.auth.signUp(credentials);
-      this.setUser();
-      return error ? error : user;
-    } catch (err: any) {
-      console.log(err);
-      return err
+      const res = await this.afAuth.signInWithPopup(
+        new firebase.auth.GoogleAuthProvider()
+      );
+      this.userSubject.next(true);
+      return res;
+    } catch (err) {
+      this.userSubject.next(false);
+      return err;
     }
   }
 
-  logout(): Promise<{ error: ApiError | null }> {
-    this.userSubject.next(null);
-    return this.supabaseClient.auth.signOut();
+  login(user: UserLogin): Observable<any> {
+    return this.http
+      .post<UserLogin>(this.auth + 'login', {
+        email: user.email,
+        password: user.password,
+      })
+      .pipe(
+        map((res) => {
+          if (res.token) {
+            this.userSubject.next(true);
+            this.saveToken(res.token);
+            this.router.navigate(['/']);
+          }
+          return res;
+        }),
+        catchError((err) => {
+          this.userSubject.next(false);
+          console.log(err);
+          return err;
+        })
+      );
   }
 
-  private setUser(): void{
-    const session = localStorage.getItem(USER_STORAGE_KEY) as unknown as User;
-    this.userSubject.next(session);
+  register(user: UserRegister): Observable<any> {
+    return this.http
+      .post<UserRegister>(this.auth + 'register', {
+        name: user.name,
+        email: user.email,
+        password: user.password,
+      })
+      .pipe(
+        map((res) => {
+          this.user = {
+            id: 0,
+            name: res.name,
+            email: res.email,
+            photo: '',
+            description: '',
+            score: 0,
+            recipes: {
+              userRecipes: [],
+              savedRecipes: [],
+              likedRecipes: [],
+            },
+          };
+          this.userSvc.postUser(this.user).subscribe();
+          this.userSubject.next(true);
+          return res;
+        }),
+        catchError((err) => {
+          this.userSubject.next(false);
+          console.log(err);
+          return err;
+        })
+      );
+  }
+
+  logout(): void {
+    this.userSubject.next(false);
+    return localStorage.removeItem('token');
+  }
+
+  saveToken(token: string): void {
+    localStorage.setItem('token', token) as unknown as User;
   }
 }

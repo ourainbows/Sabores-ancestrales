@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { ClipboardModule } from 'ngx-clipboard';
 import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat';
 // import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -27,16 +28,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     MatIconModule,
     ClipboardModule,
     FormsModule,
-    AngularFireModule.initializeApp({
-      apiKey: 'AIzaSyDN5pIymvx7y8BmJWH456oohyqqlCXOlKs',
-      authDomain: 'saboresancestrales-56030.firebaseapp.com',
-      projectId: 'saboresancestrales-56030',
-      storageBucket: 'saboresancestrales-56030.appspot.com',
-      messagingSenderId: '240351398364',
-      appId: '1:240351398364:web:11f63e50e93ec5387ea719',
-    }),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent],
