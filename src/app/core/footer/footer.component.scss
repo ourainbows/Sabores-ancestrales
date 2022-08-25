@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+.copyrightContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: $background-footer;
+    height: 14rem;
+    justify-content: center;
+    font-size: $font-text;
+    color: $font-textFooter;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
+
+.icon-socialMedias {
+    width: 30px;
+}
+
+.AllRightsReserved {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.socialMedias {
+    display: flex;
+    align-items: center;
+}
+
+.socialMedias a {
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+

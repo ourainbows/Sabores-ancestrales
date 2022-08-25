@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TabRecipesComponent } from './tab-recipes.component';
 
+import { BackButtonComponent } from './back-button.component';
 
-describe('TabRecipesComponent', () => {
-  let component: TabRecipesComponent;
-  let fixture: ComponentFixture<TabRecipesComponent>;
+describe('BackButtonComponent', () => {
+  let component: BackButtonComponent;
+  let fixture: ComponentFixture<BackButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabRecipesComponent ]
+      declarations: [ BackButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabRecipesComponent);
+    fixture = TestBed.createComponent(BackButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,15 +1,4 @@
-
-    <div class="profile-container">
-        <div class="containerUserDescription">
-            <app-user-description
-            [user]="user"
-            ></app-user-description>
-        </div>
-        <div class="containerStatistics">
-            <app-statistics></app-statistics>
-        </div>
-        <div class="containerTabRecipes">
-            <app-tab-recipes></app-tab-recipes>
-        </div>
-    </div>
-
+<app-user-description [user]="user"></app-user-description>
+<app-back-button></app-back-button>
+<app-statistics></app-statistics>
+<app-tab-recipes></app-tab-recipes>
