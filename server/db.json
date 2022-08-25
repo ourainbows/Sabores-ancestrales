@@ -609,9 +609,7 @@
       "name": "Heather",
       "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
       "description": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
-      "#userRecipes": 1,
       "score": 0.7,
-      "#savedRecipes": 1,
       "recipes": {
         "userRecipes": [],
         "savedRecipes": [],
@@ -621,6 +619,70 @@
           1
         ]
       }
+    },
+    {
+      "id": 2,
+      "email": "husherwood0@nsw.gov.au",
+      "name": "Vale",
+      "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
+      "description": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
+      "score": 0.7,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": [
+          3,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "1HQNqCXADLfkWN8w1ZR9Uw8yFIu1",
+      "name": "Valentina Rippe",
+      "email": "lauravalentina200102@gmail.com",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucryckDK28BAub5a7S3JuXKX3Z-Bksff_TMRd3tyow=s96-c",
+      "description": "",
+      "score": 0,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": []
+      }
+    },
+    {
+      "id": "nmb6UXMpnGUFPXfjZSkCCiWgxz52",
+      "name": "Laura Valentina Rippe Forero",
+      "email": "ft.laura.rippe@unilatina.edu.co",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucoezEdsun_Zq_d85k76O7ZMJdrxbPQ8dpWddma5=s96-c",
+      "description": "",
+      "score": 0,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": []
+      }
+    },
+    {
+      "id": "2IvrE1nf4BUfWtNgx0k6MomRjS42",
+      "name": "Luz Amparo Forero Vanegaz",
+      "email": "amparoforero97@gmail.com",
+      "photo": "https://lh3.googleusercontent.com/a/AItbvmnkzDM87UyE17RUb5Oym0TGhlKrAsb7Wq2FK43Q=s96-c",
+      "description": "",
+      "score": 0,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": []
+      }
     }
-  ]
+  ],
+  "login": [
+    {
+      "email": "lauravalentina200102@gmail.com",
+      "password": "1qaz2ws*",
+      "token": "1qAZ2WS43EFDY5RT6GH7UJ8IKLM9NOpQRSTvbxw"
+    }
+  ],
+  "register": []
 }

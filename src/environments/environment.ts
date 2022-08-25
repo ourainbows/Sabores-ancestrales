@@ -1,7 +1,12 @@
 export const environment = {
   production: false,
-  supabase:{
-    publicKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJhemJtb3FobnFscHZ5Ymp1ZGh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTk0MDY5MzYsImV4cCI6MTk3NDk4MjkzNn0.STcFgnuM6s3JS9wKGAkr_N4mip-kxL5QxrSxDLNabY4',
-    api:'https://razbmoqhnqlpvybjudhw.supabase.co'
+  firebaseConfig: {
+    apiKey: "AIzaSyALk2f0_q3MB-yaskW5cH4kkpX2X4UYhuI",
+    authDomain: "saboresdemitierra-d60b6.firebaseapp.com",
+    projectId: "saboresdemitierra-d60b6",
+    storageBucket: "saboresdemitierra-d60b6.appspot.com",
+    messagingSenderId: "206556345858",
+    appId: "1:206556345858:web:b19d62e3333d1ba6f6d91b",
+    measurementId: "G-2XT7CX9YWV"
   }
 };

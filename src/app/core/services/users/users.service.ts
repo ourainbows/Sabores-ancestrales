@@ -15,6 +15,10 @@ export class UsersService {
   }
 
   getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUsers}/${userId}`)
+    return this.http.get<User>(`${this.apiUsers}/${userId}`);
+  }
+
+  postUser(user: User): any {
+    return this.http.post(this.apiUsers, user);
   }
 }

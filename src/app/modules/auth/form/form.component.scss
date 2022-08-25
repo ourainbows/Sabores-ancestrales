@@ -4,7 +4,6 @@
   @include flex;
   flex-direction: column;
   padding: 2rem;
-  min-width: 360px;
   max-width: 360px;
   font-size: $font-text;
 }
@@ -21,7 +20,7 @@
   @include flex;
   flex-direction: column;
   align-items: flex-start !important;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 100%;
 
   input {
@@ -39,20 +38,48 @@
 }
 
 .validator{
-  color: $main-color;
+  color: $secundary-color;
 }
 
 .buttonAuth {
-  border: transparent;
+  border: 1px solid $secundary-color;
   background-color: $button-background-color;
   border-radius: $border-radius;
   color: $button-text-color;
   font-size: $font-text;
+  font-weight: bolder;
   padding: 1rem;
   width: 100%;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin: 1rem 0;
+  &:hover {
+    transform: scale(1.05)
+  }
+}
+
+.lines{
+  @include flex();
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  hr{
+    width: 45%;
+    border: 0.5px solid $line-color;
+  }
+}
+
+.buttonGoogle{
+  @include flex();
+  margin: 1rem;
+  color: black;
+  background-color: transparent;
+  border: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  img{
+    width: 30px;
+  }
 }
 
 .linkAuth {

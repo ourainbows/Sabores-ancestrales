@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ACTIONS } from 'src/app/core/const/const';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { UsersService } from 'src/app/core/services/users/users.service';
+import { User } from 'src/app/shared/models/user.model';
 import Swal from 'sweetalert2';
 
 export interface OptionsForm {
@@ -28,11 +30,14 @@ export class FormComponent implements OnInit {
   authForm!: FormGroup;
   signIn = ACTIONS.signIn;
   signUp = ACTIONS.signUp;
+  user!: User;
+  user$ = this.authSvc.user$;
   @Input() options!: OptionsForm;
 
   constructor(
     private readonly fb: FormBuilder,
     private authSvc: AuthService,
+    private userSvc: UsersService,
     private router: Router
   ) {}
 
@@ -40,42 +45,59 @@ export class FormComponent implements OnInit {
     this.initForm();
   }
 
-  async onSubmit(option: string): Promise<void> {
-    if (option === this.signIn && this.authForm.valid) {
-      this.authSvc.login(this.authForm.value).then((res: any) => {
-        if (res.aud) {
-          this.router.navigate(['/']);
-          this.initForm();
+  async onGoogleForm(): Promise<void> {
+    console.log('Register');
+    this.authSvc
+      .onGoogle()
+      .then(async (res: any) => {
+        if (res.additionalUserInfo.isNewUser) {
+          this.user = {
+            id: res.user.multiFactor.user.uid,
+            name: res.user.multiFactor.user.displayName,
+            email: res.user.multiFactor.user.email,
+            photo: res.user.multiFactor.user.photoURL,
+            description: '',
+            score: 0,
+            recipes: {
+              userRecipes: [],
+              savedRecipes: [],
+              likedRecipes: [],
+            },
+          };
+          this.userSvc.postUser(this.user).subscribe();
         } else {
-          this.toast.fire({
-            icon: 'error',
-            title: res.message,
-          });
+          this.authSvc.saveToken(res.user.multiFactor.user.uid);
         }
+        this.router.navigate(['/']);
+      })
+      .catch((err: any) => {
+        console.log(err);
       });
+  }
+
+  onSubmit(option: string): void {
+    if (option === this.signIn && this.authForm.valid) {
+      console.log('login');
+      this.authSvc.login(this.authForm.value);
     } else if (this.authForm.invalid && option === this.signIn) {
       this.toast.fire({
         icon: 'error',
         title: 'Invalid Form',
       });
     }
-      if (
-        option === this.signUp &&
-        this.authForm.value.password === this.authForm.value.password_again &&
-        this.authForm.valid
-      ) {
-        this.authSvc.register(this.authForm.value).then((res: any) => {
-          if (res.email) {
-            this.initForm();
-            this.router.navigate(['/login']);
-          }
-        });
-      } else if (this.authForm.invalid && option === this.signUp) {
-        this.toast.fire({
-          icon: 'error',
-          title: 'Invalid Form',
-        });
-      }
+    if (
+      option === this.signUp &&
+      this.authForm.value.password === this.authForm.value.password_again &&
+      this.authForm.valid
+    ) {
+      console.log('register');
+      this.authSvc.register(this.authForm.value);
+    } else if (this.authForm.invalid && option === this.signUp) {
+      this.toast.fire({
+        icon: 'error',
+        title: 'Invalid Form',
+      });
+    }
   }
 
   private initForm(): void {
@@ -86,6 +108,14 @@ export class FormComponent implements OnInit {
       });
     } else {
       this.authForm = this.fb.group({
+        name: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(/[a-zA-Z]/),
+            Validators.minLength(3),
+          ],
+        ],
         email: ['', [Validators.required, Validators.email]],
         password: [
           '',
