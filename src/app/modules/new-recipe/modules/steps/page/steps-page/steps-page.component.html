@@ -1,4 +1,6 @@
-<p>Crea los pasos detalladamente que tendra la receta:</p>
+<p class="descriptionStep">
+  Crea los pasos detalladamente que tendra la receta:
+</p>
 
 <form [formGroup]="formSteps" (submit)="submit()" class="form">
   <label for="image" class="form-label">Agrega una imagen</label>
@@ -30,15 +32,49 @@
     class="inputDescription"
   ></textarea>
 
-  <!-- <div class="tagContainer">
+  <h2 class="form-label">Ingredientes usados</h2>
+  <div class="tagContainer">
     <input
+      *ngFor="let ingredient of ingredients"
       type="button"
-      value="$"
-      (click)="onChangeOption('price', '$')"
-      [ngClass]="{ activeInput: price === '$' }"
+      value="{{ ingredient }}"
+      (click)="onToggleIngredient(ingredient)"
+      [ngClass]="{ activeInput: usedIngredients.includes(ingredient) }"
     />
-</div> -->
-  <button type="submit" [disabled]="formSteps.invalid" class="nextStep">
-    Siguiente Paso
+  </div>
+
+  <input
+    type="button"
+    value="Agregar paso"
+    class="addStep"
+    (click)="addStep()"
+    [disabled]="formSteps.invalid || !imageSrc || !usedIngredients"
+  />
+
+  <h2 class="form-label" *ngIf="steps.length">Pasos de la receta</h2>
+
+  <div class="stepsContainer">
+    <article
+      class="step"
+      *ngFor="let step of steps; index as i"
+      (click)="onToogleStep(i)"
+      [ngClass]="{ 'active-step': activeSteps.includes(i) }"
+    >
+    <i (click)="deleteStep(i)">x</i>
+      <span>{{ i + 1 }}</span>
+      <h2>Paso {{ i + 1 }}/{{ steps.length }}</h2>
+      <img [src]="step.imagePath" alt="step" />
+      <p class="step-description">{{ step.description }}</p>
+      <p class="step-ingredients">
+        <b>Ingredientes:</b>
+        <span *ngFor="let ingredient of step.ingredients; index as j">
+          {{ j + 1 !== step.ingredients.length ? ingredient + "," : ingredient + "." }}
+        </span>
+      </p>
+    </article>
+  </div>
+
+  <button type="submit" [disabled]="!steps.length" class="nextStep">
+    Publicar receta
   </button>
 </form>

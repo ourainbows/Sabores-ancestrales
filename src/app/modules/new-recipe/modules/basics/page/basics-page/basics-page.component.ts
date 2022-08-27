@@ -24,12 +24,10 @@ export class BasicsPageComponent implements OnInit {
   ngOnInit(): void {
     this.formBasics = this.initForm();
     this.formBasics.patchValue({
-      // image: this.recipeService.newRecipe.imagePath,
       name: this.recipeService.newRecipe.name,
       description: this.recipeService.newRecipe.description,
     });
     this.categories = this.recipeService.newRecipe.tags;
-    console.log(typeof this.recipeService.newRecipe.imagePath);
     if (
       this.recipeService.newRecipe.imagePath &&
       typeof this.recipeService.newRecipe.imagePath == 'object'
@@ -42,7 +40,6 @@ export class BasicsPageComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.formBuilder.group({
-      //image: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
       categories: [''],
@@ -54,7 +51,6 @@ export class BasicsPageComponent implements OnInit {
       ...this.recipeService.newRecipe,
       name: this.formBasics.value.name,
       description: this.formBasics.value.description,
-      //imagePath: this.formBasics.value.image,
       tags: this.categories,
     };
     this.router.navigate(['/new-recipe/extra']);

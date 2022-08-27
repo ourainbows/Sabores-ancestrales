@@ -12,6 +12,10 @@ import { finalize } from 'rxjs';
 export class StepsPageComponent implements OnInit {
   formSteps!: FormGroup;
   imageSrc: string | null | ArrayBuffer = '';
+  ingredients : any[] = [];
+  usedIngredients : any[] = []
+  steps : any[] = [];
+  activeSteps : number[] = [] 
 
   constructor(
     private storage: AngularFireStorage,
@@ -21,6 +25,8 @@ export class StepsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.formSteps = this.initForm();
+    // this.ingredients = this.recipeService.newRecipe.ingredients;
+    this.ingredients = ["manzana", "pera", "uva", "limon", "fresa", "kiwii", "sandia"]; // temporal line
   }
 
   initForm(): FormGroup {
@@ -55,6 +61,39 @@ export class StepsPageComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  onToggleIngredient(ingredientName: string) {
+    if (this.usedIngredients.includes(ingredientName)) {
+      this.usedIngredients = this.usedIngredients.filter(
+        (ingredient) => ingredient !== ingredientName
+      );
+    } else {
+      this.usedIngredients.push(ingredientName);
+    }
+  }
+
+  addStep(){
+    this.steps = [...this.steps, {
+      imagePath : this.imageSrc,
+      description : this.formSteps.value.description,
+      ingredients : this.usedIngredients
+    }];
+    this.formSteps.reset();
+    this.usedIngredients = [];
+    this.imageSrc = '';
+  }
+
+  onToogleStep(stepId: number) {
+    if (this.activeSteps.includes(stepId)) {
+      this.activeSteps = this.activeSteps.filter((step) => step !== stepId);
+    } else {
+      this.activeSteps.push(stepId);
+    }
+  }
+
+  deleteStep(stepId: number){
+    this.steps = this.steps.filter((step, i) => i !== stepId)
   }
 
   submit() {}
