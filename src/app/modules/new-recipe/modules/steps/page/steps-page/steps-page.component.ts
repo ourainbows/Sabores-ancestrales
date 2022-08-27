@@ -17,6 +17,8 @@ export class StepsPageComponent implements OnInit {
   steps : any[] = [];
   activeSteps : number[] = [] 
 
+  userId : number = 1 || localStorage.getItem("userId")
+
   constructor(
     private storage: AngularFireStorage,
     private recipeService: RecipesService,
@@ -27,6 +29,7 @@ export class StepsPageComponent implements OnInit {
     this.formSteps = this.initForm();
     // this.ingredients = this.recipeService.newRecipe.ingredients;
     this.ingredients = ["manzana", "pera", "uva", "limon", "fresa", "kiwii", "sandia"]; // temporal line
+    this.steps = this.recipeService.newRecipe.steps;
   }
 
   initForm(): FormGroup {
@@ -79,6 +82,8 @@ export class StepsPageComponent implements OnInit {
       description : this.formSteps.value.description,
       ingredients : this.usedIngredients
     }];
+    this.recipeService.newRecipe.steps = this.steps;
+
     this.formSteps.reset();
     this.usedIngredients = [];
     this.imageSrc = '';
@@ -94,6 +99,7 @@ export class StepsPageComponent implements OnInit {
 
   deleteStep(stepId: number){
     this.steps = this.steps.filter((step, i) => i !== stepId)
+    this.recipeService.newRecipe.steps = this.steps;
   }
 
   submit() {}
