@@ -12,33 +12,16 @@ export class RecipesService {
   
   newRecipe : newRecipeDTO = {
     name: '',
-    user: {
-      id: 0,
-      name: '',
-      email: '',
-      description: '',
-      photo: '',
-      recipes: {
-        userRecipes: [],
-        likedRecipes: [],
-        savedRecipes: [],
-      },
-      score: 0,
-      savedRecipes: [],
-      isActive: true,
-    },
+    userId:  0,
     description: '',
     imagePath: '',
     likes: [],
-    score: 0,
     time: 0,
     difficulty: '',
     price: '',
     ingredients: [],
     steps: [],
     tags: [],
-    comments: [],
-    recomendations: [],
   };
   
   constructor(private http: HttpClient) {}

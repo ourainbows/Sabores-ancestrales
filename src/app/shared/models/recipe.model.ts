@@ -34,7 +34,7 @@ export interface Recipe {
   description: string;
   imagePath: string;
   likes: number[];
-  score: number; 
+  score: number;
   time: number;
   difficulty: string;
   price: string;
@@ -42,11 +42,16 @@ export interface Recipe {
   steps: Step[];
   tags: Tag[];
   comments: Commentary[];
-  recomendations : cardRecipeDTO[];
+  recomendations: cardRecipeDTO[];
 }
 
-export interface newRecipeDTO extends Omit<Recipe, 'id' | 'tags'> {
+export interface newRecipeDTO
+  extends Omit<
+    Recipe,
+    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score'
+  > {
   tags: string[];
+  userId: number;
 }
 
 export interface cardRecipeDTO
