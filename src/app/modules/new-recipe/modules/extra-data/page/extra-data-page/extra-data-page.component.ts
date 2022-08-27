@@ -86,7 +86,6 @@ export class ExtraDataPageComponent implements OnInit {
       price: this.formExtra.value.price,
       ingredients: this.ingredients,
     };
-    console.log(this.recipeService.newRecipe);
     this.router.navigate(['/new-recipe/steps']);
   }
 }

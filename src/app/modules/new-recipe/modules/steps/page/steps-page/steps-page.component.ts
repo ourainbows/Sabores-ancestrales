@@ -12,6 +12,7 @@ import { finalize } from 'rxjs';
 export class StepsPageComponent implements OnInit {
   formSteps!: FormGroup;
   imageSrc: string | null | ArrayBuffer = '';
+  urlImageFb: string = '';
   ingredients : any[] = [];
   usedIngredients : any[] = []
   steps : any[] = [];
@@ -28,7 +29,6 @@ export class StepsPageComponent implements OnInit {
   ngOnInit(): void {
     this.formSteps = this.initForm();
     this.ingredients = this.recipeService.newRecipe.ingredients.map(ingredient => ingredient.name);
-    // this.ingredients = ["manzana", "pera", "uva", "limon", "fresa", "kiwii", "sandia"]; // temporal line
     this.steps = this.recipeService.newRecipe.steps;
   }
 
@@ -59,7 +59,7 @@ export class StepsPageComponent implements OnInit {
       .pipe(
         finalize(() => {
           storageRef.getDownloadURL().subscribe((downloadURL) => {
-            console.log(downloadURL);
+           this.urlImageFb = downloadURL;
           });
         })
       )
@@ -103,6 +103,20 @@ export class StepsPageComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.recipeService.newRecipe);
+    this.uploadImage(this.recipeService.newRecipe.imagePath);
+    this.recipeService.newRecipe.imagePath = this.urlImageFb;
+
+    this.recipeService.newRecipe.steps = this.recipeService.newRecipe.steps.map((step, i) => {
+      this.uploadImage(step.imagePath);
+      return {
+        ...step,
+        imagePath : this.urlImageFb
+      }
+    })
   }
+  
+  showRecipe(){
+    console.log(this.recipeService.newRecipe)
+  }
+  
 }

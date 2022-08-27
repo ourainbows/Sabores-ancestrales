@@ -75,7 +75,6 @@ export class BasicsPageComponent implements OnInit {
   }
 
   addCategory = () => {
-    console.log(this.formBasics.value.categories)
     this.categories.push(this.formBasics.value.categories);
     this.formBasics.controls['categories'].setValue(' ');
   };
