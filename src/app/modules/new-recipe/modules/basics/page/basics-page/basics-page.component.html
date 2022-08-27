@@ -45,6 +45,7 @@
       id="categories"
       formControlName="categories"
       placeholder="Desayuno, postre, saludable..."
+      (keydown.enter)="$event.preventDefault()"
     />
     <input
       type="button"

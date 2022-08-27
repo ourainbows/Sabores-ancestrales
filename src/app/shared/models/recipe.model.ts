@@ -34,7 +34,7 @@ export interface Recipe {
   description: string;
   imagePath: string;
   likes: number[];
-  score: number;
+  score: number; 
   time: number;
   difficulty: string;
   price: string;

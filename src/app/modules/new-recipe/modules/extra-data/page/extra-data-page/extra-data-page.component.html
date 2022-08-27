@@ -67,7 +67,12 @@
   <div class="ingredientInfoContainer">
     <div>
       <label for="quantity">Cantidad</label>
-      <input type="number" id="quantity" formControlName="ingredientQuantity" />
+      <input
+        type="number"
+        id="quantity"
+        formControlName="ingredientQuantity"
+        (keydown.enter)="$event.preventDefault()"
+      />
     </div>
     <div>
       <label for="measure">Medida</label>
@@ -89,12 +94,22 @@
 
   <label for="ingredient" class="ingredientLabel">Ingrediente</label>
   <div class="ingredienContainer">
-    <input type="text" id="ingredient" formControlName="ingredientName" />
+    <input
+      type="text"
+      id="ingredient"
+      formControlName="ingredientName"
+      (keydown.enter)="$event.preventDefault()"
+    />
     <input
       type="button"
       value="+"
       (click)="addIngredient()"
-      [disabled]="!formExtra.value.ingredientQuantity || !formExtra.value.ingredientName || !formExtra.value.ingredientUnit"
+      (keydown.enter)="addIngredient()"
+      [disabled]="
+        !formExtra.value.ingredientQuantity ||
+        !formExtra.value.ingredientName ||
+        !formExtra.value.ingredientUnit
+      "
     />
   </div>
 

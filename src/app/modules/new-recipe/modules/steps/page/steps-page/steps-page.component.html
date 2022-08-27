@@ -68,7 +68,7 @@
       <p class="step-ingredients">
         <b>Ingredientes:</b>
         <span *ngFor="let ingredient of step.ingredients; index as j">
-          {{ j + 1 !== step.ingredients.length ? ingredient + "," : ingredient + "." }}
+          {{ j + 1 !== step.ingredients.length ? ingredient.name + "," : ingredient.name + "." }}
         </span>
       </p>
     </article>
