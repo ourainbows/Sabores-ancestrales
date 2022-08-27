@@ -50,3 +50,10 @@ h4 {
 .user-Summary-Container h4 {
     font-size: 1.5rem;
 }
+
+@media (max-width: 367px) {
+    .user-description-container {
+        max-width: 367px;
+        min-width: 367px;
+    }
+}

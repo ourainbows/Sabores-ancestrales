@@ -68,3 +68,10 @@ nav {
   }
 
 }
+
+@media (max-width: 367px) {
+  nav {
+      max-width: 367px;
+      min-width: 367px;
+  }
+}

@@ -41,4 +41,11 @@
     margin: 0 0.5rem 0 0.5rem;
 }
 
+@media (max-width: 368px) {
+    .copyrightContainer {
+        max-width: 368px;
+        min-width: 368px;
+    }
+}
+
 

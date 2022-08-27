@@ -1,10 +1,8 @@
 @import "../../../../../styles.scss";
 
-.statistics-container {
+.statistic-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  width: 100%;
 }
 
 .line1 {
@@ -29,7 +27,7 @@
 
 p {
   color: $secundary-text-color;
-  font-size:large;
+  font-size: large;
 }
 
 .statistic-counter {
@@ -45,4 +43,13 @@ p {
   margin: 3rem;
 }
 
+@media (max-width: 368px) {
+  .statistics-container {
+    max-width: 368px;
+    min-width: 368px;
+  }
 
+  .line2 {
+    margin: 1.8rem;
+  }
+}

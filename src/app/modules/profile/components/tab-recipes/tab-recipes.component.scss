@@ -75,3 +75,10 @@
     opacity: 1;
     transition: all 0.35s;
   }
+
+  @media (max-width: 367px) {
+    .wrapper {
+        max-width: 367px;
+        min-width: 367px;
+    }
+}
