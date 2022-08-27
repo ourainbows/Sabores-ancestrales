@@ -51,6 +51,7 @@
     [disabled]="formSteps.invalid || !imageSrc || !usedIngredients"
   />
 
+
   <h2 class="form-label" *ngIf="steps.length">Pasos de la receta</h2>
 
   <div class="stepsContainer">
@@ -68,7 +69,7 @@
       <p class="step-ingredients">
         <b>Ingredientes:</b>
         <span *ngFor="let ingredient of step.ingredients; index as j">
-          {{ j + 1 !== step.ingredients.length ? ingredient.name + "," : ingredient.name + "." }}
+          {{ j + 1 !== step.ingredients.length ? ingredient + "," : ingredient + "." }}
         </span>
       </p>
     </article>

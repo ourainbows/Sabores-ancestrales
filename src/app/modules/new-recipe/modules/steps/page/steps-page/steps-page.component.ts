@@ -27,7 +27,7 @@ export class StepsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.formSteps = this.initForm();
-    this.ingredients = this.recipeService.newRecipe.ingredients;
+    this.ingredients = this.recipeService.newRecipe.ingredients.map(ingredient => ingredient.name);
     // this.ingredients = ["manzana", "pera", "uva", "limon", "fresa", "kiwii", "sandia"]; // temporal line
     this.steps = this.recipeService.newRecipe.steps;
   }
