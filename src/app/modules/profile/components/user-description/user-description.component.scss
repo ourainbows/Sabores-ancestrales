@@ -28,12 +28,12 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 175px;
-    width: 200px;
-    background-color: black;
+    height: 17.5rem;
+    width: 17.5rem;
+    background-color: $secundary-text-color;
     overflow: hidden;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: $border-radius;
 }
 
 .userDescription {
@@ -43,10 +43,11 @@ h4 {
 }
 
 .user-Summary-Container {
-    align-items: center;
+    display: flex;
     justify-content: center;
-}
-
-.user-Summary-Container h4 {
-    font-size: 1.5rem;
+    align-items: center;
+    text-align: center;
+    margin: 0 1.6rem;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
 }
