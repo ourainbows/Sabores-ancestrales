@@ -26,6 +26,10 @@
   p {
     font-size: 18px;
     padding-left: 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80%;
+    white-space: nowrap;
   }
   div {
     display: flex;
