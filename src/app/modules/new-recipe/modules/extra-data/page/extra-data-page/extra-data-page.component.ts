@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ExtraDataPageComponent implements OnInit {
   formExtra!: FormGroup;
   ingredients: any = [];
+  tools: any = [];
   price = '';
   difficulty = '';
 
@@ -28,6 +29,7 @@ export class ExtraDataPageComponent implements OnInit {
       difficulty: this.recipeService.newRecipe.difficulty,
       price: this.recipeService.newRecipe.price,
     });
+    this.tools = this.recipeService.newRecipe.tools;
     this.ingredients = this.recipeService.newRecipe.ingredients;
     this.price = this.recipeService.newRecipe.price;
     this.difficulty = this.recipeService.newRecipe.difficulty;
@@ -42,8 +44,19 @@ export class ExtraDataPageComponent implements OnInit {
       ingredientQuantity: [''],
       ingredientName: [''],
       ingredientUnit: [''],
+      tool: [''],
     });
   }
+
+  addTools = () => {
+    this.tools.push(this.formExtra.value.tool);
+    this.formExtra.controls['tool'].setValue(' ');
+  };
+
+  deleteTag = (tag: any) => {
+    this.tools = this.tools.filter((item : any) => item !== tag);
+  };
+
 
   addIngredient() {
     this.ingredients.push({
@@ -84,6 +97,7 @@ export class ExtraDataPageComponent implements OnInit {
       time: this.formExtra.value.hours * 60 + this.formExtra.value.minutes,
       difficulty: this.formExtra.value.difficulty,
       price: this.formExtra.value.price,
+      tools: this.tools,
       ingredients: this.ingredients,
     };
     this.router.navigate(['/new-recipe/steps']);

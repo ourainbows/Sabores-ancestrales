@@ -49,11 +49,12 @@ export interface Recipe {
 export interface newRecipeDTO
   extends Omit<
     Recipe,
-    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score' | 'steps'
+    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score' | 'steps' 
   > {
   tags: string[];
   userId: number;
-  steps: any[]
+  steps: any[],
+  tools: string[];
 }
 
 export interface cardRecipeDTO

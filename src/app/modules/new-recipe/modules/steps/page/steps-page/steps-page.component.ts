@@ -132,6 +132,7 @@ export class StepsPageComponent implements OnInit {
                   ingredients: [],
                   steps: [],
                   tags: [],
+                  tools: [],
                 };
                 this.router.navigate(['/']);
               });

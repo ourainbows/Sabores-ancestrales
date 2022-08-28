@@ -63,6 +63,31 @@
     />
   </div>
 
+  <label for="tool" class="subtitle"
+    >Agrega utensilios a la receta</label
+  >
+  <div class="tagInputContainer">
+    <input
+      type="text"
+      id="tool"
+      formControlName="tool"
+      placeholder="Sarten, batidora, olla presion..."
+      (keydown.enter)="$event.preventDefault()"
+    />
+    <input
+      type="button"
+      value="+"
+      (click)="addTools()"
+      [disabled]="!formExtra.value.tool"
+    />
+  </div>
+
+  <div class="tagsContainer">
+    <p (click)="deleteTag(tool)" *ngFor="let tool of tools">
+      {{ tool }}
+    </p>
+  </div>
+
   <h2 class="subtitle">Agregar ingredientes</h2>
   <div class="ingredientInfoContainer">
     <div>

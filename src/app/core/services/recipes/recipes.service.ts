@@ -22,6 +22,7 @@ export class RecipesService {
     ingredients: [],
     steps: [],
     tags: [],
+    tools: [],
   };
   
   constructor(private http: HttpClient) {}
