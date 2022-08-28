@@ -13,8 +13,7 @@ import { last, map, mergeMap, Observable } from 'rxjs';
 export class StepsPageComponent implements OnInit {
   formSteps!: FormGroup;
   imageSrc: string | null | ArrayBuffer = '';
-  urlImageFb: string = '';
-  fileImg : any
+  fileImg: any;
   ingredients: any[] = [];
   usedIngredients: any[] = [];
   steps: any[] = [];
@@ -110,27 +109,37 @@ export class StepsPageComponent implements OnInit {
   }
 
   submit() {
-    // console.log(this.recipeService.newRecipe.imagePath);
-    this.uploadImage(this.recipeService.newRecipe.imagePath).subscribe(
-      (url) => {
+    this.uploadImage(this.recipeService.newRecipe.imagePath).subscribe({
+      next: (url) => {
         this.recipeService.newRecipe.imagePath = url;
-      }
-    );
-
-    this.recipeService.newRecipe.steps = this.recipeService.newRecipe.steps.map((step) => {
-      console.log(step.imagePath);
-      return {
-        ...step,
-        imagePath: this.uploadImage(step.imagePath).subscribe(
-          (urlStep) => urlStep
-        ),
-      };
+      },
+      complete: () => {
+        this.recipeService.newRecipe.steps.forEach((step, i) => {
+          delete step.imagePreview;
+          this.uploadImage(step.imagePath).subscribe((url) => {
+            this.recipeService.newRecipe.steps[i].imagePath = url;
+            if (i === this.recipeService.newRecipe.steps.length - 1) {
+              this.recipeService.createRecipe().subscribe((createdRecipe) => {
+                this.recipeService.newRecipe = {
+                  name: '',
+                  userId: 0,
+                  description: '',
+                  imagePath: '',
+                  likes: [],
+                  time: 0,
+                  difficulty: '',
+                  price: '',
+                  ingredients: [],
+                  steps: [],
+                  tags: [],
+                };
+                this.router.navigate(['/']);
+              });
+            }
+          });
+        });
+      },
     });
-
-    // this.recipeService.createRecipe().subscribe((recipe) => {
-    //   console.log(recipe);
-    //   this.router.navigate(['/']);
-    // });
   }
 
   showRecipe() {
