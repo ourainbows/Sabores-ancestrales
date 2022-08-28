@@ -35,6 +35,15 @@ nav {
     width: 150px;
   }
 
+  a{
+    padding: .4rem 2rem;
+    text-decoration: none;
+    color: $button-text-color;
+    background-color: $main-color;
+    border-radius: $border-radius;
+    font-size: 1.6rem;
+  }
+
   .profile {
     // background-color: rgb(235, 235, 235);
 

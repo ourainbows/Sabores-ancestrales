@@ -6,14 +6,11 @@
   <div role="navigation" class="primary-navigation">
     <span>
 
-      <div class="profile dropdownImg">
+      <div class="profile dropdownImg"  *ngIf="(user$ | async)">
         <img [src]="userImg" alt="Imagen del usuario" />
       </div>
-      <ng-container class="dropdown" *ngIf="(user$ | async) === false; else logOutTemplate">
-        <ul>
-          <li [routerLink]="['/login']">Iniciar sesión</li>
-          <li [routerLink]="['/register']">Registrarse</li>
-        </ul>
+      <ng-container *ngIf="(user$ | async) === false; else logOutTemplate">
+          <a [routerLink]="['/register']" class="sign">Ingresar</a>
       </ng-container>
       <ng-template class="dropdown" #logOutTemplate>
         <ul>
