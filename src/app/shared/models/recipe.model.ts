@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { CardUserDTO } from './user.model';
 
 export interface Ingredient {
@@ -9,7 +10,7 @@ export interface Ingredient {
 }
 export interface Step {
   id: number;
-  imagePath?: string;
+  imagePath?: string | Subscription;
   description: string;
   ingredients: Ingredient[];
 }

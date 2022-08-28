@@ -83,7 +83,7 @@ form textarea {
   padding: 0.4rem 1rem;
   border-radius: $border-radius;
   font-size: 1.6rem;
-  width: 8rem;
+  min-width: 8rem;
 }
 .tagContainer .activeInput {
   background: $main-color;
