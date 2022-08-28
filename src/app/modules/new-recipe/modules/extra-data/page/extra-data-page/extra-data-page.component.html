@@ -95,6 +95,7 @@
       <input
         type="number"
         id="quantity"
+        min="1"
         formControlName="ingredientQuantity"
         (keydown.enter)="$event.preventDefault()"
       />
@@ -143,13 +144,18 @@
   </h2>
   <ul *ngIf="ingredients.length" class="ingredientList">
     <li *ngFor="let ingredient of ingredients">
-      <p *ngIf="ingredient.unit" class="ingredient">
+      <p *ngIf="ingredient.unit.trim()" class="ingredient">
         {{
           ingredient.quantity + " " + ingredient.unit + " de " + ingredient.name
         }}
       </p>
-      <p *ngIf="!ingredient.unit" class="ingredient">
-        {{ ingredient.quantity + " " + ingredient.name }}
+      <p *ngIf="!ingredient.unit.trim()" class="ingredient">
+        <ng-container *ngIf="ingredient.quantity == 1; else plural">
+          {{ ingredient.quantity + " " + ingredient.name }}
+        </ng-container>
+        <ng-template #plural>
+          {{ ingredient.quantity + " " + ingredient.name + "s"}}
+        </ng-template>
       </p>
 
       <p class="deleteIngredient" (click)="deleteIngredient(ingredient.name)">
