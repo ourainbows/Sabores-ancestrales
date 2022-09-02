@@ -1,6 +1,3 @@
-import { Recipe } from './recipe.model';
-
-
 export interface Information {
   id_User: number;
   userPhoto?: string;
@@ -19,7 +16,16 @@ export interface Information {
 //   informations: Information[];
 // }
 
-export interface CardUserDTO extends Omit<User, "userDescription" | "NoUserRecipes" | "score" | "SavedRecipes" | "recipes" | "informations" >{} 
+export interface CardUserDTO
+  extends Omit<
+    User,
+    | 'userDescription'
+    | 'NoUserRecipes'
+    | 'score'
+    | 'SavedRecipes'
+    | 'recipes'
+    | 'informations'
+  > {}
 export interface User {
   id: number;
   name: string;
@@ -27,12 +33,29 @@ export interface User {
   description?: string;
   photo?: string;
   recipes: {
-    userRecipes: number[],
-    likedRecipes: number[],
-    savedRecipes: number[],
+    userRecipes: number[];
+    likedRecipes: number[];
+    savedRecipes: number[];
   };
   score?: number;
   savedRecipes?: number[];
+  isActive?: boolean;
 }
 
-export interface CardUserDTO extends Omit<User, "email" | "description" | "recipes" | "score" | "savedRecipes">{}
+export interface CardUserDTO
+  extends Omit<
+    User,
+    'email' | 'description' | 'recipes' | 'score' | 'savedRecipes'
+  > {}
+
+ export interface UserLogin {
+  email: string;
+  password: string;
+  token?: string;
+}
+export interface UserRegister {
+  name: string;
+  email: string;
+  password: string;
+}
+

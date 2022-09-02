@@ -1,7 +1,22 @@
 <div class="">
   <form (ngSubmit)="onSubmit(options.id)" [formGroup]="authForm" class="formAuth">
     <div class="contImg">
-      <img src="../../../../assets/images/imgAuth.png"/>
+      <img src="../../../../assets/images/imgAuth.png" />
+    </div>
+    <!-- Validators Name -->
+    <div
+      *ngIf="authForm.get('name')?.hasError('required') && (authForm.get('name')?.touched || authForm.get('name')?.dirty)"
+      class="form-group">
+      <small *ngIf="authForm.get('name')?.hasError('required')" class="validator">El nombre es requerido</small>
+    </div>
+    <small *ngIf="authForm.get('name')?.hasError('minlength')" class="text-danger">
+      El nombre debe ser mayor a 2 caracteres.
+    </small>
+    <!--Name-->
+    <div *ngIf="options.id === signUp" class="inputAuth">
+      <label for="name">Nombre de usuario</label>
+      <input type="text" class="form-control shadow-none border-0 border-bottom bg-transparent" id="name"
+        formControlName="name" placeholder="Nombre de usuario">
     </div>
     <!-- Validators email -->
     <div
@@ -38,8 +53,7 @@
         required="">
     </div>
     <!-- Validators password confirm -->
-    <small
-      *ngIf="authForm.get('password_again')?.value !== authForm.get('password')?.value && options.id === 'register'"
+    <small *ngIf="authForm.get('password_again')?.value !== authForm.get('password')?.value && options.id === signUp"
       class="validator">Las contraseñas no conciden</small>
 
     <!-- Password confirm input -->
@@ -52,6 +66,16 @@
     <div *ngIf="options.id === signIn" class="linkAuth">
       <a href="#" class=""> &nbsp; ¿Olvidaste tu contraseña?</a>
     </div>
+    <div class="lines">
+      <hr class="">
+      <div class="">
+        <p class="">O</p>
+      </div>
+      <hr class="">
+    </div>
+    <button type="button" (click)="onGoogleForm()" class="buttonGoogle">
+      <img src="../../../../assets/images/googleIcon.png" alt=""> &nbsp; Google
+    </button>
     <div class="linkAuth">
       <ng-container *ngIf="options.id === signIn; else showSignTemplate">
         ¿No estas registrado? <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="">¡Crear

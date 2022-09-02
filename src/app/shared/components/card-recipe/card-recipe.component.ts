@@ -1,6 +1,6 @@
 import { RecipesService } from '../../../core/services/recipes/recipes.service'
 import { Component, Input, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/core/services/users.service';
+import { UsersService } from 'src/app/core/services/users/users.service';
 import { cardRecipeDTO, Recipe } from '../../models/recipe.model';
 import { User } from '../../models/user.model';
 
@@ -25,7 +25,6 @@ export class CardRecipeComponent implements OnInit {
       savedRecipes: [],
     },
     score: 0,
-    savedRecipes: []
   };
 
   constructor(private usersService: UsersService) { }

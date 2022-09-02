@@ -1,6 +1,6 @@
 import { Recipe } from './../../../../shared/models/recipe.model';
 import { Component, Input, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/core/services/users.service';
+import { UsersService } from 'src/app/core/services/users/users.service';
 import { User } from 'src/app/shared/models/user.model';
 import { ClipboardService } from 'ngx-clipboard';
 
@@ -29,7 +29,6 @@ export class TitleComponent implements OnInit {
       savedRecipes: [],
     },
     score: 0,
-    savedRecipes: []
   };
 
   constructor(private  usersService: UsersService, private clipboardApi: ClipboardService,) {}

@@ -9,6 +9,7 @@ import { NewRecipeRoutingModule } from './new-recipe-routing.module';
   imports: [
     CommonModule,
     NewRecipeRoutingModule
+    
   ]
 })
 export class NewRecipeModule { }
