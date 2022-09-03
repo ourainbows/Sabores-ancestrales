@@ -15,7 +15,9 @@
     text-decoration: line-through;
   }
 }
-
+.ingredient-container label{
+  text-transform: lowercase;
+}
 .ingredient-container input {
   height: 1.4rem;
   width: 1.4rem;

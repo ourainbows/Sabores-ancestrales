@@ -59,12 +59,12 @@
 }
 
 .lines{
-  @include flex();
-  flex-direction: row;
+  // @include flex();
+  // flex-direction: row;
   width: 100%;
-  justify-content: space-between;
+  // justify-content: space-between;
   hr{
-    width: 45%;
+    // width: 45%;
     border: 0.5px solid $line-color;
   }
 }
@@ -75,10 +75,14 @@
   color: black;
   background-color: transparent;
   border: transparent;
-  font-weight: bold;
   cursor: pointer;
+  border: 1px solid #a2a2a0;
+  padding: 1rem;
+  width: 100%;
+  font-size: $font-text;
+  border-radius: $border-radius;
   img{
-    width: 30px;
+    width: 25px;
   }
 }
 
@@ -88,6 +92,7 @@
   a {
     text-decoration: none;
     color: $main-color;
+    font-weight: 600;
   }
 
 }

@@ -40,6 +40,7 @@
     span{
       color: $main-color;
       font-size: 18px;
+      margin-right: .4rem;
     }
   }
 }
@@ -57,7 +58,7 @@
     @include flex();
     .iconTime{
       color: $secundary-text-color;
-      margin-right: 0.5rem;
+      margin-right: 0.4rem;
     }
   }
   .favorite{
