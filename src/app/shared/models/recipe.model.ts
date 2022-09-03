@@ -37,6 +37,7 @@ export interface Recipe {
   likes: number[];
   score: number;
   time: number;
+  tools: string[];
   difficulty: string;
   price: string;
   ingredients: Ingredient[];

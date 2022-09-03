@@ -94,6 +94,7 @@
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
+      "tools": ["sarten", "olla", "cuchara"],
       "ingredients": [
         {
           "id": 1,

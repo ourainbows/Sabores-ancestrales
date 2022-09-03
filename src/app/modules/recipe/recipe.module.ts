@@ -17,6 +17,7 @@ import { CommentaryComponent } from './components/commentary/commentary.componen
 import { MatIconModule } from '@angular/material/icon';
 import { CommentsSectionComponent } from './components/comments-section/comments-section.component';
 import { FormsModule } from '@angular/forms';
+import { ToolsComponent } from './components/tools/tools.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     CommentsComponent,
     CommentaryComponent,
     CommentsSectionComponent,
+    ToolsComponent,
   ],
   imports: [CommonModule, RecipeRoutingModule, CoreModule, SharedModule, MatIconModule, FormsModule],
 })
