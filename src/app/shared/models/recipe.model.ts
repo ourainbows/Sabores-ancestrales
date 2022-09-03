@@ -49,7 +49,7 @@ export interface Recipe {
 export interface newRecipeDTO
   extends Omit<
     Recipe,
-    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score' | 'steps' 
+    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score' | 'steps' | 'likes'
   > {
   tags: string[];
   userId: number;

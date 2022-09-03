@@ -13,5 +13,9 @@
         <label for="tab-3" class="tab-label">Me gusta</label>
       </div>
     </div>
-    <div class="tab-content"><app-card-recipe [recipe]="card" *ngFor="let card of recipes" [cardMargin]="'0'"></app-card-recipe></div>
+    <div class="tab-content">
+      <div class="card-container" *ngFor="let card of recipes">
+        <app-card-recipe [recipe]="card" [cardMargin]="'0'"></app-card-recipe>
+      </div>
+    </div>
   </div>

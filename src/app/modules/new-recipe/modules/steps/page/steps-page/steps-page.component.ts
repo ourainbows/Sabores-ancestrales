@@ -69,6 +69,7 @@ export class StepsPageComponent implements OnInit {
     this.steps = [
       ...this.steps,
       {
+        stepNumber: this.steps.length + 1,
         imagePreview: this.imageSrc,
         imagePath: this.fileImg,
         description: this.formSteps.value.description,
@@ -125,7 +126,6 @@ export class StepsPageComponent implements OnInit {
                   userId: 0,
                   description: '',
                   imagePath: '',
-                  likes: [],
                   time: 0,
                   difficulty: '',
                   price: '',
@@ -134,7 +134,8 @@ export class StepsPageComponent implements OnInit {
                   tags: [],
                   tools: [],
                 };
-                this.router.navigate(['/']);
+                // this.router.navigate(['/']);
+                console.log(createdRecipe);
               });
             }
           });

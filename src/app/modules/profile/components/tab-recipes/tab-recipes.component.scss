@@ -1,42 +1,41 @@
 @import "../../../../../styles.scss";
-  .wrapper {
-    margin: 1rem auto 2rem;
-  }
-  .tabs {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-  .tab-switch {
-    display: none;
-  }
-  .tab-label {
-    display: block;
-    font-size: $font-text;
-    padding: 1rem;
-    color: $secundary-text-color;
-    cursor: pointer;
-    transition: all 0.25s;
-  }
-  .tab-content {
-    display: flex;
-    margin: 0 1.6rem;
-    gap: 1.3rem;
-  }
+.wrapper {
+  margin: 1rem auto 2rem;
+}
+.tabs {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.tab-switch {
+  display: none;
+}
+.tab-label {
+  display: block;
+  font-size: $font-text;
+  padding: 1rem;
+  color: $secundary-text-color;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.tab-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1.6rem;
+  gap: 1.3rem;
+}
 
-  .tab-switch:checked + .tab-label {
-    background: #fff;
-    color:$main-color;
-    border-bottom: 0;
-    border-right: 0.125rem solid #fff;
-    transition: all 0.35s;
-    z-index: 1;
-    top: -0.0625rem;
-    text-decoration: underline;
-  }
-  // .tab-switch:checked + label + .tab-content {
-  //   z-index: 2;
-  //   opacity: 1;
-  //   transition: all 0.35s;
-  // }
+.tab-switch:checked + .tab-label {
+  background: #fff;
+  color: $main-color;
+  border-bottom: 0;
+  border-right: 0.125rem solid #fff;
+  transition: all 0.35s;
+  z-index: 1;
+  top: -0.0625rem;
+  text-decoration: underline;
+}
+.card-container {
+ width: 47%; 
+}

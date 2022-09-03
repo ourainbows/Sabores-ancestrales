@@ -15,7 +15,6 @@ export class RecipesService {
     userId:  0,
     description: '',
     imagePath: '',
-    likes: [],
     time: 0,
     difficulty: '',
     price: '',
