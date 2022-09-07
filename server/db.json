@@ -87,9 +87,9 @@
         "name": "Chef John Doe",
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
-      "score": 2,
+      "score": 3.5,
       "scoreCount": [
-        1
+        
       ],
       "time": 33,
       "difficulty": "Dificil",

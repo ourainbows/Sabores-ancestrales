@@ -1,6 +1,8 @@
-<div *ngIf="show" id="open-modal" class="modal-window">
-  <div>
-    <div class="contButton"><button class="close" (click)="closeModal(show)"><mat-icon>close</mat-icon></button></div>
-    <div class="content"><ng-content></ng-content></div>
+<div class="modal-container" *ngIf="show" (click)="closeModal(show)">
+  <div class="modal-window" (click)="$event.stopPropagation()">
+    <div>
+      <div class="contButton"><button class="close" (click)="closeModal(show)"><mat-icon>close</mat-icon></button></div>
+      <div class="content"><ng-content></ng-content></div>
+    </div>
   </div>
 </div>
