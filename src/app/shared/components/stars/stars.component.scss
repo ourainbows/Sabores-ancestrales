@@ -10,7 +10,6 @@ fieldset {
 .formRate{
   @include flex();
   flex-direction: column;
-
 }
 .rate {
   display: flex;
@@ -21,7 +20,7 @@ fieldset {
   background-color: $button-background-color;
   border: none;
   padding: 0.5rem 0.5rem;
-  margin: 0 2rem;
+  margin-bottom: 0.4rem;
   cursor: pointer;
 }
 
@@ -30,6 +29,8 @@ fieldset {
 .rating {
   border: none;
   float: left;
+  
+  margin: 1rem 2rem 1rem;
 }
 
 .rating>input {

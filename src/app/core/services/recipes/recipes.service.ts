@@ -9,10 +9,11 @@ import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
 })
 export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
-  
-  newRecipe : newRecipeDTO = {
+  userId = 1; // provisional UserId
+
+  newRecipe: newRecipeDTO = {
     name: '',
-    userId:  0,
+    userId: 0,
     description: '',
     imagePath: '',
     time: 0,
@@ -23,18 +24,22 @@ export class RecipesService {
     tags: [],
     tools: [],
   };
-  
+
   constructor(private http: HttpClient) {}
 
   getRecipes(offset = 0, limit = 10): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(`${this.apiUrl}?limit=${limit}&offset=${offset}`);
+    return this.http.get<Recipe[]>(
+      `${this.apiUrl}?limit=${limit}&offset=${offset}`
+    );
   }
-  updateLikesRecipe(id:number, likes : number[]): Observable<Recipe> {
+  updateScore(id: number, score: any): Observable<Recipe> {
+    return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, score);
+  }
+
+  updateLikesRecipe(id: number, likes: number[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { likes });
   }
-  updateScoreRecipe(id:number, score : number): Observable<Recipe> {
-    return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { score });
-  }
+
   getRecipeById(id: string): Observable<Recipe> {
     return this.http.get<Recipe>(`${this.apiUrl}/${id}`).pipe(
       map((recipe) => {
@@ -57,11 +62,16 @@ export class RecipesService {
   deleteRecipe(id: number | string | null): Observable<Recipe> {
     return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
   }
-  deleteComment(id: number | string | null, idComment: number | string | null): Observable<Recipe> {
-    return this.http.delete<Recipe>(`${this.apiUrl}/${id}/comment/${idComment}`);
+  deleteComment(
+    id: number | string | null,
+    idComment: number | string | null
+  ): Observable<Recipe> {
+    return this.http.delete<Recipe>(
+      `${this.apiUrl}/${id}/comment/${idComment}`
+    );
   }
 
-  createRecipe() : Observable<Recipe> {
+  createRecipe(): Observable<Recipe> {
     return this.http.post<Recipe>(this.apiUrl, this.newRecipe);
   }
 }

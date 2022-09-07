@@ -34,8 +34,8 @@ export interface Recipe {
   user: CardUserDTO | any;
   description: string;
   imagePath: string;
-  likes: number[];
   score: number;
+  scoreCount: any[];
   time: number;
   tools: string[];
   difficulty: string;
@@ -50,7 +50,7 @@ export interface Recipe {
 export interface newRecipeDTO
   extends Omit<
     Recipe,
-    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score' | 'steps' | 'likes'
+    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score' | 'steps' | 'likes' | 'scoreCount'
   > {
   tags: string[];
   userId: number;

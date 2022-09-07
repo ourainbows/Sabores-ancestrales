@@ -6,10 +6,10 @@
       <app-score class="stars" [score]="score"></app-score>
     </div>
 
-    <button (click)="openModal(show)" class="rate">Calificar</button>
+    <button (click)="openModal(show)" class="rate" *ngIf="!scoreCount.includes(this.user.id)">Calificar</button>
     <app-modal [show]="show">
       <h3>Califica la receta</h3>
-      <app-stars class="score" (showModal)="show = $event" [id]="id" [score]="score"></app-stars>
+      <app-stars class="score" (showModal)="show = $event" [id]="id" [scoreCount]="scoreCount" [score]="score"></app-stars>
     </app-modal>
   </div>
   <div class="actions">

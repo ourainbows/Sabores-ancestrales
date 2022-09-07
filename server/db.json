@@ -87,10 +87,10 @@
         "name": "Chef John Doe",
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
-      "likes": [
+      "score": 2,
+      "scoreCount": [
         1
       ],
-      "score": 3.5,
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -384,10 +384,14 @@
         "name": "Chef John Doe",
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
-      "likes": [
-        1
-      ],
       "score": 3.5,
+      "scoreCount": [
+        1,
+        2,
+        "idUser",
+        4,
+        5
+      ],
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -605,183 +609,6 @@
           ]
         }
       ]
-    },
-    {
-      "name": "La sazon de marianita",
-      "userId": 0,
-      "description": "dsada",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2FCaptura%20de%20Pantalla%202022-08-19%20a%20la(s)%2012.39.31%20a.m..png-0.32870772018635575?alt=media&token=80307fe6-8f10-464a-ab33-c6c8b3266546",
-      "likes": [],
-      "time": 150,
-      "difficulty": "medio",
-      "price": "$$$$",
-      "ingredients": [
-        {
-          "quantity": 1,
-          "name": "fresas",
-          "unit": "lata"
-        },
-        {
-          "quantity": 2,
-          "name": "azucar",
-          "unit": "gr"
-        },
-        {
-          "quantity": 1,
-          "name": "sandia",
-          "unit": " "
-        }
-      ],
-      "steps": [
-        {
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2FCaptura%20de%20Pantalla%202022-07-31%20a%20la(s)%2010.25.32%20p.m..png-0.3783191243607218?alt=media&token=c3595ed3-0237-495e-8066-8ab3a8d7a5fa",
-          "description": "dsdsfsfsd",
-          "ingredients": [
-            "fresas",
-            "azucar"
-          ]
-        }
-      ],
-      "tags": [
-        " postre"
-      ],
-      "tools": [
-        " sarten"
-      ],
-      "id": 3
-    },
-    {
-      "name": "La sazon de marianita",
-      "userId": 0,
-      "description": "Esta es la descripcion de la receta de marianita",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Frecetas-frias-veganas_0de24069_1200x630.jpeg-0.9986080043246526?alt=media&token=23ff0155-f4c4-4a49-8548-e0a19bd1e7a9",
-      "likes": [],
-      "time": 150,
-      "difficulty": "facil",
-      "price": "$$-$$$",
-      "ingredients": [
-        {
-          "quantity": 1,
-          "name": "azucar",
-          "unit": "mg"
-        },
-        {
-          "quantity": 1,
-          "name": "agua",
-          "unit": "L"
-        },
-        {
-          "quantity": 5,
-          "name": "arroz",
-          "unit": "cucharada"
-        },
-        {
-          "quantity": 3,
-          "name": "atun",
-          "unit": "lata"
-        }
-      ],
-      "steps": [
-        {
-          "imagePath": {},
-          "description": "cortar y pelar el agua",
-          "ingredients": [
-            "agua",
-            "arroz"
-          ]
-        },
-        {
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.9254150398178713?alt=media&token=254be81f-9fb6-46be-9384-8827a13eb02f",
-          "description": "batir el atun en azucar",
-          "ingredients": [
-            "agua",
-            "azucar",
-            "atun"
-          ]
-        },
-        {
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2F5ff3e6a0b703f_potatoes-food-supermarket-agriculture-JG7QGNY.jpeg-0.5226693480494884?alt=media&token=03716710-0eb3-4d83-b4fb-4217c04e3191",
-          "description": "servir y listo de rechupete",
-          "ingredients": [
-            "agua",
-            "arroz",
-            "azucar"
-          ]
-        }
-      ],
-      "tags": [
-        "almuerzo",
-        " postre",
-        " bebida",
-        " saludable"
-      ],
-      "tools": [
-        "sarten",
-        " olla",
-        " batidora"
-      ],
-      "id": 4
-    },
-    {
-      "name": "La sazon de marianita",
-      "userId": 0,
-      "description": "Esta es la descripcion de la receta de marianita",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.14586627641317285?alt=media&token=ea50b373-fd10-4178-a52b-2dbd780354a6",
-      "likes": [],
-      "time": 90,
-      "difficulty": "facil",
-      "price": "$$-$$$",
-      "ingredients": [
-        {
-          "quantity": 1,
-          "name": "sal",
-          "unit": "mg"
-        },
-        {
-          "quantity": 8,
-          "name": "papa",
-          "unit": " "
-        },
-        {
-          "quantity": 7,
-          "name": "carne",
-          "unit": "kg"
-        },
-        {
-          "quantity": 8,
-          "name": "agua",
-          "unit": "taza"
-        }
-      ],
-      "steps": [
-        {
-          "stepNumbeer": 1,
-          "imagePath": {},
-          "description": "cortar las papas :)",
-          "ingredients": [
-            "papa"
-          ]
-        },
-        {
-          "stepNumbeer": 2,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.33932143786818325?alt=media&token=dd2a0c01-0447-418d-b414-b5ff678166fd",
-          "description": "listo acabamos la receta asi de facil :D",
-          "ingredients": []
-        }
-      ],
-      "tags": [
-        "almuerzo",
-        " saludable",
-        " ancestral",
-        " familiar"
-      ],
-      "tools": [
-        "sarten",
-        " olla presion",
-        " cuchara de palo",
-        " picadora"
-      ],
-      "id": 5
     }
   ],
   "user": [

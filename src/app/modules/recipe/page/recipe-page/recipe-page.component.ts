@@ -20,7 +20,7 @@ export class RecipePageComponent implements OnInit {
       last_name: '',
       userPhoto: '',
     },
-    likes: [],
+    scoreCount: [],
     score: 0,
     time: 0,
     difficulty: '',

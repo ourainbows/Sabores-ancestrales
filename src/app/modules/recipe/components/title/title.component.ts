@@ -12,7 +12,7 @@ import { ClipboardService } from 'ngx-clipboard';
 export class TitleComponent implements OnInit {
   @Input() name = '';
   @Input() score = 0;
-  @Input() likes: number[] | null = null;
+  @Input() scoreCount : any[] = [];
   @Input() recipe!: Recipe;
   @Input() id!: number
   show: boolean = false
