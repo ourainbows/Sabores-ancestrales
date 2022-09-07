@@ -1,3 +1,4 @@
+import { Recipe } from './../../models/recipe.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RecipesService } from '../../../core/services/recipes/recipes.service';
 
@@ -11,6 +12,7 @@ export class StarsComponent implements OnInit {
   @Output() showModal = new EventEmitter();
   @Input() scoreCount: any[] = [];
   @Input() score = 0;
+  @Output() rateChange  = new EventEmitter();
   userId = 1;
   rate: number = 0;
   constructor(private recipeService: RecipesService) {}
@@ -27,5 +29,9 @@ export class StarsComponent implements OnInit {
         score: newScore,
       })
       .subscribe();
+    this.rateChange.emit({
+      scoreCount: [...this.scoreCount, this.userId],
+      score: newScore,
+    });
   }
 }

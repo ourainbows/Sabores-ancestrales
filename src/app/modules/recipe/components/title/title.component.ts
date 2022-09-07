@@ -69,4 +69,12 @@ export class TitleComponent implements OnInit {
       this.copyText();
     }
   }
+  rateChange(e : Event) {
+    this.scoreCount = [...this.scoreCount, this.user.id];
+    this.recipe = {
+      ...this.recipe,
+      ...e
+    }
+    
+  }
 }
