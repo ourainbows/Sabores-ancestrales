@@ -1,5 +1,12 @@
 @import "../../../../styles.scss";
 
 .backButtonContainer {
-    width: 4rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  .backButton {
+    height: auto !important;
+    font-size: 4rem;
+    margin-left: 0.4rem;
+  }
 }

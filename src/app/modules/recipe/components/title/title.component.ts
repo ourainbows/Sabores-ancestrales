@@ -55,4 +55,18 @@ export class TitleComponent implements OnInit {
     this.clipboardApi.copyFromContent(window.location.href);
     console.log(window.location.href);
   }
+  shareRecipe() {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: this.name,
+          text: 'Mira esta deliciosa receta!',
+          url: window.location.href,
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+      this.copyText();
+    }
+  }
 }

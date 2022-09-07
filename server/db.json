@@ -90,11 +90,15 @@
       "likes": [
         1
       ],
-      "score": 5,
+      "score": 3.5,
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
-      "tools": ["sarten", "olla", "cuchara"],
+      "tools": [
+        "sarten",
+        "olla",
+        "cuchara"
+      ],
       "ingredients": [
         {
           "id": 1,

@@ -2,7 +2,9 @@
   <div class="commentary">
     <div class="head">
       <div class="user">
-        <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
+        <a routerLink="/profile">
+          <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
+        </a>
         <span>{{ commentary.user }}</span>
       </div>
       <div class="date">
