@@ -298,10 +298,120 @@
       "comments": [
         {
           "user": "Chef Teste",
-          "comment": "Estoy emocionado!",
+          "comment": "Comentario de prueba con foto",
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2FUntitled.png-0.7592419108847717?alt=media&token=0b0fef46-736f-43c0-94aa-5b8ce5a78859",
-          "date": "2022-8-7",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2FUntitled.png-0.14286637958725001?alt=media&token=7135d8cb-3148-45a5-909b-a9a8ee04bf0c",
+          "date": "2022-8-8",
+          "likes": [
+            1
+          ],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Borrar x2",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Borrar\n",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Insertando un comentario",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Nuevo comentario de prueba",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Este es un nuevo comentario y se tiene que limpiar el textfield",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Hola mudno!\n",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Este es un nuevo comentario\n",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Olist",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Por favooor borrate",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Comentario hecho por un nuevo usuario :)",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Esto es un nuevo comentario, vamoh a ver que pasa con esto",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "",
+          "date": "2022-8-8",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Este es un comentario de prueba, ojala no se me borre nada :(",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.785254524436557?alt=media&token=0522e18d-b284-4ecc-aabc-a6cdd23db080",
+          "date": "2022-8-8",
           "likes": [],
           "userId": 1
         },
@@ -314,49 +424,6 @@
           "photoRecipe": "",
           "date": "2022-5-16",
           "likes": []
-        },
-        {
-          "id": 2,
-          "user": "Chef Teste",
-          "comment": "Hola",
-          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-          "photoRecipe": "",
-          "date": "2022-4-31",
-          "likes": [
-            1
-          ]
-        },
-        {
-          "id": 3,
-          "user": "Chef Teste",
-          "userId": 2,
-          "comment": "Ultimo comentario!",
-          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-          "photoRecipe": "",
-          "date": "2022-4-31",
-          "likes": []
-        },
-        {
-          "id": 4,
-          "user": "Chef Teste",
-          "userId": 3,
-          "comment": "Hola prueba",
-          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-          "photoRecipe": "",
-          "date": "2022-4-27",
-          "likes": []
-        },
-        {
-          "id": 5,
-          "user": "Chef Teste",
-          "userId": 4,
-          "comment": "Un shift",
-          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-          "photoRecipe": "",
-          "date": "2022-4-17",
-          "likes": [
-            1
-          ]
         },
         {
           "id": 6,

@@ -26,10 +26,31 @@ export class CommentaryComponent implements OnInit {
   @Output() newCommentEvent = new EventEmitter<Commentary>();
 
   createNewComment() {
-    this.uploadImage(this.imageSrc).subscribe((url) => {
-      this.newCommentEvent.emit({...this.newComment, photoRecipe: url});
-    });
+    if (this.imageSrc) {
+      this.uploadImage(this.imageSrc).subscribe((url) => {
+        this.newCommentEvent.emit({...this.newComment, photoRecipe: url});
+        this.clearComment();
+      });
+    }
+    else {
+      this.newCommentEvent.emit(this.newComment);
+      this.clearComment();
+    }
   }
+
+  clearComment() {
+    this.newComment = {
+      user: '',
+      comment: '',
+      photoUser: '',
+      photoRecipe: '',
+      date: `${this.today.getFullYear()}-${this.today.getMonth()}-${this.today.getDate()}`,
+      likes: [],
+      userId: 1, // temporary
+    };
+  }
+
+
 
   readURL(event: any): void {
     if (event.target.files && event.target.files[0]) {

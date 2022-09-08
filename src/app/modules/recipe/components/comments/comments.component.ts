@@ -27,9 +27,9 @@ export class CommentsComponent implements OnInit {
     this.changeLikeEvent.emit(this.comments);
   }
   deleteCommentary(commentaryId: any) {
-    this.comments.splice(commentaryId, 1);
-    this.changeLikeEvent.emit(this.comments);
+    this.comments = this.comments.filter((commentary) => commentary.id !== commentaryId);
     this.recipeService.deleteComment(this.recipeId, commentaryId).subscribe();
+    console.log(this.comments, commentaryId)
   }
 
   selectCommentary(commentaryId : any) {
