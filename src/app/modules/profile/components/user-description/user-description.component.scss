@@ -25,14 +25,19 @@ h4 {
 
 .user-Photo-Container {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     height: 17.5rem;
     width: 17.5rem;
-    background-color: $secundary-text-color;
+    background-color: #eeeeee;;
     overflow: hidden;
     object-fit: cover;
     border-radius: $border-radius;
+    h1{
+        font-size: 9rem;
+        color: #949393;
+    }
 }
 
 .userDescription {
@@ -50,3 +55,23 @@ h4 {
     font-size: 1.4rem;
     margin-bottom: 2rem;
 }
+.report {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: .6rem;
+    right: .7rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+    color: $button-text-color;
+    border-radius: 50%;
+    background: linear-gradient(
+      126.91deg,
+      #101010 -22.93%,
+      rgba(34, 34, 34, 0) 189.23%
+    );
+    cursor: pointer;
+  }
+  

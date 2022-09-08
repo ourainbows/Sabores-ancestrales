@@ -26,16 +26,15 @@ export class CommentsComponent implements OnInit {
     }
     this.changeLikeEvent.emit(this.comments);
   }
-  deleteCommentary(CommentaryId: any) {
-    this.comments.splice(CommentaryId, 1);
+  deleteCommentary(commentaryId: any) {
+    this.comments.splice(commentaryId, 1);
     this.changeLikeEvent.emit(this.comments);
-  
+    this.recipeService.deleteComment(this.recipeId, commentaryId).subscribe();
   }
 
   selectCommentary(commentaryId : any) {
     this.selectedCommentary = commentaryId;
     this.showReport = true;
-    this.recipeService.deleteComment(commentaryId, this.recipeId).subscribe();
   }
 
   constructor(private recipeService : RecipesService) {}

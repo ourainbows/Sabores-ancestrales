@@ -10,12 +10,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfilePageComponent implements OnInit {
   user!: User;
+  userId: any = '';
 
-  constructor(private userService: UsersService) {}
+  constructor(
+    private userService: UsersService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.userService.getUserById('1').subscribe((data) => {
-      this.user = data;
+    this.route.paramMap.subscribe((params) => {
+      this.userId = params.get('id') || 1;
+      if (this.userId) {
+        //temporary user id
+        this.userService.getUserById(this.userId).subscribe((data) => {
+          this.user = data;
+        });
+      }
     });
   }
 }

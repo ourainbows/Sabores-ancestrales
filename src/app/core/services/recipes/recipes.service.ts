@@ -59,8 +59,8 @@ export class RecipesService {
   updateComments(id: string, comments: Commentary[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { comments });
   }
-  deleteRecipe(id: number | string | null, idRecipe : any): Observable<Recipe> {
-    return this.http.delete<Recipe>(`${this.apiUrl}/${idRecipe}/comment/${id}`);
+  deleteRecipe(id: number | string | null): Observable<Recipe> {
+    return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
   }
   deleteComment(
     id: number | string | null,
