@@ -15,7 +15,7 @@ export class StepsPageComponent implements OnInit {
   imageSrc: string | null | ArrayBuffer = '';
   fileImg: any;
   ingredients: any[] = [];
-  usedIngredients: any[] = [];
+  // usedIngredients: any[] = [];
   steps: any[] = [];
   activeSteps: number[] = [];
 
@@ -30,16 +30,37 @@ export class StepsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.formSteps = this.initForm();
-    this.ingredients = this.recipeService.newRecipe.ingredients.map(
-      (ingredient) => ingredient.name
-    );
+    // this.ingredients = this.recipeService.newRecipe.ingredients.map(
+    //   (ingredient) => ingredient.name
+    // );
     this.steps = this.recipeService.newRecipe.steps;
   }
 
   initForm(): FormGroup {
     return this.formBuilder.group({
       description: ['', Validators.required],
+      ingredientQuantity: [''],
+      ingredientName: [''],
+      ingredientUnit: [''],
     });
+  }
+
+  addIngredient() {
+    this.ingredients.push({
+      quantity: this.formSteps.value.ingredientQuantity,
+      name: this.formSteps.value.ingredientName,
+      unit: this.formSteps.value.ingredientUnit,
+    });
+    this.formSteps.patchValue({
+      ingredientQuantity: '',
+      ingredientName: '',
+      ingredientUnit: '',
+    });
+  }
+  deleteIngredient(ingredientName: string) {
+    this.ingredients = this.ingredients.filter(
+      (ingredient: any) => ingredient.name != ingredientName
+    );
   }
 
   readURL(event: any): void {
@@ -55,15 +76,15 @@ export class StepsPageComponent implements OnInit {
     }
   }
 
-  onToggleIngredient(ingredientName: string) {
-    if (this.usedIngredients.includes(ingredientName)) {
-      this.usedIngredients = this.usedIngredients.filter(
-        (ingredient) => ingredient !== ingredientName
-      );
-    } else {
-      this.usedIngredients.push(ingredientName);
-    }
-  }
+  // onToggleIngredient(ingredientName: string) {
+  //   if (this.usedIngredients.includes(ingredientName)) {
+  //     this.usedIngredients = this.usedIngredients.filter(
+  //       (ingredient) => ingredient !== ingredientName
+  //     );
+  //   } else {
+  //     this.usedIngredients.push(ingredientName);
+  //   }
+  // }
 
   addStep() {
     this.steps = [
@@ -73,14 +94,15 @@ export class StepsPageComponent implements OnInit {
         imagePreview: this.imageSrc,
         imagePath: this.fileImg,
         description: this.formSteps.value.description,
-        ingredients: this.usedIngredients,
+        ingredients: this.ingredients,
       },
     ];
     this.recipeService.newRecipe.steps = this.steps;
 
     this.formSteps.reset();
-    this.usedIngredients = [];
+    this.ingredients = [];
     this.imageSrc = '';
+    this.fileImg = '';
   }
 
   onToogleStep(stepId: number) {

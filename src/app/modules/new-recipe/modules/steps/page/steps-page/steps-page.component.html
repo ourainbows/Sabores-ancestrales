@@ -3,7 +3,7 @@
 </p>
 
 <form [formGroup]="formSteps" (submit)="submit()" class="form">
-  <label for="image" class="form-label">Agrega una imagen</label>
+  <label for="image" class="form-label">Agregar una imagen</label>
   <label
     for="image"
     class="label-image"
@@ -25,14 +25,14 @@
     id="image"
   />
 
-  <label for="description" class="form-label">Agrega una descripcion</label>
+  <label for="description" class="form-label">Agregar una descripcion</label>
   <textarea
     id="description"
     formControlName="description"
     class="inputDescription"
   ></textarea>
 
-  <h2 class="form-label">Ingredientes usados</h2>
+  <!-- <h2 class="form-label">Ingredientes usados</h2>
   <div class="tagContainer">
     <input
       *ngFor="let ingredient of ingredients"
@@ -41,16 +41,92 @@
       (click)="onToggleIngredient(ingredient)"
       [ngClass]="{ activeInput: usedIngredients.includes(ingredient) }"
     />
+  </div> -->
+
+  <h2 class="form-label">Agregar ingredientes</h2>
+  <div class="ingredientInfoContainer">
+    <div>
+      <label for="quantity">Cantidad</label>
+      <input
+        type="number"
+        id="quantity"
+        min="1"
+        formControlName="ingredientQuantity"
+        (keydown.enter)="$event.preventDefault()"
+      />
+    </div>
+    <div>
+      <label for="measure">Medida</label>
+      <select id="measure" formControlName="ingredientUnit">
+        <option value="" selected disabled hidden>Seleccionar</option>
+        <option value=" ">unidad</option>
+        <option value="gr">gramo</option>
+        <option value="mg">miligramo</option>
+        <option value="kg">kilogramo</option>
+        <option value="mL">mililitro</option>
+        <option value="L">litro</option>
+        <option value="cucharada">cucharada</option>
+        <option value="taza">taza</option>
+        <option value="lata">lata</option>
+        <option value="pizca">pizca</option>
+        <option value="libra">libra</option>
+      </select>
+    </div>
   </div>
+
+  <label for="ingredient" class="ingredientLabel">Ingrediente</label>
+  <div class="ingredienContainer">
+    <input
+      type="text"
+      id="ingredient"
+      formControlName="ingredientName"
+      (keydown.enter)="$event.preventDefault()"
+    />
+    <input
+      type="button"
+      value="+"
+      (click)="addIngredient()"
+      (keydown.enter)="addIngredient()"
+      [disabled]="
+        !formSteps.value.ingredientQuantity ||
+        !formSteps.value.ingredientName ||
+        !formSteps.value.ingredientUnit
+      "
+    />
+  </div>
+
+  <h2 class="form-label ingredientListTitle" *ngIf="ingredients.length">
+    Lista de Ingredientes
+  </h2>
+  <ul *ngIf="ingredients.length" class="ingredientList">
+    <li *ngFor="let ingredient of ingredients">
+      <p *ngIf="ingredient.unit.trim()" class="ingredient">
+        {{
+          ingredient.quantity + " " + ingredient.unit + " de " + ingredient.name
+        }}
+      </p>
+      <p *ngIf="!ingredient.unit.trim()" class="ingredient">
+        <ng-container *ngIf="ingredient.quantity == 1; else plural">
+          {{ ingredient.quantity + " " + ingredient.name }}
+        </ng-container>
+        <ng-template #plural>
+          {{ ingredient.quantity + " " + ingredient.name + "s" }}
+        </ng-template>
+      </p>
+
+      <p class="deleteIngredient" (click)="deleteIngredient(ingredient.name)">
+        x
+      </p>
+    </li>
+  </ul>
 
   <input
     type="button"
     value="Agregar paso"
     class="addStep"
     (click)="addStep()"
-    [disabled]="formSteps.invalid || !imageSrc || !usedIngredients"
+    [disabled]="formSteps.invalid || !imageSrc || !ingredients.length"
   />
-
 
   <h2 class="form-label" *ngIf="steps.length">Pasos de la receta</h2>
 
@@ -61,7 +137,7 @@
       (click)="onToogleStep(i)"
       [ngClass]="{ 'active-step': activeSteps.includes(i) }"
     >
-    <i (click)="deleteStep(i)">x</i>
+      <i (click)="deleteStep(i)">x</i>
       <span>{{ i + 1 }}</span>
       <h2>Paso {{ i + 1 }}/{{ steps.length }}</h2>
       <img [src]="step.imagePreview" alt="step" />
@@ -69,7 +145,11 @@
       <p class="step-ingredients">
         <b>Ingredientes:</b>
         <span *ngFor="let ingredient of step.ingredients; index as j">
-          {{ j + 1 !== step.ingredients.length ? ingredient + "," : ingredient + "." }}
+          {{
+            j + 1 !== step.ingredients.length
+              ? ingredient.name + ","
+              : ingredient.name + "."
+          }}
         </span>
       </p>
     </article>

@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ExtraDataPageComponent implements OnInit {
   formExtra!: FormGroup;
-  ingredients: any = [];
   tools: any = [];
   price = '';
   difficulty = '';
@@ -30,7 +29,6 @@ export class ExtraDataPageComponent implements OnInit {
       price: this.recipeService.newRecipe.price,
     });
     this.tools = this.recipeService.newRecipe.tools;
-    this.ingredients = this.recipeService.newRecipe.ingredients;
     this.price = this.recipeService.newRecipe.price;
     this.difficulty = this.recipeService.newRecipe.difficulty;
   }
@@ -41,9 +39,6 @@ export class ExtraDataPageComponent implements OnInit {
       minutes: ['', Validators.required],
       difficulty: ['', Validators.required],
       price: ['', Validators.required],
-      ingredientQuantity: [''],
-      ingredientName: [''],
-      ingredientUnit: [''],
       tool: [''],
     });
   }
@@ -57,24 +52,6 @@ export class ExtraDataPageComponent implements OnInit {
     this.tools = this.tools.filter((item : any) => item !== tag);
   };
 
-
-  addIngredient() {
-    this.ingredients.push({
-      quantity: this.formExtra.value.ingredientQuantity,
-      name: this.formExtra.value.ingredientName,
-      unit: this.formExtra.value.ingredientUnit,
-    });
-    this.formExtra.patchValue({
-      ingredientQuantity: '',
-      ingredientName: '',
-      ingredientUnit: '',
-    });
-  }
-  deleteIngredient(ingredientName: string) {
-    this.ingredients = this.ingredients.filter(
-      (ingredient: any) => ingredient.name != ingredientName
-    );
-  }
 
   onChangeOption(option: any, value: string) {
     if (option == 'difficulty') {
@@ -98,7 +75,6 @@ export class ExtraDataPageComponent implements OnInit {
       difficulty: this.formExtra.value.difficulty,
       price: this.formExtra.value.price,
       tools: this.tools,
-      ingredients: this.ingredients,
     };
     this.router.navigate(['/new-recipe/steps']);
   }

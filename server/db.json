@@ -630,6 +630,55 @@
           ]
         }
       ]
+    },
+    {
+      "name": "",
+      "userId": 0,
+      "description": "",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.7915184829945363?alt=media&token=061cf0a6-3b02-49ab-89f2-07632b9d1b36",
+      "time": 0,
+      "difficulty": "",
+      "price": "",
+      "ingredients": [],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.8148770492320387?alt=media&token=ce9d1777-5292-45c9-86c2-b9ac51cffa29",
+          "description": "lima",
+          "ingredients": [
+            {
+              "quantity": 1,
+              "name": "lima",
+              "unit": "mL"
+            }
+          ]
+        },
+        {
+          "stepNumber": 2,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Frecetas-frias-veganas_0de24069_1200x630.jpeg-0.44711230162469073?alt=media&token=fa28c5bd-5f14-4dcb-8688-c96d3985dffb",
+          "description": "arroz con pollo\n",
+          "ingredients": [
+            {
+              "quantity": 3,
+              "name": "agua",
+              "unit": "L"
+            },
+            {
+              "quantity": 1,
+              "name": "azucar",
+              "unit": "L"
+            },
+            {
+              "quantity": 3,
+              "name": "aguita en polvo",
+              "unit": "taza"
+            }
+          ]
+        }
+      ],
+      "tags": [],
+      "tools": [],
+      "id": 3
     }
   ],
   "user": [

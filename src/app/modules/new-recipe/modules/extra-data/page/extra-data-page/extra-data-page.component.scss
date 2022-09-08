@@ -80,58 +80,6 @@
   background: $main-color;
   color: white;
 }
-.ingredientInfoContainer {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.6rem;
-}
-.ingredientInfoContainer div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  font-size: 1.6rem;
-  font-weight: 400;
-}
-.ingredientInfoContainer input,
-.ingredientInfoContainer select {
-  padding: 0.4rem 1rem;
-  height: 4rem;
-  margin-top: 1.2rem;
-  width: 100%;
-  border-radius: $border-radius;
-  border: none;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-  font-size: 1.6rem;
-}
-.ingredientLabel {
-  display: block;
-  font-size: 1.6rem;
-  font-weight: 400;
-  margin-bottom: 1.2rem;
-}
-.ingredienContainer {
-  display: flex;
-  gap: 0.8rem;
-}
-.ingredienContainer input[type="text"] {
-  width: 100%;
-  height: 4rem;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-  border-radius: $border-radius;
-  border: none;
-  font-size: 1.4rem;
-  padding: 1rem;
-}
-.ingredienContainer input[type="button"] {
-  width: 5rem;
-  height: 4rem;
-  border-radius: $border-radius;
-  border: none;
-  background-color: $button-background-color;
-  font-size: 2rem;
-  color: white;
-}
 .tagInputContainer{
   display: flex;
   gap: .8rem;
@@ -181,38 +129,6 @@
     color: white;
     border: none;
 }
-.nextStep:disabled, .ingredienContainer input[type="button"]:disabled, .tagInputContainer input[type="button"]:disabled{
+.nextStep:disabled, .tagInputContainer input[type="button"]:disabled{
     background-color:#e14d619c;
-}
-.ingredientListTitle{
-    margin-top: 1.4rem;
-}
-.ingredientList{
-    margin: 0 1.6rem;
-    list-style: none;
-    font-size: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.ingredientList li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.2rem;
-}
-.ingredient::before {
-    content: "\2022";
-    color: $main-color;
-    font-weight: bold;
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
-  }
-.deleteIngredient{
-    font-size: 1.8rem;
-}
-.deleteIngredient:hover{
-    cursor: pointer;
-    color: $main-color;
 }
