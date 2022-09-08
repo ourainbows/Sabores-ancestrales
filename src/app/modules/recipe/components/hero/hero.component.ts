@@ -9,6 +9,8 @@ export class HeroComponent implements OnInit {
 
   @Input() imagePath : string | undefined= undefined
   @Input() name : string | undefined= undefined
+  @Input() recipeId : any = 0
+  show: boolean = false
 
 
   constructor() { }

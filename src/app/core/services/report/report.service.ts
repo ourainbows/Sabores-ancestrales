@@ -20,4 +20,7 @@ export class ReportService {
   deleteReport(id : number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+  createReport(report: any, type: string, id: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${type}/${id}`, report);
+  }
 }

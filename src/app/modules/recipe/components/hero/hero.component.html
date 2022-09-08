@@ -1,7 +1,8 @@
 <div class="container">
-    <img class="hero" [src]="imagePath" [alt]="'Foto de: '+ name">
-    <div class="circle-container">
-        <!-- put back component here -->
-    </div>
+  <img class="hero" [src]="imagePath" [alt]="'Foto de: ' + name" />
+  <div (click)="show = true" class="report">
+    <p>!</p>
+  </div>
+  <app-report [reportType]="'recipe'" [reportId]="recipeId" [showReport]="show">
+  </app-report>
 </div>
-

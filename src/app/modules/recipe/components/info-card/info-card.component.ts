@@ -17,6 +17,7 @@ export class InfoCardComponent implements OnInit {
   @Input() time = 0
   @Input() difficulty = ''
   @Input() price = ''
+  show : boolean = false
 
   constructor() {}
 

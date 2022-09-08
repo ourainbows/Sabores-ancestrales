@@ -1,3 +1,5 @@
+@import "../../../../../styles.scss";
+
 .container {
   position: relative;
   height: 30rem;
@@ -8,16 +10,23 @@
   object-fit: cover;
   border-radius: 0 0 5px 5px;
 }
-.circle-container {
+
+.report {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 1.6rem;
-  left: 0.7rem;
-  height: 3.4rem;
-  width: 3.4rem;
+  right: 0.7rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  color: $secundary-text-color;
   border-radius: 50%;
   background: linear-gradient(
     126.91deg,
     #101010 -22.93%,
     rgba(34, 34, 34, 0) 189.23%
   );
+  cursor: pointer;
 }
