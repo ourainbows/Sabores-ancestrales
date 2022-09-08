@@ -3,5 +3,5 @@ export const ACTIONS = {
   signUp: 'Registrarse',
 }
 
-export const USER_STORAGE_KEY = 'supabase.auth.token';
+export const USER_STORAGE_KEY = 'token';
 

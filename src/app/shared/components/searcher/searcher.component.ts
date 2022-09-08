@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searcher.component.scss']
 })
 export class SearcherComponent implements OnInit {
-
+  show: boolean = false
   constructor() { }
 
   ngOnInit(): void {

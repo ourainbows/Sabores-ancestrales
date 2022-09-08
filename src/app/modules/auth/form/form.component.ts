@@ -90,7 +90,6 @@ export class FormComponent implements OnInit {
       this.authForm.value.password === this.authForm.value.password_again &&
       this.authForm.valid
     ) {
-      console.log('register');
       this.authSvc.register(this.authForm.value);
     } else if (this.authForm.invalid && option === this.signUp) {
       this.toast.fire({
