@@ -18,6 +18,7 @@ export class CommentaryComponent implements OnInit {
     photoRecipe: '',
     date: (`${this.today.getFullYear()}-${this.today.getMonth()}-${this.today.getDate()}`),
     likes: [],
+    userId: 1, // temporary
   };
 
   @Output() newCommentEvent = new EventEmitter<Commentary>();

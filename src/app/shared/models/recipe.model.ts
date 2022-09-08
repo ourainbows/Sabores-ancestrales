@@ -16,6 +16,7 @@ export interface Step {
 }
 export interface Commentary {
   id?: number;
+  userId: any;
   user: string;
   comment: string;
   photoUser?: string;
@@ -50,11 +51,19 @@ export interface Recipe {
 export interface newRecipeDTO
   extends Omit<
     Recipe,
-    'id' | 'tags' | 'comments' | 'recomendations' | 'user' | 'score' | 'steps' | 'likes' | 'scoreCount'
+    | 'id'
+    | 'tags'
+    | 'comments'
+    | 'recomendations'
+    | 'user'
+    | 'score'
+    | 'steps'
+    | 'likes'
+    | 'scoreCount'
   > {
   tags: string[];
   userId: number;
-  steps: any[],
+  steps: any[];
   tools: string[];
 }
 

@@ -20,7 +20,17 @@
       />
     </div>
     <div class="actions">
-      <p>Reportar</p>
+      <p (click)="selectCommentary(commentary.id)" *ngIf="commentary.userId !== userId">
+        Reportar
+      </p>
+      <app-report
+        *ngIf="selectedCommentary === commentary.id"
+        [showReport]="showReport"
+        [reportType]="'commentary'"
+        [reportId]="commentary.id"
+      >
+      </app-report>
+      <p (click)="deleteCommentary(commentary.id)"  *ngIf="commentary.userId === userId">Eliminar</p>
       <div
         class="likes"
         [class.active]="commentary.likes.includes(userId)"
