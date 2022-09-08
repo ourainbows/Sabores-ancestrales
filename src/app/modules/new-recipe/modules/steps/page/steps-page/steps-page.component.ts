@@ -18,6 +18,8 @@ export class StepsPageComponent implements OnInit {
   // usedIngredients: any[] = [];
   steps: any[] = [];
   activeSteps: number[] = [];
+  editing = false;
+  stepPostion = 0
 
   userId: number = 1 || localStorage.getItem('userId');
 
@@ -104,6 +106,34 @@ export class StepsPageComponent implements OnInit {
     this.imageSrc = '';
     this.fileImg = '';
   }
+
+  loadStepOnForm(step : any, stepPosition: number) {
+    this.formSteps.patchValue({
+      description: step.description,
+    });
+    this.ingredients = step.ingredients;
+    this.imageSrc = step.imagePreview;
+    this.fileImg = step.imagePath;
+    this.editing = true;
+    this.stepPostion = stepPosition;
+  }
+  editStep(){
+    this.steps[this.stepPostion] = {
+      stepNumber: this.stepPostion + 1,
+      imagePreview: this.imageSrc,
+      imagePath: this.fileImg,
+      description: this.formSteps.value.description,
+      ingredients: this.ingredients,
+    };
+    this.recipeService.newRecipe.steps = this.steps;
+    this.formSteps.reset();
+    this.ingredients = [];
+    this.imageSrc = '';
+    this.fileImg = '';
+    this.editing = false;
+  }
+
+
 
   onToogleStep(stepId: number) {
     if (this.activeSteps.includes(stepId)) {

@@ -122,9 +122,9 @@
 
   <input
     type="button"
-    value="Agregar paso"
+    [value]="editing ? 'Editar paso' : 'Agregar paso'"
     class="addStep"
-    (click)="addStep()"
+    (click)="editing ? editStep() : addStep()"
     [disabled]="formSteps.invalid || !imageSrc || !ingredients.length"
   />
 
@@ -139,7 +139,7 @@
     >
       <i (click)="deleteStep(i)">x</i>
       <span>{{ i + 1 }}</span>
-      <h2>Paso {{ i + 1 }}/{{ steps.length }}</h2>
+      <h2><mat-icon class="editButton" (click)="loadStepOnForm(step, i)">edit</mat-icon>Paso {{ i + 1 }}/{{ steps.length }}</h2>
       <img [src]="step.imagePreview" alt="step" />
       <p class="step-description">{{ step.description }}</p>
       <p class="step-ingredients">

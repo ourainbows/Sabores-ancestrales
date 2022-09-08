@@ -197,6 +197,10 @@ form textarea {
 .nextStep:disabled {
   background-color: #e14d619c;
 }
+.editButton{
+  color: #a2a2a0;
+  font-size: 1.4rem;
+}
 .stepsContainer {
   display: flex;
   flex-direction: column;
@@ -276,6 +280,7 @@ form textarea {
     .step-description {
       display: block;
       margin-bottom: 1.2rem;
+      width: 100%;
       white-space: initial;
       text-overflow: initial;
       overflow: initial;
