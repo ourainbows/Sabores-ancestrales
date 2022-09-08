@@ -23,6 +23,7 @@ export class RecipesService {
     steps: [],
     tags: [],
     tools: [],
+    public: true,
   };
 
   constructor(private http: HttpClient) {}

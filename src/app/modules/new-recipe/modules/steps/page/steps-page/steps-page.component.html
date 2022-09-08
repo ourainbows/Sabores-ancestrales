@@ -139,7 +139,11 @@
     >
       <i (click)="deleteStep(i)">x</i>
       <span>{{ i + 1 }}</span>
-      <h2><mat-icon class="editButton" (click)="loadStepOnForm(step, i)">edit</mat-icon>Paso {{ i + 1 }}/{{ steps.length }}</h2>
+      <h2>
+        <mat-icon class="editButton" (click)="loadStepOnForm(step, i)"
+          >edit</mat-icon
+        >Paso {{ i + 1 }}/{{ steps.length }}
+      </h2>
       <img [src]="step.imagePreview" alt="step" />
       <p class="step-description">{{ step.description }}</p>
       <p class="step-ingredients">
@@ -155,7 +159,13 @@
     </article>
   </div>
 
-  <button type="submit" [disabled]="!steps.length" class="nextStep">
-    Publicar receta
-  </button>
+  <div class="nextStepContainer">
+    <p class="privacityContainer">
+      <input type="checkbox" formControlName="isPublic" /> Permitir que otros
+      usuarios vean mi receta
+    </p>
+    <button type="submit" [disabled]="!steps.length" class="nextStep">
+      Publicar receta
+    </button>
+  </div>
 </form>

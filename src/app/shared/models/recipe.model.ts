@@ -46,6 +46,7 @@ export interface Recipe {
   tags: Tag[];
   comments: Commentary[];
   recomendations: cardRecipeDTO[];
+  public: boolean;
 }
 
 export interface newRecipeDTO

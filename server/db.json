@@ -679,6 +679,34 @@
       "tags": [],
       "tools": [],
       "id": 3
+    },
+    {
+      "name": "",
+      "userId": 0,
+      "description": "",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.4675608770123616?alt=media&token=43ffb068-30bd-4414-ba7a-a976a20d5668",
+      "time": 0,
+      "difficulty": "",
+      "price": "",
+      "ingredients": [],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.8743702398408917?alt=media&token=60b6d7f3-9f45-4bb3-b3c9-954529dc1338",
+          "description": "saS",
+          "ingredients": [
+            {
+              "quantity": 2,
+              "name": "21",
+              "unit": "mL"
+            }
+          ]
+        }
+      ],
+      "tags": [],
+      "tools": [],
+      "public": true,
+      "id": 4
     }
   ],
   "user": [

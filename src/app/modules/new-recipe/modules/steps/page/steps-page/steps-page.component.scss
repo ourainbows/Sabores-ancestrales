@@ -141,10 +141,10 @@ form textarea {
   font-size: 2rem;
   color: white;
 }
-.ingredientListTitle{
+.ingredientListTitle {
   margin-top: 1.4rem;
 }
-.ingredientList{
+.ingredientList {
   margin: 0 1.6rem;
   list-style: none;
   font-size: 1.6rem;
@@ -152,7 +152,7 @@ form textarea {
   flex-direction: column;
   justify-content: space-between;
 }
-.ingredientList li{
+.ingredientList li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,14 +162,14 @@ form textarea {
   content: "\2022";
   color: $main-color;
   font-weight: bold;
-  display: inline-block; 
+  display: inline-block;
   width: 1em;
   margin-left: -1em;
 }
-.deleteIngredient{
+.deleteIngredient {
   font-size: 1.8rem;
 }
-.deleteIngredient:hover{
+.deleteIngredient:hover {
   cursor: pointer;
   color: $main-color;
 }
@@ -178,7 +178,6 @@ form textarea {
 .nextStep {
   display: block;
   margin: 0 auto;
-  margin-top: 3rem;
   margin-bottom: 3rem;
   padding: 1rem;
   width: 80%;
@@ -189,6 +188,10 @@ form textarea {
   color: white;
   border: none;
 }
+.addStep,
+.nextStepContainer {
+  margin-top: 3rem;
+}
 .nextStep {
   width: 100%;
 }
@@ -197,7 +200,7 @@ form textarea {
 .nextStep:disabled {
   background-color: #e14d619c;
 }
-.editButton{
+.editButton {
   color: #a2a2a0;
   font-size: 1.4rem;
 }
@@ -289,5 +292,16 @@ form textarea {
       display: block;
       font-size: 1.4rem;
     }
+  }
+}
+.privacityContainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  input {
+    accent-color: $main-color;
   }
 }

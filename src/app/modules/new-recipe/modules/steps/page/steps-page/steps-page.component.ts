@@ -44,6 +44,7 @@ export class StepsPageComponent implements OnInit {
       ingredientQuantity: [''],
       ingredientName: [''],
       ingredientUnit: [''],
+      isPublic: [true],
     });
   }
 
@@ -162,6 +163,7 @@ export class StepsPageComponent implements OnInit {
   }
 
   submit() {
+    this.recipeService.newRecipe.public = this.formSteps.value.isPublic;
     this.uploadImage(this.recipeService.newRecipe.imagePath).subscribe({
       next: (url) => {
         this.recipeService.newRecipe.imagePath = url;
@@ -185,6 +187,7 @@ export class StepsPageComponent implements OnInit {
                   steps: [],
                   tags: [],
                   tools: [],
+                  public: true,
                 };
                 // this.router.navigate(['/']);
                 console.log(createdRecipe);
@@ -196,7 +199,4 @@ export class StepsPageComponent implements OnInit {
     });
   }
 
-  showRecipe() {
-    console.log(this.recipeService.newRecipe);
-  }
 }
