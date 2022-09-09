@@ -38,6 +38,8 @@ export interface User {
     savedRecipes: number[];
   };
   score?: number;
+  savedRecipes?: number[];
+  isActive?: boolean;
 }
 
 export interface CardUserDTO

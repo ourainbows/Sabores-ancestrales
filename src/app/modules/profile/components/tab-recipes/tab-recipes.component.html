@@ -3,17 +3,17 @@
       <div class="tab">
         <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
         <label for="tab-1" class="tab-label">Recetas</label>
-        <div class="tab-content"></div>
+        <div class="tab-content"><app-card-recipe [recipe]="card" *ngFor="let card of recipes"></app-card-recipe></div>
       </div>
       <div class="tab">
         <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
         <label for="tab-2" class="tab-label">Guardados</label>
-        <div class="tab-content"></div>
+        <div class="tab-content"><app-card-recipe [recipe]="card" *ngFor="let card of recipes"></app-card-recipe></div>
       </div>
       <div class="tab">
         <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
         <label for="tab-3" class="tab-label">Me gusta</label>
-        <div class="tab-content"></div>
+        <div class="tab-content"><app-card-recipe [recipe]="card" *ngFor="let card of recipes"></app-card-recipe></div>
       </div>
     </div>
   </div>

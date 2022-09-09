@@ -1,1 +1,70 @@
-<p>basics-page works!</p>
+<p class="descriptionStep">
+  Estas a punto de crear una receta ancestral, agrega los datos basicos para
+  iniciar:
+</p>
+
+<form [formGroup]="formBasics" (submit)="submit()" class="form">
+  <label for="name" class="form-label">Agrega un nombre a tú receta</label>
+  <input type="text" id="name" formControlName="name" class="inputName" />
+
+  <label for="image" class="form-label">Agrega una imagen</label>
+  <label
+    for="image"
+    class="label-image"
+    [ngStyle]="{ 'background-image': imageSrc && 'url(' + imageSrc + ')' }"
+  >
+    <mat-icon class="camera-icon" *ngIf="!imageSrc">camera_alt</mat-icon>
+    <p class="image-description" *ngIf="!imageSrc">
+      Selecciona una imagen de tu dispositivo para subir
+    </p>
+    <p class="image-support" *ngIf="!imageSrc">
+      Soportado: PNG, JPG, WPG, WEBP
+    </p>
+  </label>
+  <input
+    type="file"
+    accept="image/*"
+    (change)="readURL($event)"
+    class="inputImage"
+    id="image"
+  />
+
+  <label for="description" class="form-label">Agrega una descripcion</label>
+  <textarea
+    id="description"
+    formControlName="description"
+    class="inputDescription"
+  ></textarea>
+
+  <label for="categories" class="form-label"
+    >Agrega categorias a la receta</label
+  >
+  <div class="tagInputContainer">
+    <input
+      type="text"
+      id="categories"
+      formControlName="categories"
+      placeholder="Desayuno, postre, saludable..."
+    />
+    <input
+      type="button"
+      value="+"
+      (click)="addCategory()"
+      [disabled]="!formBasics.value.categories"
+    />
+  </div>
+
+  <div class="tagsContainer">
+    <p (click)="deleteTag(category)" *ngFor="let category of categories">
+      {{ category }}
+    </p>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="formBasics.invalid || !imageSrc ||!categories.length"
+    class="nextStep"
+  >
+    Siguiente Paso
+  </button>
+</form>

@@ -4,21 +4,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
 .line1 {
   background-color: $vertical-line-color;
   border: none;
-  height: 1.5px;
-  width: 100%;
+  height: 0.4rem;
 }
 
 .statistics-info {
   display: flex;
-  align-items: center;
-  width: 75%;
   justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .statistic {
@@ -41,9 +40,9 @@ p {
 .line2 {
   background-color: $line-color;
   border: none;
-  height: 30px;
-  width: 3px;
-  margin: 30px;
+  height: 3rem;
+  width: 0.3rem;
+  margin: 3rem;
 }
 
 

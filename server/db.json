@@ -90,7 +90,7 @@
       "likes": [
         1
       ],
-      "score": 1.5,
+      "score": 3.5,
       "time": 33,
       "difficulty": "Dificil",
       "price": "$$-$$$",
@@ -634,20 +634,48 @@
           2,
           1
         ]
-      }
+      },
+      "isActive": true
     },
     {
-      "id": "1HQNqCXADLfkWN8w1ZR9Uw8yFIu1",
-      "name": "Valentina Rippe",
-      "email": "lauravalentina200102@gmail.com",
-      "photo": "https://lh3.googleusercontent.com/a-/AFdZucryckDK28BAub5a7S3JuXKX3Z-Bksff_TMRd3tyow=s96-c",
-      "description": "",
-      "score": 0,
+      "id": 2,
+      "email": "husherwood0@nsw.gov.au",
+      "name": "Heather",
+      "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
+      "description": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
+      "#userRecipes": 1,
+      "score": 0.7,
+      "#savedRecipes": 1,
       "recipes": {
         "userRecipes": [],
         "savedRecipes": [],
-        "likedRecipes": []
-      }
+        "likedRecipes": [
+          3,
+          2,
+          1
+        ]
+      },
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "email": "husherwood0@nsw.gov.au",
+      "name": "Heather",
+      "photo": "https://robohash.org/suntearumautem.png?size=100x100&set=set1",
+      "description": "est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
+      "#userRecipes": 1,
+      "score": 0.7,
+      "#savedRecipes": 1,
+      "recipes": {
+        "userRecipes": [],
+        "savedRecipes": [],
+        "likedRecipes": [
+          3,
+          2,
+          1
+        ]
+      },
+      "isActive": true
     },
     {
       "id": "nmb6UXMpnGUFPXfjZSkCCiWgxz52",
@@ -660,13 +688,14 @@
         "userRecipes": [],
         "savedRecipes": [],
         "likedRecipes": []
-      }
+      },
+      "isActive": false
     },
     {
-      "id": "2IvrE1nf4BUfWtNgx0k6MomRjS42",
-      "name": "Luz Amparo Forero Vanegaz",
-      "email": "amparoforero97@gmail.com",
-      "photo": "https://lh3.googleusercontent.com/a/AItbvmnkzDM87UyE17RUb5Oym0TGhlKrAsb7Wq2FK43Q=s96-c",
+      "id": "wOA2SIpr9OhGEq3pYfxleNcSTwA3",
+      "name": "Juan Casas",
+      "email": "casasjuanfelipe@gmail.com",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucrWKYAVoOEZs12Hb8q2qd-11QoxCLgZ9LIcbUw6CyM=s96-c",
       "description": "",
       "score": 0,
       "recipes": {
@@ -674,6 +703,50 @@
         "savedRecipes": [],
         "likedRecipes": []
       }
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "idUser": 1,
+      "userName": "Artur Morgado",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "date": "2022-5-21",
+      "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "score": 0.7
+    },
+    {
+      "id": 2,
+      "idUser": 1,
+      "userName": "Chef Teste",
+      "comment": "Me faltan fresas pero ya casi.",
+      "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "date": "2022-4-17",
+      "score": 0.7
+    },
+    {
+      "id": 1,
+      "idUser": 1,
+      "userName": "Artur Morgado",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "date": "2022-5-21",
+      "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "score": 0.7
+    }
+  ],
+  "report": [
+    {
+      "id": 3,
+      "user": "Artur Morgado",
+      "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "date": "2022-5-21",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "idRecipe": 1,
+      "reportedUser": "Chef Teste",
+      "photoReportedUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "recipeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "recipeImage": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "recipeName": "Torta de Fresas"
     }
   ],
   "login": [
