@@ -9,7 +9,9 @@ import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
 })
 export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
-  userId = 1; // provisional UserId
+  userId = 1; // provisional UserID
+
+  recipeToEdit : Recipe | undefined = undefined;
 
   newRecipe: newRecipeDTO = {
     name: '',
@@ -35,6 +37,9 @@ export class RecipesService {
   }
   updateScore(id: number, score: any): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, score);
+  }
+  updateRecipe(id: number | string | null | undefined, recipe : any): Observable<Recipe> {
+    return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, recipe);
   }
 
   updateLikesRecipe(id: number, likes: number[]): Observable<Recipe> {

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-extra-data-page',
@@ -13,14 +14,20 @@ export class ExtraDataPageComponent implements OnInit {
   tools: any = [];
   price = '';
   difficulty = '';
+  edit = false;
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private recipeService: RecipesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.edit = params['edit'];
+    });
+
     this.formExtra = this.initForm();
     this.formExtra.patchValue({
       hours: Math.floor(this.recipeService.newRecipe.time / 60),
@@ -49,9 +56,8 @@ export class ExtraDataPageComponent implements OnInit {
   };
 
   deleteTag = (tag: any) => {
-    this.tools = this.tools.filter((item : any) => item !== tag);
+    this.tools = this.tools.filter((item: any) => item !== tag);
   };
-
 
   onChangeOption(option: any, value: string) {
     if (option == 'difficulty') {
@@ -76,6 +82,12 @@ export class ExtraDataPageComponent implements OnInit {
       price: this.formExtra.value.price,
       tools: this.tools,
     };
-    this.router.navigate(['/new-recipe/steps']);
+    if (this.edit) {
+      this.router.navigate(['/new-recipe/steps'], {
+        queryParams: { edit: 'true' },
+      });
+    } else {
+      this.router.navigate(['/new-recipe/steps']);
+    }
   }
 }

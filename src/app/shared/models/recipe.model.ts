@@ -62,7 +62,7 @@ export interface newRecipeDTO
     | 'likes'
     | 'scoreCount'
   > {
-  tags: string[];
+  tags: string[] 
   userId: number;
   steps: any[];
   tools: string[];

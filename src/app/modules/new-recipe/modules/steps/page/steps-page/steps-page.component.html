@@ -144,7 +144,7 @@
           >edit</mat-icon
         >Paso {{ i + 1 }}/{{ steps.length }}
       </h2>
-      <img [src]="step.imagePreview" alt="step" />
+      <img [src]="step.imagePreview || step.imagePath" alt="step" /> 
       <p class="step-description">{{ step.description }}</p>
       <p class="step-ingredients">
         <b>Ingredientes:</b>

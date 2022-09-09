@@ -1,6 +1,7 @@
 import { RecipesService } from './../../../../../../core/services/recipes/recipes.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
@@ -14,14 +15,20 @@ export class BasicsPageComponent implements OnInit {
   formBasics!: FormGroup;
   imageSrc: string | null | ArrayBuffer = '';
   categories: string[] = [];
+  edit = false
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private recipeService: RecipesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.edit = params['edit'];
+    });
+
     this.formBasics = this.initForm();
     this.formBasics.patchValue({
       name: this.recipeService.newRecipe.name,
@@ -53,7 +60,13 @@ export class BasicsPageComponent implements OnInit {
       description: this.formBasics.value.description,
       tags: this.categories,
     };
-    this.router.navigate(['/new-recipe/extra']);
+    if(this.edit){
+      this.router.navigate(['/new-recipe/extra'], {
+        queryParams: { edit: 'true' },
+      });
+    }else{
+      this.router.navigate(['/new-recipe/extra']);
+    }
   };
 
   readURL(event: any): void {

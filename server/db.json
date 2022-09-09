@@ -82,15 +82,18 @@
       "name": "Torta de fresa",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas, lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.  Molestie tincidunt egestas, lorem ipsum dolor sit amet.",
       "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "public": false,
       "user": {
         "id": 1,
         "name": "Chef John Doe",
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
-      "score": 5,
-      "scoreCount": [],
+      "score": 2.5,
+      "scoreCount": [
+        1
+      ],
       "time": 33,
-      "difficulty": "Dificil",
+      "difficulty": "dificil",
       "price": "$$-$$$",
       "tools": [
         "sarten",
@@ -142,7 +145,8 @@
               "id": 2,
               "name": "Fresa",
               "checked": false,
-              "quantity": 1
+              "quantity": 1,
+              "unit": ""
             },
             {
               "id": 3,
@@ -155,7 +159,8 @@
               "id": 4,
               "name": "Huevo",
               "checked": false,
-              "quantity": 7
+              "quantity": 7,
+              "unit": ""
             }
           ]
         },
@@ -175,7 +180,8 @@
               "id": 2,
               "name": "Fresa",
               "checked": false,
-              "quantity": 1
+              "quantity": 1,
+              "unit": ""
             },
             {
               "id": 3,
@@ -188,7 +194,8 @@
               "id": 4,
               "name": "Huevo",
               "checked": false,
-              "quantity": 7
+              "quantity": 7,
+              "unit": ""
             }
           ]
         },
@@ -207,7 +214,8 @@
               "id": 2,
               "name": "Fresa",
               "checked": false,
-              "quantity": 1
+              "quantity": 1,
+              "unit": ""
             },
             {
               "id": 3,
@@ -219,7 +227,8 @@
               "id": 4,
               "name": "Huevo",
               "checked": false,
-              "quantity": 7
+              "quantity": 7,
+              "unit": ""
             }
           ]
         },
@@ -238,7 +247,8 @@
               "id": 2,
               "name": "Fresa",
               "checked": false,
-              "quantity": 1
+              "quantity": 1,
+              "unit": ""
             },
             {
               "id": 3,
@@ -250,7 +260,8 @@
               "id": 4,
               "name": "Huevo",
               "checked": false,
-              "quantity": 7
+              "quantity": 7,
+              "unit": ""
             }
           ]
         }
@@ -774,6 +785,217 @@
       "tools": [],
       "public": true,
       "id": 4
+    },
+    {
+      "name": "Torta de fresa",
+      "userId": 1,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas, lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.  Molestie tincidunt egestas, lorem ipsum dolor sit amet.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.828800806046686?alt=media&token=33209b4c-bc80-4138-b513-675843bb410c",
+      "time": 33,
+      "difficulty": "medio",
+      "price": "$$-$$$",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "Salsa de Fresa",
+          "checked": false,
+          "quantity": 1,
+          "unit": "tarro"
+        },
+        {
+          "id": 2,
+          "name": "Fresa",
+          "checked": false,
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Azucar",
+          "checked": false,
+          "quantity": 1,
+          "unit": "cucharada"
+        },
+        {
+          "id": 4,
+          "name": "Huevo",
+          "checked": false,
+          "quantity": 7
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.5815807434096445?alt=media&token=c376b683-db41-4f76-baa0-828d972119be",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "ingredients": [
+            {
+              "id": 1,
+              "name": "Salsa de Fresa",
+              "checked": false,
+              "quantity": 1,
+              "unit": "tarro"
+            },
+            {
+              "id": 2,
+              "name": "Fresa",
+              "checked": false,
+              "quantity": 1,
+              "unit": ""
+            },
+            {
+              "id": 3,
+              "name": "Azucar",
+              "checked": false,
+              "quantity": 1,
+              "unit": "cucharada"
+            },
+            {
+              "id": 4,
+              "name": "Huevo",
+              "checked": false,
+              "quantity": 7,
+              "unit": ""
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 2,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.5203177138750141?alt=media&token=3e3efb4b-801f-406b-b2e7-00d4a6d96b28",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "ingredients": [
+            {
+              "id": 1,
+              "name": "Salsa de Fresa",
+              "checked": false,
+              "quantity": 1,
+              "unit": "tarro"
+            },
+            {
+              "id": 2,
+              "name": "Fresa",
+              "checked": false,
+              "quantity": 1,
+              "unit": ""
+            },
+            {
+              "id": 3,
+              "name": "Azucar",
+              "checked": false,
+              "quantity": 1,
+              "unit": "cucharada"
+            },
+            {
+              "id": 4,
+              "name": "Huevo",
+              "checked": false,
+              "quantity": 7,
+              "unit": ""
+            }
+          ],
+          "checked": false
+        },
+        {
+          "stepNumber": 3,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.9052783204563914?alt=media&token=16ce3379-6e3a-47f8-bf15-ff8d4100000e",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "ingredients": [
+            {
+              "id": 1,
+              "name": "Salsa de Fresa",
+              "quantity": 1,
+              "unit": "tarro"
+            },
+            {
+              "id": 2,
+              "name": "Fresa",
+              "checked": false,
+              "quantity": 1,
+              "unit": ""
+            },
+            {
+              "id": 3,
+              "name": "Azucar",
+              "quantity": 1,
+              "unit": "cucharada"
+            },
+            {
+              "id": 4,
+              "name": "Huevo",
+              "checked": false,
+              "quantity": 7,
+              "unit": ""
+            },
+            {
+              "quantity": 3,
+              "name": "azucar",
+              "unit": "pizca"
+            }
+          ]
+        },
+        {
+          "stepNumber": 4,
+          "imagePath": {},
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit, paso editado :)",
+          "ingredients": [
+            {
+              "id": 1,
+              "name": "Salsa de Fresa",
+              "quantity": 1,
+              "unit": "tarro"
+            },
+            {
+              "id": 2,
+              "name": "Fresa",
+              "checked": false,
+              "quantity": 1,
+              "unit": ""
+            },
+            {
+              "id": 3,
+              "name": "Azucar",
+              "quantity": 1,
+              "unit": "cucharada"
+            },
+            {
+              "id": 4,
+              "name": "Huevo",
+              "checked": false,
+              "quantity": 7,
+              "unit": ""
+            }
+          ]
+        },
+        {
+          "stepNumber": 5,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.8956839545314403?alt=media&token=340c7f23-75fe-41b0-91cc-9bdca181a82d",
+          "description": "Estamos listos, este es un paso nuevo en la edicion de una receta existente :D , si funciona es buena señal",
+          "ingredients": [
+            {
+              "quantity": 21,
+              "name": "papas",
+              "unit": "kg"
+            },
+            {
+              "quantity": 1,
+              "name": "vinagre",
+              "unit": "mL"
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "Desayuno",
+        "Postre",
+        "Fruta"
+      ],
+      "tools": [
+        "sarten",
+        "olla",
+        "cuchara"
+      ],
+      "public": true,
+      "id": 5
     }
   ],
   "user": [

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
 import { last, map, mergeMap, Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-steps-page',
@@ -15,11 +16,11 @@ export class StepsPageComponent implements OnInit {
   imageSrc: string | null | ArrayBuffer = '';
   fileImg: any;
   ingredients: any[] = [];
-  // usedIngredients: any[] = [];
   steps: any[] = [];
   activeSteps: number[] = [];
   editing = false;
-  stepPostion = 0
+  stepPostion = 0;
+  edit = false;
 
   userId: number = 1 || localStorage.getItem('userId');
 
@@ -27,14 +28,16 @@ export class StepsPageComponent implements OnInit {
     private storage: AngularFireStorage,
     private recipeService: RecipesService,
     private readonly formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.edit = params['edit'];
+    });
+
     this.formSteps = this.initForm();
-    // this.ingredients = this.recipeService.newRecipe.ingredients.map(
-    //   (ingredient) => ingredient.name
-    // );
     this.steps = this.recipeService.newRecipe.steps;
   }
 
@@ -46,24 +49,6 @@ export class StepsPageComponent implements OnInit {
       ingredientUnit: [''],
       isPublic: [true],
     });
-  }
-
-  addIngredient() {
-    this.ingredients.push({
-      quantity: this.formSteps.value.ingredientQuantity,
-      name: this.formSteps.value.ingredientName,
-      unit: this.formSteps.value.ingredientUnit,
-    });
-    this.formSteps.patchValue({
-      ingredientQuantity: '',
-      ingredientName: '',
-      ingredientUnit: '',
-    });
-  }
-  deleteIngredient(ingredientName: string) {
-    this.ingredients = this.ingredients.filter(
-      (ingredient: any) => ingredient.name != ingredientName
-    );
   }
 
   readURL(event: any): void {
@@ -79,15 +64,24 @@ export class StepsPageComponent implements OnInit {
     }
   }
 
-  // onToggleIngredient(ingredientName: string) {
-  //   if (this.usedIngredients.includes(ingredientName)) {
-  //     this.usedIngredients = this.usedIngredients.filter(
-  //       (ingredient) => ingredient !== ingredientName
-  //     );
-  //   } else {
-  //     this.usedIngredients.push(ingredientName);
-  //   }
-  // }
+  addIngredient() {
+    this.ingredients.push({
+      quantity: this.formSteps.value.ingredientQuantity,
+      name: this.formSteps.value.ingredientName,
+      unit: this.formSteps.value.ingredientUnit,
+    });
+    this.formSteps.patchValue({
+      ingredientQuantity: '',
+      ingredientName: '',
+      ingredientUnit: '',
+    });
+  }
+
+  deleteIngredient(ingredientName: string) {
+    this.ingredients = this.ingredients.filter(
+      (ingredient: any) => ingredient.name != ingredientName
+    );
+  }
 
   addStep() {
     this.steps = [
@@ -108,21 +102,36 @@ export class StepsPageComponent implements OnInit {
     this.fileImg = '';
   }
 
-  loadStepOnForm(step : any, stepPosition: number) {
+  onToogleStep(stepId: number) {
+    if (this.activeSteps.includes(stepId)) {
+      this.activeSteps = this.activeSteps.filter((step) => step !== stepId);
+    } else {
+      this.activeSteps.push(stepId);
+    }
+  }
+
+  loadStepOnForm(step: any, stepPosition: number) {
     this.formSteps.patchValue({
       description: step.description,
     });
     this.ingredients = step.ingredients;
-    this.imageSrc = step.imagePreview;
+    this.imageSrc = step.imagePreview || step.imagePath;
     this.fileImg = step.imagePath;
     this.editing = true;
     this.stepPostion = stepPosition;
   }
-  editStep(){
+
+  editStep() {
     this.steps[this.stepPostion] = {
       stepNumber: this.stepPostion + 1,
-      imagePreview: this.imageSrc,
-      imagePath: this.fileImg,
+      imagePreview:
+        this.steps[this.stepPostion].imagePath !== this.imageSrc
+          ? this.imageSrc
+          : this.steps[this.stepPostion].imagePreview,
+      imagePath:
+        this.steps[this.stepPostion].imagePath !== this.imageSrc
+          ? this.fileImg
+          : this.steps[this.stepPostion].imagePath,
       description: this.formSteps.value.description,
       ingredients: this.ingredients,
     };
@@ -132,16 +141,6 @@ export class StepsPageComponent implements OnInit {
     this.imageSrc = '';
     this.fileImg = '';
     this.editing = false;
-  }
-
-
-
-  onToogleStep(stepId: number) {
-    if (this.activeSteps.includes(stepId)) {
-      this.activeSteps = this.activeSteps.filter((step) => step !== stepId);
-    } else {
-      this.activeSteps.push(stepId);
-    }
   }
 
   deleteStep(stepId: number) {
@@ -164,39 +163,70 @@ export class StepsPageComponent implements OnInit {
 
   submit() {
     this.recipeService.newRecipe.public = this.formSteps.value.isPublic;
-    this.uploadImage(this.recipeService.newRecipe.imagePath).subscribe({
-      next: (url) => {
-        this.recipeService.newRecipe.imagePath = url;
-      },
-      complete: () => {
-        this.recipeService.newRecipe.steps.forEach((step, i) => {
-          delete step.imagePreview;
-          this.uploadImage(step.imagePath).subscribe((url) => {
-            this.recipeService.newRecipe.steps[i].imagePath = url;
-            if (i === this.recipeService.newRecipe.steps.length - 1) {
-              this.recipeService.createRecipe().subscribe((createdRecipe) => {
-                this.recipeService.newRecipe = {
-                  name: '',
-                  userId: 0,
-                  description: '',
-                  imagePath: '',
-                  time: 0,
-                  difficulty: '',
-                  price: '',
-                  ingredients: [],
-                  steps: [],
-                  tags: [],
-                  tools: [],
-                  public: true,
-                };
-                // this.router.navigate(['/']);
-                console.log(createdRecipe);
-              });
-            }
-          });
+    if (typeof this.recipeService.newRecipe.imagePath === 'string') {
+      this.submitSteps();
+    } else {
+      this.uploadImage(this.recipeService.newRecipe.imagePath).subscribe(
+        (url) => {
+          this.recipeService.newRecipe.imagePath = url;
+          this.submitSteps();
+        }
+      );
+    }
+  }
+
+  submitSteps() {
+    this.recipeService.newRecipe.steps.forEach((step, i) => {
+      delete step.imagePreview;
+      if (typeof (step.imagePath !== 'string')) {
+        this.uploadImage(step.imagePath).subscribe((url) => {
+          this.recipeService.newRecipe.steps[i].imagePath = url;
+          if (i === this.recipeService.newRecipe.steps.length - 1) {
+            this.edit ? this.editRecipe() : this.uploadRecipe();
+          }
         });
-      },
+      }
+      // if the image is already uploaded
+      else {
+        if (i === this.recipeService.newRecipe.steps.length - 1) {
+          this.edit ? this.editRecipe() : this.uploadRecipe();
+        }
+      }
     });
   }
 
+  uploadRecipe() {
+    this.recipeService.createRecipe().subscribe((createdRecipe) => {
+      // this.router.navigate(['/']);
+      console.log(createdRecipe);
+      this.emptyNewRecipe();
+    });
+  }
+
+  editRecipe() {
+    this.recipeService
+      .updateRecipe(this.recipeService.recipeToEdit?.id, this.recipeService.newRecipe)
+      .subscribe((editedRecipe) => {
+        // this.router.navigate(['/']);
+        console.log(editedRecipe);
+        this.emptyNewRecipe();
+      });
+  }
+
+  emptyNewRecipe() {
+    this.recipeService.newRecipe = {
+      name: '',
+      userId: 0,
+      description: '',
+      imagePath: '',
+      time: 0,
+      difficulty: '',
+      price: '',
+      ingredients: [],
+      steps: [],
+      tags: [],
+      tools: [],
+      public: true,
+    };
+  }
 }
