@@ -25,7 +25,9 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private userSvc: UsersService,
     private http: HttpClient
-  ) {}
+  ) {
+    this.checkToken()
+  }
 
   get user$(): Observable<boolean> {
     return this.userSubject.asObservable();
@@ -108,5 +110,11 @@ export class AuthService {
 
   saveToken(token: string): void {
     localStorage.setItem('token', token) as unknown as User;
+  }
+
+  checkToken() {
+    const userToken = localStorage.getItem('token');
+    userToken ? this.userSubject.next(true) : this.userSubject.next(false);
+    return this.userSubject;
   }
 }

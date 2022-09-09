@@ -1,6 +1,20 @@
 <div class="searcher-container">
+  <div class="input-container">
     <span class="icon">
-        <mat-icon class="search-icon">search</mat-icon>
+      <mat-icon class="search-icon">search</mat-icon>
     </span>
-    <input type="text" placeholder="Busqueda">
+    <input type="text" placeholder="Busqueda" />
+  </div>
+  <div role="navigation" class="filter-container">
+    <div (click)="show = !show" class="filter">
+      <mat-icon class="iconFilter">filter_list</mat-icon>
+    </div>
+    <div *ngIf="show" class="dropdown">
+      <p>Filtrar por:</p>
+      <ul>
+        <li>Categorias</li>
+        <li>Ingredientes</li>
+      </ul>
+    </div>
+  </div>
 </div>

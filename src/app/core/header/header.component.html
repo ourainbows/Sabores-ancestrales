@@ -5,11 +5,10 @@
   </a>
   <div role="navigation" class="primary-navigation">
     <span>
-
       <div class="profile dropdownImg">
         <img [src]="userImg" alt="Imagen del usuario" />
       </div>
-      <ng-container class="dropdown" *ngIf="(user$ | async) === false; else logOutTemplate">
+      <ng-container class="dropdown" *ngIf="isLogged === false; else logOutTemplate">
         <ul>
           <li [routerLink]="['/login']">Iniciar sesión</li>
           <li [routerLink]="['/register']">Registrarse</li>
