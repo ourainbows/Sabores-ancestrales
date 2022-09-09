@@ -1,7 +1,11 @@
 <div class="container">
-    <img class="hero" [src]="imagePath" [alt]="'Foto de: '+ name">
-    <div class="circle-container">
-        <!-- put back component here -->
-    </div>
+  <img class="hero" [src]="imagePath" [alt]="'Foto de: ' + name" />
+  <div (click)="show = true" class="report" *ngIf="userId !== idOwnerRecipe">
+    <p>!</p>
+  </div>
+  <div class="report" *ngIf="userId === idOwnerRecipe" (click)="editRecipe()">
+    <mat-icon class="edit">edit</mat-icon>
+  </div>
+  <app-report [reportType]="'recipe'" [reportId]="recipeId" [showReport]="show">
+  </app-report>
 </div>
-

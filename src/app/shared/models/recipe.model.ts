@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { CardUserDTO } from './user.model';
 
 export interface Ingredient {
@@ -9,12 +10,13 @@ export interface Ingredient {
 }
 export interface Step {
   id: number;
-  imagePath?: string;
+  imagePath?: string | Subscription;
   description: string;
   ingredients: Ingredient[];
 }
 export interface Commentary {
   id?: number;
+  userId: any;
   user: string;
   comment: string;
   photoUser?: string;
@@ -33,20 +35,37 @@ export interface Recipe {
   user: CardUserDTO | any;
   description: string;
   imagePath: string;
-  likes: number[];
   score: number;
+  scoreCount: any[];
   time: number;
+  tools: string[];
   difficulty: string;
   price: string;
   ingredients: Ingredient[];
   steps: Step[];
   tags: Tag[];
   comments: Commentary[];
-  recomendations : cardRecipeDTO[];
+  recomendations: cardRecipeDTO[];
+  public: boolean;
 }
 
-export interface newRecipeDTO extends Omit<Recipe, 'id' | 'tags'> {
-  tags: string[];
+export interface newRecipeDTO
+  extends Omit<
+    Recipe,
+    | 'id'
+    | 'tags'
+    | 'comments'
+    | 'recomendations'
+    | 'user'
+    | 'score'
+    | 'steps'
+    | 'likes'
+    | 'scoreCount'
+  > {
+  tags: string[] 
+  userId: number;
+  steps: any[];
+  tools: string[];
 }
 
 export interface cardRecipeDTO

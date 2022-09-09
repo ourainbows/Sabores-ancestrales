@@ -7,11 +7,19 @@
   />
   <div class="info-container">
     <p class="step-description">{{ step.description }}</p>
-    <p class="ingredients-list">
+    <div class="ingredients-list">
       <b>Ingredientes:</b>
-      <span *ngFor="let ingredient of step.ingredients; index as i">
-        {{ i + 1 !== step.ingredients.length ? ingredient.name + "," : ingredient.name + "." }}
-      </span>
-    </p>
+      <ul>
+      <li *ngFor="let ingredient of step.ingredients; index as i">
+        <span *ngIf="ingredient.unit">
+          {{ ingredient.quantity }} {{ ingredient?.unit }} de
+          {{ ingredient.name }}
+        </span>
+        <span *ngIf="!ingredient.unit">
+          {{ ingredient.quantity }} {{ ingredient.quantity > 1 ? ingredient.name + 's' : ingredient.name }}
+        </span>
+      </li>
+    </ul>
+    </div>
   </div>
 </div>

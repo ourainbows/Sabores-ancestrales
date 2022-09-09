@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-extra-data-page',
@@ -10,17 +11,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ExtraDataPageComponent implements OnInit {
   formExtra!: FormGroup;
-  ingredients: any = [];
+  tools: any = [];
   price = '';
   difficulty = '';
+  edit = false;
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private recipeService: RecipesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.edit = params['edit'];
+    });
+
     this.formExtra = this.initForm();
     this.formExtra.patchValue({
       hours: Math.floor(this.recipeService.newRecipe.time / 60),
@@ -28,7 +35,7 @@ export class ExtraDataPageComponent implements OnInit {
       difficulty: this.recipeService.newRecipe.difficulty,
       price: this.recipeService.newRecipe.price,
     });
-    this.ingredients = this.recipeService.newRecipe.ingredients;
+    this.tools = this.recipeService.newRecipe.tools;
     this.price = this.recipeService.newRecipe.price;
     this.difficulty = this.recipeService.newRecipe.difficulty;
   }
@@ -39,29 +46,18 @@ export class ExtraDataPageComponent implements OnInit {
       minutes: ['', Validators.required],
       difficulty: ['', Validators.required],
       price: ['', Validators.required],
-      ingredientQuantity: [''],
-      ingredientName: [''],
-      ingredientUnit: [''],
+      tool: [''],
     });
   }
 
-  addIngredient() {
-    this.ingredients.push({
-      quantity: this.formExtra.value.ingredientQuantity,
-      name: this.formExtra.value.ingredientName,
-      unit: this.formExtra.value.ingredientUnit,
-    });
-    this.formExtra.patchValue({
-      ingredientQuantity: '',
-      ingredientName: '',
-      ingredientUnit: '',
-    });
-  }
-  deleteIngredient(ingredientName: string) {
-    this.ingredients = this.ingredients.filter(
-      (ingredient: any) => ingredient.name != ingredientName
-    );
-  }
+  addTools = () => {
+    this.tools.push(this.formExtra.value.tool);
+    this.formExtra.controls['tool'].setValue(' ');
+  };
+
+  deleteTag = (tag: any) => {
+    this.tools = this.tools.filter((item: any) => item !== tag);
+  };
 
   onChangeOption(option: any, value: string) {
     if (option == 'difficulty') {
@@ -84,9 +80,14 @@ export class ExtraDataPageComponent implements OnInit {
       time: this.formExtra.value.hours * 60 + this.formExtra.value.minutes,
       difficulty: this.formExtra.value.difficulty,
       price: this.formExtra.value.price,
-      ingredients: this.ingredients,
+      tools: this.tools,
     };
-    console.log(this.recipeService.newRecipe);
-    this.router.navigate(['/new-recipe/steps']);
+    if (this.edit) {
+      this.router.navigate(['/new-recipe/steps'], {
+        queryParams: { edit: 'true' },
+      });
+    } else {
+      this.router.navigate(['/new-recipe/steps']);
+    }
   }
 }

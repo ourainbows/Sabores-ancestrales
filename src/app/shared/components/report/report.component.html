@@ -1,0 +1,15 @@
+<app-modal [show]="showReport">
+  <h3>Generar un reporte</h3>
+  <p>
+    Cuentanos detalladamente porque estas reportando 
+    {{
+      reportType === "recipe"
+        ? "esta receta"
+        : reportType === "user"
+        ? "a este usuario"
+        : "este comentario"
+    }}
+  </p>
+  <textarea placeholder="Escribe aqui tu reporte..." (change)="handleReport($event)"></textarea>
+  <button (click)="generateReport()">Reportar</button>
+</app-modal>

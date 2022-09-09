@@ -1,0 +1,16 @@
+@import "../../../../../styles.scss";
+
+h2 {
+  margin-bottom: 1.4rem;
+  font-size: $font-subtitle;
+  margin-top: 1rem;
+}
+.container {
+  margin: 1rem 0 3rem;
+  font-size: 1.6rem;
+  // list-style: square;
+  list-style-position: inside;
+  li{
+    text-transform: capitalize;
+  }
+}

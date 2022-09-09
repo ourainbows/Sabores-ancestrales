@@ -10,6 +10,7 @@ import { ScoreComponent } from './components/score/score.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { FormsModule } from '@angular/forms';
 import { BackButtonComponent } from './components/back-button/back-button.component';
+import { ReportComponent } from './components/report/report.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,15 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     ModalComponent,
     ScoreComponent,
     SearcherComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,
     MatIconModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    
   ],
   exports:[
     StarsComponent,
@@ -34,7 +37,8 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     ModalComponent,
     ScoreComponent,
     SearcherComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    ReportComponent
   ],
 })
 export class SharedModule { }

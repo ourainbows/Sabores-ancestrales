@@ -1,6 +1,7 @@
 import { RecipesService } from './../../../../../../core/services/recipes/recipes.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
@@ -14,22 +15,26 @@ export class BasicsPageComponent implements OnInit {
   formBasics!: FormGroup;
   imageSrc: string | null | ArrayBuffer = '';
   categories: string[] = [];
+  edit = false
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private recipeService: RecipesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.edit = params['edit'];
+    });
+
     this.formBasics = this.initForm();
     this.formBasics.patchValue({
-      // image: this.recipeService.newRecipe.imagePath,
       name: this.recipeService.newRecipe.name,
       description: this.recipeService.newRecipe.description,
     });
     this.categories = this.recipeService.newRecipe.tags;
-    console.log(typeof this.recipeService.newRecipe.imagePath);
     if (
       this.recipeService.newRecipe.imagePath &&
       typeof this.recipeService.newRecipe.imagePath == 'object'
@@ -42,7 +47,6 @@ export class BasicsPageComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.formBuilder.group({
-      //image: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
       categories: [''],
@@ -54,10 +58,15 @@ export class BasicsPageComponent implements OnInit {
       ...this.recipeService.newRecipe,
       name: this.formBasics.value.name,
       description: this.formBasics.value.description,
-      //imagePath: this.formBasics.value.image,
       tags: this.categories,
     };
-    this.router.navigate(['/new-recipe/extra']);
+    if(this.edit){
+      this.router.navigate(['/new-recipe/extra'], {
+        queryParams: { edit: 'true' },
+      });
+    }else{
+      this.router.navigate(['/new-recipe/extra']);
+    }
   };
 
   readURL(event: any): void {
@@ -79,7 +88,6 @@ export class BasicsPageComponent implements OnInit {
   }
 
   addCategory = () => {
-    console.log(this.formBasics.value.categories)
     this.categories.push(this.formBasics.value.categories);
     this.formBasics.controls['categories'].setValue(' ');
   };

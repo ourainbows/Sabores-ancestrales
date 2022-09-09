@@ -24,8 +24,12 @@
 }
 .infoOne {
   p {
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80%;
+    white-space: nowrap;
   }
   div {
     display: flex;
@@ -36,8 +40,12 @@
     span{
       color: $main-color;
       font-size: 18px;
+      margin-right: .4rem;
     }
   }
+}
+.infoRecipe{
+  padding: 0.4rem;
 }
 .infoTwo {
   display: flex;
@@ -50,7 +58,7 @@
     @include flex();
     .iconTime{
       color: $secundary-text-color;
-      margin-right: 0.5rem;
+      margin-right: 0.4rem;
     }
   }
   .favorite{
