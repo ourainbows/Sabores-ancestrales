@@ -2,7 +2,8 @@
   <div *ngFor="let user of users">
     <div class="item">
       <a class="image-container" [routerLink]="'/profile/' + user.id">
-        <img [src]="user.photo" alt="Foto de un usuario" />
+        <img *ngIf="user.photo" [src]="user.photo" alt="Foto de un usuario" />
+        <span *ngIf="!user.photo">{{ user.name[0] }}</span>
       </a>
       <a
         class="user-name"
@@ -15,7 +16,9 @@
 
         <div class="dropdown-content">
           <a [routerLink]="'/profile/' + user.id">Ver perfil</a>
-          <a routerLink="/admin/report" [queryParams]="{ name: user.name, id: user.id, type: 'user' }" 
+          <a
+            routerLink="/admin/report"
+            [queryParams]="{ name: user.name, id: user.id, type: 'user' }"
             >Reportes</a
           >
           <p
