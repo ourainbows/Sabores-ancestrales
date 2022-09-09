@@ -5,10 +5,10 @@ export interface Report {
     date: string;
     message: string;
 
-    idRecipe : number;
+    idRecipe? : number;
     reportedUser : string;
     photoReportedUser : string;
-    idReportedComment : number;
+    idReportedComment? : number;
     reportedComment? : string;
     recipeDescription? : string;
     recipeImage? : string;

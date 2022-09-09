@@ -27,11 +27,11 @@
         <span>{{ report.reportedUser }}</span>
       </div>
 
-      <div *ngIf="report.reportedComment" class="reported-comment">
-        <span>{{ report.reportedComment }}</span>
+      <div *ngIf="type === 'user'" class="reported-comment">
+        <span>{{ report?.reportedComment }}</span>
       </div>
 
-      <div *ngIf="report.recipeName">
+      <div *ngIf="type === 'recipe'">
         <div class="recipe-data">
           <div class="recipe-data-text">
             <span>{{ report.recipeName }}</span>
@@ -46,13 +46,13 @@
     </a>
 
     <div class="buttons">
-      <button class="delete-button" *ngIf="type === 'user'" (click)="deleteComment(report.idReportedComment)">Eliminar</button>
+      <button class="delete-button" *ngIf="type === 'user'" (click)="deleteComment(report?.idReportedComment)">Eliminar</button>
       <button class="suspend-button" [ngClass]="{'onlyButton': type === 'recipe'}" (click)="deleteReport(report.id)">Ignorar</button>
     </div>
 
   </div>
 </div>
 
-<div class="action-container" (click)="type === 'user' ? suspendUser : deleteRecipe">
+<div class="action-container" (click)="type === 'user' ? suspendUser() : deleteRecipe()">
   {{type === 'user' ? "Suspender usuario" : "Eliminar receta"}}
 </div>
