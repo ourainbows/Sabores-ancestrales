@@ -15,7 +15,7 @@ export class RecipesService {
 
   newRecipe: newRecipeDTO = {
     name: '',
-    userId: 0,
+    userId: 0, // provisional UserID
     description: '',
     imagePath: '',
     time: 0,
