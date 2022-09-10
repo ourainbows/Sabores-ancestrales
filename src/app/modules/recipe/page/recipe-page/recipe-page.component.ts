@@ -43,6 +43,7 @@ export class RecipePageComponent implements OnInit {
   @Input() id!: number;
   user = { id: 1 }; // provisional
   report = '';
+  viewedRecipes = JSON.parse(localStorage.getItem('feedback') || '{}');
 
   constructor(
     private recipeService: RecipesService,
@@ -52,8 +53,7 @@ export class RecipePageComponent implements OnInit {
 
   ngOnInit() {
     // get local storage of quantity of viewed recipes
-    let viewedRecipes = JSON.parse(localStorage.getItem('feedback') || '{}');
-    if (!Object.keys(viewedRecipes).length) {
+    if (!Object.keys(this.viewedRecipes).length) {
       let feedback = {
         viewedRecipes: 1,
         feedback: false,
@@ -61,11 +61,11 @@ export class RecipePageComponent implements OnInit {
       };
       localStorage.setItem('feedback', JSON.stringify(feedback));
     } else {
-      viewedRecipes.viewedRecipes += 1;
-      if (viewedRecipes.viewedRecipes >= 5 && !viewedRecipes.feedback) {
+      this.viewedRecipes.viewedRecipes += 1;
+      if (this.viewedRecipes.viewedRecipes >= 5 && !this.viewedRecipes.feedback) {
         this.showFeedback = true;
       }
-      localStorage.setItem('feedback', JSON.stringify(viewedRecipes));
+      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes));
     }
 
     this.route.paramMap.subscribe((params) => {
@@ -81,5 +81,7 @@ export class RecipePageComponent implements OnInit {
 
   rateChange(e: Event) {
     this.feedbackService.createFeedback({ ...e, idUser: this.user.id });
+    this.viewedRecipes.feedback = true;
+    localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes));
   }
 }
