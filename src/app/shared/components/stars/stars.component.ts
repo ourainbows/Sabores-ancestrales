@@ -11,27 +11,39 @@ export class StarsComponent implements OnInit {
   @Input() id!: number;
   @Output() showModal = new EventEmitter();
   @Input() scoreCount: any[] = [];
+  @Input() type = 'qualification';
   @Input() score = 0;
-  @Output() rateChange  = new EventEmitter();
+  @Output() rateChange = new EventEmitter();
   userId = 1;
   rate: number = 0;
+  report = ""
   constructor(private recipeService: RecipesService) {}
 
   ngOnInit(): void {}
 
   setScore() {
-    let scoreLength = this.scoreCount.length;
-    let newScore = (this.score * scoreLength + this.rate) / (scoreLength + 1);
-    this.showModal.emit(false);
-    this.recipeService
-      .updateScore(this.id, {
+    if (this.type === 'qualification') {
+      let scoreLength = this.scoreCount.length;
+      let newScore = (this.score * scoreLength + this.rate) / (scoreLength + 1);
+      this.showModal.emit(false);
+      this.recipeService
+        .updateScore(this.id, {
+          scoreCount: [...this.scoreCount, this.userId],
+          score: newScore,
+        })
+        .subscribe();
+      this.rateChange.emit({
         scoreCount: [...this.scoreCount, this.userId],
         score: newScore,
-      })
-      .subscribe();
-    this.rateChange.emit({
-      scoreCount: [...this.scoreCount, this.userId],
-      score: newScore,
-    });
+      });
+    }
+    else{
+      this.showModal.emit(false)
+      this.rateChange.emit({rate: this.rate, report: this.report})
+    }
+  }
+
+  handleReport(event :  Event){
+    this.report = (event.target as HTMLTextAreaElement).value;
   }
 }

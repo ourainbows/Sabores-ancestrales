@@ -1,4 +1,8 @@
-<app-hero [imagePath]="recipe.imagePath" [name]="recipe.name" [recipeId]="recipe.id"></app-hero>
+<app-hero
+  [imagePath]="recipe.imagePath"
+  [name]="recipe.name"
+  [recipeId]="recipe.id"
+></app-hero>
 <div class="container">
   <app-title
     [score]="recipe.score"
@@ -23,5 +27,19 @@
   ></app-step>
   <app-tags [tags]="recipe.tags"></app-tags>
   <app-magic-recipes [magicRecipes]="recipe.recomendations"></app-magic-recipes>
-  <app-comments-section [comments]="recipe.comments" [recipeId]="recipe.id"></app-comments-section>
+  <app-comments-section
+    [comments]="recipe.comments"
+    [recipeId]="recipe.id"
+  ></app-comments-section>
+
+  <app-modal [show]="showFeedback">
+    <h3 class="feedbackTitle">Cuéntanos tú experiencia</h3>
+    <p class="feedbackInfo">Tu opinión es muy importante para ayudarnos a ofrecer un mejor servicio</p>
+    <app-stars
+      class="score"
+      (showModal)="showFeedback = $event"
+      (rateChange)="rateChange($event)"
+      [type]="'feedback'"
+    ></app-stars>
+  </app-modal>
 </div>
