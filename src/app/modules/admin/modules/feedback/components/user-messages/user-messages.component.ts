@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { FeedbackService } from './../../../../../../core/services/feedback/feedback.service';
+import { Feedback } from './../../../../../../shared/models/feedback.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-messages',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserMessagesComponent implements OnInit {
 
-  constructor() { }
+  @Input() messages: Feedback[] = []
+  constructor(private feedbackService : FeedbackService) { }
 
   ngOnInit(): void {
+    this.feedbackService.getFeedback().subscribe((data: Feedback[]) => {
+      this.messages = data
+    })
   }
 
 }

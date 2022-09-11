@@ -2,17 +2,49 @@ import { Commentary } from '../../../shared/models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Recipe } from 'src/app/shared/models/recipe.model';
+import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
+  
+  newRecipe : newRecipeDTO = {
+    name: '',
+    user: {
+      id: 0,
+      name: '',
+      email: '',
+      description: '',
+      photo: '',
+      recipes: {
+        userRecipes: [],
+        likedRecipes: [],
+        savedRecipes: [],
+      },
+      score: 0,
+      savedRecipes: [],
+      isActive: true,
+    },
+    description: '',
+    imagePath: '',
+    likes: [],
+    score: 0,
+    time: 0,
+    difficulty: '',
+    price: '',
+    ingredients: [],
+    steps: [],
+    tags: [],
+    comments: [],
+    recomendations: [],
+  };
+  
   constructor(private http: HttpClient) {}
 
-  getRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.apiUrl);
+  getRecipes(offset = 0, limit = 10): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}?limit=${limit}&offset=${offset}`);
   }
   updateLikesRecipe(id:number, likes : number[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { likes });
@@ -38,5 +70,15 @@ export class RecipesService {
 
   updateComments(id: string, comments: Commentary[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { comments });
+  }
+  deleteRecipe(id: number | string | null): Observable<Recipe> {
+    return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
+  }
+  deleteComment(id: number | string | null, idComment: number | string | null): Observable<Recipe> {
+    return this.http.delete<Recipe>(`${this.apiUrl}/${id}/comment/${idComment}`);
+  }
+
+  createRecipe() : Observable<Recipe> {
+    return this.http.post<Recipe>(this.apiUrl, this.newRecipe);
   }
 }

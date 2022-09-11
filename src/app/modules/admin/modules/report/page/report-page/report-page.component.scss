@@ -1,0 +1,137 @@
+@import "../../../../../../../styles.scss";
+
+h1 {
+  margin: 2rem 1.6rem 1.8rem;
+}
+h1,
+h1 span {
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+h1 span {
+  color: $main-color;
+}
+
+.report-container {
+  //   width: 100%;
+  margin: 0 1.6rem 2rem;
+  padding: 1.2rem 2rem 0.8rem 2rem;
+  border-radius: $border-radius;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.user img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: $border-radius;
+  object-fit: cover;
+}
+.user-name {
+  margin-left: 0.4rem;
+  font-size: $font-text;
+}
+.date {
+  font-size: 1.2rem;
+  color: $secundary-text-color;
+}
+.report-message {
+  font-size: $font-text;
+  margin-bottom: 1.2rem;
+}
+.reported-card {
+  display: block;
+  border-radius: $border-radius;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: black;
+}
+.report-container img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: $border-radius;
+  object-fit: cover;
+}
+.report-container > span {
+  margin-left: 0.4rem;
+  font-size: $font-text;
+}
+.reported-head {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.reported-head span{
+    margin-left: 0.4rem;
+    font-size: $font-text;
+}
+.reported-comment{
+    font-size: $font-text;
+    margin: 1rem 0;
+}
+.recipe-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.recipe-data-text{
+    display: flex;
+    font-size: $font-text;
+    flex-direction: column;
+    max-width: 66%;
+}
+.recipe-data-text-description {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.recipe-image-container img{
+    width: 6rem;
+    height: 6rem;
+}
+
+.buttons{
+    display: flex;
+    gap: .6rem;
+}
+.buttons button{
+    height: 4rem;
+    border-radius: $border-radius;
+    margin: 2rem 0 1.6rem;
+}
+.delete-button{
+    width: 50%;
+    background-color: $main-color;
+    border: 1px solid $main-color;
+    color: white;
+    font-size: 1.6rem;
+}
+.suspend-button{
+    width: 50%;
+    background-color: white;
+    border: 1px solid $main-color;
+    color: $main-color;
+    &.onlyButton{
+        width: 100%;
+    }
+}
+.action-container{
+    background:  #CC2239;
+    color: white;
+    height: 5.5rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
