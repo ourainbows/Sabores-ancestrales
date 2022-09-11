@@ -64,7 +64,7 @@ export class FormComponent implements OnInit {
               likedRecipes: [],
             },
           };
-          this.userSvc.postUser(this.user).subscribe();
+          this.userSvc.postUser(this.user).subscribe();  // TODO: save user 
         } else {
           this.authSvc.saveToken(res.user.multiFactor.user.uid);
         }

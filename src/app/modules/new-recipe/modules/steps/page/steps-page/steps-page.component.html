@@ -32,16 +32,30 @@
     class="inputDescription"
   ></textarea>
 
-  <!-- <h2 class="form-label">Ingredientes usados</h2>
-  <div class="tagContainer">
+  <!-- Utensilios de la receta -->
+  <label for="tool" class="form-label">Agregar utensilios</label>
+  <div class="tagInputContainer">
     <input
-      *ngFor="let ingredient of ingredients"
-      type="button"
-      value="{{ ingredient }}"
-      (click)="onToggleIngredient(ingredient)"
-      [ngClass]="{ activeInput: usedIngredients.includes(ingredient) }"
+      type="text"
+      id="tool"
+      formControlName="tool"
+      placeholder="Sarten, batidora, olla presion..."
+      (keydown.enter)="$event.preventDefault()"
     />
-  </div> -->
+    <input
+      type="button"
+      value="+"
+      (click)="addTools()"
+      [disabled]="!formSteps.value.tool"
+    />
+  </div>
+
+  <!-- Ingrredientes de la receta -->
+  <div class="tagsContainer">
+    <p (click)="deleteTag(tool)" *ngFor="let tool of tools">
+      {{ tool }}
+    </p>
+  </div>
 
   <h2 class="form-label">Agregar ingredientes</h2>
   <div class="ingredientInfoContainer">
@@ -144,7 +158,7 @@
           >edit</mat-icon
         >Paso {{ i + 1 }}/{{ steps.length }}
       </h2>
-      <img [src]="step.imagePreview || step.imagePath" alt="step" /> 
+      <img [src]="step.imagePreview || step.imagePath" alt="step" />
       <p class="step-description">{{ step.description }}</p>
       <p class="step-ingredients">
         <b>Ingredientes:</b>
@@ -153,6 +167,16 @@
             j + 1 !== step.ingredients.length
               ? ingredient.name + ","
               : ingredient.name + "."
+          }}
+        </span>
+      </p>
+      <p class="step-ingredients">
+        <b>Utensilios:</b>
+        <span *ngFor="let tool of step.tools; index as k">
+          {{
+            k + 1 !== step.ingredients.length
+              ? tool+ ","
+              : tool + "."
           }}
         </span>
       </p>

@@ -16,6 +16,7 @@ export class StepsPageComponent implements OnInit {
   imageSrc: string | null | ArrayBuffer = '';
   fileImg: any;
   ingredients: any[] = [];
+  tools: any = [];
   steps: any[] = [];
   activeSteps: number[] = [];
   editing = false;
@@ -39,6 +40,7 @@ export class StepsPageComponent implements OnInit {
 
     this.formSteps = this.initForm();
     this.steps = this.recipeService.newRecipe.steps;
+    this.tools = this.recipeService.newRecipe.tools;
   }
 
   initForm(): FormGroup {
@@ -48,6 +50,7 @@ export class StepsPageComponent implements OnInit {
       ingredientName: [''],
       ingredientUnit: [''],
       isPublic: [true],
+      tool: [''],
     });
   }
 
@@ -63,6 +66,16 @@ export class StepsPageComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+
+  addTools = () => {
+    this.tools.push(this.formSteps.value.tool);
+    this.formSteps.controls['tool'].setValue(' ');
+  };
+
+  deleteTag = (tag: any) => {
+    this.tools = this.tools.filter((item: any) => item !== tag);
+  };
+
 
   addIngredient() {
     this.ingredients.push({
@@ -92,11 +105,13 @@ export class StepsPageComponent implements OnInit {
         imagePath: this.fileImg,
         description: this.formSteps.value.description,
         ingredients: this.ingredients,
+        tools: this.tools,
       },
     ];
     this.recipeService.newRecipe.steps = this.steps;
 
     this.formSteps.reset();
+    this.tools = [];
     this.ingredients = [];
     this.imageSrc = '';
     this.fileImg = '';
@@ -115,6 +130,7 @@ export class StepsPageComponent implements OnInit {
       description: step.description,
     });
     this.ingredients = step.ingredients;
+    this.tools = step.tools;
     this.imageSrc = step.imagePreview || step.imagePath;
     this.fileImg = step.imagePath;
     this.editing = true;
@@ -134,6 +150,7 @@ export class StepsPageComponent implements OnInit {
           : this.steps[this.stepPostion].imagePath,
       description: this.formSteps.value.description,
       ingredients: this.ingredients,
+      tools: this.tools,
     };
     this.recipeService.newRecipe.steps = this.steps;
     this.formSteps.reset();

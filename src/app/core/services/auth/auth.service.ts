@@ -56,7 +56,8 @@ export class AuthService {
         map((res) => {
           if (res.token) {
             this.userSubject.next(true);
-            this.saveToken(res.token);
+            this.saveToken(res.token); // TODO -> save user
+            this.saveUserId(res.id);
             this.router.navigate(['/']);
           }
           return res;
@@ -91,7 +92,7 @@ export class AuthService {
               likedRecipes: [],
             },
           };
-          this.userSvc.postUser(this.user).subscribe();
+          this.userSvc.postUser(this.user).subscribe(); //TODO: check logic 
           this.userSubject.next(true);
           return res;
         }),
@@ -110,6 +111,10 @@ export class AuthService {
 
   saveToken(token: string): void {
     localStorage.setItem('token', token) as unknown as User;
+  }
+
+  saveUserId(id: number): void {
+    localStorage.setItem('userId', id.toString());
   }
 
   checkToken() {

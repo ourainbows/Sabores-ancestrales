@@ -195,11 +195,6 @@ form textarea {
 .nextStep {
   width: 100%;
 }
-.addStep:disabled,
-.ingredienContainer input[type="button"]:disabled,
-.nextStep:disabled {
-  background-color: #e14d619c;
-}
 .editButton {
   color: #a2a2a0;
   font-size: 1.4rem;
@@ -304,4 +299,65 @@ form textarea {
   input {
     accent-color: $main-color;
   }
+}
+
+.tagContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.6rem;
+}
+.tagContainer input {
+  border: none;
+  background: rgba(162, 162, 160, 0.5);
+  padding: 0.4rem 1rem;
+  border-radius: $border-radius;
+  font-size: 1.6rem;
+  width: 8rem;
+}
+.tagContainer .activeInput {
+  background: $main-color;
+  color: white;
+}
+.tagInputContainer{
+  display: flex;
+  gap: .8rem;
+}
+.tagInputContainer input[type="text"]{
+  width: 100%;
+  height: 4rem;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  border-radius: $border-radius;
+  font-size: 1.4rem;
+  padding: 1rem;
+  border: none;
+}
+.tagInputContainer input[type="button"]{
+  width: 5rem;
+  height: 4rem;
+  border-radius: $border-radius;
+  background-color: $button-background-color;
+  font-size: 2rem;
+  color: white;
+  border: none;
+}
+.tagsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.tagsContainer p{
+  padding: .4rem .8rem;
+  color: $main-color;
+  border: 1px solid #E14D61;
+  border-radius: $border-radius;
+  font-size: 1.6rem;
+}
+.addStep:disabled,
+.ingredienContainer input[type="button"]:disabled,
+.nextStep:disabled,
+.tagInputContainer input[type="button"]:disabled {
+  background-color: #e14d619c;
 }
