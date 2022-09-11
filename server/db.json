@@ -162,6 +162,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         },
         {
@@ -197,6 +202,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         },
         {
@@ -230,6 +240,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         },
         {
@@ -263,6 +278,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+          "sarten",
+          "olla",
+          "cuchara"
           ]
         }
       ],

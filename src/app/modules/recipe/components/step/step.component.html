@@ -10,26 +10,25 @@
     <div class="ingredients-list">
       <b>Ingredientes:</b>
       <ul>
-      <li *ngFor="let ingredient of step.ingredients; index as i">
-        <span *ngIf="ingredient.unit">
-          {{ ingredient.quantity }} {{ ingredient?.unit }} de
-          {{ ingredient.name }}
-        </span>
-        <span *ngIf="!ingredient.unit">
-          {{ ingredient.quantity }} {{ ingredient.quantity > 1 ? ingredient.name + 's' : ingredient.name }}
-        </span>
-      </li>
-    </ul>
+        <li *ngFor="let ingredient of step.ingredients; index as i">
+          <span *ngIf="ingredient.unit">
+            {{ ingredient.quantity }} {{ ingredient?.unit }} de
+            {{ ingredient.name }}
+          </span>
+          <span *ngIf="!ingredient.unit">
+            {{ ingredient.quantity }}
+            {{
+              ingredient.quantity > 1 ? ingredient.name + "s" : ingredient.name
+            }}
+          </span>
+        </li>
+      </ul>
     </div>
-    <div class="ingredients-list">
+    <p class="step-tool">
       <b>Utensilios:</b>
-      <ul>
-      <li *ngFor="let tool of step.tools; index as i">
-        <span>
-          {{ tool }}
-        </span>
-      </li>
-    </ul>
-    </div>
+      <span *ngFor="let tool of step.tools; index as k">
+        {{ k + 1 !== step.tools.length ? tool + "," : tool + "." }}
+      </span>
+    </p>
   </div>
 </div>

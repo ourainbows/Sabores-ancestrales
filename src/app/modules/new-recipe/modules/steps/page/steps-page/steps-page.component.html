@@ -174,7 +174,7 @@
         <b>Utensilios:</b>
         <span *ngFor="let tool of step.tools; index as k">
           {{
-            k + 1 !== step.ingredients.length
+            k + 1 !== step.tools.length
               ? tool+ ","
               : tool + "."
           }}
