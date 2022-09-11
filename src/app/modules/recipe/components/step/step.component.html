@@ -21,5 +21,15 @@
       </li>
     </ul>
     </div>
+    <div class="ingredients-list">
+      <b>Utensilios:</b>
+      <ul>
+      <li *ngFor="let tool of step.tools; index as i">
+        <span>
+          {{ tool }}
+        </span>
+      </li>
+    </ul>
+    </div>
   </div>
 </div>
