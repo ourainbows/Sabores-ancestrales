@@ -48,6 +48,7 @@ export class CommentaryComponent implements OnInit {
       likes: [],
       userId: 1, // temporary
     };
+    this.imageSrc = '';
   }
 
 

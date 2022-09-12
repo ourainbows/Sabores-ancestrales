@@ -89,9 +89,7 @@
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
       "score": 2.5,
-      "scoreCount": [
-        
-      ],
+      "scoreCount": [],
       "time": 33,
       "difficulty": "dificil",
       "price": "$$-$$$",
@@ -280,9 +278,9 @@
             }
           ],
           "tools": [
-          "sarten",
-          "olla",
-          "cuchara"
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         }
       ],
@@ -327,6 +325,24 @@
         }
       ],
       "comments": [
+        {
+          "user": "Chef Teste",
+          "comment": "Esta es una receta increible y para toda la familia!",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fadmin-users.webp-0.8946160886346646?alt=media&token=bf43da75-f1dc-49b8-aedd-900690d2dd05",
+          "date": "2022-8-12",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Hola miren como quedo mi receta",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Frecetas-frias-veganas_0de24069_1200x630.jpeg-0.7124149584211397?alt=media&token=f896ecc4-ab33-49c9-b080-d7d34bd0943f",
+          "date": "2022-8-12",
+          "likes": [],
+          "userId": 1
+        },
         {
           "user": "Chef Teste",
           "comment": "Comentario de prueba con foto",
