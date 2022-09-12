@@ -40,7 +40,7 @@ export class StepsPageComponent implements OnInit {
 
     this.formSteps = this.initForm();
     this.steps = this.recipeService.newRecipe.steps;
-    this.tools = this.recipeService.newRecipe.tools;
+    // this.tools = this.recipeService.newRecipe.tools;
   }
 
   initForm(): FormGroup {

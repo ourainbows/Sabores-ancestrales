@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ExtraDataPageComponent implements OnInit {
   formExtra!: FormGroup;
-  tools: any = [];
   price = '';
   difficulty = '';
   edit = false;
@@ -35,7 +34,6 @@ export class ExtraDataPageComponent implements OnInit {
       difficulty: this.recipeService.newRecipe.difficulty,
       price: this.recipeService.newRecipe.price,
     });
-    this.tools = this.recipeService.newRecipe.tools;
     this.price = this.recipeService.newRecipe.price;
     this.difficulty = this.recipeService.newRecipe.difficulty;
   }
@@ -46,18 +44,8 @@ export class ExtraDataPageComponent implements OnInit {
       minutes: ['', Validators.required],
       difficulty: ['', Validators.required],
       price: ['', Validators.required],
-      tool: [''],
     });
   }
-
-  addTools = () => {
-    this.tools.push(this.formExtra.value.tool);
-    this.formExtra.controls['tool'].setValue(' ');
-  };
-
-  deleteTag = (tag: any) => {
-    this.tools = this.tools.filter((item: any) => item !== tag);
-  };
 
   onChangeOption(option: any, value: string) {
     if (option == 'difficulty') {
@@ -80,7 +68,6 @@ export class ExtraDataPageComponent implements OnInit {
       time: this.formExtra.value.hours * 60 + this.formExtra.value.minutes,
       difficulty: this.formExtra.value.difficulty,
       price: this.formExtra.value.price,
-      tools: this.tools,
     };
     if (this.edit) {
       this.router.navigate(['/new-recipe/steps'], {
