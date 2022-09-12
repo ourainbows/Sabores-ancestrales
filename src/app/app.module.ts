@@ -30,7 +30,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     FormsModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent],

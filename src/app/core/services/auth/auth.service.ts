@@ -122,4 +122,11 @@ export class AuthService {
     userToken ? this.userSubject.next(true) : this.userSubject.next(false);
     return this.userSubject;
   }
+
+  activateUser(token: string) {
+    return this.http.get(this.auth + 'activate/' + token);
+  }
+  createProfile(profile : any){
+    return this.http.post(this.auth + 'profile', profile);
+  }
 }
