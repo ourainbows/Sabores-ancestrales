@@ -39,8 +39,8 @@
   font-size: $font-text;
   margin-bottom: 0.8rem;
 }
-.content p{
-    margin-bottom: 0.8rem;
+.content p {
+  margin-bottom: 0.8rem;
 }
 .content img {
   width: 100%;
@@ -69,8 +69,12 @@
   }
 }
 
-@media(min-width: 700px){
-  .commentary{
+@media (min-width: 700px) {
+  .commentary {
     margin-bottom: 2rem;
+  }
+  .user img {
+    width: 4rem;
+    height: 4rem;
   }
 }

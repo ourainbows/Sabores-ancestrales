@@ -1,50 +1,54 @@
-@import '../../../../../styles.scss';
+@import "../../../../../styles.scss";
 
-.container{
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.2rem;
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.2rem;
 }
 
-.user-container{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: $text-color;
-    img{
-        height: 3rem;
-        width: 3rem;
-        margin-right: 1.2rem;
-        border-radius: $border-radius;
-        object-fit: cover;
-    }
-    p{
-        font-size: 1.7rem;
-    }
+.user-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: $text-color;
+  img {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 1.2rem;
+    border-radius: $border-radius;
+    object-fit: cover;
+  }
+  p {
+    font-size: 1.7rem;
+  }
 }
-.description{
-    font-size: $font-text;
-    margin: 1.2rem 0 1.6rem;
+.description {
+  font-size: $font-text;
+  margin: 1.2rem 0 1.6rem;
 }
-.info-container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    font-size: $font-text;
-    p{
-        margin-right: 3rem;
-        margin-bottom: .8rem;
-        font-weight: bold;
-        span{
-            font-weight: normal;
-            color: $secundary-text-color;
-        }
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: $font-text;
+  p {
+    margin-right: 3rem;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    span {
+      font-weight: normal;
+      color: $secundary-text-color;
     }
+  }
 }
-@media(min-width: 800px){
-    .container{
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+@media (min-width: 800px) {
+  .container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .user-container img {
+    height: 5rem;
+    width: 5rem;
   }
 }
