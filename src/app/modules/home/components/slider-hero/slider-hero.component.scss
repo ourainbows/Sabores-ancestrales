@@ -12,8 +12,10 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  max-width: 780px;
+  margin: 0 auto;
 }
-.container-card{
+.container-card {
   @include flex();
   flex-direction: column;
   position: relative;
@@ -46,39 +48,29 @@
   top: 30%;
   left: calc(50% - 125px);
   margin-top: -5rem;
-  p{
+  p {
     font-size: 26px;
     font-style: italic;
     margin-bottom: 1rem;
   }
-  div{
+  div {
     @include flex();
     flex-direction: row;
     text-align: center;
     margin: 0 1rem;
     font-size: 14px;
   }
-  span{
+  span {
     display: flex;
     flex-direction: row;
-    margin-right: .4rem;
+    margin-right: 0.4rem;
   }
 }
-.star{
+.star {
   color: $main-color;
 }
-@media(min-width: 659px){
-  .slider{
+@media (min-width: 659px) {
+  .slider {
     margin-top: 2rem;
-
-  }
-  .containerImg{
-    // width: 380px;
-    // height: 30rem;
-  }
-  .detailRecipe{
-    // width: 350px;
-    // height: 12rem;
-    // margin-top: -9rem;
   }
 }
