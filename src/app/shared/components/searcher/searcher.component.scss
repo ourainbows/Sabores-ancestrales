@@ -65,6 +65,7 @@ input::placeholder {
     justify-content: flex-end;
     flex-direction: column;
     text-align: center;
+    height: 100%;
 
     .iconFilter {
       height: 3.2rem;
@@ -88,5 +89,10 @@ input::placeholder {
       cursor: pointer;
     }
   }
+}
 
+@media (min-width: 425px) {
+  .searcher-container {
+    height: 4.4rem;
+  }
 }

@@ -16,6 +16,8 @@
 .container-card{
   @include flex();
   flex-direction: column;
+  position: relative;
+  scroll-snap-align: center;
 }
 
 .containerImg {
@@ -60,5 +62,23 @@
     display: flex;
     flex-direction: row;
     margin-right: .4rem;
+  }
+}
+.star{
+  color: $main-color;
+}
+@media(min-width: 659px){
+  .slider{
+    margin-top: 2rem;
+
+  }
+  .containerImg{
+    // width: 380px;
+    // height: 30rem;
+  }
+  .detailRecipe{
+    // width: 350px;
+    // height: 12rem;
+    // margin-top: -9rem;
   }
 }

@@ -74,6 +74,56 @@
           "name": "Fruta"
         }
       ]
+    },
+    {
+      "id": 4,
+      "name": "Torta de fresa",
+      "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "score": 4.2,
+      "likes": [
+        1
+      ],
+      "time": 33,
+      "price": "$$-$$$",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Desayuno"
+        },
+        {
+          "id": 2,
+          "name": "Postre"
+        },
+        {
+          "id": 3,
+          "name": "Fruta"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Torta de fresa",
+      "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "score": 4.2,
+      "likes": [
+        1
+      ],
+      "time": 33,
+      "price": "$$-$$$",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Desayuno"
+        },
+        {
+          "id": 2,
+          "name": "Postre"
+        },
+        {
+          "id": 3,
+          "name": "Fruta"
+        }
+      ]
     }
   ],
   "recipe": [
@@ -325,6 +375,15 @@
         }
       ],
       "comments": [
+        {
+          "user": "Chef Teste",
+          "comment": "Estoy intentando esta receta",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fadmin-recipes.webp-0.9406358482610446?alt=media&token=9d0903cd-bd93-4d5a-9c63-10386115e47f",
+          "date": "2022-8-12",
+          "likes": [],
+          "userId": 1
+        },
         {
           "user": "Chef Teste",
           "comment": "Esta es una receta increible y para toda la familia!",
@@ -744,6 +803,39 @@
           ]
         }
       ]
+    },
+    {
+      "name": "La sazon de marianita",
+      "userId": 0,
+      "description": "una receta de mi tia",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fadmin-recipes.webp-0.30866860011576724?alt=media&token=b50a988e-84a9-4d30-8e5d-3bd809c503be",
+      "time": 90,
+      "difficulty": "medio",
+      "price": "$",
+      "ingredients": [],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Frecetas-frias-veganas_0de24069_1200x630.jpeg-0.7949265398332617?alt=media&token=35c4f34c-a6e6-42b6-9694-8830a3bccf35",
+          "description": "cortar las papas",
+          "ingredients": [
+            {
+              "quantity": 5,
+              "name": "papa",
+              "unit": "gr"
+            }
+          ],
+          "tools": [
+            "cuchillo"
+          ]
+        }
+      ],
+      "tags": [
+        " nutritivo"
+      ],
+      "tools": [],
+      "public": true,
+      "id": 3
     }
   ],
   "user": [

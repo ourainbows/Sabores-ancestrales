@@ -23,6 +23,7 @@ export class ActivateComponent implements OnInit {
         });
     });
   }
+  
   createProfile(userName: any, id: any) {
     this.authService
       .createProfile({

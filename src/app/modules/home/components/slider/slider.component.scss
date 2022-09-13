@@ -12,6 +12,8 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  max-width: 60rem;
+  margin: 0 auto;
 }
 .background-image {
   position: absolute;
@@ -49,4 +51,20 @@
 
 .more-recipes p {
   padding-bottom: 0.4rem;
+}
+
+@media (min-width: 375px) {
+  .more-recipes {
+    width: 16rem;
+    min-width: 16rem;
+  }
+}
+@media (min-width: 600px) {
+  .title {
+    width: 585px;
+    margin: 0 auto;
+  }
+  .slider{
+    margin-bottom: 4rem;
+  }
 }

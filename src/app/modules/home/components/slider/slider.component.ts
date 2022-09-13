@@ -16,7 +16,7 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoriesService
-      .getRecipesByCategory(this.category, 3)
+      .getRecipesByCategory(this.category, 5)
       .subscribe((data) => {
         this.recipes = data;
       });
