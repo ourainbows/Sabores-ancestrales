@@ -11,3 +11,11 @@
 .commentary-container {
   margin-bottom: 2rem;
 }
+@media (min-width: 800px) {
+  .section {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
+}

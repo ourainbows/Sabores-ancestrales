@@ -68,3 +68,9 @@
     color: $main-color;
   }
 }
+
+@media(min-width: 700px){
+  .commentary{
+    margin-bottom: 2rem;
+  }
+}
