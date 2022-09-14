@@ -45,3 +45,7 @@ html {
 .material-icons {
   font-family: "Material Icons" !important;
 }
+
+@media(min-width: 600px){
+  $font-text: 1.8rem;
+}
