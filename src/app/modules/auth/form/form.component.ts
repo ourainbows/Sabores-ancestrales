@@ -82,7 +82,7 @@ export class FormComponent implements OnInit {
     } else if (this.authForm.invalid && option === this.signIn) {
       this.toast.fire({
         icon: 'error',
-        title: 'Invalid Form',
+        title: 'Formulario Invalido',
       });
     }
     if (
@@ -94,7 +94,7 @@ export class FormComponent implements OnInit {
     } else if (this.authForm.invalid && option === this.signUp) {
       this.toast.fire({
         icon: 'error',
-        title: 'Invalid Form',
+        title: 'Formulario Invalido',
       });
     }
   }
