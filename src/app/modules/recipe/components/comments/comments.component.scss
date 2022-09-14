@@ -58,12 +58,14 @@
 .actions > p {
   font-size: 1.2rem;
   color: $secundary-text-color;
+  cursor: pointer;
 }
 .likes {
   display: flex;
   align-items: center;
   font-size: 1.6rem;
   color: $secundary-text-color;
+  cursor: pointer;
   &.active {
     color: $main-color;
   }

@@ -31,6 +31,13 @@ $margin: 0 1.6rem;
 html {
   font-size: 62.5%;
 }
+button, input[type="button"] {
+  cursor: pointer;
+}
+input:focus, textarea:focus, select:focus { // not working
+  outline: $main-color
+}
+
 
 @mixin title {
   font-size: $fontTitle;
@@ -46,6 +53,3 @@ html {
   font-family: "Material Icons" !important;
 }
 
-@media(min-width: 600px){
-  $font-text: 1.8rem;
-}

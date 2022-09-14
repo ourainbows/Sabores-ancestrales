@@ -390,7 +390,9 @@
           "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
           "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fadmin-users.webp-0.8946160886346646?alt=media&token=bf43da75-f1dc-49b8-aedd-900690d2dd05",
           "date": "2022-8-12",
-          "likes": [],
+          "likes": [
+            1
+          ],
           "userId": 1
         },
         {
