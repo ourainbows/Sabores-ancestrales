@@ -19,19 +19,18 @@ export class ActivateComponent implements OnInit {
       let tokenActive = params.get('token');
       tokenActive &&
         this.authService.activateUser(tokenActive).subscribe((res: any) => {
-          this.createProfile(res.data_user.username, res.data_user.id);
+          this.createProfile(res.dataUser.userName, res.dataUser.id);
         });
     });
   }
-  
+
   createProfile(userName: any, id: any) {
     this.authService
       .createProfile({
-        profile_stars: 0,
-        profile_name: userName,
-        profile_birth_date: '1/1/2000',
-        profile_photo: '',
-        user_id: id,
+        profileName: userName,
+        profileBirthDate: '1/1/2000',
+        profilePhoto: '',
+        userId: id,
       })
       .subscribe((res: any) => {
         this.router.navigate(['/login'])

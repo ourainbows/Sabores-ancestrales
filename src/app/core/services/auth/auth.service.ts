@@ -49,16 +49,15 @@ export class AuthService {
   login(user: UserLogin): Observable<any> {
     return this.http
       .post<UserLogin>(this.auth + 'login', {
-        email: user.email,
+        userEmail: user.email,
         password: user.password,
       })
       .pipe(
-        map((res) => {
-          console.log(res)
-          if (res.token) {
+        map((res: any) => {
+          if (res.accessToken) {
             this.userSubject.next(true);
-            this.saveToken(res.token); // TODO -> save user
-            this.saveUserId(res.id);
+            this.saveToken(res.accessToken); // TODO -> save user
+            /* this.saveUserId(res.id); */
             this.router.navigate(['/']);
           }
           return res;
@@ -74,30 +73,12 @@ export class AuthService {
   register(user: UserRegister): Observable<any> {
     return this.http
       .post<UserRegister>(this.auth + 'register', {
-        name: user.name,
-        user_email: user.email,
+        userName: user.name,
+        userEmail: user.email,
         password: user.password,
       })
       .pipe(
         map((res) => {
-          if (res) {
-            this.user = {
-              id: 0,
-              name: res.name,
-              email: res.email,
-              photo: '',
-              description: '',
-              score: 0,
-              recipes: {
-                userRecipes: [],
-                savedRecipes: [],
-                likedRecipes: [],
-              },
-            };
-            this.userSvc.postUser(this.user).subscribe();
-            this.userSubject.next(true);
-            this.router.navigate(['login']);
-          }
           return res;
         }),
         catchError((err) => {
