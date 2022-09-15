@@ -74,6 +74,56 @@
           "name": "Fruta"
         }
       ]
+    },
+    {
+      "id": 4,
+      "name": "Torta de fresa",
+      "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "score": 4.2,
+      "likes": [
+        1
+      ],
+      "time": 33,
+      "price": "$$-$$$",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Desayuno"
+        },
+        {
+          "id": 2,
+          "name": "Postre"
+        },
+        {
+          "id": 3,
+          "name": "Fruta"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Torta de fresa",
+      "imagePath": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "score": 4.2,
+      "likes": [
+        1
+      ],
+      "time": 33,
+      "price": "$$-$$$",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Desayuno"
+        },
+        {
+          "id": 2,
+          "name": "Postre"
+        },
+        {
+          "id": 3,
+          "name": "Fruta"
+        }
+      ]
     }
   ],
   "recipe": [
@@ -89,9 +139,7 @@
         "photo": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
       },
       "score": 2.5,
-      "scoreCount": [
-        1
-      ],
+      "scoreCount": [],
       "time": 33,
       "difficulty": "dificil",
       "price": "$$-$$$",
@@ -162,6 +210,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         },
         {
@@ -197,6 +250,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         },
         {
@@ -230,6 +288,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         },
         {
@@ -263,6 +326,11 @@
               "quantity": 7,
               "unit": ""
             }
+          ],
+          "tools": [
+            "sarten",
+            "olla",
+            "cuchara"
           ]
         }
       ],
@@ -307,6 +375,35 @@
         }
       ],
       "comments": [
+        {
+          "user": "Chef Teste",
+          "comment": "Estoy intentando esta receta",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fadmin-recipes.webp-0.9406358482610446?alt=media&token=9d0903cd-bd93-4d5a-9c63-10386115e47f",
+          "date": "2022-8-12",
+          "likes": [],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Esta es una receta increible y para toda la familia!",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fadmin-users.webp-0.8946160886346646?alt=media&token=bf43da75-f1dc-49b8-aedd-900690d2dd05",
+          "date": "2022-8-12",
+          "likes": [
+            1
+          ],
+          "userId": 1
+        },
+        {
+          "user": "Chef Teste",
+          "comment": "Hola miren como quedo mi receta",
+          "photoUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "photoRecipe": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Frecetas-frias-veganas_0de24069_1200x630.jpeg-0.7124149584211397?alt=media&token=f896ecc4-ab33-49c9-b080-d7d34bd0943f",
+          "date": "2022-8-12",
+          "likes": [],
+          "userId": 1
+        },
         {
           "user": "Chef Teste",
           "comment": "Comentario de prueba con foto",
@@ -710,292 +807,37 @@
       ]
     },
     {
-      "name": "",
+      "name": "La sazon de marianita",
       "userId": 0,
-      "description": "",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.7915184829945363?alt=media&token=061cf0a6-3b02-49ab-89f2-07632b9d1b36",
-      "time": 0,
-      "difficulty": "",
-      "price": "",
-      "ingredients": [],
-      "steps": [
-        {
-          "stepNumber": 1,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.8148770492320387?alt=media&token=ce9d1777-5292-45c9-86c2-b9ac51cffa29",
-          "description": "lima",
-          "ingredients": [
-            {
-              "quantity": 1,
-              "name": "lima",
-              "unit": "mL"
-            }
-          ]
-        },
-        {
-          "stepNumber": 2,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Frecetas-frias-veganas_0de24069_1200x630.jpeg-0.44711230162469073?alt=media&token=fa28c5bd-5f14-4dcb-8688-c96d3985dffb",
-          "description": "arroz con pollo\n",
-          "ingredients": [
-            {
-              "quantity": 3,
-              "name": "agua",
-              "unit": "L"
-            },
-            {
-              "quantity": 1,
-              "name": "azucar",
-              "unit": "L"
-            },
-            {
-              "quantity": 3,
-              "name": "aguita en polvo",
-              "unit": "taza"
-            }
-          ]
-        }
-      ],
-      "tags": [],
-      "tools": [],
-      "id": 3
-    },
-    {
-      "name": "",
-      "userId": 0,
-      "description": "",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.4675608770123616?alt=media&token=43ffb068-30bd-4414-ba7a-a976a20d5668",
-      "time": 0,
-      "difficulty": "",
-      "price": "",
-      "ingredients": [],
-      "steps": [
-        {
-          "stepNumber": 1,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.8743702398408917?alt=media&token=60b6d7f3-9f45-4bb3-b3c9-954529dc1338",
-          "description": "saS",
-          "ingredients": [
-            {
-              "quantity": 2,
-              "name": "21",
-              "unit": "mL"
-            }
-          ]
-        }
-      ],
-      "tags": [],
-      "tools": [],
-      "public": true,
-      "id": 4
-    },
-    {
-      "name": "Torta de fresa",
-      "userId": 1,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas, lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.  Molestie tincidunt egestas, lorem ipsum dolor sit amet.",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.828800806046686?alt=media&token=33209b4c-bc80-4138-b513-675843bb410c",
-      "time": 33,
+      "description": "una receta de mi tia",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fadmin-recipes.webp-0.30866860011576724?alt=media&token=b50a988e-84a9-4d30-8e5d-3bd809c503be",
+      "time": 90,
       "difficulty": "medio",
-      "price": "$$-$$$",
-      "ingredients": [
-        {
-          "id": 1,
-          "name": "Salsa de Fresa",
-          "checked": false,
-          "quantity": 1,
-          "unit": "tarro"
-        },
-        {
-          "id": 2,
-          "name": "Fresa",
-          "checked": false,
-          "quantity": 1
-        },
-        {
-          "id": 3,
-          "name": "Azucar",
-          "checked": false,
-          "quantity": 1,
-          "unit": "cucharada"
-        },
-        {
-          "id": 4,
-          "name": "Huevo",
-          "checked": false,
-          "quantity": 7
-        }
-      ],
+      "price": "$",
+      "ingredients": [],
       "steps": [
         {
-          "id": 1,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.5815807434096445?alt=media&token=c376b683-db41-4f76-baa0-828d972119be",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "stepNumber": 1,
+          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Frecetas-frias-veganas_0de24069_1200x630.jpeg-0.7949265398332617?alt=media&token=35c4f34c-a6e6-42b6-9694-8830a3bccf35",
+          "description": "cortar las papas",
           "ingredients": [
             {
-              "id": 1,
-              "name": "Salsa de Fresa",
-              "checked": false,
-              "quantity": 1,
-              "unit": "tarro"
-            },
-            {
-              "id": 2,
-              "name": "Fresa",
-              "checked": false,
-              "quantity": 1,
-              "unit": ""
-            },
-            {
-              "id": 3,
-              "name": "Azucar",
-              "checked": false,
-              "quantity": 1,
-              "unit": "cucharada"
-            },
-            {
-              "id": 4,
-              "name": "Huevo",
-              "checked": false,
-              "quantity": 7,
-              "unit": ""
+              "quantity": 5,
+              "name": "papa",
+              "unit": "gr"
             }
           ],
-          "checked": false
-        },
-        {
-          "id": 2,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.5203177138750141?alt=media&token=3e3efb4b-801f-406b-b2e7-00d4a6d96b28",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-          "ingredients": [
-            {
-              "id": 1,
-              "name": "Salsa de Fresa",
-              "checked": false,
-              "quantity": 1,
-              "unit": "tarro"
-            },
-            {
-              "id": 2,
-              "name": "Fresa",
-              "checked": false,
-              "quantity": 1,
-              "unit": ""
-            },
-            {
-              "id": 3,
-              "name": "Azucar",
-              "checked": false,
-              "quantity": 1,
-              "unit": "cucharada"
-            },
-            {
-              "id": 4,
-              "name": "Huevo",
-              "checked": false,
-              "quantity": 7,
-              "unit": ""
-            }
-          ],
-          "checked": false
-        },
-        {
-          "stepNumber": 3,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fundefined-0.9052783204563914?alt=media&token=16ce3379-6e3a-47f8-bf15-ff8d4100000e",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-          "ingredients": [
-            {
-              "id": 1,
-              "name": "Salsa de Fresa",
-              "quantity": 1,
-              "unit": "tarro"
-            },
-            {
-              "id": 2,
-              "name": "Fresa",
-              "checked": false,
-              "quantity": 1,
-              "unit": ""
-            },
-            {
-              "id": 3,
-              "name": "Azucar",
-              "quantity": 1,
-              "unit": "cucharada"
-            },
-            {
-              "id": 4,
-              "name": "Huevo",
-              "checked": false,
-              "quantity": 7,
-              "unit": ""
-            },
-            {
-              "quantity": 3,
-              "name": "azucar",
-              "unit": "pizca"
-            }
-          ]
-        },
-        {
-          "stepNumber": 4,
-          "imagePath": {},
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit, paso editado :)",
-          "ingredients": [
-            {
-              "id": 1,
-              "name": "Salsa de Fresa",
-              "quantity": 1,
-              "unit": "tarro"
-            },
-            {
-              "id": 2,
-              "name": "Fresa",
-              "checked": false,
-              "quantity": 1,
-              "unit": ""
-            },
-            {
-              "id": 3,
-              "name": "Azucar",
-              "quantity": 1,
-              "unit": "cucharada"
-            },
-            {
-              "id": 4,
-              "name": "Huevo",
-              "checked": false,
-              "quantity": 7,
-              "unit": ""
-            }
-          ]
-        },
-        {
-          "stepNumber": 5,
-          "imagePath": "https://firebasestorage.googleapis.com/v0/b/saboresancestrales-56030.appspot.com/o/images%2Fcocinar-olla-presion_571e8250_1280x720.jpeg-0.8956839545314403?alt=media&token=340c7f23-75fe-41b0-91cc-9bdca181a82d",
-          "description": "Estamos listos, este es un paso nuevo en la edicion de una receta existente :D , si funciona es buena señal",
-          "ingredients": [
-            {
-              "quantity": 21,
-              "name": "papas",
-              "unit": "kg"
-            },
-            {
-              "quantity": 1,
-              "name": "vinagre",
-              "unit": "mL"
-            }
+          "tools": [
+            "cuchillo"
           ]
         }
       ],
       "tags": [
-        "Desayuno",
-        "Postre",
-        "Fruta"
+        " nutritivo"
       ],
-      "tools": [
-        "sarten",
-        "olla",
-        "cuchara"
-      ],
+      "tools": [],
       "public": true,
-      "id": 5
+      "id": 3
     }
   ],
   "user": [
@@ -1014,7 +856,8 @@
           3,
           1
         ]
-      }
+      },
+      "isActive": true
     },
     {
       "id": 2,
@@ -1032,7 +875,7 @@
           1
         ]
       },
-      "isActive": true
+      "isActive": false
     },
     {
       "id": 2,
@@ -1066,7 +909,7 @@
         "savedRecipes": [],
         "likedRecipes": []
       },
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "wOA2SIpr9OhGEq3pYfxleNcSTwA3",
@@ -1079,7 +922,8 @@
         "userRecipes": [],
         "savedRecipes": [],
         "likedRecipes": []
-      }
+      },
+      "isActive": true
     }
   ],
   "feedback": [
@@ -1114,6 +958,43 @@
   "report": [
     {
       "id": 3,
+      "user": "Artur Morgado",
+      "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "date": "2022-5-21",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "idRecipe": 1,
+      "reportedUser": "Chef Teste",
+      "photoReportedUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "recipeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "recipeImage": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "recipeName": "Torta de Fresas"
+    },
+    {
+      "id": 3,
+      "user": "Artur Morgado",
+      "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "date": "2022-5-21",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "idRecipe": 1,
+      "reportedUser": "Chef Teste",
+      "reportedComment": "Lorem ipsum dolor sit amet.",
+      "photoReportedUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "id": 4,
+      "user": "Artur Morgado",
+      "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "date": "2022-5-21",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "idRecipe": 1,
+      "reportedUser": "Chef Teste",
+      "photoReportedUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "recipeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
+      "recipeImage": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "recipeName": "Torta de Fresas"
+    },
+    {
+      "id": 5,
       "user": "Artur Morgado",
       "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       "date": "2022-5-21",

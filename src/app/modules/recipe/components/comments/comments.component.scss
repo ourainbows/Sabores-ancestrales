@@ -39,8 +39,8 @@
   font-size: $font-text;
   margin-bottom: 0.8rem;
 }
-.content p{
-    margin-bottom: 0.8rem;
+.content p {
+  margin-bottom: 0.8rem;
 }
 .content img {
   width: 100%;
@@ -58,13 +58,25 @@
 .actions > p {
   font-size: 1.2rem;
   color: $secundary-text-color;
+  cursor: pointer;
 }
 .likes {
   display: flex;
   align-items: center;
   font-size: 1.6rem;
   color: $secundary-text-color;
+  cursor: pointer;
   &.active {
     color: $main-color;
+  }
+}
+
+@media (min-width: 700px) {
+  .commentary {
+    margin-bottom: 2rem;
+  }
+  .user img {
+    width: 4rem;
+    height: 4rem;
   }
 }

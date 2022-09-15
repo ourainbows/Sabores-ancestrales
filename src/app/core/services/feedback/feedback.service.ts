@@ -12,6 +12,9 @@ export class FeedbackService {
   getFeedback(): Observable<Feedback[]> {
     return this.http.get<Feedback[]>(this.apiUrl);
   }
+  createFeedback(feedback: any) {
+    return this.http.post<Feedback>(this.apiUrl, feedback);
+  }
 
   constructor(private http: HttpClient) { }
 }

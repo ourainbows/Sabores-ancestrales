@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lustria&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 
 $secundary-text-color: rgb(162, 162, 160);
@@ -30,6 +31,13 @@ $margin: 0 1.6rem;
 html {
   font-size: 62.5%;
 }
+button, input[type="button"] {
+  cursor: pointer;
+}
+input:focus, textarea:focus, select:focus { // not working
+  outline: $main-color
+}
+
 
 @mixin title {
   font-size: $fontTitle;
@@ -44,3 +52,4 @@ html {
 .material-icons {
   font-family: "Material Icons" !important;
 }
+

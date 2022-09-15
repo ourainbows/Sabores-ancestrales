@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
-  ul{
+  ul {
     margin-top: 1.2rem;
     margin-left: 1.6rem;
   }
@@ -16,19 +16,33 @@
   width: 100%;
   height: auto;
   max-height: 30rem;
-  padding: 0 1.4rem;
+  // padding: 0 1.4rem;
   margin: 1.1rem 0;
   border-radius: $border-radius;
   object-fit: cover;
-}
-.info-container{
-    padding: 0 1.4rem;
 }
 .step-description {
   margin-bottom: 1rem;
   font-size: $font-text;
   text-align: justify;
 }
-.ingredients-list{
-    font-size: $font-text;
+.ingredients-list {
+  margin-bottom: 1.4rem;
+  font-size: $font-text;
+}
+.step-tool {
+  font-size: $font-text;
+}
+
+@media (min-width: 700px) {
+  .container {
+    margin-bottom: 4rem;
+  }
+}
+@media (min-width: 800px) {
+  .container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

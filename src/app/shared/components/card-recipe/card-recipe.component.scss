@@ -18,6 +18,7 @@
   height: 10rem;
   overflow: hidden;
   border-radius: 5px;
+  cursor: pointer;
   img {
     max-width: 100%;
   }
@@ -70,5 +71,13 @@
     .border{
       color: $secundary-text-color;
     }
+  }
+}
+@media(min-width: 700px){
+  .cardRecipe{
+    width: 20rem !important;
+  }
+  .containerImg{
+    height: 15rem;
   }
 }

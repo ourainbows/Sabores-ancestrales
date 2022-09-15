@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,7 +9,24 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: Router) {}
+
+  user: User = {
+    id: 0,
+    name: '',
+    email: '',
+    description: '',
+    photo: '',
+    recipes: {
+      userRecipes: [],
+      likedRecipes: [],
+      savedRecipes: [],
+    },
+    score: 0,
+    savedRecipes: [],
+    isActive: true,
+    idAdmin: false,
+  };
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
     return this.http.get<User[]>(
@@ -33,4 +51,20 @@ export class UsersService {
   deleteUser(id: number | null | string): Observable<any> {
     return this.http.delete<any>(`${this.apiUsers}/${id}`);
   }
+
+  // getUserData(): any {
+  //   if (!this.user.id) {
+  //     let userId = localStorage.getItem('userId');
+  //     if (userId) {
+  //       this.getUserById(userId).subscribe((user) => {
+  //         this.user = user;
+  //       });
+  //       return this.user;
+  //     } else {
+  //       return this.user;
+  //     }
+  //   } else {
+  //     return this.user;
+  //   }
+  // }
 }

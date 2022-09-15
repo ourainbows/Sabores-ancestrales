@@ -1,14 +1,28 @@
-@import '../../../../../styles.scss';
+@import "../../../../../styles.scss";
 
-.title{
+.title {
   font-size: $font-title;
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
   margin-top: 2rem;
 }
-.searcher-container{
+.searcher-container {
   margin: 0 1.5rem;
 }
-.recipes{
+.recipes {
   margin-top: 1rem;
+}
+@media (min-width: 800px) {
+  .searcher-container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .title{
+    width: 800px;
+    /* margin: 0.4rem auto; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
 }

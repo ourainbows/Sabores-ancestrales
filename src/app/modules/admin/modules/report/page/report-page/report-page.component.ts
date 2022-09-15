@@ -4,7 +4,7 @@ import { Report } from './../../../../../../shared/models/report.model';
 import { ReportService } from './../../../../../../core/services/report/report.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-page',
@@ -28,31 +28,39 @@ export class ReportPageComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.type, this.id, this.name);
+    
     this.reportService.getReports(this.id, this.type).subscribe((data) => {
       this.reports = data;
     });
   }
 
   deleteReport(id: number) {
-    this.reportService.deleteReport(id).subscribe((data) => {
+    // this.reportService.deleteReport(id, this.type).subscribe((data) => {
       this.reports = this.reports.filter((report) => report.id != id);
-    });
+    // });
   }
 
   deleteRecipe() {
     this.recipesService.deleteRecipe(this.id).subscribe((data) => {
-      this.reports = this.reports.filter((report) => report.id.toString() != this.id);
-      this.router.navigate(['/admin/table-recipes'])
-    } );
+      this.reports = this.reports.filter(
+        (report) => report.idRecipe?.toString() != this.id?.toString()
+      );
+      this.router.navigate(['/admin/table-recipes']);
+    });
   }
 
   suspendUser() {
-    this.userService.updateUser(this.id, { isActive: false }).subscribe((data) => {
-      this.router.navigate(['/admin/table-users'])
-    } );
+    this.userService
+      .updateUser(this.id, { isActive: false })
+      .subscribe((data) => {
+        this.router.navigate(['/admin/table-users']);
+      });
   }
-  deleteComment(idComment : number) {
+  deleteComment(idComment: any) {
     this.recipesService.deleteComment(this.id, idComment).subscribe((data) => {
-      this.reports = this.reports.filter((report) => report.id.toString() != this.id);
-    })} 
+      this.reports = this.reports.filter(
+        (report) => report.idReportedComment?.toString() != idComment.toString()
+      );
+    });
+  }
 }

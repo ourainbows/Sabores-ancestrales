@@ -7,12 +7,14 @@ nav {
   justify-content: space-between;
   align-items: center;
   //box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  max-width: 130rem;
+  margin: 0 auto;
 }
 
 .logo {
   text-decoration: none;
   color: black;
-  font-size: 1.6rem;
+  margin-top: .4rem;
 }
 
 
@@ -76,4 +78,24 @@ nav {
     }
   }
 
+}
+
+@media(min-width: 700px){
+  nav{
+    margin-top: 2rem;
+  }
+  .primary-navigation .sign{
+    padding: .8rem 3.5rem;
+  }
+  .logo{
+    img{
+      width: 6rem;
+    }
+  }
+  .primary-navigation .profile  {
+    img {
+      height: 4.8rem;
+      width: 4.8rem;
+    }
+  }
 }

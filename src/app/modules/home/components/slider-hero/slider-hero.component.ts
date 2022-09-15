@@ -20,6 +20,7 @@ export class SliderHeroComponent implements OnInit {
       .getRecipesByCategory(this.category, 3)
       .subscribe((data) => {
         this.recipes = data;
+        console.log(this.recipes);
       });
   }
 

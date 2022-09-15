@@ -63,7 +63,7 @@ export class FormComponent implements OnInit {
               likedRecipes: [],
             },
           };
-          this.userSvc.postUser(this.user).subscribe();
+          this.userSvc.postUser(this.user).subscribe();  // TODO: save user 
         } else {
           this.authSvc.saveToken(res.user.multiFactor.user.uid);
         }
@@ -80,7 +80,7 @@ export class FormComponent implements OnInit {
     } else if (this.authForm.invalid && option === this.signIn) {
       this.toast.fire({
         icon: 'error',
-        title: 'Invalid Form',
+        title: 'Formulario Invalido',
       });
     }
     if (
@@ -92,7 +92,7 @@ export class FormComponent implements OnInit {
     } else if (this.authForm.invalid && option === this.signUp) {
       this.toast.fire({
         icon: 'error',
-        title: 'Invalid Form',
+        title: 'Formulario Invalido',
       });
     }
   }
