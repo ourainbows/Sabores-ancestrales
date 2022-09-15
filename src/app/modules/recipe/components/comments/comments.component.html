@@ -2,7 +2,9 @@
   <div class="commentary">
     <div class="head">
       <div class="user">
-        <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
+        <a routerLink="/profile/{{commentary.userId}}">
+          <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
+        </a>
         <span>{{ commentary.user }}</span>
       </div>
       <div class="date">
@@ -18,7 +20,17 @@
       />
     </div>
     <div class="actions">
-      <p>Reportar</p>
+      <p (click)="selectCommentary(commentary.id)" *ngIf="commentary.userId !== userId">
+        Reportar
+      </p>
+      <app-report
+        *ngIf="selectedCommentary === commentary.id"
+        [showReport]="showReport"
+        [reportType]="'commentary'"
+        [reportId]="commentary.id"
+      >
+      </app-report>
+      <p (click)="deleteCommentary(commentary.id)" *ngIf="commentary.userId === userId">Eliminar</p>
       <div
         class="likes"
         [class.active]="commentary.likes.includes(userId)"

@@ -1,0 +1,307 @@
+@import "../../../../../../../styles.scss";
+
+.descriptionStep {
+  font-size: $font-text;
+  margin: 2.2rem 1.6rem 3.2rem;
+}
+.form {
+  margin: 0 1.6rem 2.4rem 1.6rem;
+}
+.form input,
+form textarea {
+  border: none;
+}
+.form-label {
+  display: block;
+  font-size: $font-subtitle;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+.inputName {
+  padding: 1rem;
+  margin-bottom: 2.4rem;
+  width: 100%;
+  height: 4rem;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  border-radius: $border-radius;
+  font-size: 1.4rem;
+}
+.inputImage {
+  display: none;
+}
+.label-image {
+  margin: 0 auto;
+  width: 80vw;
+  height: 60vw;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #a2a2a0;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.camera-icon {
+  height: 3rem;
+  width: 5rem;
+  margin-bottom: 2.4rem;
+  font-size: 5rem;
+  color: $main-color;
+}
+.image-description {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+.image-support {
+  font-size: 1.2rem;
+  color: #a2a2a0;
+}
+.inputDescription {
+  width: 100%;
+  height: 14rem;
+  margin-bottom: 2.4rem;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  border-radius: $border-radius;
+  font-size: 1.4rem;
+  padding: 1rem;
+  resize: none;
+}
+.tagContainer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin-bottom: 2.6rem;
+  flex-wrap: wrap;
+}
+.tagContainer input {
+  border: none;
+  background: rgba(162, 162, 160, 0.5);
+  padding: 0.4rem 1rem;
+  border-radius: $border-radius;
+  font-size: 1.6rem;
+  min-width: 8rem;
+}
+.tagContainer .activeInput {
+  background: $main-color;
+  color: white;
+}
+.ingredientInfoContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+.ingredientInfoContainer div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.ingredientInfoContainer input,
+.ingredientInfoContainer select {
+  padding: 0.4rem 1rem;
+  height: 4rem;
+  margin-top: 1.2rem;
+  width: 100%;
+  border-radius: $border-radius;
+  border: none;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  font-size: 1.6rem;
+}
+.ingredientLabel {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+}
+.ingredienContainer {
+  display: flex;
+  gap: 0.8rem;
+}
+.ingredienContainer input[type="text"] {
+  width: 100%;
+  height: 4rem;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  border-radius: $border-radius;
+  border: none;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+.ingredienContainer input[type="button"] {
+  width: 5rem;
+  height: 4rem;
+  border-radius: $border-radius;
+  border: none;
+  background-color: $button-background-color;
+  font-size: 2rem;
+  color: white;
+}
+.ingredientListTitle {
+  margin-top: 1.4rem;
+}
+.ingredientList {
+  margin: 0 1.6rem;
+  list-style: none;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ingredientList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.ingredient::before {
+  content: "\2022";
+  color: $main-color;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.deleteIngredient {
+  font-size: 1.8rem;
+}
+.deleteIngredient:hover {
+  cursor: pointer;
+  color: $main-color;
+}
+
+.addStep,
+.nextStep {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  width: 80%;
+  height: 4rem;
+  border-radius: $border-radius;
+  font-size: 1.4rem;
+  background-color: $button-background-color;
+  color: white;
+  border: none;
+}
+.addStep,
+.nextStepContainer {
+  margin-top: 3rem;
+}
+.nextStep {
+  width: 100%;
+}
+.addStep:disabled,
+.ingredienContainer input[type="button"]:disabled,
+.nextStep:disabled {
+  background-color: #e14d619c;
+}
+.editButton {
+  color: #a2a2a0;
+  font-size: 1.4rem;
+}
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.step {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  // height: 3.5rem;
+  padding: 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: $border-radius;
+  position: relative;
+
+  > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: $border-radius;
+    background-color: $main-color;
+    color: $button-text-color;
+    font-size: 1.4rem;
+  }
+  i {
+    font-size: 2rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+  }
+
+  .step-description {
+    font-size: 1.4rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 76%;
+    /* height: 1.4rem; */
+    white-space: nowrap;
+  }
+
+  h2,
+  img,
+  .step-ingredients {
+    display: none;
+  }
+
+  &.active-step {
+    flex-direction: column;
+    align-items: initial;
+    height: auto;
+    gap: 0;
+    padding: 1rem 1.5rem;
+
+    > span {
+      display: none;
+    }
+    h2 {
+      display: block;
+      margin-bottom: 1.2rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 30rem;
+      margin-bottom: 1.1rem;
+      border-radius: $border-radius;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .step-description {
+      display: block;
+      margin-bottom: 1.2rem;
+      width: 100%;
+      white-space: initial;
+      text-overflow: initial;
+      overflow: initial;
+    }
+    .step-ingredients {
+      display: block;
+      font-size: 1.4rem;
+    }
+  }
+}
+.privacityContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  input {
+    accent-color: $main-color;
+  }
+}

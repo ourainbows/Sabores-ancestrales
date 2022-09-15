@@ -46,7 +46,8 @@
   margin-top: -5rem;
   p{
     font-size: 26px;
-    font-style: italic
+    font-style: italic;
+    margin-bottom: 1rem;
   }
   div{
     @include flex();
@@ -58,5 +59,6 @@
   span{
     display: flex;
     flex-direction: row;
+    margin-right: .4rem;
   }
 }

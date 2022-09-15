@@ -24,12 +24,10 @@
 }
 .description{
     font-size: $font-text;
-    text-align: justify;
     margin: 1.2rem 0 1.6rem;
 }
 .info-container{
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     font-size: $font-text;

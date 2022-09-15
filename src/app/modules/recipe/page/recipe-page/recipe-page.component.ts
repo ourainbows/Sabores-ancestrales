@@ -20,7 +20,7 @@ export class RecipePageComponent implements OnInit {
       last_name: '',
       userPhoto: '',
     },
-    likes: [],
+    scoreCount: [],
     score: 0,
     time: 0,
     difficulty: '',
@@ -29,7 +29,9 @@ export class RecipePageComponent implements OnInit {
     steps: [],
     tags: [],
     comments: [],
-    recomendations: []
+    recomendations: [],
+    tools: [],
+    public: true,
   };
 
   recipeId: string | null = null
@@ -41,6 +43,7 @@ export class RecipePageComponent implements OnInit {
       if (this.recipeId) {
         this.recipeService.getRecipeById(this.recipeId).subscribe((recipe) => {
           this.recipe = recipe;
+          this.recipeService.recipeToEdit = recipe;
         });
       }
     });

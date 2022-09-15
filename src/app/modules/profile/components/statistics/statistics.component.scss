@@ -10,14 +10,15 @@
 .line1 {
   background-color: $vertical-line-color;
   border: none;
-  height: 0.4rem;
+  height: 0.18rem;
 }
 
 .statistics-info {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  margin: 1.4rem 0;
+  
 }
 
 .statistic {
@@ -25,23 +26,45 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 p {
   color: $secundary-text-color;
-  font-size:large;
+  font-size:1.6rem;
 }
 
 .statistic-counter {
   color: black;
   font-weight: bold;
 }
+.statistic-middle{
+  position: relative;
+}
+.statistic-middle:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 0.18rem;
+  height: 100%;
+  background-color: #c4c4c4a1;
+}
+.statistic-middle:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 0.18rem;
+  height: 100%;
+  background-color: #c4c4c4a1;
+}
 
 .line2 {
   background-color: $line-color;
   border: none;
   height: 3rem;
-  width: 0.3rem;
+  width: 0.18rem;;
   margin: 3rem;
 }
 

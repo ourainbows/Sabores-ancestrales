@@ -1,4 +1,4 @@
-<div class="cardRecipe" [ngStyle]="{width: cardWidth}">
+<div class="cardRecipe" [ngStyle]="{width: cardWidth, margin: cardMargin}">
   <div [routerLink]="['/recipe/' + recipe.id]" class="containerImg">
     <img src="{{ recipe.imagePath }}" alt="" />
   </div>

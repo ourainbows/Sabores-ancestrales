@@ -13,6 +13,7 @@ export class CardRecipeComponent implements OnInit {
   @Input() recipe!: cardRecipeDTO;
   @Input() userId = 1;
   @Input() cardWidth = '100%';
+  @Input() cardMargin = "1rem"
   user: User = {
     id: 0,
     name: '',

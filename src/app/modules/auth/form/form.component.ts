@@ -46,7 +46,6 @@ export class FormComponent implements OnInit {
   }
 
   async onGoogleForm(): Promise<void> {
-    console.log('Register');
     this.authSvc
       .onGoogle()
       .then(async (res: any) => {
@@ -77,7 +76,6 @@ export class FormComponent implements OnInit {
 
   onSubmit(option: string): void {
     if (option === this.signIn && this.authForm.valid) {
-      console.log('login');
       this.authSvc.login(this.authForm.value);
     } else if (this.authForm.invalid && option === this.signIn) {
       this.toast.fire({

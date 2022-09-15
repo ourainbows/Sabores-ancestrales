@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  auth = 'http://localhost:3000/';
+  auth = 'https://sabores-ancestrales.up.railway.app/';
   user!: User;
 
   private userSubject = new BehaviorSubject<boolean>(false);
@@ -26,7 +26,7 @@ export class AuthService {
     private userSvc: UsersService,
     private http: HttpClient
   ) {
-    this.checkToken()
+    this.checkToken();
   }
 
   get user$(): Observable<boolean> {
@@ -54,6 +54,7 @@ export class AuthService {
       })
       .pipe(
         map((res) => {
+          console.log(res)
           if (res.token) {
             this.userSubject.next(true);
             this.saveToken(res.token);
@@ -73,26 +74,29 @@ export class AuthService {
     return this.http
       .post<UserRegister>(this.auth + 'register', {
         name: user.name,
-        email: user.email,
+        user_email: user.email,
         password: user.password,
       })
       .pipe(
         map((res) => {
-          this.user = {
-            id: 0,
-            name: res.name,
-            email: res.email,
-            photo: '',
-            description: '',
-            score: 0,
-            recipes: {
-              userRecipes: [],
-              savedRecipes: [],
-              likedRecipes: [],
-            },
-          };
-          this.userSvc.postUser(this.user).subscribe();
-          this.userSubject.next(true);
+          if (res) {
+            this.user = {
+              id: 0,
+              name: res.name,
+              email: res.email,
+              photo: '',
+              description: '',
+              score: 0,
+              recipes: {
+                userRecipes: [],
+                savedRecipes: [],
+                likedRecipes: [],
+              },
+            };
+            this.userSvc.postUser(this.user).subscribe();
+            this.userSubject.next(true);
+            this.router.navigate(['login']);
+          }
           return res;
         }),
         catchError((err) => {
@@ -109,7 +113,7 @@ export class AuthService {
   }
 
   saveToken(token: string): void {
-    localStorage.setItem('token', token) as unknown as User;
+    localStorage.setItem('token', token);
   }
 
   checkToken() {

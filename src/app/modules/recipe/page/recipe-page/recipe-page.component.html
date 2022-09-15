@@ -1,8 +1,8 @@
-<app-hero [imagePath]="recipe.imagePath" [name]="recipe.name"></app-hero>
+<app-hero [imagePath]="recipe.imagePath" [name]="recipe.name" [recipeId]="recipe.id"></app-hero>
 <div class="container">
   <app-title
-    [likes]="recipe.likes"
     [score]="recipe.score"
+    [scoreCount]="recipe.scoreCount"
     [name]="recipe.name"
     [id]="recipe.id"
   ></app-title>
@@ -14,6 +14,7 @@
     [price]="recipe.price"
   ></app-info-card>
   <app-ingredients [ingredients]="recipe.ingredients"></app-ingredients>
+  <app-tools [tools]="recipe.tools"></app-tools>
   <app-step
     [step]="step"
     *ngFor="let step of recipe.steps; index as i"

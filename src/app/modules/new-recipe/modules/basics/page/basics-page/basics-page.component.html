@@ -1,13 +1,13 @@
 <p class="descriptionStep">
-  Estas a punto de crear una receta ancestral, agrega los datos basicos para
+  Estas a punto de crear una receta ancestral, añade los datos basicos para
   iniciar:
 </p>
 
 <form [formGroup]="formBasics" (submit)="submit()" class="form">
-  <label for="name" class="form-label">Agrega un nombre a tú receta</label>
+  <label for="name" class="form-label">Agregar un nombre a tú receta</label>
   <input type="text" id="name" formControlName="name" class="inputName" />
 
-  <label for="image" class="form-label">Agrega una imagen</label>
+  <label for="image" class="form-label">Agregar una imagen</label>
   <label
     for="image"
     class="label-image"
@@ -29,7 +29,7 @@
     id="image"
   />
 
-  <label for="description" class="form-label">Agrega una descripcion</label>
+  <label for="description" class="form-label">Agregar una descripcion</label>
   <textarea
     id="description"
     formControlName="description"
@@ -37,7 +37,7 @@
   ></textarea>
 
   <label for="categories" class="form-label"
-    >Agrega categorias a la receta</label
+    >Agregar categorias a la receta</label
   >
   <div class="tagInputContainer">
     <input
@@ -45,6 +45,7 @@
       id="categories"
       formControlName="categories"
       placeholder="Desayuno, postre, saludable..."
+      (keydown.enter)="$event.preventDefault()"
     />
     <input
       type="button"

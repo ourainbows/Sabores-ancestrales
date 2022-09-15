@@ -1,3 +1,4 @@
+import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
 import { Commentary } from './../../../../shared/models/recipe.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -11,7 +12,11 @@ export class CommentsComponent implements OnInit {
 
   @Input() comments: Commentary[] = [];
   @Output() changeLikeEvent = new EventEmitter<Commentary[]>();
+  @Input() recipeId : any = 0
   userId = 1 //temporary 
+  showReport = false;
+  selectedCommentary = 0;
+  
 
   likeComment(commentary: number) {
     if (this.comments[commentary].likes.includes(this.userId)) {
@@ -21,8 +26,18 @@ export class CommentsComponent implements OnInit {
     }
     this.changeLikeEvent.emit(this.comments);
   }
+  deleteCommentary(commentaryId: any) {
+    this.comments = this.comments.filter((commentary) => commentary.id !== commentaryId);
+    this.recipeService.deleteComment(this.recipeId, commentaryId).subscribe();
+    console.log(this.comments, commentaryId)
+  }
 
-  constructor() {}
+  selectCommentary(commentaryId : any) {
+    this.selectedCommentary = commentaryId;
+    this.showReport = true;
+  }
+
+  constructor(private recipeService : RecipesService) {}
 
   ngOnInit(): void {}
 }

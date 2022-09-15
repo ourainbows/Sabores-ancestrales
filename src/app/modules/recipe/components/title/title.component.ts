@@ -12,7 +12,7 @@ import { ClipboardService } from 'ngx-clipboard';
 export class TitleComponent implements OnInit {
   @Input() name = '';
   @Input() score = 0;
-  @Input() likes: number[] | null = null;
+  @Input() scoreCount : any[] = [];
   @Input() recipe!: Recipe;
   @Input() id!: number
   show: boolean = false
@@ -54,5 +54,27 @@ export class TitleComponent implements OnInit {
   copyText() {
     this.clipboardApi.copyFromContent(window.location.href);
     console.log(window.location.href);
+  }
+  shareRecipe() {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: this.name,
+          text: 'Mira esta deliciosa receta!',
+          url: window.location.href,
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+      this.copyText();
+    }
+  }
+  rateChange(e : Event) {
+    this.scoreCount = [...this.scoreCount, this.user.id];
+    this.recipe = {
+      ...this.recipe,
+      ...e
+    }
+    
   }
 }

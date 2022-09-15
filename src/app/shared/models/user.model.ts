@@ -4,18 +4,6 @@ export interface Information {
   userDescription?: string;
   score: number;
 }
-// export interface User {
-//   id_User: number;
-//   first_name?: string;
-//   last_name?: string;
-//   userPhoto?: string;
-//   userDescription?: string;
-//   score: number;
-//   SavedRecipes: number[];
-//   recipes?: Recipe[];
-//   informations: Information[];
-// }
-
 export interface CardUserDTO
   extends Omit<
     User,
@@ -40,6 +28,7 @@ export interface User {
   score?: number;
   savedRecipes?: number[];
   isActive?: boolean;
+  idAdmin?: boolean;
 }
 
 export interface CardUserDTO

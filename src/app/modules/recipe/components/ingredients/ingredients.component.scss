@@ -1,7 +1,7 @@
 @import "../../../../../styles.scss";
 
 .container {
-  margin: 1.2rem 0 3rem;
+  margin: 1.2rem 0 0;
 }
 .container h2 {
   margin-bottom: 1.4rem;
@@ -15,11 +15,9 @@
     text-decoration: line-through;
   }
 }
-
-/* .ingredient-container label {
-  display: flex;
-  align-items: center;
-} */
+.ingredient-container label{
+  text-transform: lowercase;
+}
 .ingredient-container input {
   height: 1.4rem;
   width: 1.4rem;
