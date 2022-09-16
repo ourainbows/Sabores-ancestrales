@@ -32,7 +32,7 @@
     [recipeId]="recipe.id"
   ></app-comments-section>
 
-  <app-modal [show]="showFeedback" *ngIf="!viewedRecipes.feedback">
+  <app-modal [show]="showFeedback" *ngIf="viewedRecipes.showModal">
     <h3 class="feedbackTitle">Cuéntanos tú experiencia</h3>
     <p class="feedbackInfo">Tu opinión es muy importante para ayudarnos a ofrecer un mejor servicio</p>
     <app-stars

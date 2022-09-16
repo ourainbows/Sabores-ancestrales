@@ -56,16 +56,22 @@ export class RecipePageComponent implements OnInit {
     if (!Object.keys(this.viewedRecipes).length) {
       let feedback = {
         viewedRecipes: 1,
-        feedback: false,
-        showMore: false,
+        feedback: false, // if the user has given feedback
+        showModal: false, // if we should show the feedback modal
       };
       localStorage.setItem('feedback', JSON.stringify(feedback));
     } else {
       this.viewedRecipes.viewedRecipes += 1;
-      if (this.viewedRecipes.viewedRecipes >= 5 && !this.viewedRecipes.feedback) {
+      // show modal if user has viewed 5 recipes
+      if (this.viewedRecipes.viewedRecipes === 5 && !this.viewedRecipes.feedback) {
+        this.viewedRecipes.showModal = true;
         this.showFeedback = true;
       }
-      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes)); //TODO -> change ocurrence of this
+      // don't show modal again if user has viewed more than 5 recipes
+      if(this.viewedRecipes.viewedRecipes === 6 && !this.viewedRecipes.feedback) {
+        this.viewedRecipes.showModal = false;
+      }
+      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes)); 
     }
 
     this.route.paramMap.subscribe((params) => {
@@ -82,6 +88,7 @@ export class RecipePageComponent implements OnInit {
   rateChange(e: Event) {
     this.feedbackService.createFeedback({ ...e, idUser: this.user.id });
     this.viewedRecipes.feedback = true;
+    this.viewedRecipes.showModal = false;
     localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes));
   }
 }
