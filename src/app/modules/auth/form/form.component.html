@@ -1,68 +1,70 @@
 <div class="">
-  <form (ngSubmit)="onSubmit(options.id)" [formGroup]="authForm" class="formAuth">
+  <form role="form" (ngSubmit)="onSubmit(options.id)" [formGroup]="authForm" class="formAuth">
     <div class="contImg">
-      <img src="../../../../assets/images/imgAuth.png" />
+      <img src="../../../../assets/images/imgAuth.png" alt="imagen del login" />
     </div>
     <!-- Validators Name -->
     <div
       *ngIf="authForm.get('name')?.hasError('required') && (authForm.get('name')?.touched || authForm.get('name')?.dirty)"
       class="form-group">
-      <small *ngIf="authForm.get('name')?.hasError('required')" class="validator">El nombre es requerido</small>
+      <small tabindex="0" role="text" aria-label="El nombre es requerido" *ngIf="authForm.get('name')?.hasError('required')" class="validator">El nombre es requerido</small>
     </div>
-    <small *ngIf="authForm.get('name')?.hasError('minlength')" class="text-danger">
+    <small tabindex="0" role="text" aria-label="El nombre debe ser mayor a 2 caracteres" *ngIf="authForm.get('name')?.hasError('minlength')" class="text-danger">
       El nombre debe ser mayor a 2 caracteres.
     </small>
     <!--Name-->
     <div *ngIf="options.id === signUp" class="inputAuth">
       <label for="name">Nombre de usuario</label>
-      <input type="text" class="form-control shadow-none border-0 border-bottom bg-transparent" id="name"
+      <input tabindex="0" role="textbox" aria-label="Nombre de usuario" type="text" class="form-control shadow-none border-0 border-bottom bg-transparent" id="name"
         formControlName="name" placeholder="Nombre de usuario">
     </div>
     <!-- Validators email -->
     <div
       *ngIf=" authForm.get('email')?.hasError('required') && (authForm.get('email')?.touched || authForm.get('email')?.dirty)"
       class="form-group">
-      <small *ngIf="authForm.get('email')?.errors?.['required']" class="validator">El correo electrónico es
+      <small tabindex="0" role="text" aria-label="El correo electrónico es
+      requerido" *ngIf="authForm.get('email')?.errors?.['required']" class="validator">El correo electrónico es
         requerido</small>
     </div>
-    <small *ngIf="authForm.get('email')?.hasError('email')" class="validator">El correo electrónico debe ser
+    <small tabindex="0" role="text" aria-label="El correo electrónico debe ser
+    valido" *ngIf="authForm.get('email')?.hasError('email')" class="validator">El correo electrónico debe ser
       valido</small>
     <!-- Email input -->
     <div class="inputAuth">
       <label for="email" class="">Correo electrónico</label>
-      <input formControlName="email" type="email" name="email" id="email" class="" placeholder="name@company.com"
+      <input tabindex="0" role="textbox" aria-label="Correo electrónico" formControlName="email" type="email" name="email" id="email" class="" placeholder="name@company.com"
         required="">
     </div>
     <!-- Validators password -->
     <div
       *ngIf="authForm.get('password')?.hasError('required') && (authForm.get('password')?.touched || authForm.get('password')?.dirty)"
       class="form-group">
-      <small *ngIf="authForm.get('password')?.errors?.['required']" class="validator">La contraseña es
+      <small tabindex="0" role="text" aria-label="La contraseña es
+      requerida" *ngIf="authForm.get('password')?.errors?.['required']" class="validator">La contraseña es
         requerida</small>
     </div>
     <div class="form-group">
-      <small *ngIf="authForm.get('password')?.errors?.['pattern']" class="validator">La contraseña debe contener <span
-          *ngIf="authForm.get('password')?.errors?.['minlength']" class="validator">al menos 6
-          caracteres,</span>
-        un número, una letra y un símbolo (por ejemplo: @#$%).</small>
+      <small tabindex="0" role="text" aria-label="La contraseña debe contener" *ngIf="authForm.get('password')?.errors?.['pattern']" class="validator">La contraseña debe contener <span
+      tabindex="0" role="text" aria-label="al menos 6 caracteres, un número, una letra y un símbolo (por ejemplo: @#$%)" *ngIf="authForm.get('password')?.errors?.['minlength']" class="validator">al menos 6
+          caracteres, un número, una letra y un símbolo (por ejemplo: @#$%).</span></small>
     </div>
     <!-- Password input -->
     <div class="inputAuth">
       <label for="password" class="">Contraseña</label>
-      <input formControlName="password" type="password" name="password" id="password" placeholder="••••••••" class=""
+      <input tabindex="0" role="textbox" aria-label="Contraseña" formControlName="password" type="password" name="password" id="password" placeholder="••••••••" class=""
         required="">
     </div>
     <!-- Validators password confirm -->
-    <small *ngIf="authForm.get('password_again')?.value !== authForm.get('password')?.value && options.id === signUp"
+    <small tabindex="0" role="text" aria-label="Las contraseñas no conciden" *ngIf="authForm.get('password_again')?.value !== authForm.get('password')?.value && options.id === signUp"
       class="validator">Las contraseñas no conciden</small>
 
     <!-- Password confirm input -->
     <div *ngIf="options.id === signUp" class="inputAuth">
       <label for="password" class="">Confirmar contraseña</label>
-      <input formControlName="password_again" type="password" name="password_again" id="password_again"
+      <input tabindex="0" role="textbox" aria-label="Confirmar contraseña" formControlName="password_again" type="password" name="password_again" id="password_again"
         placeholder="••••••••" class="" required="">
     </div>
-    <button type="submit" class="buttonAuth">{{options.label}}</button>
+    <button tabindex="0" role="button" aria-label="¿Olvidaste tu contraseña?" type="submit" class="buttonAuth">{{options.label}}</button>
     <div *ngIf="options.id === signIn" class="linkAuth">
       <a href="#" class=""> &nbsp; ¿Olvidaste tu contraseña?</a>
     </div>
@@ -73,16 +75,16 @@
       </div> -->
       <hr class="">
     </div>
-    <button type="button" (click)="onGoogleForm()" class="buttonGoogle">
+    <button tabindex="0" role="button" aria-label="Registrarse con Google" type="button" (click)="onGoogleForm()" class="buttonGoogle">
       <img src="../../../../assets/images/googleIcon.png" alt=""> &nbsp; Registrarse con Google
     </button>
     <div class="linkAuth">
-      <ng-container *ngIf="options.id === signIn; else showSignTemplate">
-        ¿No estas registrado? <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="">¡Crear
+      <ng-container tabindex="0" role="text" aria-label="¿No estas registrado?" *ngIf="options.id === signIn; else showSignTemplate">
+        ¿No estas registrado? <a tabindex="0" role="link" aria-label="¡Crear cuenta aquí!" [routerLink]="['/register']" routerLinkActive="router-link-active" class="">¡Crear
           cuenta aquí!</a>
       </ng-container>
-      <ng-template #showSignTemplate>
-        ¿Ya tienes una cuenta? <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="">¡Inicia
+      <ng-template tabindex="0" role="text" aria-label="¿Ya tienes una cuenta?" #showSignTemplate>
+        ¿Ya tienes una cuenta? <a tabindex="0" role="link" aria-label="¡Iniciar sesión aquí!" [routerLink]="['/login']" routerLinkActive="router-link-active" class="">¡Inicia
           sesión aquí!</a>
       </ng-template>
     </div>

@@ -1,5 +1,5 @@
-<nav>
-  <a routerLink="/" class="logo">
+<nav role="menu" aria-label="menu" >
+  <a routerLink="/" class="logo" >
     Sabores Ancestrales
     <!-- <img src="" alt="Sabores Ancestrales"> -->
   </a>
@@ -10,13 +10,13 @@
         <img [src]="userImg" alt="Imagen del usuario" />
       </div>
       <ng-container *ngIf="(user$ | async) === false; else logOutTemplate">
-          <a [routerLink]="['/register']" class="sign">Ingresar</a>
+          <a tabindex="0" role="link" aria-label="Ingresar" [routerLink]="['/register']" class="sign">Ingresar</a>
       </ng-container>
-      <ng-template class="dropdown" #logOutTemplate>
+      <ng-template tabindex="0" role="menubar" aria-label="menubar" class="dropdown" #logOutTemplate>
         <ul>
-          <li [routerLink]="['/profile/{{user.id}}']">Perfil</li>
-          <li [routerLink]="['/']">Configuración</li>
-          <li [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
+          <li tabindex="0" role="link" aria-label="Perfil" [routerLink]="['/profile/{{user.id}}']">Perfil</li>
+          <li tabindex="0" role="link" aria-label="Configuración" [routerLink]="['/']">Configuración</li>
+          <li tabindex="0" role="link" aria-label="Cerrar sesión" [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
         </ul>
       </ng-template>
     </span>

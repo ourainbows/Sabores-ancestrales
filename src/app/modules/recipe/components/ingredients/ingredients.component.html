@@ -5,7 +5,7 @@
     *ngFor="let ingredient of ingredients; index as i"
   >
     <div class="ingredient-container" [class.checked]="ingredient.checked">
-      <input type="checkbox" (click)="toogleChecked(i)" />
+      <input type="checkbox" (click)="toogleChecked(i)" aria-label="input" />
       <label *ngIf="ingredient.unit">
         {{ ingredient.quantity }} {{ ingredient?.unit }} de
         {{ ingredient.name }}
