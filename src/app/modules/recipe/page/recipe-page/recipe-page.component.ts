@@ -65,7 +65,7 @@ export class RecipePageComponent implements OnInit {
       if (this.viewedRecipes.viewedRecipes >= 5 && !this.viewedRecipes.feedback) {
         this.showFeedback = true;
       }
-      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes));
+      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes)); //TODO -> change ocurrence of this
     }
 
     this.route.paramMap.subscribe((params) => {

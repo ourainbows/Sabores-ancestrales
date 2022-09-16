@@ -1,22 +1,24 @@
-<section class="container">
-    <div *ngFor="let recipe of recipes">
-      <div class="item">
-        <a class="image-container" [routerLink]="'/recipe/' + recipe.id">
-          <img *ngIf="recipe.imagePath" [src]="recipe.imagePath" alt="Foto de una receta" />
-          <span *ngIf="!recipe.imagePath">{{ recipe.name[0] }}</span>
-        </a>
-        <a class="recipe-name" [routerLink]="'/recipe/' + recipe.id" >{{recipe.name}}</a>
-        <div class="dropdown">
-          <mat-icon>more_vert</mat-icon>
-  
-          <div class="dropdown-content">
-            <a [routerLink]="'/recipe/' + recipe.id">Ver receta</a>
-            <a routerLink="/admin/report" [queryParams]="{ name: recipe.name, id: recipe.id, type: 'recipe' }" >Reportes</a>
-            <p (click)="deleteRecipe(recipe.id)">Eliminar</p>
+<div class="wrapper">
+  <section class="container">
+      <div *ngFor="let recipe of recipes">
+        <div class="item">
+          <a class="image-container" [routerLink]="'/recipe/' + recipe.id">
+            <img *ngIf="recipe.imagePath" [src]="recipe.imagePath" alt="Foto de una receta" />
+            <span *ngIf="!recipe.imagePath">{{ recipe.name[0] }}</span>
+          </a>
+          <a class="recipe-name" [routerLink]="'/recipe/' + recipe.id" >{{recipe.name}}</a>
+          <div class="dropdown">
+            <mat-icon>more_vert</mat-icon>
+    
+            <div class="dropdown-content">
+              <a [routerLink]="'/recipe/' + recipe.id">Ver receta</a>
+              <a routerLink="/admin/report" [queryParams]="{ name: recipe.name, id: recipe.id, type: 'recipe' }" >Reportes</a>
+              <p (click)="deleteRecipe(recipe.id)">Eliminar</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <p class="load-more" (click)="loadMore()">Cargar más</p>
-  </section>
+      <p class="load-more" (click)="loadMore()">Cargar más</p>
+    </section>
+</div>
   
