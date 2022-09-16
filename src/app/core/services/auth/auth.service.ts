@@ -113,4 +113,7 @@ export class AuthService {
   createProfile(profile : any){
     return this.http.post(this.auth + 'profile', profile);
   }
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }
