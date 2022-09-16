@@ -9,6 +9,7 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
+  private apiInfo = 'https://sabores-ancestrales.up.railway.app/info';
   constructor(private http: HttpClient, private route: Router) {}
 
   user: User = {
@@ -34,8 +35,8 @@ export class UsersService {
     );
   }
 
-  getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUsers}/${userId}`);
+  getUserById(userId: any): Observable<User> {
+    return this.http.get<User>(`${this.apiInfo}/${userId}`);
   }
 
   postUser(user: User): any {
@@ -52,19 +53,11 @@ export class UsersService {
     return this.http.delete<any>(`${this.apiUsers}/${id}`);
   }
 
-  // getUserData(): any {
-  //   if (!this.user.id) {
-  //     let userId = localStorage.getItem('userId');
-  //     if (userId) {
-  //       this.getUserById(userId).subscribe((user) => {
-  //         this.user = user;
-  //       });
-  //       return this.user;
-  //     } else {
-  //       return this.user;
-  //     }
-  //   } else {
-  //     return this.user;
-  //   }
-  // }
+  saveProfile(id: number) {
+    this.getUserById(id).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }
+
+

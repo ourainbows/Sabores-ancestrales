@@ -57,7 +57,8 @@ export class AuthService {
           if (res.accessToken) {
             this.userSubject.next(true);
             this.saveToken(res.accessToken); // TODO -> save user
-            /* this.saveUserId(res.id); */
+            this.saveUserId(res.id);
+            this.userSvc.saveProfile(res.id);
             this.router.navigate(['/']);
           }
           return res;
@@ -91,8 +92,11 @@ export class AuthService {
 
   logout(): void {
     this.userSubject.next(false);
-    return localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('token');
   }
+
+
 
   saveToken(token: string): void {
     localStorage.setItem('token', token);
@@ -108,9 +112,9 @@ export class AuthService {
     localStorage.setItem('userId', id.toString());
   }
   activateUser(token: string) {
-    return this.http.get(this.auth + 'activate/' + token);
+    return this.http.post(this.auth + 'activate', { activationToken : token });
   }
-  createProfile(profile : any){
+  createProfile(profile: any) {
     return this.http.post(this.auth + 'profile', profile);
   }
   getToken() {
