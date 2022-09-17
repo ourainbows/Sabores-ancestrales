@@ -10,23 +10,27 @@ import { User } from 'src/app/shared/models/user.model';
 export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
   private apiInfo = 'https://sabores-ancestrales.up.railway.app/info';
+  private userDisable = 'http://localhost:3000/user/disabled';
   constructor(private http: HttpClient, private route: Router) {}
 
   user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    description: '',
-    photo: '',
-    recipes: {
-      userRecipes: [],
-      likedRecipes: [],
-      savedRecipes: [],
-    },
+    profileId: 0,
     score: 0,
-    savedRecipes: [],
-    isActive: true,
-    idAdmin: false,
+    profileName: '',
+    profileBirthDate: '',
+    profilePhoto: '',
+    userDescription: '',
+    userId: 0,
+    user: {
+      userId: 0,
+      userName: '',
+      userEmail: '',
+      userIsAdmin: false,
+      userIsStaff: false,
+      userIsActive: false,
+      userRestricted: false,
+      userBlocked: false,
+    },
   };
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
@@ -49,13 +53,19 @@ export class UsersService {
   updateUser(id: number | string | null, user: any): Observable<User> {
     return this.http.patch<any>(`${this.apiUsers}/${id}`, user);
   }
+  suspendUser(id: number, isActive:  boolean) {
+    return this.http.patch<any>(`${this.userDisable}/${id}`, {
+      userIsActive: isActive,
+    });
+  }
+
   deleteUser(id: number | null | string): Observable<any> {
     return this.http.delete<any>(`${this.apiUsers}/${id}`);
   }
 
   saveProfile(id: number) {
     this.getUserById(id).subscribe((res) => {
-      console.log(res);
+      console.log(res); // Todo -> save user
     });
   }
 }
