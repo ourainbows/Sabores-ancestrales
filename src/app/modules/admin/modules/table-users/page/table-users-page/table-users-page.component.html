@@ -2,34 +2,34 @@
   <section class="container">
     <div *ngFor="let user of users">
       <div class="item">
-        <a class="image-container" [routerLink]="'/profile/' + user.id">
-          <img *ngIf="user.photo" [src]="user.photo" alt="Foto de un usuario" />
-          <span *ngIf="!user.photo">{{ user.name[0] }}</span>
+        <a class="image-container" [routerLink]="'/profile/' + user.user.userId">
+          <img *ngIf="user.profilePhoto" [src]="user.profilePhoto" alt="Foto de un usuario" />
+          <span *ngIf="!user.profilePhoto">{{ user.profileName[0] }}</span>
         </a>
         <a
           class="user-name"
-          [routerLink]="'/profile/' + user.id"
-          [ngClass]="{ inactive: !user.isActive }"
-          >{{ user.name }}</a
+          [routerLink]="'/profile/' + user.user.userId"
+          [ngClass]="{ inactive: !user.user.userIsActive}"
+          >{{ user.profileName }}</a
         >
         <div class="dropdown">
           <mat-icon>more_vert</mat-icon>
 
           <div class="dropdown-content">
-            <a [routerLink]="'/profile/' + user.id">Ver perfil</a>
+            <a [routerLink]="'/profile/' + user.user.userId">Ver perfil</a>
             <a
               routerLink="/admin/report"
-              [queryParams]="{ name: user.name, id: user.id, type: 'user' }"
+              [queryParams]="{ name: user.profileName, id: user.user.userId, type: 'user' }"
               >Reportes</a
             >
             <p
               class="option"
-              (click)="toggleSuspend(user.id)"
-              [ngClass]="{ activateUser: !user.isActive }"
+              (click)="toggleSuspend(user.user.userId)"
+              [ngClass]="{ activateUser: !user.user.userIsActive}"
             >
-              {{ user.isActive ? "Suspender" : "Habilitar" }}
+              {{ user.user.userIsActive ? "Suspender" : "Habilitar" }}
             </p>
-            <p class="option" (click)="deleteUser(user.id)">Eliminar</p>
+            <p class="option" (click)="deleteUser(user.user.userId)">Eliminar</p>
           </div>
         </div>
       </div>

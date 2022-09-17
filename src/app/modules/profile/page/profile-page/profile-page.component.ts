@@ -19,9 +19,8 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.userId = params.get('id') || 1;
+      this.userId = params.get('id');
       if (this.userId) {
-        //temporary user id
         this.userService.getUserById(this.userId).subscribe((data) => {
           this.user = data;
         });

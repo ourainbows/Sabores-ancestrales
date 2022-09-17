@@ -34,6 +34,8 @@ export interface User {
   profileBirthDate: string;
   profilePhoto: string;
   userDescription?: string;
+  createdAt?: string;
+  updatedAt?: string;
   userId: number;
   user: {
     userId: number;
@@ -44,6 +46,8 @@ export interface User {
     userIsActive: boolean;
     userRestricted: boolean;
     userBlocked: boolean;
+    createdAt?: string;
+    updatedAt?: string;
   };
 }
 export interface CardUserDTO
