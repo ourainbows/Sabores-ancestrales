@@ -5,13 +5,14 @@
 ></app-hero>
 <div class="container">
   <app-title
-    [score]="recipe.score"
-    [scoreCount]="recipe.scoreCount"
+    [score]="recipe.recipeScore"
     [name]="recipe.name"
     [id]="recipe.id"
   ></app-title>
   <app-info-card
-    [user]="recipe.user"
+    [userId]="recipe.userId"
+    [userName]="recipe.userName"
+    [userPhoto]="recipe.profileImagePath"
     [description]="recipe.description"
     [time]="recipe.time"
     [difficulty]="recipe.difficulty"

@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
-  user!: User;
+  user =  this.userService.user;
   userId: any = '';
 
   constructor(

@@ -49,6 +49,11 @@ export interface User {
     createdAt?: string;
     updatedAt?: string;
   };
+  recipes : {
+      userRecipes: [],
+      savedRecipe: [],
+      likedRecipes: []
+  }
 }
 export interface CardUserDTO
   extends Omit<

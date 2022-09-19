@@ -48,6 +48,11 @@ export interface Recipe {
   comments: Commentary[];
   recomendations: cardRecipeDTO[];
   public: boolean;
+
+  userId?: number
+  userName?: string;
+  profileImagePath?: string;
+  recipeScore?: number;
 }
 
 export interface newRecipeDTO

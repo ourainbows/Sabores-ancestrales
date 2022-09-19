@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/shared/models/user.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-statistics',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
-
+  @Input() user!: User;
   constructor() { }
 
   ngOnInit(): void {

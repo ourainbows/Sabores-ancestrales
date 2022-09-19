@@ -31,6 +31,11 @@ export class UsersService {
       userRestricted: false,
       userBlocked: false,
     },
+    recipes: {
+      userRecipes: [],
+      savedRecipe: [],
+      likedRecipes: [],
+    },
   };
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
@@ -63,9 +68,9 @@ export class UsersService {
     return this.http.delete<any>(`${this.apiUsers}/${id}`);
   }
 
-  saveProfile(id: number) {
+  saveUserData(id: number) {
     this.getUserById(id).subscribe((res) => {
-      console.log(res); // Todo -> save user
+      this.user = res;
     });
   }
 }

@@ -58,7 +58,7 @@ export class AuthService {
             this.userSubject.next(true);
             this.saveToken(res.accessToken); // TODO -> save user
             this.saveUserId(res.id);
-            this.userSvc.saveProfile(res.id);
+            this.userSvc.saveUserData(res.id);
             this.router.navigate(['/']);
           }
           return res;

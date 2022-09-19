@@ -11,25 +11,13 @@ import { ClipboardService } from 'ngx-clipboard';
 })
 export class TitleComponent implements OnInit {
   @Input() name = '';
-  @Input() score = 0;
+  @Input() score : any = 0;
   @Input() scoreCount : any[] = [];
   @Input() recipe!: Recipe;
-  @Input() id!: number
+  @Input() id: any = 0
   show: boolean = false
 
-  user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    description: '',
-    photo: '',
-    recipes: {
-      userRecipes: [],
-      likedRecipes: [],
-      savedRecipes: [],
-    },
-    score: 0,
-  };
+  user!: User;
 
   constructor(private  usersService: UsersService, private clipboardApi: ClipboardService,) {}
 
@@ -42,14 +30,14 @@ export class TitleComponent implements OnInit {
     this.show = !show
   }
 
-  likeRecipe() {
-    if (this.user.recipes.likedRecipes.includes(this.id)) {
-      this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.id), 1);
-    } else {
-      this.user.recipes.likedRecipes.push(this.id);
-    }
-    this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
-  }
+  // likeRecipe() { // TODO change logic with backend
+  //   if (this.user.recipes.likedRecipes.includes(this.id)) {
+  //     this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.id), 1);
+  //   } else {
+  //     this.user.recipes.likedRecipes.push(this.id);
+  //   }
+  //   this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
+  // }
 
   copyText() {
     this.clipboardApi.copyFromContent(window.location.href);
@@ -68,13 +56,5 @@ export class TitleComponent implements OnInit {
     } else {
       this.copyText();
     }
-  }
-  rateChange(e : Event) {
-    this.scoreCount = [...this.scoreCount, this.user.id];
-    this.recipe = {
-      ...this.recipe,
-      ...e
-    }
-    
   }
 }

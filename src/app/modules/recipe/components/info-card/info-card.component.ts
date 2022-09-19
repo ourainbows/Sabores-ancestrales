@@ -7,12 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./info-card.component.scss'],
 })
 export class InfoCardComponent implements OnInit {
-  @Input() user : CardUserDTO = {
-    id: 0,
-    name: '',
-    photo: '',
-    email: '',
-  }
+
+  @Input() userId : any = ''
+  @Input() userName : any = ''
+  @Input() userPhoto : any = ''
+
   @Input() description = ''
   @Input() time = 0
   @Input() difficulty = ''
