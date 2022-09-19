@@ -1,16 +1,17 @@
 <div class="container">
-  <h2 class="step-title">Paso {{ stepsIndex }}/{{ stepsLength }}</h2>
-  <img
+  <h2 tabindex="0" class="step-title">Paso {{ stepsIndex }}/{{ stepsLength }}</h2>
+  <img tabindex="0"
+    aria-label="imagen del paso"
     class="step-img"
     [src]="step.imagePath"
     alt="Imagen del paso de la receta"
   />
-  <div class="info-container">
-    <p class="step-description">{{ step.description }}</p>
+  <div tabindex="0" aria-label="información del paso" class="info-container">
+    <p tabindex="0" class="step-description">{{ step.description }}</p>
     <div class="ingredients-list">
-      <b>Ingredientes:</b>
+      <b tabindex="0">Ingredientes:</b>
       <ul>
-      <li *ngFor="let ingredient of step.ingredients; index as i">
+      <li tabindex="0" *ngFor="let ingredient of step.ingredients; index as i">
         <span *ngIf="ingredient.unit">
           {{ ingredient.quantity }} {{ ingredient?.unit }} de
           {{ ingredient.name }}

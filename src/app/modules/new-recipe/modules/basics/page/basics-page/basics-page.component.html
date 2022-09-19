@@ -1,19 +1,20 @@
-<p class="descriptionStep">
+<p tabindex="0" class="descriptionStep">
   Estas a punto de crear una receta ancestral, añade los datos basicos para
   iniciar:
 </p>
 
 <form [formGroup]="formBasics" (submit)="submit()" class="form">
   <label for="name" class="form-label">Agregar un nombre a tú receta</label>
-  <input type="text" id="name" formControlName="name" class="inputName" />
+  <input aria-label="escribe aquí el nombre de tu receta" type="text" id="name" formControlName="name" class="inputName" />
 
   <label for="image" class="form-label">Agregar una imagen</label>
   <label
+    tabindex="0"
     for="image"
     class="label-image"
     [ngStyle]="{ 'background-image': imageSrc && 'url(' + imageSrc + ')' }"
   >
-    <mat-icon class="camera-icon" *ngIf="!imageSrc">camera_alt</mat-icon>
+    <mat-icon tabindex="0" class="camera-icon" *ngIf="!imageSrc">camera_alt</mat-icon>
     <p class="image-description" *ngIf="!imageSrc">
       Selecciona una imagen de tu dispositivo para subir
     </p>
@@ -31,6 +32,8 @@
 
   <label for="description" class="form-label">Agregar una descripcion</label>
   <textarea
+    tabindex="0"
+    aria-label="escribe aquí la descripción de tu receta"
     id="description"
     formControlName="description"
     class="inputDescription"
@@ -41,6 +44,8 @@
   >
   <div class="tagInputContainer">
     <input
+      tabindex="0"
+      aria-label="escribe aquí las categorías de tu receta.Por ejemplo"
       type="text"
       id="categories"
       formControlName="categories"
@@ -48,6 +53,9 @@
       (keydown.enter)="$event.preventDefault()"
     />
     <input
+      tabindex="0"
+      role="button"
+      aria-label="agregar categoría"
       type="button"
       value="+"
       (click)="addCategory()"
@@ -62,6 +70,8 @@
   </div>
 
   <button
+    role="button"
+    aria-label="siguiente paso"
     type="submit"
     [disabled]="formBasics.invalid || !imageSrc ||!categories.length"
     class="nextStep"

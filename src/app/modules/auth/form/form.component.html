@@ -15,7 +15,7 @@
     <!--Name-->
     <div *ngIf="options.id === signUp" class="inputAuth">
       <label for="name">Nombre de usuario</label>
-      <input tabindex="0" role="textbox" aria-label="Nombre de usuario" type="text" class="form-control shadow-none border-0 border-bottom bg-transparent" id="name"
+      <input tabindex="0" role="textbox" aria-label="Ingresa tu nombre de usuario" type="text" class="form-control shadow-none border-0 border-bottom bg-transparent" id="name"
         formControlName="name" placeholder="Nombre de usuario">
     </div>
     <!-- Validators email -->
@@ -32,7 +32,7 @@
     <!-- Email input -->
     <div class="inputAuth">
       <label for="email" class="">Correo electrónico</label>
-      <input tabindex="0" role="textbox" aria-label="Correo electrónico" formControlName="email" type="email" name="email" id="email" class="" placeholder="name@company.com"
+      <input tabindex="0" role="textbox" aria-label="Ingresa tu Correo electrónico" formControlName="email" type="email" name="email" id="email" class="" placeholder="name@company.com"
         required="">
     </div>
     <!-- Validators password -->
@@ -51,7 +51,7 @@
     <!-- Password input -->
     <div class="inputAuth">
       <label for="password" class="">Contraseña</label>
-      <input tabindex="0" role="textbox" aria-label="Contraseña" formControlName="password" type="password" name="password" id="password" placeholder="••••••••" class=""
+      <input tabindex="0" role="textbox" aria-label=" Ingresa tu Contraseña" formControlName="password" type="password" name="password" id="password" placeholder="••••••••" class=""
         required="">
     </div>
     <!-- Validators password confirm -->
@@ -61,12 +61,12 @@
     <!-- Password confirm input -->
     <div *ngIf="options.id === signUp" class="inputAuth">
       <label for="password" class="">Confirmar contraseña</label>
-      <input tabindex="0" role="textbox" aria-label="Confirmar contraseña" formControlName="password_again" type="password" name="password_again" id="password_again"
+      <input tabindex="0" role="textbox" aria-label="Confirma la contraseña" formControlName="password_again" type="password" name="password_again" id="password_again"
         placeholder="••••••••" class="" required="">
     </div>
-    <button tabindex="0" role="button" aria-label="¿Olvidaste tu contraseña?" type="submit" class="buttonAuth">{{options.label}}</button>
+    <button tabindex="0" role="button" aria-label="Registrarse" type="submit" class="buttonAuth">{{options.label}}</button>
     <div *ngIf="options.id === signIn" class="linkAuth">
-      <a href="#" class=""> &nbsp; ¿Olvidaste tu contraseña?</a>
+      <a tabindex="0" role="button" aria-label="¿Olvidaste tu contraseña?"  href="#" class=""> &nbsp; ¿Olvidaste tu contraseña?</a>
     </div>
     <div class="lines">
       <!-- <hr class="">

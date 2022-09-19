@@ -3,7 +3,7 @@
   <div (click)="show = true" class="report" *ngIf="userId !== idOwnerRecipe">
     <p>!</p>
   </div>
-  <div class="report" *ngIf="userId === idOwnerRecipe" (click)="editRecipe()">
+  <div tabindex="0" aria-label="editar receta" role="link" class="report" *ngIf="userId === idOwnerRecipe" (click)="editRecipe()">
     <mat-icon class="edit">edit</mat-icon>
   </div>
   <app-report [reportType]="'recipe'" [reportId]="recipeId" [showReport]="show">

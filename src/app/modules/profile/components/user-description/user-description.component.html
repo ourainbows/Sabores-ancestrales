@@ -1,6 +1,6 @@
-<div class="user-description-container">
+<div tabindex="0" aria-label="Descripción de usuario" class="user-description-container">
   <div class="user-Photo-Container">
-    <img class="user-Photo" src="{{ user?.photo }}" alt="userPhoto" *ngIf="user.photo"/>
+    <img tabindex="0" aria-label="foto de usuario" class="user-Photo" src="{{ user?.photo }}" alt="userPhoto" *ngIf="user.photo"/>
     <h1 *ngIf="!user.photo">{{user.name[0]}}</h1>
     <div (click)="show = true" class="report">
       <p>!</p>
@@ -9,8 +9,8 @@
 
     </app-report>
   </div>
-  <div class="user-Name-Container">
-    <h1>{{ user?.name }}</h1>
+  <div tabindex="0" aria-label="nombre de usuario" class="user-Name-Container">
+    <h1 tabindex="0">{{ user?.name }}</h1>
   </div>
   <div class="user-Summary-Container">
     <p class="userDescription">{{ user?.description }}</p>

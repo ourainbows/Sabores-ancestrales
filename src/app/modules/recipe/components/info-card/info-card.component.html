@@ -1,24 +1,29 @@
 <div class="container">
-  <a class="user-container" routerLink="/profile/{{user.id}}">
+  <a role="link" aria-label="información de cocinero" class="user-container" routerLink="/profile/{{user.id}}">
     <img
+      tabindex="0"
       class="user-photo"
       [src]="user.photo"
       alt="Foto del cocinero de la receta"
     />
-    <p>{{user.name}}</p>
+    <div tabindex="0" aria-label="nombre del cocinero">
+      <p tabindex="0">{{user.name}}</p>
+    </div>
   </a>
-  <p class="description">
-    {{ description }}
-  </p>
+  <div tabindex="0" aria-label="descripción de receta">
+    <p tabindex="0" class="description">
+      {{ description }}
+    </p>
+  </div>
   <div class="info-container">
-    <p>
-      Tiempo: <span>{{ time }} min</span>
-    </p>
-    <p>
-      Dificultad: <span>{{ difficulty }}</span>
-    </p>
-    <p>
-      Precio: <span>{{ price }}</span>
+      <p tabindex="0" aria-label="tiempo de preparación">
+        Tiempo: <span tabindex="0">{{ time }} min</span>
+      </p>
+      <p tabindex="0" aria-label="Dificultad">
+        Dificultad: <span tabindex="0">{{ difficulty }}</span>
+      </p>
+    <p tabindex="0" aria-label="presupuesto requerido">
+      Precio: <span tabindex="0">{{ price }}</span>
     </p>
   </div>
 </div>

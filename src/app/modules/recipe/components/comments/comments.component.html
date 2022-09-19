@@ -1,26 +1,32 @@
-<div class="container" *ngFor="let commentary of comments; index as i">
+<div tabindex="0" aria-label="comentario" class="container" *ngFor="let commentary of comments; index as i">
   <div class="commentary">
     <div class="head">
       <div class="user">
-        <a routerLink="/profile/{{commentary.userId}}">
+        <a tabindex="0" routerLink="/profile/{{ commentary.userId }}">
           <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
         </a>
         <span>{{ commentary.user }}</span>
       </div>
-      <div class="date">
-        <span>{{ commentary.date }}</span>
+      <div tabindex="0" aria-label="fecha del comentario" class="date">
+        <span tabindex="0">{{ commentary.date }}</span>
       </div>
     </div>
     <div class="content">
-      <p>{{ commentary.comment }}</p>
+      <p tabindex="0">{{ commentary.comment }}</p>
       <img
+        tabindex="0"
         [src]="commentary.photoRecipe"
-        alt="Foto de la receta hecha por un usuario"
+        alt="Foto de la receta hecha por el usuario"
         *ngIf="commentary.photoRecipe"
       />
     </div>
     <div class="actions">
-      <p (click)="selectCommentary(commentary.id)" *ngIf="commentary.userId !== userId">
+      <p
+        tabindex="0"
+        aria-label="reportar este comentario"
+        (click)="selectCommentary(commentary.id)"
+        *ngIf="commentary.userId !== userId"
+      >
         Reportar
       </p>
       <app-report
@@ -30,8 +36,15 @@
         [reportId]="commentary.id"
       >
       </app-report>
-      <p (click)="deleteCommentary(commentary.id)" *ngIf="commentary.userId === userId">Eliminar</p>
+      <p
+        (click)="deleteCommentary(commentary.id)"
+        *ngIf="commentary.userId === userId"
+      >
+        Eliminar
+      </p>
       <div
+        tabindex="0"
+        aria-label="agregar un me gusta a este comentario"
         class="likes"
         [class.active]="commentary.likes.includes(userId)"
         (click)="likeComment(i)"

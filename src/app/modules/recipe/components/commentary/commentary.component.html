@@ -5,6 +5,7 @@
     alt="Imagen propia "
   />
   <textarea
+    tabindex="0" aria-label="Comenta aquí"
     placeholder="Comentar algo..."
     class="textarea"
     name="message"
@@ -12,7 +13,7 @@
   ></textarea>
   <label for="file-upload" class="custom-file-upload">
     <mat-icon>camera_alt</mat-icon>
-    <span *ngIf="!imageSrc">Subir una foto</span>
+    <span tabindex="0" aria-label="sube una foto aquí" *ngIf="!imageSrc">Subir una foto</span>
     <span *ngIf="imageSrc">{{imageSrc?.name}}</span>
   </label>
   <input
@@ -21,5 +22,5 @@
     accept="image/*"
     (change)="readURL($event)"
   />
-  <button class="comment-button" (click)="createNewComment()">Comentar</button>
+  <button tabindex="0" class="comment-button" (click)="createNewComment()">Comentar</button>
 </div>

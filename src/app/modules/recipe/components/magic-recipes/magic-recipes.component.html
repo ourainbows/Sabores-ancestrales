@@ -1,5 +1,5 @@
 <h2>Recomendaciones mágicas</h2>
-<div class="slider">
+<div role="slider" tabindex="0" aria-label="Recomendaciones mágicas" class="slider">
   <div class="container-card" *ngFor="let recipe of magicRecipes">
     <app-card-recipe
       [recipe]="recipe"

@@ -1,16 +1,16 @@
-<div class="cardRecipe" [ngStyle]="{width: cardWidth, margin: cardMargin}">
-  <div [routerLink]="['/recipe/' + recipe.id]" class="containerImg">
-    <img src="{{ recipe.imagePath }}" alt="Imagen de receta" />
+<div tabindex="0" aria-label="receta" class="cardRecipe" [routerLink]="['/recipe/' + recipe.id]" [ngStyle]="{width: cardWidth, margin: cardMargin}">
+  <div class="containerImg">
+    <img  src="{{ recipe.imagePath }}" alt="Imagen de receta" />
   </div>
   <div class="infoRecipe">
     <div class="infoOne">
-      <p>{{ recipe.name }}</p>
-      <div><span>★</span>{{ recipe.score }}</div>
+      <div tabindex="0" aria-label="nombre de receta"><p tabindex="0" >{{ recipe.name }}</p></div>
+      <div tabindex="0" aria-label="calificación"><span>★</span><div tabindex="0">{{ recipe.score }}</div></div>
     </div>
     <div class="infoTwo">
-      <div><span><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.time}}</span></div>
-      <span>{{recipe.price}}</span>
-      <span (click)='likeRecipe()' class="favorite">
+      <div tabindex="0" aria-label="tiempo de preparación"><span tabindex="0" ><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.time}}</span></div>
+      <span tabindex="0" aria-label="presupuesto"><div tabindex="0">{{recipe.price}}</div></span>
+      <span tabindex="0" aria-label="agregar receta a favoritas" role="button" (click)='likeRecipe()' class="favorite">
         <mat-icon class="border" *ngIf="!this.user.recipes.likedRecipes.includes(recipe.id)">
           favorite_border
         </mat-icon>
