@@ -1,22 +1,25 @@
 <nav>
   <a routerLink="/" class="logo">
-    <img src="../../../assets/logo.svg" alt="Sabores Ancestrales">
+    <img src="../../../assets/logo.svg" alt="Sabores Ancestrales" />
   </a>
   <div role="navigation" class="primary-navigation">
     <span>
-
-      <div class="profile dropdownImg"  *ngIf="(user$ | async)">
-        <img [src]="userData.profilePhoto" alt="Imagen del usuario" *ngIf="userData.profilePhoto"/>
-        <div *ngIf="!userData.profilePhoto">
-          <h1>{{userData.profileName[0]}}</h1>
+      <div class="profile dropdownImg" *ngIf="user$ | async">
+        <img
+          [src]="(userData$ | async)?.profilePhoto"
+          alt="Imagen del usuario"
+          *ngIf="(userData$ | async)?.profilePhoto"
+        />
+        <div *ngIf="!(userData$ | async)?.profilePhoto">
+          <h1>{{ (userData$ | async)?.profileName?.[0] }}</h1>
         </div>
       </div>
       <ng-container *ngIf="(user$ | async) === false; else logOutTemplate">
-          <a [routerLink]="['/register']" class="sign">Ingresar</a>
+        <a [routerLink]="['/register']" class="sign">Ingresar</a>
       </ng-container>
       <ng-template class="dropdown" #logOutTemplate>
         <ul>
-          <li [routerLink]="['/profile/' + userData.user.userId]">Perfil</li>
+          <li [routerLink]="['/profile/' + (userData$ | async)?.user?.userId]">Perfil</li>
           <li [routerLink]="['/']">Configuración</li>
           <li [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
         </ul>

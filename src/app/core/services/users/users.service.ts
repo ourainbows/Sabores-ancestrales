@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from 'src/app/shared/models/user.model';
 
 @Injectable({
@@ -38,6 +38,9 @@ export class UsersService {
     },
   };
 
+  // create an object observable of data user
+  userData : BehaviorSubject<User> = new BehaviorSubject<User>(this.user);
+
   getUsers(offset = 0, limit = 10): Observable<User[]> {
     return this.http.get<User[]>(
       `${this.apiUsers}?limit=${limit}&offset=${offset}`
@@ -68,9 +71,9 @@ export class UsersService {
     return this.http.delete<any>(`${this.apiUsers}/${id}`);
   }
 
-  saveUserData(id: number) {
+  saveUserData(id: number | string) {
     this.getUserById(id).subscribe((res) => {
-      this.user = res;
+      this.userData.next(res);
     });
   }
 }
