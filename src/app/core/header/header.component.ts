@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   userId = localStorage.getItem('userId');
   isLogged!: boolean;
   user$ = this.authSvc.user$;
+  id = 15
+  
   constructor(
     private readonly authSvc: AuthService,
     private userService: UsersService

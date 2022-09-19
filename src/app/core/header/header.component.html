@@ -16,7 +16,7 @@
       </ng-container>
       <ng-template class="dropdown" #logOutTemplate>
         <ul>
-          <li [routerLink]="['/profile/{{user.id}}']">Perfil</li>
+          <li [routerLink]="['/profile/' + userData.user.userId]">Perfil</li>
           <li [routerLink]="['/']">Configuración</li>
           <li [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
         </ul>
