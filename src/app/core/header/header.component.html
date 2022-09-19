@@ -6,7 +6,10 @@
     <span>
 
       <div class="profile dropdownImg"  *ngIf="(user$ | async)">
-        <img [src]="userImg" alt="Imagen del usuario" />
+        <img [src]="userData.profilePhoto" alt="Imagen del usuario" *ngIf="userData.profilePhoto"/>
+        <div *ngIf="!userData.profilePhoto">
+          <h1>{{userData.profileName[0]}}</h1>
+        </div>
       </div>
       <ng-container *ngIf="(user$ | async) === false; else logOutTemplate">
           <a [routerLink]="['/register']" class="sign">Ingresar</a>

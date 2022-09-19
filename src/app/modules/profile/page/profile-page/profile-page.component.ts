@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
-  user =  this.userService.user;
+  user =  this.userService.user; // TODO -> validate if user is owner of profile 
   userId: any = '';
 
   constructor(
