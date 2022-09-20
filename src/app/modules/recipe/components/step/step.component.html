@@ -27,7 +27,7 @@
     <p class="step-tool">
       <b>Utensilios:</b>
       <span *ngFor="let tool of step.tools; index as k">
-        {{ k + 1 !== step.tools.length ? tool + "," : tool + "." }}
+        {{ k + 1 !== step.tools.length ? tool.toolName + "," : tool.toolName + "." }}
       </span>
     </p>
   </div>

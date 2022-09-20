@@ -15,7 +15,6 @@ export class CategoriesService {
   }
 
   getRecipesByCategoryName(category: string) {
-    console.log(`${this.apiUrl}/recipes-search?search=${category}&category=true`)
     return this.http.get<any>(`${this.apiUrl}/recipes-search?search=${category}&category=true`);
   }
 }

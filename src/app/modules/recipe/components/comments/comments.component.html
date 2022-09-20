@@ -3,34 +3,33 @@
     <div class="head">
       <div class="user">
         <a routerLink="/profile/{{commentary.userId}}">
-          <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
+          <img src="{{ commentary.profilePhoto }}" alt="{{ commentary.userName }}" />
         </a>
-        <span>{{ commentary.user }}</span>
+        <span>{{ commentary.userName }}</span>
       </div>
       <div class="date">
-        <span>{{ commentary.date }}</span>
+        <span>{{ commentary.createdAt }}</span>
       </div>
     </div>
     <div class="content">
-      <p>{{ commentary.comment }}</p>
+      <p>{{ commentary.commentText }}</p>
       <img
-        [src]="commentary.photoRecipe"
+        [src]="commentary.commentPhoto"
         alt="Foto de la receta hecha por un usuario"
-        *ngIf="commentary.photoRecipe"
       />
     </div>
-    <div class="actions">
-      <p (click)="selectCommentary(commentary.id)" *ngIf="commentary.userId !== userId">
+    <!-- <div class="actions">
+      <p (click)="selectCommentary(commentary.commentId)" *ngIf="userId !== userId">
         Reportar
       </p>
       <app-report
-        *ngIf="selectedCommentary === commentary.id"
+        *ngIf="selectedCommentary === commentary.commentId"
         [showReport]="showReport"
         [reportType]="'commentary'"
-        [reportId]="commentary.id"
+        [reportId]="commentary.commentId"
       >
       </app-report>
-      <p (click)="deleteCommentary(commentary.id)" *ngIf="commentary.userId === userId">Eliminar</p>
+      <p (click)="deleteCommentary(commentary.commentId)" *ngIf="userId === userId">Eliminar</p>
       <div
         class="likes"
         [class.active]="commentary.likes.includes(userId)"
@@ -44,6 +43,7 @@
           favorite
         </mat-icon>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
+

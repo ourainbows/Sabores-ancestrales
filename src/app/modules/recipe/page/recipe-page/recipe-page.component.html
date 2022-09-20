@@ -21,8 +21,8 @@
   <app-ingredients [ingredients]="recipe.recipeCompleteIngredients"></app-ingredients>
   <app-tools [tools]="recipe.recipeCompleteTools"></app-tools>
   <app-step
-    [step]="recipe.steps"
     *ngFor="let step of recipe.steps; index as i"
+    [step]="step"
     [stepsLength]="recipe.steps.length"
     [stepsIndex]="i + 1"
   ></app-step>
@@ -31,6 +31,7 @@
   <app-comments-section
     [comments]="recipe.comments"
     [recipeId]="recipe.recipeId"
+    [userId]="recipe.userId"
   ></app-comments-section>
 
   <app-modal [show]="showFeedback" *ngIf="viewedRecipes.showModal">

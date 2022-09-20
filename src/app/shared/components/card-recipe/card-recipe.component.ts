@@ -21,7 +21,6 @@ export class CardRecipeComponent implements OnInit {
     this.usersService.getUsers().subscribe((users: User[]) => {
       this.user = users[0];
     })
-    console.log(this.recipe)
   }
 
   // likeRecipe() {

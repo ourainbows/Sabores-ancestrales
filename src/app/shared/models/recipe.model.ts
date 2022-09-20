@@ -12,8 +12,9 @@ export interface Step {
   id: number;
   imagePath?: string | Subscription;
   description: string;
+  stepNumber: number,
   ingredients: Ingredient[];
-  tools: string[];
+  tools: any[];
 }
 export interface Commentary {
   id?: number;
