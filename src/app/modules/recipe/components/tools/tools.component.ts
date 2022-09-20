@@ -7,10 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ToolsComponent implements OnInit {
 
-  @Input() tools: string[] = [];
+  @Input() tools: any[] = [];
   constructor() { }
 
   ngOnInit(): void {
-  }
+    const dataArr = new Set(this.tools);
 
+    this.tools = [...dataArr];
+  }
 }

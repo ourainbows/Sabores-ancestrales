@@ -6,12 +6,12 @@
   >
     <div class="ingredient-container" [class.checked]="ingredient.checked">
       <input type="checkbox" (click)="toogleChecked(i)" />
-      <label *ngIf="ingredient.unit">
-        {{ ingredient.quantity }} {{ ingredient?.unit }} de
-        {{ ingredient.name }}
+      <label *ngIf="ingredient.measureName">
+        {{ ingredient.quantity }} {{ ingredient?.measureName }} de
+        {{ ingredient.ingredientName }}
       </label>
-      <label *ngIf="!ingredient.unit">
-        {{ ingredient.quantity }} {{ ingredient.quantity > 1 ? ingredient.name + 's' : ingredient.name }}
+      <label *ngIf="!ingredient.measureName">
+        {{ ingredient.quantity }} {{ ingredient.quantity > 1 ? ingredient.ingredientName + 's' : ingredient.ingredientName }}
       </label>
     </div>
   </div>

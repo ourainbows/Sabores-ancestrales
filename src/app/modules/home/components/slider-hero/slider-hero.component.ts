@@ -9,7 +9,7 @@ import { cardRecipeDTO } from 'src/app/shared/models/recipe.model';
 })
 export class SliderHeroComponent implements OnInit {
 
-  recipes: cardRecipeDTO[] = [];
+  recipes: any = [];
   @Input() category: string = '';
   cardWidth = '160px'
 
@@ -17,7 +17,7 @@ export class SliderHeroComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoriesService
-      .getRecipesByCategory(this.category, 3)
+      .getRecipesByCategory(this.category, 4)
       .subscribe((data) => {
         this.recipes = data;
       });

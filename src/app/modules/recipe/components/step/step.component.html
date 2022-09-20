@@ -11,14 +11,14 @@
       <b>Ingredientes:</b>
       <ul>
         <li *ngFor="let ingredient of step.ingredients; index as i">
-          <span *ngIf="ingredient.unit">
-            {{ ingredient.quantity }} {{ ingredient?.unit }} de
-            {{ ingredient.name }}
+          <span *ngIf="ingredient.measureName">
+            {{ ingredient.quantity }} {{ ingredient?.measureName }} de
+            {{ ingredient.ingredientName }}
           </span>
-          <span *ngIf="!ingredient.unit">
+          <span *ngIf="!ingredient.measureName">
             {{ ingredient.quantity }}
             {{
-              ingredient.quantity > 1 ? ingredient.name + "s" : ingredient.name
+              ingredient.quantity > 1 ? ingredient.ingredientName + "s" : ingredient.ingredientName
             }}
           </span>
         </li>

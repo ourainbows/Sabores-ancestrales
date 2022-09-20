@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
   styleUrls: ['./card-recipe.component.scss'],
 })
 export class CardRecipeComponent implements OnInit {
-  @Input() recipe!: cardRecipeDTO;
+  @Input() recipe!: any;
   @Input() userId = 1;
   @Input() cardWidth = '100%';
   @Input() cardMargin = "1rem"
@@ -21,6 +21,7 @@ export class CardRecipeComponent implements OnInit {
     this.usersService.getUsers().subscribe((users: User[]) => {
       this.user = users[0];
     })
+    console.log(this.recipe)
   }
 
   // likeRecipe() {

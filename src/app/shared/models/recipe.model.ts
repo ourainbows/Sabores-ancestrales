@@ -2,10 +2,10 @@ import { Subscription } from 'rxjs';
 import { CardUserDTO } from './user.model';
 
 export interface Ingredient {
-  id: number;
-  name: string;
+  ingredientId: number;
+  ingredientName: string;
   quantity: number;
-  unit?: string;
+  measureName?: string;
   checked?: boolean;
 }
 export interface Step {
@@ -68,7 +68,7 @@ export interface newRecipeDTO
     | 'likes'
     | 'scoreCount'
   > {
-  tags: string[] 
+  tags: string[]
   userId: number;
   steps: any[];
   tools: string[];

@@ -1,13 +1,13 @@
 <app-hero
   [imagePath]="recipe.imagePath"
   [name]="recipe.name"
-  [recipeId]="recipe.id"
+  [recipeId]="recipe.recipeId"
 ></app-hero>
 <div class="container">
   <app-title
     [score]="recipe.recipeScore"
     [name]="recipe.name"
-    [id]="recipe.id"
+    [id]="recipe.recipeId"
   ></app-title>
   <app-info-card
     [userId]="recipe.userId"
@@ -15,13 +15,13 @@
     [userPhoto]="recipe.profileImagePath"
     [description]="recipe.description"
     [time]="recipe.time"
-    [difficulty]="recipe.difficulty"
+    [difficulty]="recipe.dificulty"
     [price]="recipe.price"
   ></app-info-card>
-  <app-ingredients [ingredients]="recipe.ingredients"></app-ingredients>
-  <app-tools [tools]="recipe.tools"></app-tools>
+  <app-ingredients [ingredients]="recipe.recipeCompleteIngredients"></app-ingredients>
+  <app-tools [tools]="recipe.recipeCompleteTools"></app-tools>
   <app-step
-    [step]="step"
+    [step]="recipe.steps"
     *ngFor="let step of recipe.steps; index as i"
     [stepsLength]="recipe.steps.length"
     [stepsIndex]="i + 1"
@@ -30,7 +30,7 @@
   <app-magic-recipes [magicRecipes]="recipe.recomendations"></app-magic-recipes>
   <app-comments-section
     [comments]="recipe.comments"
-    [recipeId]="recipe.id"
+    [recipeId]="recipe.recipeId"
   ></app-comments-section>
 
   <app-modal [show]="showFeedback" *ngIf="viewedRecipes.showModal">
