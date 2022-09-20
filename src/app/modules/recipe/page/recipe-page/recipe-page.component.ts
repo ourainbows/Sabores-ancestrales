@@ -1,3 +1,4 @@
+import { Report } from './../../../../shared/models/report.model';
 import { FeedbackService } from './../../../../core/services/feedback/feedback.service';
 import { Recipe } from './../../../../shared/models/recipe.model';
 import { Component, Input, OnInit } from '@angular/core';
@@ -41,7 +42,7 @@ export class RecipePageComponent implements OnInit {
   @Input() score = 0;
   @Input() scoreCount: any[] = [];
   @Input() id!: number;
-  user = { id: 1 }; // provisional
+  userId = localStorage.getItem('userId');
   report = '';
   viewedRecipes = JSON.parse(localStorage.getItem('feedback') || '{}');
 
@@ -63,7 +64,7 @@ export class RecipePageComponent implements OnInit {
     } else {
       this.viewedRecipes.viewedRecipes += 1;
       // show modal if user has viewed 5 recipes
-      if (this.viewedRecipes.viewedRecipes === 5 && !this.viewedRecipes.feedback) {
+      if (this.viewedRecipes.viewedRecipes === 5 && !this.viewedRecipes.feedback && this.userId) {
         this.viewedRecipes.showModal = true;
         this.showFeedback = true;
       }
@@ -85,10 +86,15 @@ export class RecipePageComponent implements OnInit {
     });
   }
 
-  rateChange(e: Event) {
-    this.feedbackService.createFeedback({ ...e, idUser: this.user.id });
-    this.viewedRecipes.feedback = true;
-    this.viewedRecipes.showModal = false;
-    localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes));
+  rateChange(e: any) {
+    this.feedbackService.createFeedback({
+      appFeedbackComment: e.report,
+      stars: e.rate,
+      userId : this.userId,
+    }).subscribe(r => {
+      this.viewedRecipes.feedback = true;
+      this.viewedRecipes.showModal = false;
+      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes));
+    })
   }
 }

@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class FeedbackService {
 
-  private apiUrl = 'http://localhost:3000/feedback';
+  private apiUrl = 'https://sabores-ancestrales.up.railway.app/feedback';
+
   getFeedback(): Observable<Feedback[]> {
     return this.http.get<Feedback[]>(this.apiUrl);
   }
