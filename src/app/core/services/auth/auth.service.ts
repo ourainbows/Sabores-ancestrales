@@ -10,12 +10,22 @@ import {
 } from 'src/app/shared/models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  auth = 'https://sabores-ancestrales.up.railway.app/';
+  toast = Swal.mixin({
+    showConfirmButton: false,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer);
+      toast.addEventListener('mouseleave', Swal.resumeTimer);
+    },
+  });
+  auth = environment.api;
   user!: User;
 
   private userSubject = new BehaviorSubject<boolean>(false);
@@ -64,7 +74,12 @@ export class AuthService {
         }),
         catchError((err) => {
           this.userSubject.next(false);
-          console.log(err);
+          console.log(err)
+          this.toast.fire({
+              timer:2000,
+              icon: 'error',
+              title: err.error.message,
+            })
           return err;
         })
       );
