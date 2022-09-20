@@ -19,7 +19,7 @@ export class ActivateComponent implements OnInit {
       let tokenActive = params.get('token');
       tokenActive &&
         this.authService.activateUser(tokenActive).subscribe((res: any) => {
-          this.createProfile(res.dataUser.userName, res.dataUser.id);
+          this.createProfile(res.dataUser.userName, res.dataUser.userId);
         });
     });
   }
@@ -28,7 +28,7 @@ export class ActivateComponent implements OnInit {
     this.authService
       .createProfile({
         profileName: userName,
-        profileBirthDate: '1/1/2000',
+        profileBirthDate: '1/12/2000',
         profilePhoto: '',
         userId: id,
       })

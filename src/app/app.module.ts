@@ -11,10 +11,9 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
+
 import { AngularFireModule } from '@angular/fire/compat';
-// import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({

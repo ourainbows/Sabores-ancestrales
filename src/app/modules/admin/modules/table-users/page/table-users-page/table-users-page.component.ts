@@ -5,39 +5,38 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-table-users-page',
   templateUrl: './table-users-page.component.html',
-  styleUrls: ['./table-users-page.component.scss']
+  styleUrls: ['./table-users-page.component.scss'],
 })
 export class TableUsersPageComponent implements OnInit {
+  users: User[] = [];
+  offset = 0;
 
-  users : User[] = []
-  offset = 0
-
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(users => {
-      this.users = users
-    }
-    )
+    this.userService.getUsers().subscribe((users) => {
+      this.users = users;
+    });
   }
   loadMore() {
-    this.offset += 10
-    this.userService.getUsers(this.offset).subscribe(users => {
-      this.users = [...this.users, ...users]
-    }
-    )
+    this.offset += 10;
+    this.userService.getUsers(this.offset).subscribe((users) => {
+      this.users = [...this.users, ...users];
+    });
   }
-  toggleSuspend(id : number){
-    const user = this.users.find(user => user.id === id)
-    this.userService.updateUser(id, {isActive: !user?.isActive}).subscribe(user => {
-      this.users = this.users.map(u => u.id === id ? user : u)
+  toggleSuspend(id: number) {
+    const user = this.users.find((user) => user.user.userId === id);
+    if (user) {
+      this.userService
+        .suspendUser(id, !user.user.userIsActive)
+        .subscribe(() => {
+          user.user.userIsActive = !user.user.userIsActive;
+        });
     }
-    )
   }
-  deleteUser(id : number){
+  deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe(() => {
-      this.users = this.users.filter(user => user.id !== id)
-    }
-    )
+      this.users = this.users.filter((user) => user.user.userId !== id);
+    });
   }
 }

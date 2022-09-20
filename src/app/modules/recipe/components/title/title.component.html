@@ -9,7 +9,6 @@
     <button
       (click)="openModal(show)"
       class="rate"
-      *ngIf="!scoreCount.includes(this.user.id)"
     >
       Calificar
     </button>
@@ -18,15 +17,13 @@
       <app-stars
         class="score"
         (showModal)="show = $event"
-        [scoreCount]="scoreCount"
-        [score]="score"
-        (rateChange)="rateChange($event)"
+        [recipeId]="id"
       ></app-stars>
     </app-modal>
   </div>
   <div class="actions">
     <div class="action">
-      <span (click)="likeRecipe()">
+      <!-- <span (click)="likeRecipe()">
         <mat-icon *ngIf="!this.user.recipes.likedRecipes.includes(id)">
           favorite_border
         </mat-icon>
@@ -36,7 +33,7 @@
         >
           favorite
         </mat-icon>
-      </span>
+      </span> -->
       Guardar
     </div>
     <div class="action" (click)="shareRecipe()">

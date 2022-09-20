@@ -14,19 +14,7 @@ export class CardRecipeComponent implements OnInit {
   @Input() userId = 1;
   @Input() cardWidth = '100%';
   @Input() cardMargin = "1rem"
-  user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    description: '',
-    photo: '',
-    recipes: {
-      userRecipes: [],
-      likedRecipes: [],
-      savedRecipes: [],
-    },
-    score: 0,
-  };
+  user!: User;
 
   constructor(private usersService: UsersService) { }
   ngOnInit(): void {
@@ -35,12 +23,12 @@ export class CardRecipeComponent implements OnInit {
     })
   }
 
-  likeRecipe() {
-    if (this.user.recipes.likedRecipes.includes(this.recipe.id)) {
-      this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.recipe.id), 1);
-    } else {
-      this.user.recipes.likedRecipes.push(this.recipe.id);
-    }
-    this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
-  }
+  // likeRecipe() {
+  //   if (this.user.recipes.likedRecipes.includes(this.recipe.id)) {
+  //     this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.recipe.id), 1);
+  //   } else {
+  //     this.user.recipes.likedRecipes.push(this.recipe.id);
+  //   }
+  //   this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
+  // }
 }

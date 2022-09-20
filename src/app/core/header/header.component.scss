@@ -14,9 +14,8 @@ nav {
 .logo {
   text-decoration: none;
   color: black;
-  margin-top: .4rem;
+  margin-top: 0.4rem;
 }
-
 
 .primary-navigation {
   position: relative;
@@ -35,10 +34,11 @@ nav {
     background: $background-color;
     transition: opacity 0.2s, visibility 0.2s;
     width: 150px;
+    z-index: 5;
   }
 
-  a{
-    padding: .4rem 2rem;
+  a {
+    padding: 0.4rem 2rem;
     text-decoration: none;
     color: $button-text-color;
     background-color: $main-color;
@@ -49,20 +49,26 @@ nav {
   .profile {
     // background-color: rgb(235, 235, 235);
 
-    img {
+    img,
+    div {
       height: 3.2rem;
       width: 3.2rem;
       object-fit: cover;
       border-radius: $border-radius;
       cursor: pointer;
     }
+    div {
+      color: $button-text-color;
+      background-color: $main-color;
+      text-transform: uppercase;
+    }
   }
 
-  span:hover > ul, .dropdown ul:hover {
+  span:hover > ul,
+  .dropdown ul:hover {
     visibility: visible !important;
     z-index: 2;
   }
-
 
   ul li {
     clear: both;
@@ -77,22 +83,21 @@ nav {
       cursor: pointer;
     }
   }
-
 }
 
-@media(min-width: 700px){
-  nav{
+@media (min-width: 700px) {
+  nav {
     margin-top: 2rem;
   }
-  .primary-navigation .sign{
-    padding: .8rem 3.5rem;
+  .primary-navigation .sign {
+    padding: 0.8rem 3.5rem;
   }
-  .logo{
-    img{
+  .logo {
+    img {
       width: 6rem;
     }
   }
-  .primary-navigation .profile  {
+  .primary-navigation .profile {
     img {
       height: 4.8rem;
       width: 4.8rem;

@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/user.model';
+import { UsersService } from 'src/app/core/services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
@@ -7,15 +10,22 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  userImg =
-    'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60';
-    isLogged!: boolean
-    user$ = this.authSvc.user$;
-  constructor(private readonly authSvc: AuthService) {
+  userData$ : Observable<User>
+  userId = localStorage.getItem('userId');
+  isLogged!: boolean;
+  user$ = this.authSvc.user$;
+  id = 15;
+
+  constructor(
+    private readonly authSvc: AuthService,
+    private userService: UsersService
+  ) {
+    this.userData$ = this.userService.userData;
   }
 
   ngOnInit(): void {
-    this.authSvc.user$.subscribe(res => this.isLogged = res)
+    this.authSvc.user$.subscribe((res) => (this.isLogged = res));
+    this.userId && this.userService.saveUserData(this.userId);
   }
 
   async onLogout(): Promise<void> {

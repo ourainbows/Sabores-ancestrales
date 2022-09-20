@@ -1,11 +1,11 @@
 <div class="container">
-  <a class="user-container" routerLink="/profile/{{user.id}}">
+  <a class="user-container" routerLink="/profile/{{userId}}">
     <img
       class="user-photo"
-      [src]="user.photo"
+      [src]="userPhoto"
       alt="Foto del cocinero de la receta"
     />
-    <p>{{user.name}}</p>
+    <p>{{userName}}</p>
   </a>
   <p class="description">
     {{ description }}

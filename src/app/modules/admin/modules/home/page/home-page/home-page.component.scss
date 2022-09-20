@@ -1,5 +1,8 @@
 @import "./../../../../../../../styles.scss";
 
+.wrapper {
+  min-height: calc(100vh - 4.8rem + 1.6rem);
+}
 .welcome {
   margin: 3.2rem 1.6rem 2.4rem;
 }

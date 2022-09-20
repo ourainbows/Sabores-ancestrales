@@ -7,6 +7,9 @@
   justify-content: flex-start;
   width: 100%;
   margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .tab-switch {
   display: none;
@@ -37,5 +40,18 @@
   text-decoration: underline;
 }
 .card-container {
- width: 47%; 
+  width: 47%;
+  max-width: 184px;
+}
+@media (min-width: 700px) {
+  .tab-content {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+  }
+  .card-container {
+    width: initial;
+    max-width: initial;
+  }
 }

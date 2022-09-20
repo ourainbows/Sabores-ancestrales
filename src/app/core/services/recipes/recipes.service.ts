@@ -9,6 +9,7 @@ import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
 })
 export class RecipesService {
   private apiUrl = 'http://localhost:3000/recipe';
+  private apiStarUrl = 'https://sabores-ancestrales.up.railway.app/recipes-stars';
   userId = 1; // provisional UserID
 
   recipeToEdit : Recipe | undefined = undefined;
@@ -35,8 +36,8 @@ export class RecipesService {
       `${this.apiUrl}?limit=${limit}&offset=${offset}`
     );
   }
-  updateScore(id: number, score: any): Observable<Recipe> {
-    return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, score);
+  updateScore(scoreData : any): Observable<Recipe> {
+    return this.http.patch<Recipe>(`${this.apiStarUrl}`, scoreData);
   }
   updateRecipe(id: number | string | null | undefined, recipe : any): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, recipe);
