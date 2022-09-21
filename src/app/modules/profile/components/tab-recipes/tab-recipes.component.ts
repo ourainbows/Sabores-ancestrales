@@ -14,6 +14,7 @@ export class TabRecipesComponent implements OnInit {
 
   @Input() selectRecipes: undefined | any = [];
   recipesOption = 'user';
+  userId = localStorage.getItem('userId');
 
   constructor() {}
 

@@ -26,7 +26,10 @@
   </div>
   <div class="tab-content" *ngIf="selectRecipes?.length">
     <div class="card-container" *ngFor="let card of selectRecipes">
-      <app-card-recipe [recipe]="card" [cardMargin]="'0'"></app-card-recipe>
+      <!-- Validate if recipe is private or user is owner of that recipe -->
+      <div *ngIf="!card.recipePrivacity || card.userID == userId">
+        <app-card-recipe [recipe]="card" [cardMargin]="'0'"></app-card-recipe>
+      </div>
     </div>
   </div>
 
@@ -34,7 +37,7 @@
     <img src="../../../../../assets/chef.svg" alt="" />
     <h2>¡Vaya!</h2>
     <div *ngIf="recipesOption === 'user'">
-      <p>Parece que no existen recetas ancestales en este perfil</p>
+      <p>Parece que no existen recetas ancestrales</p>
     </div>
     <div *ngIf="recipesOption === 'fav'">
       <p>Parece que no existen recetas guardadas</p>
