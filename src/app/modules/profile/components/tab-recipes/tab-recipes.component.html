@@ -1,17 +1,43 @@
 <div class="wrapper">
-    <div class="tabs">
-      <div class="tab">
-        <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch" (change)="handleChange($event)" value="user">
-        <label for="tab-1" class="tab-label">Recetas</label>        
-      </div>
-      <div class="tab">
-        <input type="radio" name="css-tabs" id="tab-2" class="tab-switch" (change)="handleChange($event)" value="saved">
-        <label for="tab-2" class="tab-label">Guardados</label>
-      </div>
+  <div class="tabs">
+    <div class="tab">
+      <input
+        type="radio"
+        name="css-tabs"
+        id="tab-1"
+        checked
+        class="tab-switch"
+        (change)="handleChange($event)"
+        value="user"
+      />
+      <label for="tab-1" class="tab-label">Recetas</label>
     </div>
-    <div class="tab-content">
-      <div class="card-container" *ngFor="let card of selectRecipes === 'user' ? recipes?.recipesUser : recipes?.recipesFav">
-        <app-card-recipe [recipe]="card" [cardMargin]="'0'"></app-card-recipe>
-      </div>
+    <div class="tab">
+      <input
+        type="radio"
+        name="css-tabs"
+        id="tab-2"
+        class="tab-switch"
+        (change)="handleChange($event)"
+        value="saved"
+      />
+      <label for="tab-2" class="tab-label">Guardados</label>
     </div>
   </div>
+  <div class="tab-content" *ngIf="selectRecipes?.length">
+    <div class="card-container" *ngFor="let card of selectRecipes">
+      <app-card-recipe [recipe]="card" [cardMargin]="'0'"></app-card-recipe>
+    </div>
+  </div>
+
+  <div *ngIf="!selectRecipes?.length" class="no-recipes">
+    <img src="../../../../../assets/chef.svg" alt="" />
+    <h2>¡Vaya!</h2>
+    <div *ngIf="recipesOption === 'user'">
+      <p>Parece que no existen recetas ancestales en este perfil</p>
+    </div>
+    <div *ngIf="recipesOption === 'fav'">
+      <p>Parece que no existen recetas guardadas</p>
+    </div>
+  </div>
+</div>

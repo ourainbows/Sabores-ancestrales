@@ -12,16 +12,21 @@ export class TabRecipesComponent implements OnInit {
     recipesFav: [],
   };
 
-  selectRecipes = 'user'
+  @Input() selectRecipes: undefined | any = [];
+  recipesOption = 'user';
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleChange(event: any): void {
-    event.target.value === 'user'
-      ? (this.selectRecipes = 'user')
-      : (this.selectRecipes = 'fav');
+    if (event.target.value === 'user') {
+      this.selectRecipes = this.recipes?.recipesUser;
+      this.recipesOption = 'user';
+    } else {
+      this.selectRecipes = this.recipes?.recipesFav;
+      this.recipesOption = 'fav';
+    }
+    console.log(this.recipesOption);
   }
 }

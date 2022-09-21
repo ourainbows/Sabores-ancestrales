@@ -2,5 +2,5 @@
   <!-- <app-back-button></app-back-button> -->
   <app-user-description [user]="user"></app-user-description>
   <app-statistics [userRecipes]="user.recipes" [score]="user.score"></app-statistics>
-  <app-tab-recipes [recipes]="user.recipes"></app-tab-recipes>
+  <app-tab-recipes [recipes]="user.recipes" [selectRecipes]="user.recipes?.recipesUser"></app-tab-recipes>
 </div>

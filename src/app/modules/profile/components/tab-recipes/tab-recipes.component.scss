@@ -27,6 +27,29 @@
   flex-wrap: wrap;
   margin: 0 1.6rem;
   gap: 1.3rem;
+  justify-content: center;
+}
+.no-recipes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: $secundary-text-color;
+  text-align: center;
+  margin: 0 1.6rem;
+  img {
+    width: 100%;
+    max-width: 300px;
+    margin: 4rem 0;
+  }
+  h2 {
+    font-size: $font-title;
+    margin-bottom: .4rem;
+  }
+  p {
+    font-size: $font-text;
+  }
 }
 
 .tab-switch:checked + .tab-label {
@@ -48,7 +71,6 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    justify-content: space-evenly;
   }
   .card-container {
     width: initial;
