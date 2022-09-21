@@ -10,6 +10,7 @@ import { User } from 'src/app/shared/models/user.model';
 export class UserDescriptionComponent implements OnInit {
  @Input() user!: User;
  show : boolean = false;
+ userId = parseInt(localStorage.getItem('userId') || '');
 
   constructor(private userService: UsersService) {}
 

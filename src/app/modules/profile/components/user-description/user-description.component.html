@@ -2,7 +2,8 @@
   <div class="user-Photo-Container">
     <img class="user-Photo" src="{{ user.profilePhoto }}" alt="userPhoto" *ngIf="user.profilePhoto"/>
     <h1 *ngIf="!user.profilePhoto">{{user.profileName[0]}}</h1>
-    <div (click)="show = true" class="report">
+
+    <div (click)="show = true" class="report" *ngIf="user.user.userId != userId">
       <p>!</p>
     </div>
     <app-report [showReport]="show" [reportType]="'user'" [reportId]="user.user.userId">
