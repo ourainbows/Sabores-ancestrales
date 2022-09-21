@@ -1,23 +1,27 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RecipesService } from '../../../../core/services/recipes/recipes.service';
-import { Recipe } from 'src/app/shared/models/recipe.model';
 
 @Component({
   selector: 'app-tab-recipes',
   templateUrl: './tab-recipes.component.html',
-  styleUrls: ['./tab-recipes.component.scss']
+  styleUrls: ['./tab-recipes.component.scss'],
 })
 export class TabRecipesComponent implements OnInit {
-  @Input() recipes: Recipe[] = []
+  @Input() recipes: undefined | any = {
+    recipesUser: [],
+    recipesFav: [],
+  };
 
-  constructor(private recipeService: RecipesService) { }
+  selectRecipes = 'user'
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.recipeService.getRecipes().subscribe(
-      (data) => {
-        this.recipes = data
-      }
-    )
   }
 
+  handleChange(event: any): void {
+    event.target.value === 'user'
+      ? (this.selectRecipes = 'user')
+      : (this.selectRecipes = 'fav');
+  }
 }
