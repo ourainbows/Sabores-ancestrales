@@ -10,12 +10,13 @@
           <span>{{ message.userName }}</span>
         </div>
         <div class="date">
-          <span>{{ message.date }}</span>
+          <span>{{ message.createdAt }}</span> /
+          <!-- Create a pipe to manage date -->
         </div>
       </div>
       <div class="content">
-        <p>{{ message.comment }}</p>
-        <app-score class="score" [score]="message.score"></app-score>
+        <p>{{ message.appFeedbackComment }}</p>
+        <app-score class="score" [score]="message.stars"></app-score>
       </div>
     </div>
   </section>
