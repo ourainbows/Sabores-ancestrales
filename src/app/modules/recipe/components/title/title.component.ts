@@ -3,6 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users/users.service';
 import { User } from 'src/app/shared/models/user.model';
 import { ClipboardService } from 'ngx-clipboard';
+import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+const jwtHelper = new JwtHelperService();
 
 @Component({
   selector: 'app-title',
@@ -14,35 +18,38 @@ export class TitleComponent implements OnInit {
   @Input() score : any = 0;
   @Input() scoreCount : any[] = [];
   @Input() recipe!: Recipe;
-  @Input() id: any = 0
-  show: boolean = false
+  @Input() id: any = 0 // recipeId
+  show: boolean = false;
 
-  user!: User;
+  user!: any;
 
-  constructor(private  usersService: UsersService, private clipboardApi: ClipboardService,) {}
+  constructor(private  usersService: UsersService, private clipboardApi: ClipboardService, private recipeService: RecipesService) {}
 
   ngOnInit(): void {
     this.usersService.getUsers().subscribe((users: User[]) => {
       this.user = users[0];
     })
   }
+
   openModal(show: boolean) {
     this.show = !show
   }
 
-  // likeRecipe() { // TODO change logic with backend
-  //   if (this.user.recipes.likedRecipes.includes(this.id)) {
-  //     this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.id), 1);
-  //   } else {
-  //     this.user.recipes.likedRecipes.push(this.id);
-  //   }
-  //   this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
-  // }
+  saveRecipe() {
+    const TOKEN = localStorage.getItem('token')
+    const decodedToken = jwtHelper.decodeToken(TOKEN || '')
+    const userId = decodedToken.id
+
+    this.recipeService.addFavoriteRecipe(userId, this.id).subscribe((saved: Object) => {
+      console.log(saved)
+    })
+  }
 
   copyText() {
     this.clipboardApi.copyFromContent(window.location.href);
     console.log(window.location.href);
   }
+
   shareRecipe() {
     if (navigator.share) {
       navigator

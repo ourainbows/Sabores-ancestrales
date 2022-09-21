@@ -22,7 +22,7 @@
     </app-modal>
   </div>
   <div class="actions">
-    <div class="action">
+    <div class="action" (click)="saveRecipe()">
       <!-- <span (click)="likeRecipe()">
         <mat-icon *ngIf="!this.user.recipes.likedRecipes.includes(id)">
           favorite_border

@@ -70,4 +70,9 @@ export class RecipesService {
   createRecipe(): Observable<Recipe> {
     return this.http.post<Recipe>(this.apiUrl, this.newRecipe);
   }
+
+  addFavoriteRecipe(userId:number, recipeId:number): Observable<Object> {
+    const saveRecipe = {recipeId, userId}
+    return this.http.post<Object>(`${this.apiUrl}/recipes-fav`, saveRecipe);
+  }
 }
