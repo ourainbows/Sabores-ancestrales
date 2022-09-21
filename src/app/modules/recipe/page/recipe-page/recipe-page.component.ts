@@ -11,30 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./recipe-page.component.scss'],
 })
 export class RecipePageComponent implements OnInit {
-  recipe: Recipe = {
-    id: 0,
-    name: '',
-    description: '',
-    imagePath: '',
-    user: {
-      id_User: 0,
-      first_name: '',
-      last_name: '',
-      userPhoto: '',
-    },
-    scoreCount: [],
-    score: 0,
-    time: 0,
-    difficulty: '',
-    price: '',
-    ingredients: [],
-    steps: [],
-    tags: [],
-    comments: [],
-    recomendations: [],
-    tools: [],
-    public: true,
-  };
+  recipe: any = []
 
   recipeId: string | null = null;
   showFeedback = false;
@@ -72,7 +49,7 @@ export class RecipePageComponent implements OnInit {
       if(this.viewedRecipes.viewedRecipes === 6 && !this.viewedRecipes.feedback) {
         this.viewedRecipes.showModal = false;
       }
-      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes)); 
+      localStorage.setItem('feedback', JSON.stringify(this.viewedRecipes));
     }
 
     this.route.paramMap.subscribe((params) => {
@@ -80,6 +57,7 @@ export class RecipePageComponent implements OnInit {
       if (this.recipeId) {
         this.recipeService.getRecipeById(this.recipeId).subscribe((recipe) => {
           this.recipe = recipe;
+
           this.recipeService.recipeToEdit = recipe;
         });
       }

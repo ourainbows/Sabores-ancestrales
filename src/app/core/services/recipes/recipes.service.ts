@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesService {
-  private apiUrl = 'http://localhost:3000/recipe';
+  private apiUrl = `${environment.api}`;
   private apiStarUrl = 'https://sabores-ancestrales.up.railway.app/recipes-stars';
   userId = 1; // provisional UserID
 
@@ -47,20 +48,8 @@ export class RecipesService {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { likes });
   }
 
-  getRecipeById(id: string): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.apiUrl}/${id}`).pipe(
-      map((recipe) => {
-        return {
-          ...recipe,
-          steps: recipe.steps.map((step) => {
-            return {
-              ...step,
-              checked: false,
-            };
-          }),
-        };
-      })
-    );
+  getRecipeById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/get-recipes/${id}`)
   }
 
   updateComments(id: string, comments: Commentary[]): Observable<Recipe> {

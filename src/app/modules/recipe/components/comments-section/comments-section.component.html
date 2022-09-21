@@ -5,7 +5,7 @@
             <app-commentary (newCommentEvent)="addComment($event)"></app-commentary>
         </div>
         <div class="comments-container">
-            <app-comments [comments]="comments" [recipeId]="recipeId" (changeLikeEvent)="updateComments($event)"></app-comments>
+            <app-comments [comments]="comments" [recipeId]="recipeId" [userId]="userId" (changeLikeEvent)="updateComments($event)"></app-comments>
         </div>
     </section>
 </div>

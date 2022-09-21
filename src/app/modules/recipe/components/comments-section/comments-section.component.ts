@@ -10,13 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CommentsSectionComponent implements OnInit {
   @Input() comments: Commentary[] = [];
   @Input() recipeId : number = 0;
+  @Input() userId: number = 0
 
   // changeLike of a comment
   updateComments(commentary: Commentary[]) {
     this.recipeService.updateComments(this.recipeId.toString(), commentary).subscribe()
   }
   // new comment
-  addComment(comment: Commentary) { 
+  addComment(comment: Commentary) {
     this.comments.unshift(comment);
     this.updateComments(this.comments);
   }

@@ -12,9 +12,11 @@ export class StepComponent implements OnInit {
     id: 0,
     imagePath: '',
     description: '',
+    stepNumber: 0,
     ingredients: [],
     tools: []
   }
+  // @Input() steps = []
   @Input() stepsIndex = 0;
   @Input() stepsLength = 0;
 

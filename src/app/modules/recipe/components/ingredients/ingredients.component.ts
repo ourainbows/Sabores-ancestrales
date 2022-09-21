@@ -18,6 +18,9 @@ export class IngredientsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const dataArr = new Set(this.ingredients);
+
+    this.ingredients = [...dataArr];
   }
 
 }

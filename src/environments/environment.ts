@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  api:'https://sabores-ancestrales.up.railway.app/',
+  api:'https://sabores-ancestrales.up.railway.app',
   firebaseConfig: {
     apiKey: 'AIzaSyDN5pIymvx7y8BmJWH456oohyqqlCXOlKs',
     authDomain: 'saboresancestrales-56030.firebaseapp.com',
