@@ -7,7 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./statistics.component.scss'],
 })
 export class StatisticsComponent implements OnInit {
-  @Input() user!: User;
+  @Input() userRecipes : undefined | any = {
+    recipesUser: [],
+    recipesFav: [],
+  };
+  @Input() score = 0;
   constructor() {}
 
   ngOnInit(): void {}

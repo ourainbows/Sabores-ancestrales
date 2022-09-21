@@ -1,6 +1,6 @@
 <div class="wrapper">
   <!-- <app-back-button></app-back-button> -->
   <app-user-description [user]="user"></app-user-description>
-  <app-statistics [user]="user"></app-statistics>
+  <app-statistics [userRecipes]="user.recipes" [score]="user.score"></app-statistics>
   <app-tab-recipes></app-tab-recipes>
 </div>

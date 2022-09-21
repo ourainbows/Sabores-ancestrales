@@ -33,9 +33,8 @@ export class ProfilePageComponent implements OnInit {
       updatedAt: '',
     },
     recipes: {
-      userRecipes: [],
-      savedRecipe: [],
-      likedRecipes: [],
+      recipesUser: [],
+      recipesFav: [],
     },
   };
   userId: any = '';
@@ -58,6 +57,9 @@ export class ProfilePageComponent implements OnInit {
           this.user = data;
         });
       }
+      this.userService.getUserRecipes(this.userId).subscribe((data) => {
+        this.user.recipes = data;
+      });
     });
   }
 }

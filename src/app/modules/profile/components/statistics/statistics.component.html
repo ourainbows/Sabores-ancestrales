@@ -2,17 +2,17 @@
   <hr class="line1" />
   <div class="statistics-info">
     <div class="statistic">
-      <p class="statistic-counter">{{ user.recipes.userRecipes.length }}</p>
+      <p class="statistic-counter">{{ userRecipes?.recipesUser?.length }}</p>
       <p>Recetas</p>
     </div>
     <!-- <hr class="line2"/> -->
     <div class="statistic statistic-middle">
-      <p class="statistic-counter">{{user.score}}</p>
+      <p class="statistic-counter">{{score}}</p>
       <p>Calificación</p>
     </div>
     <!-- <hr class="line2"/> -->
     <div class="statistic">
-      <p class="statistic-counter">{{user.recipes.savedRecipe.length}}</p>
+      <p class="statistic-counter">{{ userRecipes?.recipesFav?.length}}</p>
       <p>Guardados</p>
     </div>
   </div>
