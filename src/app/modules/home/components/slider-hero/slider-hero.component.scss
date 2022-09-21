@@ -33,6 +33,9 @@
   cursor: pointer;
   img {
     max-width: 100%;
+    height: 100%;
+    border-radius: $border-radius;
+    object-fit: cover;
   }
 }
 
@@ -53,6 +56,11 @@
     font-size: 26px;
     font-style: italic;
     margin-bottom: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 200px;
+    white-space: nowrap;
+    text-align: center;
   }
   div {
     @include flex();
