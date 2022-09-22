@@ -75,8 +75,7 @@ export class RecipesService {
     const saveRecipe = {recipeId, userId}
     return this.http.post<Object>(`${this.apiUrl}/recipes-fav`, saveRecipe);
   }
-  deleteFavoriteRecipe(userId:number, recipeId:number): Observable<Object> {
-    const deleteRecipe = {recipeId, userId}
-    return this.http.post<Object>(`${this.apiUrl}/recipes-fav/delete`, deleteRecipe);
+  deleteFavoriteRecipe(userId:number, recipeId:number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/recipes-fav/${userId}/${recipeId}`);
   }
 }

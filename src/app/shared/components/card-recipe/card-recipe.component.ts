@@ -26,39 +26,37 @@ export class CardRecipeComponent implements OnInit {
   }
   ngOnInit(): void {}
 
-  saveRecipe(id: any) {
+  saveRecipe() {
     const TOKEN = localStorage.getItem('token');
     const decodedToken = jwtHelper.decodeToken(TOKEN || '');
     const userId = decodedToken.id;
+    this.userRecipes$.subscribe((res) => {
+      res.recipesFav.push(this.recipe);
+    });
     this.recipeService
-      .addFavoriteRecipe(userId, id)
-      .subscribe((saved: Object) => {
-        this.userRecipes$.subscribe((res) => {
-          res.recipesFav.push(this.recipe);
-        });
-      });
+      .addFavoriteRecipe(userId, this.recipe.recipeId)
+      .subscribe((saved: Object) => {});
   }
 
-  deleteRecipe(id: any) {
+  deleteRecipe() {
     const TOKEN = localStorage.getItem('token');
     const decodedToken = jwtHelper.decodeToken(TOKEN || '');
     const userId = decodedToken.id;
+    this.userRecipes$.subscribe((res) => {
+      res.recipesFav = res.recipesFav.filter(
+        (recipeFav: any) => recipeFav.recipeId !== this.recipe.recipeId
+      );
+    });
     this.recipeService
-      .deleteFavoriteRecipe(userId, id)
-      .subscribe((deleted: Object) => {
-        this.userRecipes$.subscribe((res) => {
-          res.recipesFav = res.recipesFav.filter(
-            (recipeFav: any) => recipeFav.recipeId !== id
-          );
-        });
-      });
+      .deleteFavoriteRecipe(userId, this.recipe.recipeId)
+      .subscribe((deleted: Object) => {});
   }
 
-  existInFavorites(id: any) {
+  existInFavorites() {
     let exist = false;
     this.userRecipes$.subscribe((res) => {
       exist = res.recipesFav.some(
-        (recipeFav: any) => recipeFav.recipeId === id
+        (recipeFav: any) => recipeFav.recipeId === this.recipe.recipeId
       );
     });
     return exist;

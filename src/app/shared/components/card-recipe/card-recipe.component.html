@@ -10,11 +10,11 @@
     <div class="infoTwo">
       <div><span><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.recipeTime}}</span></div>
       <span>{{recipe.priceSufix}}</span>
-      <span (click)='!existInFavorites(recipe.recipeId) ? saveRecipe(recipe.recipeId) : deleteRecipe(recipe.recipeId)' class="favorite">
-        <mat-icon class="border" *ngIf="!existInFavorites(recipe.recipeId)">
+      <span (click)='!existInFavorites() ? saveRecipe() : deleteRecipe()' class="favorite">
+        <mat-icon class="border" *ngIf="!existInFavorites()">
           favorite_border
         </mat-icon>
-        <mat-icon *ngIf="existInFavorites(recipe.recipeId)">
+        <mat-icon *ngIf="existInFavorites()">
           favorite
         </mat-icon>
       </span>

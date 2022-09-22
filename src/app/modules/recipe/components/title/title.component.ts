@@ -42,28 +42,26 @@ export class TitleComponent implements OnInit {
     const TOKEN = localStorage.getItem('token');
     const decodedToken = jwtHelper.decodeToken(TOKEN || '');
     const userId = decodedToken.id;
+    this.userRecipes$.subscribe((res) => {
+      res.recipesFav.push(this.recipe);
+    });
     this.recipeService
       .addFavoriteRecipe(userId, this.id)
-      .subscribe((saved: Object) => {
-        this.userRecipes$.subscribe((res) => {
-          res.recipesFav.push(this.recipe);
-        })
-      });
+      .subscribe((saved: Object) => {});
   }
 
   deleteRecipe() {
     const TOKEN = localStorage.getItem('token');
     const decodedToken = jwtHelper.decodeToken(TOKEN || '');
     const userId = decodedToken.id;
+    this.userRecipes$.subscribe((res) => {
+      res.recipesFav = res.recipesFav.filter(
+        (recipeFav: any) => recipeFav.recipeId !== this.id
+      );
+    });
     this.recipeService
       .deleteFavoriteRecipe(userId, this.id)
-      .subscribe((deleted: Object) => {
-        this.userRecipes$.subscribe((res) => {
-          res.recipesFav = res.recipesFav.filter(
-            (recipeFav: any) => recipeFav.recipeId !== this.id
-          );
-        });
-      });
+      .subscribe((deleted: Object) => {});
   }
 
   existInFavorites() {
