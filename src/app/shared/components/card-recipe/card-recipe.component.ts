@@ -10,23 +10,11 @@ import { User } from '../../models/user.model';
   styleUrls: ['./card-recipe.component.scss'],
 })
 export class CardRecipeComponent implements OnInit {
-  @Input() recipe!: cardRecipeDTO;
+  @Input() recipe!: any;
   @Input() userId = 1;
   @Input() cardWidth = '100%';
   @Input() cardMargin = "1rem"
-  user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    description: '',
-    photo: '',
-    recipes: {
-      userRecipes: [],
-      likedRecipes: [],
-      savedRecipes: [],
-    },
-    score: 0,
-  };
+  user!: User;
 
   constructor(private usersService: UsersService) { }
   ngOnInit(): void {

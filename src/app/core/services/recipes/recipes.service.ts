@@ -33,11 +33,11 @@ export class RecipesService {
 
   getRecipes(offset = 0, limit = 10): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(
-      `${this.apiUrl}?limit=${limit}&offset=${offset}`
+      `${this.apiUrl}/recipes?limit=${limit}&offset=${offset}`
     );
   }
-  updateScore(id: number, score: any): Observable<Recipe> {
-    return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, score);
+  updateScore(scoreData : any): Observable<Recipe> {
+    return this.http.patch<Recipe>(`${this.apiUrl}s-stars`, scoreData);
   }
   updateRecipe(id: number | string | null | undefined, recipe : any): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, recipe);
@@ -47,27 +47,15 @@ export class RecipesService {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { likes });
   }
 
-  getRecipeById(id: string): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.apiUrl}/${id}`).pipe(
-      map((recipe) => {
-        return {
-          ...recipe,
-          steps: recipe.steps.map((step) => {
-            return {
-              ...step,
-              checked: false,
-            };
-          }),
-        };
-      })
-    );
+  getRecipeById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/get-recipes/${id}`)
   }
 
   updateComments(id: string, comments: Commentary[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { comments });
   }
   deleteRecipe(id: number | string | null): Observable<Recipe> {
-    return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
+    return this.http.delete<Recipe>(`${this.apiUrl}/recipes/${id}`);
   }
   deleteComment(
     id: number | string | null,

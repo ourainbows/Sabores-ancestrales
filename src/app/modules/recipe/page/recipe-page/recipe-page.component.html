@@ -1,27 +1,28 @@
 <app-hero
   [imagePath]="recipe.imagePath"
   [name]="recipe.name"
-  [recipeId]="recipe.id"
+  [recipeId]="recipe.recipeId"
 ></app-hero>
 <div class="container">
   <app-title
-    [score]="recipe.score"
-    [scoreCount]="recipe.scoreCount"
+    [score]="recipe.recipeScore"
     [name]="recipe.name"
-    [id]="recipe.id"
+    [id]="recipe.recipeId"
   ></app-title>
   <app-info-card
-    [user]="recipe.user"
+    [userId]="recipe.userId"
+    [userName]="recipe.userName"
+    [userPhoto]="recipe.profileImagePath"
     [description]="recipe.description"
     [time]="recipe.time"
-    [difficulty]="recipe.difficulty"
+    [difficulty]="recipe.dificulty"
     [price]="recipe.price"
   ></app-info-card>
-  <app-ingredients [ingredients]="recipe.ingredients"></app-ingredients>
-  <app-tools [tools]="recipe.tools"></app-tools>
+  <app-ingredients [ingredients]="recipe.recipeCompleteIngredients"></app-ingredients>
+  <app-tools [tools]="recipe.recipeCompleteTools"></app-tools>
   <app-step
-    [step]="step"
     *ngFor="let step of recipe.steps; index as i"
+    [step]="step"
     [stepsLength]="recipe.steps.length"
     [stepsIndex]="i + 1"
   ></app-step>
@@ -29,10 +30,11 @@
   <app-magic-recipes [magicRecipes]="recipe.recomendations"></app-magic-recipes>
   <app-comments-section
     [comments]="recipe.comments"
-    [recipeId]="recipe.id"
+    [recipeId]="recipe.recipeId"
+    [userId]="recipe.userId"
   ></app-comments-section>
 
-  <app-modal [show]="showFeedback" *ngIf="!viewedRecipes.feedback">
+  <app-modal [show]="showFeedback" *ngIf="viewedRecipes.showModal">
     <h3 class="feedbackTitle">Cuéntanos tú experiencia</h3>
     <p class="feedbackInfo">Tu opinión es muy importante para ayudarnos a ofrecer un mejor servicio</p>
     <app-stars

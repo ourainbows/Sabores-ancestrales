@@ -1,7 +1,8 @@
+import { environment } from './../../../../environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from 'src/app/shared/models/user.model';
 
 @Injectable({
@@ -9,33 +10,50 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
+  private apiInfo = `${environment.api}/info`;
+  private apiUser = `${environment.api}`;
+
   constructor(private http: HttpClient, private route: Router) {}
 
   user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    description: '',
-    photo: '',
-    recipes: {
-      userRecipes: [],
-      likedRecipes: [],
-      savedRecipes: [],
-    },
+    profileId: 0,
     score: 0,
-    savedRecipes: [],
-    isActive: true,
-    idAdmin: false,
+    profileName: '',
+    profileBirthDate: '',
+    profilePhoto: '',
+    userDescription: '',
+    userId: 0,
+    user: {
+      userId: 0,
+      userName: '',
+      userEmail: '',
+      userIsAdmin: false,
+      userIsStaff: false,
+      userIsActive: false,
+      userRestricted: false,
+      userBlocked: false,
+    },
+    recipes: {
+      recipesUser: [],
+      recipesFav: [],
+    },
   };
+
+  // create an object observable of data user
+  userData : BehaviorSubject<User> = new BehaviorSubject<User>(this.user);
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
     return this.http.get<User[]>(
-      `${this.apiUsers}?limit=${limit}&offset=${offset}`
+      `${this.apiUser}/user-profile?limit=${limit}&offset=${offset}`
     );
   }
 
-  getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUsers}/${userId}`);
+  getUserById(userId: any): Observable<User> {
+    return this.http.get<User>(`${this.apiInfo}/${userId}`);
+  }
+
+  getUserRecipes(id: number | string) {
+    return this.http.get<any>(`${this.apiUser}/recipes-user/${id}`);
   }
 
   postUser(user: User): any {
@@ -48,23 +66,21 @@ export class UsersService {
   updateUser(id: number | string | null, user: any): Observable<User> {
     return this.http.patch<any>(`${this.apiUsers}/${id}`, user);
   }
-  deleteUser(id: number | null | string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUsers}/${id}`);
+  suspendUser(id: number, userIsActive:  boolean) {
+    return this.http.patch<any>(`${this.apiUser}/users/disabled/${id}`, {
+      isActive: userIsActive,
+    });
   }
 
-  // getUserData(): any {
-  //   if (!this.user.id) {
-  //     let userId = localStorage.getItem('userId');
-  //     if (userId) {
-  //       this.getUserById(userId).subscribe((user) => {
-  //         this.user = user;
-  //       });
-  //       return this.user;
-  //     } else {
-  //       return this.user;
-  //     }
-  //   } else {
-  //     return this.user;
-  //   }
-  // }
+  deleteUser(id: number | null | string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUser}/users/${id}`);
+  }
+
+  saveUserData(id: number | string) {
+    this.getUserById(id).subscribe((res) => {
+      this.userData.next(res);
+    });
+  }
 }
+
+

@@ -53,6 +53,7 @@ input::placeholder {
     background: $background-color;
     border-radius: $border-radius;
     width: 150px;
+    z-index: 5;
 
     p {
       padding: 5px;

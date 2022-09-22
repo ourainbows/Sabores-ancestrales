@@ -9,8 +9,36 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
-  user!: User;
+  // generate user structure from user model to avoid warnings and errors
+  user: User = {
+    profileId: 0,
+    score: 0,
+    profileName: '',
+    profileBirthDate: '',
+    profilePhoto: '',
+    userDescription: '',
+    createdAt: '',
+    updatedAt: '',
+    userId: 0,
+    user: {
+      userId: 0,
+      userName: '',
+      userEmail: '',
+      userIsAdmin: false,
+      userIsStaff: false,
+      userIsActive: true,
+      userRestricted: false,
+      userBlocked: false,
+      createdAt: '',
+      updatedAt: '',
+    },
+    recipes: {
+      recipesUser: [],
+      recipesFav: [],
+    },
+  };
   userId: any = '';
+  localUserId = localStorage.getItem('userId');
 
   constructor(
     private userService: UsersService,
@@ -19,13 +47,19 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.userId = params.get('id') || 1;
-      if (this.userId) {
-        //temporary user id
+      this.userId = params.get('id');
+      // if user is owner of profile and user state have user data
+      if (this.userId === this.localUserId && this.userService.user.userId) {
+        this.user = this.userService.user;
+        // if state don't have user data or user is not owner of profile
+      } else {
         this.userService.getUserById(this.userId).subscribe((data) => {
           this.user = data;
         });
       }
+      this.userService.getUserRecipes(this.userId).subscribe((data) => {
+        this.user.recipes = data;
+      });
     });
   }
 }

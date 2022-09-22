@@ -58,7 +58,7 @@ export class AuthService {
 
   login(user: UserLogin): Observable<any> {
     return this.http
-      .post<UserLogin>(this.auth + 'login', {
+      .post<UserLogin>(this.auth + '/login', {
         userEmail: user.email,
         password: user.password,
       })
@@ -67,7 +67,8 @@ export class AuthService {
           if (res.accessToken) {
             this.userSubject.next(true);
             this.saveToken(res.accessToken); // TODO -> save user
-            /* this.saveUserId(res.id); */
+            this.saveUserId(res.id);
+            this.userSvc.saveUserData(res.id);
             this.router.navigate(['/']);
           }
           return res;
@@ -86,7 +87,7 @@ export class AuthService {
 
   register(user: UserRegister): Observable<any> {
     return this.http
-      .post<UserRegister>(this.auth + 'register', {
+      .post<UserRegister>(this.auth + '/register', {
         userName: user.name,
         userEmail: user.email,
         password: user.password,
@@ -105,7 +106,8 @@ export class AuthService {
 
   logout(): void {
     this.userSubject.next(false);
-    return localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('token');
   }
 
   saveToken(token: string): void {
@@ -122,9 +124,12 @@ export class AuthService {
     localStorage.setItem('userId', id.toString());
   }
   activateUser(token: string) {
-    return this.http.get(this.auth + 'activate/' + token);
+    return this.http.post(this.auth + '/activate', { activationToken : token });
   }
-  createProfile(profile : any){
-    return this.http.post(this.auth + 'profile', profile);
+  createProfile(profile: any) {
+    return this.http.post(this.auth + '/profile', profile);
+  }
+  getToken() {
+    return localStorage.getItem('token');
   }
 }

@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
   authForm!: FormGroup;
   signIn = ACTIONS.signIn;
   signUp = ACTIONS.signUp;
-  user!: User;
+  user!: User | any;
   user$ = this.authSvc.user$;
   @Input() options!: OptionsForm;
 
@@ -44,7 +44,7 @@ export class FormComponent implements OnInit {
     this.initForm();
   }
 
-  async onGoogleForm(): Promise<void> {
+  async onGoogleForm(): Promise<void> { // TODO: fix data 
     this.authSvc
       .onGoogle()
       .then(async (res: any) => {
