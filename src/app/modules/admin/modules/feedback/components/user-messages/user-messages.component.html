@@ -4,11 +4,14 @@
       <div class="head">
         <div class="user">
           <img 
-            *ngIf="message.photoUser"
-            src="{{ message.photoUser }}"
+            *ngIf="message.profilePhoto"
+            src="{{ message.profilePhoto }}"
             alt="Imagen de usuario"
           />
-          <span>{{ message.user.userName }}</span>
+          <span *ngIf="!message.profilePhoto" class="defaultPhoto">
+            {{ message.userName[0] }}
+          </span>
+          <span>{{ message.userName }}</span>
         </div>
         <div class="date">
           <span>{{ message.createdAt | date: 'dd/MM/yyyy' }}</span> /

@@ -5,7 +5,7 @@
 }
 .commentary {
   width: 100%;
-  padding: 1.2rem 0.6rem 0.8rem 2rem;
+  padding: 1.2rem 1rem;
   border-radius: $border-radius;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   margin-bottom: 1rem;
@@ -24,6 +24,18 @@
   height: 3rem;
   border-radius: $border-radius;
   object-fit: cover;
+}
+.user .defaultPhoto{
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+  border-radius: $border-radius;
+  background-color: #eeeeee;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
 }
 .user span {
   margin-left: 0.4rem;
