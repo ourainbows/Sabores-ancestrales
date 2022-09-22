@@ -37,8 +37,8 @@ export class RecipesService {
       `${this.apiUrl}/recipes?limit=${limit}&offset=${offset}`
     );
   }
-  updateScore(scoreData : any): Observable<Recipe> {
-    return this.http.patch<Recipe>(`${this.apiStarUrl}`, scoreData);
+  updateScore(scoreData : Object): Observable<Recipe> {
+    return this.http.post<Recipe>(`${this.apiStarUrl}`, scoreData);
   }
   updateRecipe(id: number | string | null | undefined, recipe : any): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, recipe);

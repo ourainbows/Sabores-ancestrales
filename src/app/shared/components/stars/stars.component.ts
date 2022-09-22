@@ -1,6 +1,9 @@
 import { Recipe } from './../../models/recipe.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RecipesService } from '../../../core/services/recipes/recipes.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+const jwtHelper = new JwtHelperService();
 
 @Component({
   selector: 'app-stars',
@@ -23,9 +26,17 @@ export class StarsComponent implements OnInit {
   setScore() {
     if (this.type === 'qualification') {
       this.showModal.emit(false);
+      const TOKEN = localStorage.getItem('token')
+      const decodedToken = jwtHelper.decodeToken(TOKEN || '')
+      const userId = decodedToken.id
+
+      console.table({userId: userId,
+        recipeId: this.recipeId,
+        recipeStartQuantity: this.rate})
+
       this.recipeService
         .updateScore({
-          userId: this.userId,
+          userId: userId,
           recipeId: this.recipeId,
           recipeStartQuantity: this.rate
         })
