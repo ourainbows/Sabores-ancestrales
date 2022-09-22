@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,8 +10,8 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
-  private apiInfo = 'https://saboresancestrales.onrender.com/info';
-  private apiUser = 'https://saboresancestrales.onrender.com';
+  private apiInfo = `${environment.api}/info`;
+  private apiUser = `${environment.api}`;
   private userDisable = 'http://localhost:3000/user/disabled';
 
   constructor(private http: HttpClient, private route: Router) {}

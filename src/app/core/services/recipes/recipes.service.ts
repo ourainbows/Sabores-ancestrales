@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RecipesService {
   private apiUrl = `${environment.api}`;
-  private apiStarUrl = 'https://saboresancestrales.onrender.com/recipes-stars';
+  private apiStarUrl = `${environment.api}/recipes-stars`;
   userId = 1; // provisional UserID
 
   recipeToEdit : Recipe | undefined = undefined;
