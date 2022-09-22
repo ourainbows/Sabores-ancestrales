@@ -8,7 +8,7 @@
             src="{{ message.photoUser }}"
             alt="Imagen de usuario"
           />
-          <span>{{ message.userName }}</span>
+          <span>{{ message.user.userName }}</span>
         </div>
         <div class="date">
           <span>{{ message.createdAt | date: 'dd/MM/yyyy' }}</span> /

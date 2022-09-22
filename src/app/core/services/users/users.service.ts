@@ -44,7 +44,7 @@ export class UsersService {
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
     return this.http.get<User[]>(
-      `${this.apiUsers}/user-profile?limit=${limit}&offset=${offset}`
+      `${this.apiUser}/user-profile?limit=${limit}&offset=${offset}`
     );
   }
 
