@@ -28,6 +28,5 @@ export class TabRecipesComponent implements OnInit {
       this.selectRecipes = this.recipes?.recipesFav;
       this.recipesOption = 'fav';
     }
-    console.log(this.recipesOption);
   }
 }

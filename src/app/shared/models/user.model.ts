@@ -64,3 +64,8 @@ export interface CardUserDTO
     | 'recipes'
     | 'informations'
   > {}
+
+  export interface userRecipes {
+    recipesUser: any[];
+    recipesFav: any[];
+  }

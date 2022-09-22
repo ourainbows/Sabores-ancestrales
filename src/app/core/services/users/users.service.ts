@@ -1,9 +1,9 @@
+import { userRecipes, User } from './../../../shared/models/user.model';
 import { environment } from './../../../../environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { User } from 'src/app/shared/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -39,8 +39,15 @@ export class UsersService {
     },
   };
 
+  recipes: userRecipes = {
+    recipesUser: [],
+    recipesFav: [],
+  };
+
   // create an object observable of data user
   userData : BehaviorSubject<User> = new BehaviorSubject<User>(this.user);
+  userRecipes : BehaviorSubject<userRecipes> = new BehaviorSubject<userRecipes>(this.recipes);
+
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
     return this.http.get<User[]>(
@@ -79,6 +86,11 @@ export class UsersService {
   saveUserData(id: number | string) {
     this.getUserById(id).subscribe((res) => {
       this.userData.next(res);
+    });
+  }
+  saveRecipes(id: number | string) {
+    this.getUserRecipes(id).subscribe((res) => {
+      this.userRecipes.next(res);
     });
   }
 }

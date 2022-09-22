@@ -1,10 +1,12 @@
+import { userRecipes } from './../../../../shared/models/user.model';
+import { Observable, Subject, switchMap } from 'rxjs';
 import { Recipe } from './../../../../shared/models/recipe.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users/users.service';
 import { User } from 'src/app/shared/models/user.model';
 import { ClipboardService } from 'ngx-clipboard';
 import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
-import { JwtHelperService } from "@auth0/angular-jwt";
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 const jwtHelper = new JwtHelperService();
 
@@ -15,34 +17,57 @@ const jwtHelper = new JwtHelperService();
 })
 export class TitleComponent implements OnInit {
   @Input() name = '';
-  @Input() score : any = 0;
-  @Input() scoreCount : any[] = [];
-  @Input() recipe!: Recipe;
-  @Input() id: any = 0 // recipeId
+  @Input() score: any = 0;
+  @Input() scoreCount: any[] = [];
+  @Input() recipe!: any;
+  @Input() id: any = 0; // recipeId
+  userRecipes$: Observable<userRecipes>;
   show: boolean = false;
 
-  user!: any;
-
-  constructor(private  usersService: UsersService, private clipboardApi: ClipboardService, private recipeService: RecipesService) {}
+  constructor(
+    private usersService: UsersService,
+    private clipboardApi: ClipboardService,
+    private recipeService: RecipesService
+  ) {
+    this.userRecipes$ = this.usersService.userRecipes;
+  }
 
   ngOnInit(): void {
-    this.usersService.getUsers().subscribe((users: User[]) => {
-      this.user = users[0];
-    })
+    this.usersService.saveRecipes(3);
   }
 
   openModal(show: boolean) {
-    this.show = !show
+    this.show = !show;
   }
 
   saveRecipe() {
-    const TOKEN = localStorage.getItem('token')
-    const decodedToken = jwtHelper.decodeToken(TOKEN || '')
-    const userId = decodedToken.id
+    const TOKEN = localStorage.getItem('token');
+    const decodedToken = jwtHelper.decodeToken(TOKEN || '');
+    const userId = decodedToken.id;
+    this.recipeService
+      .addFavoriteRecipe(userId, this.id)
+      .subscribe((saved: Object) => {});
+  }
 
-    this.recipeService.addFavoriteRecipe(userId, this.id).subscribe((saved: Object) => {
-      console.log(saved)
-    })
+  deleteRecipe() {
+    const TOKEN = localStorage.getItem('token');
+    const decodedToken = jwtHelper.decodeToken(TOKEN || '');
+    const userId = decodedToken.id;
+    this.recipeService
+      .deleteFavoriteRecipe(userId, this.id)
+      .subscribe((deleted: Object) => {
+        console.log(deleted);
+      });
+  }
+
+  existInFavorites() {
+    let exist = false;
+    this.userRecipes$.subscribe((res) => {
+      exist = res.recipesFav.some(
+        (recipeFav: any) => recipeFav.recipeId === this.id
+      );
+    });
+    return exist;
   }
 
   copyText() {
