@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,9 +10,8 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
-  private apiInfo = 'https://sabores-ancestrales.up.railway.app/info';
-  private apiUser = 'https://sabores-ancestrales.up.railway.app';
-  private userDisable = 'http://localhost:3000/user/disabled';
+  private apiInfo = `${environment.api}/info`;
+  private apiUser = `${environment.api}`;
 
   constructor(private http: HttpClient, private route: Router) {}
 
@@ -44,7 +44,7 @@ export class UsersService {
 
   getUsers(offset = 0, limit = 10): Observable<User[]> {
     return this.http.get<User[]>(
-      `${this.apiUsers}?limit=${limit}&offset=${offset}`
+      `${this.apiUser}/user-profile?limit=${limit}&offset=${offset}`
     );
   }
 
@@ -66,14 +66,14 @@ export class UsersService {
   updateUser(id: number | string | null, user: any): Observable<User> {
     return this.http.patch<any>(`${this.apiUsers}/${id}`, user);
   }
-  suspendUser(id: number, isActive:  boolean) {
-    return this.http.patch<any>(`${this.userDisable}/${id}`, {
-      userIsActive: isActive,
+  suspendUser(id: number, userIsActive:  boolean) {
+    return this.http.patch<any>(`${this.apiUser}/users/disabled/${id}`, {
+      isActive: userIsActive,
     });
   }
 
   deleteUser(id: number | null | string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUsers}/${id}`);
+    return this.http.delete<any>(`${this.apiUser}/users/${id}`);
   }
 
   saveUserData(id: number | string) {

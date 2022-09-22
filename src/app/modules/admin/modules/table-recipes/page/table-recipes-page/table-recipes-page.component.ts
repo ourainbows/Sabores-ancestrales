@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-recipes-page.component.scss'],
 })
 export class TableRecipesPageComponent implements OnInit {
-  recipes: Recipe[] = [];
+  recipes: any[] = [];
   offset = 0;
 
   constructor(private recipesService: RecipesService) {}
@@ -26,7 +26,7 @@ export class TableRecipesPageComponent implements OnInit {
   }
   deleteRecipe(id: number) {
     this.recipesService.deleteRecipe(id).subscribe(() => {
-      this.recipes = this.recipes.filter((recipe) => recipe.id !== id);
+      this.recipes = this.recipes.filter((recipe) => recipe.recipeId !== id);
     }
     );
   }

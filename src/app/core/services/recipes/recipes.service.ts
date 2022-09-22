@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RecipesService {
   private apiUrl = `${environment.api}`;
-  private apiStarUrl = 'https://sabores-ancestrales.up.railway.app/recipes-stars';
+  private apiStarUrl = `${environment.api}/recipes-stars`;
   userId = 1; // provisional UserID
 
   recipeToEdit : Recipe | undefined = undefined;
@@ -34,7 +34,7 @@ export class RecipesService {
 
   getRecipes(offset = 0, limit = 10): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(
-      `${this.apiUrl}?limit=${limit}&offset=${offset}`
+      `${this.apiUrl}/recipes?limit=${limit}&offset=${offset}`
     );
   }
   updateScore(scoreData : any): Observable<Recipe> {
@@ -56,7 +56,7 @@ export class RecipesService {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { comments });
   }
   deleteRecipe(id: number | string | null): Observable<Recipe> {
-    return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
+    return this.http.delete<Recipe>(`${this.apiUrl}/recipes/${id}`);
   }
   deleteComment(
     id: number | string | null,
