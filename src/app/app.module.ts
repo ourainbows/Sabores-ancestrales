@@ -16,6 +16,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 // import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { FilterModule } from './modules/filter/filter.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     MatIconModule,
     ClipboardModule,
     FormsModule,
+    FilterModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

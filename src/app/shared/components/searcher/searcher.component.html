@@ -3,7 +3,7 @@
     <span class="icon">
       <mat-icon class="search-icon">search</mat-icon>
     </span>
-    <input type="text" placeholder="Busqueda" />
+    <input routerLink="/filter" (keyup)="OnSearch($event)" type="text" placeholder="Busqueda" />
   </div>
   <div role="navigation" class="filter-container">
     <div (click)="show = !show" class="filter">
@@ -12,8 +12,8 @@
     <div *ngIf="show" class="dropdown">
       <p>Filtrar por:</p>
       <ul>
-        <li>Categorias</li>
-        <li>Ingredientes</li>
+        <li routerLink="/filter">Categorias</li>
+        <li routerLink="/filter">Ingredientes</li>
       </ul>
     </div>
   </div>

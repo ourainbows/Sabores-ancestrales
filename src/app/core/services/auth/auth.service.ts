@@ -74,7 +74,6 @@ export class AuthService {
         }),
         catchError((err) => {
           this.userSubject.next(false);
-          console.log(err)
           this.toast.fire({
               timer:2000,
               icon: 'error',

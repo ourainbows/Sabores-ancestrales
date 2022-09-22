@@ -35,12 +35,12 @@ export class CardRecipeComponent implements OnInit {
     })
   }
 
-  likeRecipe() {
+/*   likeRecipe() {
     if (this.user.recipes.likedRecipes.includes(this.recipe.id)) {
       this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.recipe.id), 1);
     } else {
       this.user.recipes.likedRecipes.push(this.recipe.id);
     }
     this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
-  }
+  } */
 }

@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesService {
-  private apiUrl = 'http://localhost:3000/recipe';
+  private apiUrl = environment.api+'recipe';
   userId = 1; // provisional UserID
 
   recipeToEdit : Recipe | undefined = undefined;
@@ -79,5 +80,11 @@ export class RecipesService {
 
   createRecipe(): Observable<Recipe> {
     return this.http.post<Recipe>(this.apiUrl, this.newRecipe);
+  }
+
+  searchRecipes(search:string): Observable<any>{
+    return this.http.get<Recipe[]>(
+      `${this.apiUrl}-search?search=${search}`
+    )
   }
 }

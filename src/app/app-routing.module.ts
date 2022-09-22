@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
+import { FilterComponent } from './modules/filter/filter.component';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'filter',
+    component: FilterComponent
   },
   {
     path: 'profile/:id',

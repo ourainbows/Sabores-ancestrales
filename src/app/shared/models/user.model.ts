@@ -14,6 +14,7 @@ export interface CardUserDTO
     | 'recipes'
     | 'informations'
   > {}
+
 export interface User {
   id: number;
   name: string;
@@ -37,8 +38,8 @@ export interface CardUserDTO
     'email' | 'description' | 'recipes' | 'score' | 'savedRecipes'
   > {}
 
- export interface UserLogin {
-  id? : any; 
+export interface UserLogin {
+  id?: any;
   email: string;
   password: string;
   token?: string;
@@ -48,4 +49,3 @@ export interface UserRegister {
   email: string;
   password: string;
 }
-
