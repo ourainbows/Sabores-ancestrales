@@ -58,7 +58,7 @@ export class AuthService {
 
   login(user: UserLogin): Observable<any> {
     return this.http
-      .post<UserLogin>(this.auth + 'login', {
+      .post<UserLogin>(this.auth + '/login', {
         userEmail: user.email,
         password: user.password,
       })
@@ -88,7 +88,7 @@ export class AuthService {
 
   register(user: UserRegister): Observable<any> {
     return this.http
-      .post<UserRegister>(this.auth + 'register', {
+      .post<UserRegister>(this.auth + '/register', {
         userName: user.name,
         userEmail: user.email,
         password: user.password,
@@ -125,10 +125,10 @@ export class AuthService {
     localStorage.setItem('userId', id.toString());
   }
   activateUser(token: string) {
-    return this.http.post(this.auth + 'activate', { activationToken : token });
+    return this.http.post(this.auth + '/activate', { activationToken : token });
   }
   createProfile(profile: any) {
-    return this.http.post(this.auth + 'profile', profile);
+    return this.http.post(this.auth + '/profile', profile);
   }
   getToken() {
     return localStorage.getItem('token');
