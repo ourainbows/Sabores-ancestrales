@@ -18,12 +18,6 @@ export class TableRecipesPageComponent implements OnInit {
       this.recipes = recipes;
     });
   }
-  loadMore() {
-    this.offset += 10;
-    this.recipesService.getRecipes(this.offset).subscribe((recipes) => {
-      this.recipes = [...this.recipes, ...recipes];
-    });
-  }
   deleteRecipe(id: number) {
     this.recipesService.deleteRecipe(id).subscribe(() => {
       this.recipes = this.recipes.filter((recipe) => recipe.recipeId !== id);
