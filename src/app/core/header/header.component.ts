@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.authSvc.user$.subscribe((res) => (this.isLogged = res));
     this.userId && this.userService.saveUserData(this.userId);
-    // this.userId && this.userService.saveRecipes(this.userId);
+    this.userId && this.userService.saveRecipes(this.userId);
   }
 
   async onLogout(): Promise<void> {

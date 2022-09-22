@@ -10,14 +10,14 @@
     <div class="infoTwo">
       <div><span><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.recipeTime}}</span></div>
       <span>{{recipe.priceSufix}}</span>
-      <!-- <span (click)='likeRecipe()' class="favorite">
-        <mat-icon class="border" *ngIf="!this.user.recipes.likedRecipes.includes(recipe.id)">
+      <span (click)='!existInFavorites(recipe.recipeId) ? saveRecipe(recipe.recipeId) : deleteRecipe(recipe.recipeId)' class="favorite">
+        <mat-icon class="border" *ngIf="!existInFavorites(recipe.recipeId)">
           favorite_border
         </mat-icon>
-        <mat-icon *ngIf="this.user.recipes.likedRecipes.includes(recipe.id)">
+        <mat-icon *ngIf="existInFavorites(recipe.recipeId)">
           favorite
         </mat-icon>
-      </span> -->
+      </span>
     </div>
   </div>
 </div>

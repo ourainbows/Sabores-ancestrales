@@ -1,9 +1,7 @@
 import { userRecipes } from './../../../../shared/models/user.model';
-import { Observable, Subject, switchMap } from 'rxjs';
-import { Recipe } from './../../../../shared/models/recipe.model';
+import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users/users.service';
-import { User } from 'src/app/shared/models/user.model';
 import { ClipboardService } from 'ngx-clipboard';
 import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -46,7 +44,11 @@ export class TitleComponent implements OnInit {
     const userId = decodedToken.id;
     this.recipeService
       .addFavoriteRecipe(userId, this.id)
-      .subscribe((saved: Object) => {});
+      .subscribe((saved: Object) => {
+        this.userRecipes$.subscribe((res) => {
+          res.recipesFav.push(this.recipe);
+        })
+      });
   }
 
   deleteRecipe() {
@@ -56,7 +58,11 @@ export class TitleComponent implements OnInit {
     this.recipeService
       .deleteFavoriteRecipe(userId, this.id)
       .subscribe((deleted: Object) => {
-        console.log(deleted);
+        this.userRecipes$.subscribe((res) => {
+          res.recipesFav = res.recipesFav.filter(
+            (recipeFav: any) => recipeFav.recipeId !== this.id
+          );
+        });
       });
   }
 

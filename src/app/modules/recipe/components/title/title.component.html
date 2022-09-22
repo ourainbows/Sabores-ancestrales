@@ -17,7 +17,7 @@
     </app-modal>
   </div>
   <div class="actions">
-    <div class="action" (click)="existInFavorites() ? saveRecipe() : deleteRecipe()">
+    <div class="action" (click)="!existInFavorites() ? saveRecipe() : deleteRecipe()">
       <span>
         <mat-icon *ngIf="!existInFavorites()"> favorite_border </mat-icon>
         <mat-icon class="favorite" *ngIf="existInFavorites()">
