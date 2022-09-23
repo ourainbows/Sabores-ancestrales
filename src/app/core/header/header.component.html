@@ -20,7 +20,7 @@
       <ng-template class="dropdown" #logOutTemplate>
         <ul>
           <li [routerLink]="['/profile/' + (userData$ | async)?.user?.userId]">Perfil</li>
-          <li [routerLink]="['/']">Configuración</li>
+          <li [routerLink]="['/admin']" *ngIf="(userData$ | async)?.user?.userIsAdmin">Panel de Administrador</li>
           <li [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
         </ul>
       </ng-template>

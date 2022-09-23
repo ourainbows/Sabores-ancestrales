@@ -48,6 +48,13 @@ const routes: Routes = [
         (m) => m.ActivateModule
       ),
   },
+  {
+    path: 'user-inactive',
+    loadChildren: () =>
+      import('./modules/auth/user-inactive/user-inactive.module').then(
+        (m) => m.UserInactiveModule
+      ),
+  },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
