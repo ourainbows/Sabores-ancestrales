@@ -6,7 +6,7 @@
       [src]="userPhoto"
       alt="Foto del cocinero de la receta"
     />
-    <span>{{userName[0]}}</span>
+    <span *ngIf="!userPhoto"> {{userName[0]}}</span>
     <p>{{userName}}</p>
   </a>
   <p class="description">

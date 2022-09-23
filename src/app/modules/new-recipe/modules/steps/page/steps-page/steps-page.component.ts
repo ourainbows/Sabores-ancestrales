@@ -213,9 +213,8 @@ export class StepsPageComponent implements OnInit {
   }
 
   uploadRecipe() {
-    this.recipeService.createRecipe().subscribe((createdRecipe) => {
-      // this.router.navigate(['/']);
-      console.log(createdRecipe);
+    this.recipeService.createRecipe().subscribe((createdRecipe : any) => {
+      this.router.navigate(['/recipe/' + createdRecipe.message]);
       this.emptyNewRecipe();
     });
   }
@@ -224,8 +223,7 @@ export class StepsPageComponent implements OnInit {
     this.recipeService
       .updateRecipe(this.recipeService.recipeToEdit?.id, this.recipeService.newRecipe)
       .subscribe((editedRecipe) => {
-        // this.router.navigate(['/']);
-        console.log(editedRecipe);
+        this.router.navigate(['/']);
         this.emptyNewRecipe();
       });
   }

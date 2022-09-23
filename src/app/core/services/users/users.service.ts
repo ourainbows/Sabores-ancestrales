@@ -12,6 +12,7 @@ export class UsersService {
   private apiUsers = 'http://localhost:3000/user';
   private apiInfo = `${environment.api}/info`;
   private apiUser = `${environment.api}`;
+  private apiUpdateProfile = `${environment.api}/update-profile`;
 
   constructor(private http: HttpClient, private route: Router) {}
 
@@ -70,9 +71,6 @@ export class UsersService {
     return this.http.patch<User>(`${this.apiUsers}/${id}`, { recipes });
   }
 
-  updateUser(id: number | string | null, user: any): Observable<User> {
-    return this.http.patch<any>(`${this.apiUsers}/${id}`, user);
-  }
   suspendUser(id: any, userIsActive:  boolean) {
     return this.http.patch<any>(`${this.apiUser}/users/disabled/${id}`, {
       isActive: userIsActive,
@@ -81,6 +79,10 @@ export class UsersService {
 
   deleteUser(id: number | null | string): Observable<any> {
     return this.http.delete<any>(`${this.apiUser}/users/${id}`);
+  }
+
+  updateUser(id: number | string | null, user: any): Observable<User> {
+    return this.http.patch<any>(`${this.apiUpdateProfile}/${id}`, user);
   }
 
   saveUserData(id: number | string) {
