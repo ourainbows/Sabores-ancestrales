@@ -29,7 +29,6 @@ export class FeedbackPageComponent implements OnInit {
     })
     this.feedbackService.getFeedbackStats().subscribe((data: any) => {
       this.stats = data
-      console.log(data)
     })
   }
 
