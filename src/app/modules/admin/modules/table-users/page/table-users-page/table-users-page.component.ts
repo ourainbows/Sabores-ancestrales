@@ -16,6 +16,7 @@ export class TableUsersPageComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users) => {
       this.users = users;
+      console.log(users);
     });
   }
   toggleSuspend(id: number) {

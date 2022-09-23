@@ -16,6 +16,7 @@ export class TableRecipesPageComponent implements OnInit {
   ngOnInit(): void {
     this.recipesService.getRecipes().subscribe((recipes) => {
       this.recipes = recipes;
+      console.log(this.recipes);
     });
   }
   deleteRecipe(id: number) {

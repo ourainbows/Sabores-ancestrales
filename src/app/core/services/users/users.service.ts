@@ -49,9 +49,9 @@ export class UsersService {
   userRecipes : BehaviorSubject<userRecipes> = new BehaviorSubject<userRecipes>(this.recipes);
 
 
-  getUsers(offset = 0, limit = 10): Observable<User[]> {
+  getUsers(): Observable<User[]> {
     return this.http.get<User[]>(
-      `${this.apiUser}/user-profile?limit=${limit}&offset=${offset}`
+      `${this.apiUser}/user-profile`
     );
   }
 

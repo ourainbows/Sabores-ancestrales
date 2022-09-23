@@ -2,9 +2,11 @@
   <a class="user-container" routerLink="/profile/{{userId}}">
     <img
       class="user-photo"
+      *ngIf="userPhoto"
       [src]="userPhoto"
       alt="Foto del cocinero de la receta"
     />
+    <span>{{userName[0]}}</span>
     <p>{{userName}}</p>
   </a>
   <p class="description">
