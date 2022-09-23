@@ -1,8 +1,12 @@
-import { Recipe } from './../../../../shared/models/recipe.model';
+import { userRecipes } from './../../../../shared/models/user.model';
+import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users/users.service';
-import { User } from 'src/app/shared/models/user.model';
 import { ClipboardService } from 'ngx-clipboard';
+import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+const jwtHelper = new JwtHelperService();
 
 @Component({
   selector: 'app-title',
@@ -11,50 +15,70 @@ import { ClipboardService } from 'ngx-clipboard';
 })
 export class TitleComponent implements OnInit {
   @Input() name = '';
-  @Input() score = 0;
-  @Input() scoreCount : any[] = [];
-  @Input() recipe!: Recipe;
-  @Input() id!: number
-  show: boolean = false
+  @Input() score: any = 0;
+  @Input() scoreCount: any[] = [];
+  @Input() recipe!: any;
+  @Input() id: any = 0; // recipeId
+  userRecipes$: Observable<userRecipes>;
+  show: boolean = false;
 
-  user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    description: '',
-    photo: '',
-    recipes: {
-      userRecipes: [],
-      likedRecipes: [],
-      savedRecipes: [],
-    },
-    score: 0,
-  };
-
-  constructor(private  usersService: UsersService, private clipboardApi: ClipboardService,) {}
+  constructor(
+    private usersService: UsersService,
+    private clipboardApi: ClipboardService,
+    private recipeService: RecipesService
+  ) {
+    this.userRecipes$ = this.usersService.userRecipes;
+  }
 
   ngOnInit(): void {
-    this.usersService.getUsers().subscribe((users: User[]) => {
-      this.user = users[0];
-    })
-  }
-  openModal(show: boolean) {
-    this.show = !show
+    this.usersService.saveRecipes(3);
   }
 
-  likeRecipe() {
-    if (this.user.recipes.likedRecipes.includes(this.id)) {
-      this.user.recipes.likedRecipes.splice(this.user.recipes.likedRecipes.indexOf(this.id), 1);
-    } else {
-      this.user.recipes.likedRecipes.push(this.id);
-    }
-    this.usersService.updateLikesRecipe(this.user.id, this.user.recipes).subscribe()
+  openModal(show: boolean) {
+    this.show = !show;
+  }
+
+  saveRecipe() {
+    const TOKEN = localStorage.getItem('token');
+    const decodedToken = jwtHelper.decodeToken(TOKEN || '');
+    const userId = decodedToken.id;
+    this.userRecipes$.subscribe((res) => {
+      res.recipesFav.push(this.recipe);
+    });
+    this.recipeService
+      .addFavoriteRecipe(userId, this.id)
+      .subscribe((saved: Object) => {});
+  }
+
+  deleteRecipe() {
+    const TOKEN = localStorage.getItem('token');
+    const decodedToken = jwtHelper.decodeToken(TOKEN || '');
+    const userId = decodedToken.id;
+    this.userRecipes$.subscribe((res) => {
+      res.recipesFav = res.recipesFav.filter(
+        (recipeFav: any) => recipeFav.recipeId !== this.id
+      );
+    });
+    this.recipeService
+      .deleteFavoriteRecipe(userId, this.id)
+      .subscribe((deleted: Object) => {});
+  }
+
+  existInFavorites() {
+    let exist = false;
+    this.userRecipes$.subscribe((res) => {
+      exist = res.recipesFav.some(
+        (recipeFav: any) => recipeFav.recipeId === this.id
+      );
+    });
+    return exist;
   }
 
   copyText() {
     this.clipboardApi.copyFromContent(window.location.href);
     console.log(window.location.href);
   }
+
   shareRecipe() {
     if (navigator.share) {
       navigator
@@ -68,13 +92,5 @@ export class TitleComponent implements OnInit {
     } else {
       this.copyText();
     }
-  }
-  rateChange(e : Event) {
-    this.scoreCount = [...this.scoreCount, this.user.id];
-    this.recipe = {
-      ...this.recipe,
-      ...e
-    }
-    
   }
 }

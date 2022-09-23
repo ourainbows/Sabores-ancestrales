@@ -18,8 +18,12 @@
   height: 10rem;
   overflow: hidden;
   border-radius: 5px;
+  cursor: pointer;
   img {
     max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+    min-width: 100%;
   }
 }
 .infoOne {
@@ -36,39 +40,48 @@
     align-items: center;
     flex-direction: row;
     font-size: 14px;
-    padding-left: 1rem;
-    span{
+    padding-left: 0.5rem;
+    span {
       color: $main-color;
       font-size: 18px;
-      margin-right: .4rem;
+      margin-right: 0.4rem;
     }
   }
 }
-.infoRecipe{
+.infoRecipe {
   padding: 0.4rem;
 }
 .infoTwo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 0.2rem;
+  padding: 0 0.5rem;
   font-size: 12px;
-  span{
+  span {
     @include flex();
-    .iconTime{
+    .iconTime {
       color: $secundary-text-color;
       margin-right: 0.4rem;
     }
   }
-  .favorite{
+  .favorite {
     @include flex();
     width: 16px;
     font-size: 20px;
     color: $main-color;
     margin-bottom: 2px;
-    .border{
+    .border {
       color: $secundary-text-color;
     }
+  }
+}
+@media (min-width: 700px) {
+  .cardRecipe {
+    width: 20rem !important;
+  }
+  .containerImg {
+    height: 15rem;
   }
 }

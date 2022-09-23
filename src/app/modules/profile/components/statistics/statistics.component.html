@@ -1,20 +1,20 @@
 <div tabindex="0" aria-label="estadísticas" class="statistics-container">
-    <hr class="line1"/>
-    <div class="statistics-info">
-            <div tabindex="0" aria-label="Numero de recetas creadas" class="statistic">
-                <p tabindex="0" class="statistic-counter">000</p>
-                <p>Recetas</p>
-            </div>
-        <!-- <hr class="line2"/> -->
-        <div tabindex="0" aria-label="Calificación" class="statistic statistic-middle">
-            <p tabindex="0" class="statistic-counter">000</p>
-            <p>Calificación</p>
-        </div>
-        <!-- <hr class="line2"/> -->
-        <div tabindex="0" aria-label="Numero de recetas guardadas" class="statistic">
-            <p tabindex="0" class="statistic-counter">000</p>
-            <p>Guardados</p>
-        </div>
+  <hr class="line1" />
+  <div class="statistics-info">
+    <div class="statistic">
+      <p tabindex="0" aria-label="Numero de recetas creadas" class="statistic-counter">{{ userRecipes?.recipesUser?.length ? userRecipes?.recipesUser?.length : 0}}</p>
+      <p>Recetas</p>
     </div>
-    <hr class="line1"/>
+    <!-- <hr class="line2"/> -->
+    <div class="statistic statistic-middle">
+      <p tabindex="0" aria-label="Calificación" class="statistic-counter">{{score}}</p>
+      <p>Calificación</p>
+    </div>
+    <!-- <hr class="line2"/> -->
+    <div class="statistic">
+      <p tabindex="0" aria-label="Numero de recetas guardadas" class="statistic-counter">{{ userRecipes?.recipesFav?.length ? userRecipes?.recipesFav?.length : 0}}</p>
+      <p>Guardados</p>
+    </div>
+  </div>
+  <hr class="line1" />
 </div>

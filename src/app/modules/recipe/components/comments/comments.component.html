@@ -2,46 +2,34 @@
   <div class="commentary">
     <div class="head">
       <div class="user">
-        <a tabindex="0" routerLink="/profile/{{ commentary.userId }}">
-          <img src="{{ commentary.photoUser }}" alt="{{ commentary.user }}" />
+        <a routerLink="/profile/{{commentary.userId}}">
+          <img src="{{ commentary.profilePhoto }}" alt="{{ commentary.userName }}" />
         </a>
-        <span>{{ commentary.user }}</span>
+        <span>{{ commentary.userName }}</span>
       </div>
-      <div tabindex="0" aria-label="fecha del comentario" class="date">
-        <span tabindex="0">{{ commentary.date }}</span>
+      <div class="date">
+        <span tabindex="0" aria-label="fecha del comentario">{{ commentary.createdAt | date: 'dd/MM/yyyy' }}</span>
       </div>
     </div>
     <div class="content">
-      <p tabindex="0">{{ commentary.comment }}</p>
+      <p>{{ commentary.commentText }}</p>
       <img
-        tabindex="0"
-        [src]="commentary.photoRecipe"
-        alt="Foto de la receta hecha por el usuario"
-        *ngIf="commentary.photoRecipe"
+        [src]="commentary.commentPhoto"
+        alt="Foto de la receta hecha por un usuario"
       />
     </div>
-    <div class="actions">
-      <p
-        tabindex="0"
-        aria-label="reportar este comentario"
-        (click)="selectCommentary(commentary.id)"
-        *ngIf="commentary.userId !== userId"
-      >
+    <!-- <div class="actions">
+      <p (click)="selectCommentary(commentary.commentId)" *ngIf="userId !== userId">
         Reportar
       </p>
       <app-report
-        *ngIf="selectedCommentary === commentary.id"
+        *ngIf="selectedCommentary === commentary.commentId"
         [showReport]="showReport"
         [reportType]="'commentary'"
-        [reportId]="commentary.id"
+        [reportId]="commentary.commentId"
       >
       </app-report>
-      <p
-        (click)="deleteCommentary(commentary.id)"
-        *ngIf="commentary.userId === userId"
-      >
-        Eliminar
-      </p>
+      <p (click)="deleteCommentary(commentary.commentId)" *ngIf="userId === userId">Eliminar</p>
       <div
         tabindex="0"
         aria-label="agregar un me gusta a este comentario"
@@ -57,6 +45,7 @@
           favorite
         </mat-icon>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
+

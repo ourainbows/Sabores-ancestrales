@@ -1,58 +1,80 @@
 <h1 tabindex="0" aria-label="Reporte del usuario:">
   Reporte: <span tabindex="0">{{ name }}</span>
 </h1>
-
-<div tabindex="0" aria-label="Reportes" *ngFor="let report of reports">
-  <div class="report-container">
-    <div class="head">
-      <div class="user">
-        <img tabindex="0" 
-          src="{{ report.photoUser }}"
-          alt="Imagen de perfil del usuario que reporta"
-        />
-        <span tabindex="0" class="user-name">{{ report.user }}</span>
-      </div>
-      <div tabindex="0" aria-label="Fecha del reporte">
-        <span tabindex="0" class="date">{{ report.date }}</span>
-      </div>
-    </div>
-    <p tabindex="0" class="report-message">{{ report.message }}</p>
-
-    <a tabindex="0" aria-label="Comentario reportado" class="reported-card" [routerLink]="'/recipe/' + report.idRecipe">
-      <div tabindex="0" aria-label="Usuario reportado" class="reported-head">
-        <img tabindex="0"
-          src="{{ report.photoReportedUser }}"
-          alt="Imagen de perfil del usuario reportado"
-        />
-        <span tabindex="0">{{ report.reportedUser }}</span>
-      </div>
-
-      <div *ngIf="report.reportedComment" class="reported-comment">
-        <span tabindex="0">{{ report.reportedComment }}</span>
-      </div>
-
-      <div *ngIf="report.recipeName">
-        <div class="recipe-data">
-          <div tabindex="0" aria-label="Nombre y descripción de la receta reportada" class="recipe-data-text">
-            <span tabindex="0">{{ report.recipeName }}</span>
-            <span tabindex="0" class="recipe-data-text-description">{{report.recipeDescription}}</span>
-          </div>
-          <div tabindex="0" aria-label="Foto de receta reportada" class="recipe-image-container">
-            <img [src]="report.recipeImage" alt="Imagen de la receta reportada">
-          </div>
+<div class="reports">
+  <div  tabindex="0" aria-label="Reportes" *ngFor="let report of reports" >
+    <!-- user than report info -->
+    <div class="report-container">
+      <div class="head">
+        <div class="user">
+          <img
+            tabindex="0" 
+            *ngIf="report.user.profilePhoto"
+            src="{{ report.user.profilePhoto }}"
+            alt="Imagen de perfil del usuario que reporta"
+          />
+          <span tabindex="0" *ngIf="!report.user.profilePhoto" class="no-photo">{{
+            report.user.userName[0]
+          }}</span>
+          <span tabindex="0" class="user-name">{{ report.user.userName }}</span>
+        </div>
+        <div tabindex="0" aria-label="Fecha del reporte">
+          <span tabindex="0" class="date">{{ report.createdAt | date: 'dd/MM/yyyy' }}</span>
         </div>
       </div>
+      <p  tabindex="0" class="report-message">{{ report.userReportedComment }}</p>
 
-    </a>
+      <!-- reported user info -->
+      <a tabindex="0" aria-label="Comentario reportado" class="reported-card">
+        <div tabindex="0" aria-label="Usuario reportado" class="reported-head">
+          <img
+            *ngIf="report.reportedUser.profilePhoto"
+            src="{{ report.profilePhoto }}"
+            alt="Imagen de perfil del usuario reportado"
+          />
+          <span *ngIf="!report.reportedUser.profilePhoto" class="no-photo">{{
+            report.reportedUser[0]
+          }}</span>
+          <span tabindex="0">{{ report.reportedUser }}</span>
+        </div>
 
-    <div class="buttons">
-      <button tabindex="0" aria-label="Haz click aquí para eliminar esta receta"  class="delete-button" *ngIf="type === 'user'" (click)="deleteComment(report.idReportedComment)">Eliminar</button>
-      <button tabindex="0" aria-label="Haz click aquí para ignorar este reporte" class="suspend-button" [ngClass]="{'onlyButton': type === 'recipe'}" (click)="deleteReport(report.id)">Ignorar</button>
+        <!-- If type of report is user -->
+        <div *ngIf="type === 'user'" class="reported-comment">
+          <span tabindex="0">{{ report?.userDescription }}</span>
+        </div>
+
+        <!-- If type of report is recipe -->
+        <div *ngIf="type === 'recipe'">
+          <div class="recipe-data">
+            <div class="recipe-data-text">
+              <span>{{ report.recipeName }}</span>
+              <span class="recipe-data-text-description">{{
+                report.recipeDescription
+              }}</span>
+            </div>
+            <div class="recipe-image-container">
+              <img
+                [src]="report.recipeImage"
+                alt="Imagen de la receta reportada"
+              />
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-
   </div>
-</div>
-
-<div class="action-container" (click)="type === 'user' ? suspendUser : deleteRecipe">
-  {{type === 'user' ? "Suspender usuario" : "Eliminar receta"}}
+  <div class="action-container">
+    <div class="buttons">
+      <button tabindex="0" aria-label="Haz click aquí para ignorar estos reportes" class="suspend-button" (click)="deleteReportsUser()">
+        Ignorar
+      </button>
+      <button
+      tabindex="0" aria-label="Haz click aquí para suspender al usuario o eliminar la receta"
+        class="delete-button"
+        (click)="type === 'user' ? suspendUser() : deleteRecipe()"
+      >
+        Eliminar
+      </button>
+    </div>
+  </div>
 </div>

@@ -10,13 +10,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
 
-  @Input() comments: Commentary[] = [];
+  @Input() comments: any[] = [];
   @Output() changeLikeEvent = new EventEmitter<Commentary[]>();
   @Input() recipeId : any = 0
-  userId = 1 //temporary 
+  @Input() userId: number = 0
   showReport = false;
   selectedCommentary = 0;
-  
+
 
   likeComment(commentary: number) {
     if (this.comments[commentary].likes.includes(this.userId)) {
@@ -39,5 +39,7 @@ export class CommentsComponent implements OnInit {
 
   constructor(private recipeService : RecipesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.comments)
+  }
 }

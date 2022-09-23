@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -6,21 +7,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ReportService {
-  private apiUrl = 'http://localhost:3000/report';
+  private apiUrl = `${environment.api}/report`;
   constructor(private http: HttpClient) {}
 
-  // getReports(id: string | null, type: string | null): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}?id=${id}&type=${type}`);
-  // }
+  userId = localStorage.getItem('userId');
 
-  // provisional endpoint for testing
-  getReports(id: string | null, type: string | null): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getReportsUser(id: string | null): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
-  deleteReport(id : number): Observable<any> {
+  deleteReports(id: any): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
   createReport(report: any, type: string, id: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${type}/${id}`, report);
+    return this.http.post(`${this.apiUrl}/${type}/${id}`, {
+      report,
+      userId: this.userId,
+    });
   }
 }

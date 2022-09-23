@@ -7,10 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ToolsComponent implements OnInit {
 
-  @Input() tools: string[] = [];
+  @Input() tools: Array<any> = [];
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

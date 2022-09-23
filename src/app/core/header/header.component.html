@@ -1,21 +1,26 @@
 <nav role="menu">
-  <a tabindex="0" role="link" aria-label="Volver al Home" routerLink="/" class="logo" >
-    Sabores Ancestrales
-    <!-- <img src="" alt="Sabores Ancestrales"> -->
+  <a tabindex="0" role="link" aria-label="Volver al Home" routerLink="/" class="logo">
+    <img src="../../../assets/logo.svg" alt="Sabores Ancestrales" />
   </a>
   <div role="navigation" class="primary-navigation">
     <span>
-
-      <div class="profile dropdownImg"  *ngIf="(user$ | async)">
-        <img [src]="userImg" alt="Imagen del usuario" />
+      <div class="profile dropdownImg" *ngIf="user$ | async">
+        <img
+          [src]="(userData$ | async)?.profilePhoto"
+          alt="Imagen del usuario"
+          *ngIf="(userData$ | async)?.profilePhoto"
+        />
+        <div *ngIf="!(userData$ | async)?.profilePhoto">
+          <h1>{{ (userData$ | async)?.profileName?.[0] }}</h1>
+        </div>
       </div>
       <ng-container *ngIf="(user$ | async) === false; else logOutTemplate">
-          <a tabindex="0" role="link" aria-label="Ingresar con una cuenta" [routerLink]="['/register']" class="sign">Ingresar</a>
+        <a tabindex="0" role="link" aria-label="Ingresar con una cuenta" [routerLink]="['/register']" class="sign">Ingresar</a>
       </ng-container>
       <ng-template tabindex="0" role="menubar" aria-label="menubar" class="dropdown" #logOutTemplate>
         <ul>
-          <li tabindex="0" role="link" aria-label="Perfil" [routerLink]="['/profile/{{user.id}}']">Perfil</li>
-          <li tabindex="0" role="link" aria-label="Configuración" [routerLink]="['/']">Configuración</li>
+          <li  tabindex="0" role="link" aria-label="Perfil" [routerLink]="['/profile/' + (userData$ | async)?.user?.userId]">Perfil</li>
+          <li tabindex="0" role="link" aria-label="Panel de administración" [routerLink]="['/admin']" *ngIf="(userData$ | async)?.user?.userIsAdmin">Panel de Administrador</li>
           <li tabindex="0" role="link" aria-label="Cerrar sesión" [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
         </ul>
       </ng-template>

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-recipes-page.component.scss'],
 })
 export class TableRecipesPageComponent implements OnInit {
-  recipes: Recipe[] = [];
+  recipes: any[] = [];
   offset = 0;
 
   constructor(private recipesService: RecipesService) {}
@@ -16,17 +16,12 @@ export class TableRecipesPageComponent implements OnInit {
   ngOnInit(): void {
     this.recipesService.getRecipes().subscribe((recipes) => {
       this.recipes = recipes;
-    });
-  }
-  loadMore() {
-    this.offset += 10;
-    this.recipesService.getRecipes(this.offset).subscribe((recipes) => {
-      this.recipes = [...this.recipes, ...recipes];
+      console.log(this.recipes);
     });
   }
   deleteRecipe(id: number) {
     this.recipesService.deleteRecipe(id).subscribe(() => {
-      this.recipes = this.recipes.filter((recipe) => recipe.id !== id);
+      this.recipes = this.recipes.filter((recipe) => recipe.recipeId !== id);
     }
     );
   }

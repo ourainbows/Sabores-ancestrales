@@ -1,3 +1,3 @@
-<a aria-label="agregar una nueva receta" role="button" routerLink="/new-recipe">
+<a aria-label="agregar una nueva receta" [routerLink]="[userId ? '/new-recipe' : '/register']">
     Nueva receta <span>+</span>
 </a>

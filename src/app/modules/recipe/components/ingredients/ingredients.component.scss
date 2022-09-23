@@ -25,3 +25,10 @@
   border-radius: $border-radius;
   accent-color: $main-color;
 }
+@media(min-width: 800px){
+  .container{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+}

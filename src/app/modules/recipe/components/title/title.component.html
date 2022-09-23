@@ -6,38 +6,23 @@
       <app-score tabindex="0" class="stars" [score]="score"></app-score>
     </div>
 
-    <button
-      tabindex="0"
-      role="button"
-      (click)="openModal(show)"
-      class="rate"
-      *ngIf="!scoreCount.includes(this.user.id)"
-    >
-      Calificar
-    </button>
+    <button tabindex="0" aria-label="Calificar receta"
+    role="button" (click)="openModal(show)" class="rate">Calificar</button>
     <app-modal [show]="show">
       <h3>Califica la receta</h3>
       <app-stars tabindex="0"
         aria-label="califica la receta aquí"
         class="score"
         (showModal)="show = $event"
-        [id]="id"
-        [scoreCount]="scoreCount"
-        [score]="score"
-        (rateChange)="rateChange($event)"
+        [recipeId]="id"
       ></app-stars>
     </app-modal>
   </div>
   <div class="actions">
-    <div class="action">
-      <span tabindex="0" aria-label="Guardar esta receta" (click)="likeRecipe()">
-        <mat-icon *ngIf="!this.user.recipes.likedRecipes.includes(id)">
-          favorite_border
-        </mat-icon>
-        <mat-icon
-          class="favorite"
-          *ngIf="this.user.recipes.likedRecipes.includes(id)"
-        >
+    <div class="action" (click)="!existInFavorites() ? saveRecipe() : deleteRecipe()">
+      <span>
+        <mat-icon *ngIf="!existInFavorites()"> favorite_border </mat-icon>
+        <mat-icon class="favorite" *ngIf="existInFavorites()">
           favorite
         </mat-icon>
       </span>

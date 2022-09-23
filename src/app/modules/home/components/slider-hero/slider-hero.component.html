@@ -1,15 +1,13 @@
 <div tabindex="0" role="slider" aria-label="recetas recomendadas" class="slider">
-  <div [routerLink]="['/recipe/' + recipe.id]" tabindex="0" aria-label="Haz click para ingresar a esta receta" role="link" class="container-card" *ngFor="let recipe of recipes">
-    <div class="containerImg">
-      <img src="{{ recipe.imagePath }}" alt="" />
+  <div class="container-card" *ngFor="let recipe of recipes">
+    <div tabindex="0" aria-label="Haz click para ingresar a esta receta" role="link" [routerLink]="['/recipe/' + recipe.recipeId]" class="containerImg">
+      <img src="{{ recipe.recipePhoto }}" alt="" />
     </div>
     <div class="detailRecipe">
-      <div tabindex="0" aria-label="nombre de la receta">
-        <p tabindex="0">{{ recipe.name }}</p>
-      </div>
+      <p tabindex="0" aria-label="nombre de la receta">{{ recipe.recipeName }}</p>
       <div>
-        <div tabindex="0" aria-label="tiempo de preparación"><span><mat-icon>query_builder</mat-icon></span><div tabindex="0">{{recipe.time}} min</div></div> |
-      <div tabindex="0" aria-label="calificación"><span><mat-icon>star</mat-icon></span><div tabindex="0">{{recipe.score}}</div></div>
+        <div tabindex="0" aria-label="tiempo de preparación"><span><mat-icon>query_builder</mat-icon></span>{{recipe.recipeTime}}min</div> |
+      <div tabindex="0" aria-label="calificación"><span><mat-icon class="star">star</mat-icon></span>{{recipe.score}}</div>
       </div>
     </div>
   </div>

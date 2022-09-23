@@ -1,14 +1,14 @@
 <div class="container">
-  <a role="link" aria-label="información de cocinero" class="user-container" routerLink="/profile/{{user.id}}">
+  <a aria-label="visitar el perfil del cocinero" class="user-container" routerLink="/profile/{{userId}}">
     <img
       tabindex="0"
       class="user-photo"
-      [src]="user.photo"
+      *ngIf="userPhoto"
+      [src]="userPhoto"
       alt="Foto del cocinero de la receta"
     />
-    <div tabindex="0" aria-label="nombre del cocinero">
-      <p tabindex="0">{{user.name}}</p>
-    </div>
+    <span *ngIf="!userPhoto"> {{userName[0]}}</span>
+    <p tabindex="0" aria-label="nombre del cocinero">{{userName}}</p>
   </a>
   <div tabindex="0" aria-label="descripción de receta">
     <p tabindex="0" class="description">

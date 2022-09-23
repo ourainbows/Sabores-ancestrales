@@ -8,3 +8,9 @@
   background-position: -50vw -60vh;
   background-repeat: no-repeat;
 }
+
+@media (min-width: 900px) {
+  .formLogin {
+  background-position: -60vw -100vh;
+  }
+}

@@ -1,17 +1,17 @@
-<div tabindex="0" aria-label="Ingredientes" class="container">
-  <h2>Ingredientes</h2>
-  <div tabindex="0" aria-label="Ingrediente"
+<div class="container">
+  <h2>Ingredientes para toda la receta</h2>
+  <div
     class="ingredients-container"
     *ngFor="let ingredient of ingredients; index as i"
   >
     <div class="ingredient-container" [class.checked]="ingredient.checked">
-      <input tabindex="0" type="checkbox" (click)="toogleChecked(i)" aria-label="input" />
-      <label tabindex="0" *ngIf="ingredient.unit">
-        {{ ingredient.quantity }} {{ ingredient?.unit }} de
-        {{ ingredient.name }}
+      <input type="checkbox" (click)="toogleChecked(i)" aria-label="Seleccionar ingrediente" role="checkbox"/>
+      <label *ngIf="ingredient.measureName">
+        {{ ingredient.quantity }} {{ ingredient?.measureName }} de
+        {{ ingredient.ingredientName }}
       </label>
-      <label tabindex="0" *ngIf="!ingredient.unit">
-        {{ ingredient.quantity }} {{ ingredient.quantity > 1 ? ingredient.name + 's' : ingredient.name }}
+      <label *ngIf="!ingredient.measureName">
+        {{ ingredient.quantity }} {{ ingredient.quantity > 1 ? ingredient.ingredientName + 's' : ingredient.ingredientName }}
       </label>
     </div>
   </div>

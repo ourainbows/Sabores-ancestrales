@@ -9,6 +9,7 @@ import { Recipe } from 'src/app/shared/models/recipe.model';
 })
 export class HomePageComponent implements OnInit {
   @Input() recipes: Recipe[] = []
+  showWelcome = localStorage.getItem('showWelcome') === 'false' ? false : true
 
   constructor(private recipeService: RecipesService) { }
 
@@ -18,6 +19,10 @@ export class HomePageComponent implements OnInit {
         this.recipes = data
       }
     )
+    setTimeout(() => {
+      this.showWelcome = false
+      localStorage.setItem('showWelcome', 'false')
+    },( 1500 * 5))
   }
 
 }

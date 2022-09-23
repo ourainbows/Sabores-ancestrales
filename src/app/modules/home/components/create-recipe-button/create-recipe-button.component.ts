@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateRecipeButtonComponent implements OnInit {
 
+  userId = localStorage.getItem('userId');
   constructor() { }
 
   ngOnInit(): void {

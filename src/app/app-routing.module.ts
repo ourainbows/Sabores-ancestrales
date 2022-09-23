@@ -41,6 +41,20 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'activate/:token',
+    loadChildren: () =>
+      import('./modules/auth/activate/activate.module').then(
+        (m) => m.ActivateModule
+      ),
+  },
+  {
+    path: 'user-inactive',
+    loadChildren: () =>
+      import('./modules/auth/user-inactive/user-inactive.module').then(
+        (m) => m.UserInactiveModule
+      ),
+  },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

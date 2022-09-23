@@ -20,7 +20,6 @@ export interface OptionsForm {
 export class FormComponent implements OnInit {
   toast = Swal.mixin({
     showConfirmButton: false,
-    timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -30,7 +29,7 @@ export class FormComponent implements OnInit {
   authForm!: FormGroup;
   signIn = ACTIONS.signIn;
   signUp = ACTIONS.signUp;
-  user!: User;
+  user!: User | any;
   user$ = this.authSvc.user$;
   @Input() options!: OptionsForm;
 
@@ -45,8 +44,7 @@ export class FormComponent implements OnInit {
     this.initForm();
   }
 
-  async onGoogleForm(): Promise<void> {
-    console.log('Register');
+  async onGoogleForm(): Promise<void> { // TODO: fix data 
     this.authSvc
       .onGoogle()
       .then(async (res: any) => {
@@ -64,7 +62,7 @@ export class FormComponent implements OnInit {
               likedRecipes: [],
             },
           };
-          this.userSvc.postUser(this.user).subscribe();
+          this.userSvc.postUser(this.user).subscribe();  // TODO: save user
         } else {
           this.authSvc.saveToken(res.user.multiFactor.user.uid);
         }
@@ -77,12 +75,12 @@ export class FormComponent implements OnInit {
 
   onSubmit(option: string): void {
     if (option === this.signIn && this.authForm.valid) {
-      console.log('login');
-      this.authSvc.login(this.authForm.value);
+      this.authSvc.login(this.authForm.value).subscribe();
     } else if (this.authForm.invalid && option === this.signIn) {
       this.toast.fire({
+        timer:2000,
         icon: 'error',
-        title: 'Invalid Form',
+        title: 'Formulario Invalido',
       });
     }
     if (
@@ -90,11 +88,20 @@ export class FormComponent implements OnInit {
       this.authForm.value.password === this.authForm.value.password_again &&
       this.authForm.valid
     ) {
-      this.authSvc.register(this.authForm.value);
+      this.authSvc.register(this.authForm.value).subscribe(res =>{
+        this.toast.fire({
+          toast:true,
+          timer:4000,
+          html:`<h2 style='text-align:center'>${res.message}</h2>`,
+          background: '#fff',
+          position: 'top'
+        })
+      })
+      this.initForm()
     } else if (this.authForm.invalid && option === this.signUp) {
       this.toast.fire({
         icon: 'error',
-        title: 'Invalid Form',
+        title: 'Formulario Invalido',
       });
     }
   }

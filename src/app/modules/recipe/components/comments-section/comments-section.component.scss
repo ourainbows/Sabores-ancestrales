@@ -11,3 +11,17 @@
 .commentary-container {
   margin-bottom: 2rem;
 }
+@media (min-width: 800px) {
+  .wrapper {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
+  .section{
+    display: flex;
+    flex-direction: column;
+    // max-width: 600px;
+    justify-content: flex-start;
+  }
+}

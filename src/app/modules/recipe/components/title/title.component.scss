@@ -58,6 +58,7 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
+  cursor: pointer;
 
   span {
     width: auto;
@@ -72,4 +73,24 @@
 .line {
   border: 0;
   border-top: 0.1rem solid rgba(196, 196, 196, 0.3);
+}
+
+@media(min-width: 435px){
+  .rate{
+    height: 2.6rem;
+    width: 9rem;
+  }
+}
+@media(min-width: 800px){
+  .container{
+    max-width: 800px;
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .line {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

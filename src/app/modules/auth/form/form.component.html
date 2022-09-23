@@ -69,14 +69,10 @@
       <a tabindex="0" role="button" aria-label="¿Olvidaste tu contraseña?"  href="#" class=""> &nbsp; ¿Olvidaste tu contraseña?</a>
     </div>
     <div class="lines">
-      <!-- <hr class="">
-      <div class="">
-        <p class="">O</p>
-      </div> -->
       <hr class="">
     </div>
     <button tabindex="0" role="button" aria-label="Registrarse con Google" type="button" (click)="onGoogleForm()" class="buttonGoogle">
-      <img src="../../../../assets/images/googleIcon.png" alt=""> &nbsp; Registrarse con Google
+      <img src="../../../../assets/images/googleIcon.png" alt=""> &nbsp; {{options.label}} con Google
     </button>
     <div class="linkAuth">
       <ng-container tabindex="0" role="text" aria-label="¿No estas registrado?" *ngIf="options.id === signIn; else showSignTemplate">

@@ -12,10 +12,14 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  max-width: 780px;
+  margin: 0 auto;
 }
-.container-card{
+.container-card {
   @include flex();
   flex-direction: column;
+  position: relative;
+  scroll-snap-align: center;
 }
 
 .containerImg {
@@ -26,8 +30,12 @@
   border-radius: 5px;
   margin: 1rem;
   margin-bottom: 2rem;
+  cursor: pointer;
   img {
     max-width: 100%;
+    height: 100%;
+    border-radius: $border-radius;
+    object-fit: cover;
   }
 }
 
@@ -44,21 +52,34 @@
   top: 30%;
   left: calc(50% - 125px);
   margin-top: -5rem;
-  p{
+  p {
     font-size: 26px;
     font-style: italic;
     margin-bottom: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 200px;
+    white-space: nowrap;
+    text-align: center;
   }
-  div{
+  div {
     @include flex();
     flex-direction: row;
     text-align: center;
     margin: 0 1rem;
     font-size: 14px;
   }
-  span{
+  span {
     display: flex;
     flex-direction: row;
-    margin-right: .4rem;
+    margin-right: 0.4rem;
+  }
+}
+.star {
+  color: $main-color;
+}
+@media (min-width: 659px) {
+  .slider {
+    margin-top: 2rem;
   }
 }

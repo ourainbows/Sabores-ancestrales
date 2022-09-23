@@ -1,9 +1,11 @@
-<section class="section">
-    <h3 class="title">Comentarios({{comments.length}})</h3>
-    <div class="commentary-container">
-        <app-commentary (newCommentEvent)="addComment($event)"></app-commentary>
-    </div>
-    <div class="comments-container">
-        <app-comments [comments]="comments" [recipeId]="recipeId" (changeLikeEvent)="updateComments($event)"></app-comments>
-    </div>
-</section>
+<div class="wrapper">
+    <section class="section">
+        <h3 class="title">Comentarios({{comments.length}})</h3>
+        <div class="commentary-container">
+            <app-commentary (newCommentEvent)="addComment($event)"></app-commentary>
+        </div>
+        <div class="comments-container">
+            <app-comments [comments]="comments" [recipeId]="recipeId" [userId]="userId" (changeLikeEvent)="updateComments($event)"></app-comments>
+        </div>
+    </section>
+</div>

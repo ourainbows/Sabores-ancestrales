@@ -4,7 +4,7 @@ import { Report } from './../../../../../../shared/models/report.model';
 import { ReportService } from './../../../../../../core/services/report/report.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-page',
@@ -13,10 +13,10 @@ import {Router} from "@angular/router"
 })
 export class ReportPageComponent implements OnInit {
   type: string | null = this.route.snapshot.queryParamMap.get('type');
-  id: string | null = this.route.snapshot.queryParamMap.get('id');
+  id: string | null = this.route.snapshot.queryParamMap.get('id'); // user or recipe id
   name: string | null = this.route.snapshot.queryParamMap.get('name');
 
-  reports: Report[] = [];
+  reports: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,32 +27,27 @@ export class ReportPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.type, this.id, this.name);
-    this.reportService.getReports(this.id, this.type).subscribe((data) => {
-      this.reports = data;
-    });
+    this.type === 'user' &&
+      this.reportService.getReportsUser(this.id).subscribe((data) => {
+        this.reports = data;
+      });
   }
 
-  deleteReport(id: number) {
-    this.reportService.deleteReport(id).subscribe((data) => {
-      this.reports = this.reports.filter((report) => report.id != id);
+  deleteReportsUser() {
+    this.reportService.deleteReports(this.id).subscribe((data) => {
+      this.router.navigate(['/admin/users-list']);
     });
   }
 
   deleteRecipe() {
     this.recipesService.deleteRecipe(this.id).subscribe((data) => {
-      this.reports = this.reports.filter((report) => report.id.toString() != this.id);
-      this.router.navigate(['/admin/table-recipes'])
-    } );
+      this.router.navigate(['/admin/table-recipes']);
+    });
   }
 
   suspendUser() {
-    this.userService.updateUser(this.id, { isActive: false }).subscribe((data) => {
-      this.router.navigate(['/admin/table-users'])
-    } );
+    this.userService.suspendUser(this.id, false).subscribe((data) => {
+      this.router.navigate(['/admin/users-list']);
+    });
   }
-  deleteComment(idComment : number) {
-    this.recipesService.deleteComment(this.id, idComment).subscribe((data) => {
-      this.reports = this.reports.filter((report) => report.id.toString() != this.id);
-    })} 
 }

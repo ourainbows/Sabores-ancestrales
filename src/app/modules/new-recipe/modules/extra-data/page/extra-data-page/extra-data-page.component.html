@@ -1,5 +1,5 @@
 <p class="descriptionStep">
-  Indica el tiempo, dificultad, precio y utensilios de la receta:
+  Indica el tiempo, dificultad y precio de la receta:
 </p>
 <form action="" [formGroup]="formExtra" (submit)="submit()" class="form">
   <h2 class="subtitle">Tiempo</h2>
@@ -61,32 +61,6 @@
       [ngClass]="{ activeInput: price === '$$$$' }"
     />
   </div>
-
-  <label for="tool" class="subtitle"
-    >Agregar utensilios a la receta</label
-  >
-  <div class="tagInputContainer">
-    <input
-      type="text"
-      id="tool"
-      formControlName="tool"
-      placeholder="Sarten, batidora, olla presion..."
-      (keydown.enter)="$event.preventDefault()"
-    />
-    <input
-      type="button"
-      value="+"
-      (click)="addTools()"
-      [disabled]="!formExtra.value.tool"
-    />
-  </div>
-
-  <div class="tagsContainer">
-    <p (click)="deleteTag(tool)" *ngFor="let tool of tools">
-      {{ tool }}
-    </p>
-  </div>
-
   <button
     type="submit"
     [disabled]="formExtra.invalid"

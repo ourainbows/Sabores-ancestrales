@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { newRecipeDTO, Recipe } from 'src/app/shared/models/recipe.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesService {
-  private apiUrl = 'http://localhost:3000/recipe';
+  private apiUrl = `${environment.api}`;
+  private apiStarUrl = `${environment.api}/recipes-stars`;
   userId = 1; // provisional UserID
 
   recipeToEdit : Recipe | undefined = undefined;
@@ -32,11 +34,11 @@ export class RecipesService {
 
   getRecipes(offset = 0, limit = 10): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(
-      `${this.apiUrl}?limit=${limit}&offset=${offset}`
+      `${this.apiUrl}/recipes?limit=${limit}&offset=${offset}`
     );
   }
-  updateScore(id: number, score: any): Observable<Recipe> {
-    return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, score);
+  updateScore(scoreData : Object): Observable<Recipe> {
+    return this.http.post<Recipe>(`${this.apiStarUrl}`, scoreData);
   }
   updateRecipe(id: number | string | null | undefined, recipe : any): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, recipe);
@@ -46,27 +48,15 @@ export class RecipesService {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { likes });
   }
 
-  getRecipeById(id: string): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.apiUrl}/${id}`).pipe(
-      map((recipe) => {
-        return {
-          ...recipe,
-          steps: recipe.steps.map((step) => {
-            return {
-              ...step,
-              checked: false,
-            };
-          }),
-        };
-      })
-    );
+  getRecipeById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/get-recipes/${id}`)
   }
 
   updateComments(id: string, comments: Commentary[]): Observable<Recipe> {
     return this.http.patch<Recipe>(`${this.apiUrl}/${id}`, { comments });
   }
   deleteRecipe(id: number | string | null): Observable<Recipe> {
-    return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
+    return this.http.delete<Recipe>(`${this.apiUrl}/recipes/${id}`);
   }
   deleteComment(
     id: number | string | null,
@@ -79,5 +69,13 @@ export class RecipesService {
 
   createRecipe(): Observable<Recipe> {
     return this.http.post<Recipe>(this.apiUrl, this.newRecipe);
+  }
+
+  addFavoriteRecipe(userId:number, recipeId:number): Observable<Object> {
+    const saveRecipe = {recipeId, userId}
+    return this.http.post<Object>(`${this.apiUrl}/recipes-fav`, saveRecipe);
+  }
+  deleteFavoriteRecipe(userId:number, recipeId:number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/recipes-fav/${userId}/${recipeId}`);
   }
 }
