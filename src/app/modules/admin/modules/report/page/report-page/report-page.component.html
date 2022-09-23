@@ -1,58 +1,76 @@
 <h1>
   Reporte: <span>{{ name }}</span>
 </h1>
-
-<div *ngFor="let report of reports">
-  <div class="report-container">
-    <div class="head">
-      <div class="user">
-        <img
-          src="{{ report.photoUser }}"
-          alt="Imagen de perfil del usuario que reporta"
-        />
-        <span class="user-name">{{ report.user }}</span>
+<div class="reports">
+  <div *ngFor="let report of reports" >
+    <!-- user than report info -->
+    <div class="report-container">
+      <div class="head">
+        <div class="user">
+          <img
+            *ngIf="report.user.profilePhoto"
+            src="{{ report.user.profilePhoto }}"
+            alt="Imagen de perfil del usuario que reporta"
+          />
+          <span *ngIf="!report.user.profilePhoto" class="no-photo">{{
+            report.user.userName[0]
+          }}</span>
+          <span class="user-name">{{ report.user.userName }}</span>
+        </div>
+        <div></div>
       </div>
-      <div>
-        <span class="date">{{ report.date }}</span>
-      </div>
-    </div>
-    <p class="report-message">{{ report.message }}</p>
+      <p class="report-message">{{ report.userReportedComment }}</p>
 
-    <a class="reported-card">
-      <div class="reported-head">
-        <img
-          src="{{ report.photoReportedUser }}"
-          alt="Imagen de perfil del usuario reportado"
-        />
-        <span>{{ report.reportedUser }}</span>
-      </div>
+      <!-- reported user info -->
+      <a class="reported-card">
+        <div class="reported-head">
+          <img
+            *ngIf="report.reportedUser.profilePhoto"
+            src="{{ report.profilePhoto }}"
+            alt="Imagen de perfil del usuario reportado"
+          />
+          <span *ngIf="!report.reportedUser.profilePhoto" class="no-photo">{{
+            report.reportedUser[0]
+          }}</span>
+          <span>{{ report.reportedUser }}</span>
+        </div>
 
-      <div *ngIf="type === 'user'" class="reported-comment">
-        <span>{{ report?.reportedComment }}</span>
-      </div>
+        <!-- If type of report is user -->
+        <div *ngIf="type === 'user'" class="reported-comment">
+          <span>{{ report?.userDescription }}</span>
+        </div>
 
-      <div *ngIf="type === 'recipe'">
-        <div class="recipe-data">
-          <div class="recipe-data-text">
-            <span>{{ report.recipeName }}</span>
-            <span class="recipe-data-text-description">{{report.recipeDescription}}</span>
-          </div>
-          <div class="recipe-image-container">
-            <img [src]="report.recipeImage" alt="Imagen de la receta reportada">
+        <!-- If type of report is recipe -->
+        <div *ngIf="type === 'recipe'">
+          <div class="recipe-data">
+            <div class="recipe-data-text">
+              <span>{{ report.recipeName }}</span>
+              <span class="recipe-data-text-description">{{
+                report.recipeDescription
+              }}</span>
+            </div>
+            <div class="recipe-image-container">
+              <img
+                [src]="report.recipeImage"
+                alt="Imagen de la receta reportada"
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-    </a>
-
-    <div class="buttons">
-      <button class="delete-button" *ngIf="type === 'user'" (click)="deleteComment(report?.idReportedComment)">Eliminar</button>
-      <button class="suspend-button" [ngClass]="{'onlyButton': type === 'recipe'}" (click)="deleteReport(report.id)">Ignorar</button>
+      </a>
     </div>
-
   </div>
-</div>
-
-<div class="action-container" (click)="type === 'user' ? suspendUser() : deleteRecipe()">
-  {{type === 'user' ? "Suspender usuario" : "Eliminar receta"}}
+  <div class="action-container">
+    <div class="buttons">
+      <button class="suspend-button" (click)="deleteReportsUser()">
+        Ignorar
+      </button>
+      <button
+        class="delete-button"
+        (click)="type === 'user' ? suspendUser() : deleteRecipe()"
+      >
+        Eliminar
+      </button>
+    </div>
+  </div>
 </div>

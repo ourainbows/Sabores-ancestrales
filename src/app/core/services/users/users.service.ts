@@ -73,7 +73,7 @@ export class UsersService {
   updateUser(id: number | string | null, user: any): Observable<User> {
     return this.http.patch<any>(`${this.apiUsers}/${id}`, user);
   }
-  suspendUser(id: number, userIsActive:  boolean) {
+  suspendUser(id: any, userIsActive:  boolean) {
     return this.http.patch<any>(`${this.apiUser}/users/disabled/${id}`, {
       isActive: userIsActive,
     });
