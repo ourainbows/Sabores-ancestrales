@@ -10,7 +10,7 @@
         <img [src]="userImg" alt="Imagen del usuario" />
       </div>
       <ng-container *ngIf="(user$ | async) === false; else logOutTemplate">
-          <a tabindex="0" role="link" aria-label="Ingresar" [routerLink]="['/register']" class="sign">Ingresar</a>
+          <a tabindex="0" role="link" aria-label="Ingresar con una cuenta" [routerLink]="['/register']" class="sign">Ingresar</a>
       </ng-container>
       <ng-template tabindex="0" role="menubar" aria-label="menubar" class="dropdown" #logOutTemplate>
         <ul>

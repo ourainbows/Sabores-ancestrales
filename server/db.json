@@ -1123,21 +1123,7 @@
       "score": 0.7
     }
   ],
-  "report": [
-    {
-      "id": 3,
-      "user": "Artur Morgado",
-      "photoUser": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      "date": "2022-5-21",
-      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
-      "idRecipe": 1,
-      "reportedUser": "Chef Teste",
-      "photoReportedUser": "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      "recipeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tincidunt egestas.",
-      "recipeImage": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
-      "recipeName": "Torta de Fresas"
-    }
-  ],
+  "report": [],
   "login": [
     {
       "email": "lauravalentina200102@gmail.com",

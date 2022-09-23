@@ -1,5 +1,5 @@
 <div tabindex="0" role="slider" aria-label="recetas recomendadas" class="slider">
-  <div [routerLink]="['/recipe/' + recipe.id]" tabindex="0" aria-label="receta" role="link" class="container-card" *ngFor="let recipe of recipes">
+  <div [routerLink]="['/recipe/' + recipe.id]" tabindex="0" aria-label="Haz click para ingresar a esta receta" role="link" class="container-card" *ngFor="let recipe of recipes">
     <div class="containerImg">
       <img src="{{ recipe.imagePath }}" alt="" />
     </div>
@@ -8,7 +8,7 @@
         <p tabindex="0">{{ recipe.name }}</p>
       </div>
       <div>
-        <div tabindex="0" aria-label="tiempo de preparación"><span><mat-icon>query_builder</mat-icon></span><div tabindex="0">{{recipe.time}} minutos</div></div> |
+        <div tabindex="0" aria-label="tiempo de preparación"><span><mat-icon>query_builder</mat-icon></span><div tabindex="0">{{recipe.time}} min</div></div> |
       <div tabindex="0" aria-label="calificación"><span><mat-icon>star</mat-icon></span><div tabindex="0">{{recipe.score}}</div></div>
       </div>
     </div>

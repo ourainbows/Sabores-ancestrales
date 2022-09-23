@@ -6,14 +6,14 @@
     <input type="text" placeholder="Busqueda" />
   </div>
   <div role="navigation" class="filter-container">
-    <div (click)="show = !show" class="filter">
+    <div tabindex="0" aria-label="Haz click aquí para filtar recetas" (click)="show = !show" class="filter">
       <mat-icon class="iconFilter">filter_list</mat-icon>
     </div>
     <div *ngIf="show" class="dropdown">
       <p>Filtrar por:</p>
-      <ul>
-        <li>Categorias</li>
-        <li>Ingredientes</li>
+      <ul tabindex="0" aria-label="Elige aquí tu opción de filtrado">
+        <li tabindex="0">Categorías</li>
+        <li tabindex="0">Ingredientes</li>
       </ul>
     </div>
   </div>
