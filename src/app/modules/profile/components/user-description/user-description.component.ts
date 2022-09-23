@@ -100,6 +100,7 @@ export class UserDescriptionComponent implements OnInit, OnChanges {
         userDescription: user.profileDescription,
         profilePhoto: user.profilePhoto,
       }
+      this.userService.userData.next(this.user);
     });
   }
 }
