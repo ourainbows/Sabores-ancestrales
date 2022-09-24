@@ -5,6 +5,7 @@ import { UsersService } from 'src/app/core/services/users/users.service';
 import { ClipboardService } from 'ngx-clipboard';
 import { RecipesService } from 'src/app/core/services/recipes/recipes.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import Swal from 'sweetalert2';
 
 const jwtHelper = new JwtHelperService();
 
@@ -47,7 +48,15 @@ export class TitleComponent implements OnInit {
     });
     this.recipeService
       .addFavoriteRecipe(userId, this.id)
-      .subscribe((saved: Object) => {});
+      .subscribe((saved: Object) => {
+        console.log(saved)
+      },
+      err=>{
+        Swal.fire({
+          title: 'Error!',
+          text: `${err.error.message}`,
+          icon: 'error',
+      })});
   }
 
   deleteRecipe() {
