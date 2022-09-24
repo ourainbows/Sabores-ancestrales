@@ -15,6 +15,20 @@
   max-width: 80rem;
   margin: 0 auto;
 }
+.slider::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+.slider::-webkit-scrollbar-track {
+  background:#e14d617b;
+}
+
+.slider::-webkit-scrollbar-thumb {
+  background-color: #e14d61;
+  border-radius: 20px;
+  border: 3px solid #e14d61;
+}
 .background-image {
   position: absolute;
   left: 0;
