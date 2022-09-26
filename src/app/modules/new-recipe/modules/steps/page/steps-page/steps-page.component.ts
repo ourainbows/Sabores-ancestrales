@@ -283,11 +283,4 @@ export class StepsPageComponent implements OnInit {
       isPrivate: true,
     };
   }
-
-
-
-  showSteps() {
-    console.log(this.steps);
-    console.log(typeof this.steps[3].stepImage);
-  }
 }
