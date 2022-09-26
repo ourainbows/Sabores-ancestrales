@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class RecipesService {
-  private apiUrl = environment.api+'recipe';
+  private apiUrl = environment.api+'/recipe';
   userId = 1; // provisional UserID
 
   recipeToEdit : Recipe | undefined = undefined;
@@ -72,7 +72,7 @@ export class RecipesService {
 
   searchRecipes(search:string): Observable<any>{
     return this.http.get<Recipe[]>(
-      `${this.apiUrl}-search?search=${search}`
+      `${this.apiUrl}s-search?search=${search}`
     )
   }
 }

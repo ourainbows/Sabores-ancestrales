@@ -30,7 +30,6 @@ export class SearcherComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchKeyup.pipe(debounceTime(500)).subscribe((search: string) => {
-      console.log(search)
       this.search.emit(search)
     }), (err: any) => {
       this.toast.fire({

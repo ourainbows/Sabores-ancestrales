@@ -1,0 +1,15 @@
+<div class="filterContainer">
+  <div>
+    <app-searcher (search)="onSearch($event)"></app-searcher>
+  </div>
+
+  <section *ngIf="show" class="recipes">
+    <app-slider category="almuerzo"></app-slider>
+    <app-slider category="saludable"></app-slider>
+  </section>
+  <div *ngIf="show == false"  class="cardsContainer">
+    <div class="container-card" *ngFor="let recipe of recipes">
+      <app-card-recipe [recipe]="recipe"></app-card-recipe>
+    </div>
+  </div>
+</div>

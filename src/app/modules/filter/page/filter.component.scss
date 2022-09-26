@@ -1,0 +1,21 @@
+.filterContainer{
+  padding-top: 3rem;
+  min-height: calc(100vh - 5rem);
+}
+
+@media (min-width: 800px) {
+  .filterContainer {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 4rem;
+  }
+
+  .cardsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+}

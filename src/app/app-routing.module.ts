@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
-import { FilterComponent } from './modules/filter/filter.component';
+import { FilterComponent } from './modules/filter/page/filter.component';
 
 const routes: Routes = [
   {
