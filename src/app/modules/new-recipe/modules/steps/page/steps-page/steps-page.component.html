@@ -28,7 +28,7 @@
   <label for="description" class="form-label">Agregar una descripcion</label>
   <textarea
     id="description"
-    formControlName="description"
+    formControlName="stepDescription"
     class="inputDescription"
   ></textarea>
 
@@ -50,13 +50,13 @@
     />
   </div>
 
-  <!-- Ingrredientes de la receta -->
   <div class="tagsContainer">
     <p (click)="deleteTag(tool)" *ngFor="let tool of tools">
-      {{ tool }}
+      {{  tool?.toolName ?  tool?.toolName : tool }}
     </p>
   </div>
-
+  
+  <!-- Ingrredientes de la receta -->
   <h2 class="form-label">Agregar ingredientes</h2>
   <div class="ingredientInfoContainer">
     <div>
@@ -114,21 +114,40 @@
   </h2>
   <ul *ngIf="ingredients.length" class="ingredientList">
     <li *ngFor="let ingredient of ingredients">
-      <p *ngIf="ingredient.unit.trim()" class="ingredient">
-        {{
-          ingredient.quantity + " " + ingredient.unit + " de " + ingredient.name
-        }}
-      </p>
-      <p *ngIf="!ingredient.unit.trim()" class="ingredient">
-        <ng-container *ngIf="ingredient.quantity == 1; else plural">
-          {{ ingredient.quantity + " " + ingredient.name }}
-        </ng-container>
-        <ng-template #plural>
-          {{ ingredient.quantity + " " + ingredient.name + "s" }}
-        </ng-template>
-      </p>
+      <!-- NEW STEP INGREDIENT LIST -->
+      <ng-container *ngIf="ingredient.name; else existing">
+        <p *ngIf="ingredient.unit.trim()" class="ingredient">
+          {{
+            ingredient.quantity + " " + ingredient.unit + " de " + ingredient.name
+          }}
+        </p>
+        <p *ngIf="!ingredient.unit.trim()" class="ingredient">
+          <ng-container *ngIf="ingredient.quantity == 1; else plural">
+            {{ ingredient.quantity + " " + ingredient.name }}
+          </ng-container>
+          <ng-template #plural>
+            {{ ingredient.quantity + " " + ingredient.name + "s" }}
+          </ng-template>
+        </p>
+      </ng-container>
+      <!-- NEW STEP EXISTING LIST -->
+      <ng-template #existing>
+        <p *ngIf="ingredient.measureName.trim()" class="ingredient">
+          {{
+            ingredient.quantity + " " + ingredient.measureName + " de " + ingredient.ingredientName
+          }}
+        </p>
+        <p *ngIf="!ingredient.measureName.trim()" class="ingredient">
+          <ng-container *ngIf="ingredient.quantity == 1; else plural">
+            {{ ingredient.quantity + " " + ingredient.ingredientName }}
+          </ng-container>
+          <ng-template #plural>
+            {{ ingredient.quantity + " " + ingredient.ingredientName + "s" }}
+          </ng-template>
+        </p>
+      </ng-template>
 
-      <p class="deleteIngredient" (click)="deleteIngredient(ingredient.name)">
+      <p class="deleteIngredient" (click)="deleteIngredient(ingredient.name ? ingredient.name : ingredient.ingredientName)">
         x
       </p>
     </li>
@@ -159,14 +178,14 @@
         >Paso {{ i + 1 }}/{{ steps.length }}
       </h2>
       <img [src]="step.imagePreview || step.imagePath" alt="step" />
-      <p class="step-description">{{ step.description }}</p>
+      <p class="step-description">{{ step.stepDescription ? step.stepDescription :  step.description }}</p>
       <p class="step-ingredients">
         <b>Ingredientes:</b>
         <span *ngFor="let ingredient of step.ingredients; index as j">
           {{
             j + 1 !== step.ingredients.length
-              ? ingredient.name + ","
-              : ingredient.name + "."
+              ? ingredient.ingredientName ? ingredient.ingredientName : ingredient.name  + ","
+              : ingredient.ingredientName ? ingredient.ingredientName : ingredient.name + "."
           }}
         </span>
       </p>
@@ -175,8 +194,8 @@
         <span *ngFor="let tool of step.tools; index as k">
           {{
             k + 1 !== step.tools.length
-              ? tool+ ","
-              : tool + "."
+              ? tool?.toolName ?  tool?.toolName : tool + ","
+              : tool?.toolName ?  tool?.toolName : tool + "."
           }}
         </span>
       </p>
@@ -193,3 +212,4 @@
     </button>
   </div>
 </form>
+<button (click)="showSteps()">Pasos</button>

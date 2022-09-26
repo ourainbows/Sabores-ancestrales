@@ -48,7 +48,7 @@ export interface Recipe {
   tags: Tag[];
   comments: Commentary[];
   recomendations: cardRecipeDTO[];
-  public: boolean;
+  isPrivate: boolean;
 
   userId?: number
   userName?: string;
@@ -68,11 +68,13 @@ export interface newRecipeDTO
     | 'steps'
     | 'likes'
     | 'scoreCount'
+    | 'ingredients'
+    | 'tools'
   > {
   tags: string[]
-  userId: number;
+  userId: any;
   steps: any[];
-  tools: string[];
+  portions: number;
 }
 
 export interface cardRecipeDTO

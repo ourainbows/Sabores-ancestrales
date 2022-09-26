@@ -38,7 +38,7 @@ export interface User {
   updatedAt?: string;
   userId: number;
   user: {
-    userId: number;
+    userId: number | string;
     userName: string;
     userEmail: string;
     userIsAdmin: boolean;

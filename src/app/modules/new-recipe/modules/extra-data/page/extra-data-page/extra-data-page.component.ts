@@ -11,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ExtraDataPageComponent implements OnInit {
   formExtra!: FormGroup;
-  price = '';
-  difficulty = '';
+  price = 0;
+  difficulty = 0;
   edit = false;
 
   constructor(
@@ -32,10 +32,10 @@ export class ExtraDataPageComponent implements OnInit {
       hours: Math.floor(this.recipeService.newRecipe.time / 60),
       minutes: Math.floor(this.recipeService.newRecipe.time % 60),
       difficulty: this.recipeService.newRecipe.difficulty,
-      price: this.recipeService.newRecipe.price,
+      price: this.recipeService.newRecipe.price  === "$" ? 1 : this.recipeService.newRecipe.price === "$$-$$$" ? 2 : this.recipeService.newRecipe.price === "$$$$" ? 3 : 0 ,
     });
-    this.price = this.recipeService.newRecipe.price;
-    this.difficulty = this.recipeService.newRecipe.difficulty;
+    this.price = this.recipeService.newRecipe.price === "$" ? 1 : this.recipeService.newRecipe.price === "$$-$$$" ? 2 : this.recipeService.newRecipe.price === "$$$$" ? 3 : 0;
+    this.difficulty = this.recipeService.newRecipe.difficulty === "Facil" ? 1 : this.recipeService.newRecipe.difficulty === "Medio" ? 2 : this.recipeService.newRecipe.difficulty === "Dificil" ? 3 : 0;
   }
 
   initForm(): FormGroup {
@@ -47,7 +47,7 @@ export class ExtraDataPageComponent implements OnInit {
     });
   }
 
-  onChangeOption(option: any, value: string) {
+  onChangeOption(option: any, value: number) {
     if (option == 'difficulty') {
       this.formExtra.patchValue({
         difficulty: value,

@@ -23,20 +23,20 @@
     <input
       type="button"
       value="Facil"
-      (click)="onChangeOption('difficulty', 'facil')"
-      [ngClass]="{ activeInput: difficulty === 'facil' }"
+      (click)="onChangeOption('difficulty', 1)"
+      [ngClass]="{ activeInput: difficulty === 1 }"
     />
     <input
       type="button"
       value="Media"
-      (click)="onChangeOption('difficulty', 'medio')"
-      [ngClass]="{ activeInput: difficulty === 'medio' }"
+      (click)="onChangeOption('difficulty', 2)"
+      [ngClass]="{ activeInput: difficulty === 2 }"
     />
     <input
       type="button"
       value="Dificil"
-      (click)="onChangeOption('difficulty', 'dificil')"
-      [ngClass]="{ activeInput: difficulty === 'dificil' }"
+      (click)="onChangeOption('difficulty', 3)"
+      [ngClass]="{ activeInput: difficulty === 3 }"
     />
   </div>
 
@@ -45,20 +45,20 @@
     <input
       type="button"
       value="$"
-      (click)="onChangeOption('price', '$')"
-      [ngClass]="{ activeInput: price === '$' }"
+      (click)="onChangeOption('price', 1)"
+      [ngClass]="{ activeInput: price === 1 }"
     />
     <input
       type="button"
       value="$$-$$$"
-      (click)="onChangeOption('price', '$$-$$$')"
-      [ngClass]="{ activeInput: price === '$$-$$$' }"
+      (click)="onChangeOption('price', 2)"
+      [ngClass]="{ activeInput: price === 2 }"
     />
     <input
       type="button"
       value="$$$$"
-      (click)="onChangeOption('price', '$$$$')"
-      [ngClass]="{ activeInput: price === '$$$$' }"
+      (click)="onChangeOption('price', 3)"
+      [ngClass]="{ activeInput: price === 3 }"
     />
   </div>
   <button
