@@ -194,7 +194,6 @@ export class StepsPageComponent implements OnInit {
 
   submitSteps() {
     this.recipeService.newRecipe.steps.forEach((step, i) => {
-      console.log(step)
       delete step.imagePreview;
       if (typeof (step.stepImage !== Object)) {
         this.uploadImage(step.stepImage).subscribe((url) => {
