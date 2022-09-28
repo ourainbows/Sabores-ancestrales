@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div tabindex="0" aria-label="Ver recetas" role="tabpanel" class="wrapper">
   <div class="tabs">
     <div class="tab">
       <input
@@ -10,7 +10,7 @@
         (change)="handleChange($event)"
         value="user"
       />
-      <label for="tab-1" class="tab-label">Recetas</label>
+      <label tabindex="0" aria-label="Recetas creadas" for="tab-1" class="tab-label">Recetas</label>
     </div>
     <div class="tab">
       <input
@@ -21,10 +21,10 @@
         (change)="handleChange($event)"
         value="saved"
       />
-      <label for="tab-2" class="tab-label">Guardados</label>
+      <label  tabindex="0" aria-label="Recetas guardadas" for="tab-2" class="tab-label">Guardados</label>
     </div>
   </div>
-  <div class="tab-content" *ngIf="selectRecipes?.length">
+  <div  tabindex="0" aria-label="contenedor de recetas seleccionadas" class="tab-content" *ngIf="selectRecipes?.length">
     <div class="card-container" *ngFor="let card of selectRecipes">
       <!-- Validate if recipe is private or user is owner of that recipe -->
       <div *ngIf="!card.recipePrivacity || card.userID == userId">

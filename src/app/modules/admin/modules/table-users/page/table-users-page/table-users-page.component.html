@@ -1,12 +1,13 @@
 <div class="wrapper">
-  <section class="container">
-    <div *ngFor="let user of users">
+  <section tabindex="0" aria-label="Lista de usuarios registrados" role="list" class="container">
+    <div tabindex="0" aria-label="Usuario" *ngFor="let user of users">
       <div class="item">
-        <a class="image-container" [routerLink]="'/profile/' + user.user.userId">
+        <a tabindex="0" aria-label="Foto del usuario" role="link" class="image-container" [routerLink]="'/profile/' + user.user.userId">
           <img *ngIf="user.profilePhoto" [src]="user.profilePhoto" alt="Foto de un usuario" />
           <span *ngIf="!user.profilePhoto">{{ user.profileName[0] }}</span>
         </a>
         <a
+          tabindex="0"
           class="user-name"
           [routerLink]="'/profile/' + user.user.userId"
           [ngClass]="{ inactive: !user.user.userIsActive}"
@@ -23,17 +24,17 @@
               >Reportes</a
             >
             <p
+              tabindex="0" role="button"
               class="option"
               (click)="toggleSuspend(user.user.userId)"
               [ngClass]="{ activateUser: !user.user.userIsActive}"
             >
               {{ user.user.userIsActive ? "Suspender" : "Habilitar" }}
             </p>
-            <p class="option" (click)="deleteUser(user.user.userId)">Eliminar</p>
+            <p tabindex="0" role="button" class="option" (click)="deleteUser(user.user.userId)">Eliminar</p>
           </div>
         </div>
       </div>
     </div>
-    <p class="load-more" (click)="loadMore()">Cargar más</p>
   </section>
 </div>

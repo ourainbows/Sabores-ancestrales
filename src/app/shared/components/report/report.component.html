@@ -1,6 +1,6 @@
 <app-modal [show]="showReport">
-  <h3>Generar un reporte</h3>
-  <p>
+  <h3 tabindex="0" aria-label="Haz entrado a ventana para reportar">Generar un reporte</h3>
+  <p tabindex="0">
     Cuentanos detalladamente porque estas reportando 
     {{
       reportType === "recipe"
@@ -10,6 +10,6 @@
         : "este comentario"
     }}
   </p>
-  <textarea placeholder="Escribe aqui tu reporte..." (change)="handleReport($event)"></textarea>
-  <button (click)="generateReport()">Reportar</button>
+  <textarea tabindex="0" aria-label="Escribe aquí tu reporte" placeholder="Escribe aqui tu reporte..." (change)="handleReport($event)"></textarea>
+  <button tabindex="0" aria-label="Haz click aquí para reportar" (click)="generateReport()">Reportar</button>
 </app-modal>

@@ -1,19 +1,95 @@
 <div class="user-description-container">
   <div class="user-Photo-Container">
-    <img class="user-Photo" src="{{ user.profilePhoto }}" alt="userPhoto" *ngIf="user.profilePhoto"/>
-    <h1 *ngIf="!user.profilePhoto">{{user.profileName[0]}}</h1>
+    <img
+      class="user-Photo"
+      src="{{ user.profilePhoto }}"
+      alt="userPhoto"
+      *ngIf="user.profilePhoto"
+    />
+    <h1 *ngIf="!user.profilePhoto">{{ user.profileName[0] }}</h1>
 
-    <div (click)="show = true" class="report" *ngIf="user.user.userId != userId">
+    <div
+      tabindex="0"
+      aria-label="Haz click aquí para reportar a este usuario"
+      (click)="show = true"
+      class="report"
+      *ngIf="user.user.userId != userId"
+    >
       <p>!</p>
     </div>
-    <app-report [showReport]="show" [reportType]="'user'" [reportId]="user.user.userId">
-
+    <app-report
+      [showReport]="show"
+      [reportType]="'user'"
+      [reportId]="user.user.userId"
+    >
     </app-report>
+
+    <div
+      tabindex="0"
+      aria-label="Haz click aquí para reportar a editar tu perfil"
+      class="report"
+      *ngIf="user.user.userId == userId"
+      (click)="showEdit = true"
+    >
+      <mat-icon class="edit">edit</mat-icon>
+    </div>
+    <app-modal [show]="showEdit">
+      <form [formGroup]="formProfile" (submit)="submitImage()" class="form">
+        <h3>Editar perfil</h3>
+        <!-- Input for edit profileImage -->
+        <label for="image" class="form-label">Agregar una imagen</label>
+        <label
+          for="image"
+          class="label-image"
+          [ngStyle]="{
+            'background-image': imageSrc
+              ? 'url(' + imageSrc + ')'
+              : user.profilePhoto && 'url(' + user.profilePhoto + ')'
+          }"
+        >
+          <p *ngIf="!user.profilePhoto">{{ user.profileName[0] }}</p>
+        </label>
+        <input
+          type="file"
+          accept="image/*"
+          (change)="readURL($event)"
+          class="inputImage"
+          id="image"
+        />
+        <!-- input for profileName -->
+        <label for="profileName" class="form-label">Agregar un nombre</label>
+        <input
+          type="text"
+          id="profileName"
+          formControlName="profileName"
+          class="inputName"
+        />
+        <!-- input for profileDescription -->
+        <label for="description" class="form-label"
+          >Agregar una descripción</label
+        >
+        <textarea
+          id="description"
+          formControlName="profileDescription"
+          class="inputDescription"
+          (keydown.enter)="$event.preventDefault()"
+        ></textarea>
+        <button type="submit" [disabled]="formProfile.invalid" class="submit">
+          Guardar
+        </button>
+      </form>
+    </app-modal>
   </div>
   <div class="user-Name-Container">
-    <h1>{{ user.profileName }}</h1>
+    <h1 tabindex="0" aria-label="nombre de usuario">{{ user.profileName }}</h1>
   </div>
   <div class="user-Summary-Container">
-    <p class="userDescription">{{ user.userDescription }}</p>
+    <p
+      tabindex="0"
+      aria-label="Descripción del usuario"
+      class="userDescription"
+    >
+      {{ user.userDescription }}
+    </p>
   </div>
 </div>

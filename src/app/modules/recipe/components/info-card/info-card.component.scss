@@ -11,12 +11,20 @@
   align-items: center;
   text-decoration: none;
   color: $text-color;
-  img {
+  img, span {
     height: 3rem;
     width: 3rem;
     margin-right: 1.2rem;
     border-radius: $border-radius;
     object-fit: cover;
+    color: black;
+    background-color: #eeeeee;
+  }
+  span{
+    font-size: $font-text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   p {
     font-size: 1.7rem;

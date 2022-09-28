@@ -1,3 +1,5 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +14,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [ProfilePageComponent, StatisticsComponent, UserDescriptionComponent, TabRecipesComponent],
-  imports: [CommonModule, ProfileRoutingModule, SharedModule],
+  imports: [CommonModule, ProfileRoutingModule, SharedModule, MatIconModule,ReactiveFormsModule],
 })
 export class ProfileModule {}

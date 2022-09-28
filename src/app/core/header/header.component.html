@@ -1,5 +1,5 @@
-<nav>
-  <a routerLink="/" class="logo">
+<nav role="menu">
+  <a tabindex="0" role="link" aria-label="Volver al Home" routerLink="/" class="logo">
     <img src="../../../assets/logo.svg" alt="Sabores Ancestrales" />
   </a>
   <div role="navigation" class="primary-navigation">
@@ -15,13 +15,13 @@
         </div>
       </div>
       <ng-container *ngIf="(user$ | async) === false; else logOutTemplate">
-        <a [routerLink]="['/register']" class="sign">Ingresar</a>
+        <a tabindex="0" role="link" aria-label="Ingresar con una cuenta" [routerLink]="['/register']" class="sign">Ingresar</a>
       </ng-container>
-      <ng-template class="dropdown" #logOutTemplate>
+      <ng-template tabindex="0" role="menubar" aria-label="menubar" class="dropdown" #logOutTemplate>
         <ul>
-          <li [routerLink]="['/profile/' + (userData$ | async)?.user?.userId]">Perfil</li>
-          <li [routerLink]="['/']">Configuración</li>
-          <li [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
+          <li  tabindex="0" role="link" aria-label="Perfil" [routerLink]="['/profile/' + (userData$ | async)?.user?.userId]">Perfil</li>
+          <li tabindex="0" role="link" aria-label="Panel de administración" [routerLink]="['/admin']" *ngIf="(userData$ | async)?.user?.userIsAdmin">Panel de Administrador</li>
+          <li tabindex="0" role="link" aria-label="Cerrar sesión" [routerLink]="['/login']" (click)="onLogout()">Cerrar sesión</li>
         </ul>
       </ng-template>
     </span>

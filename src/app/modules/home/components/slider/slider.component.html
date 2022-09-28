@@ -1,12 +1,12 @@
-<h3 class="title">{{ category }}</h3>
-<div class="slider">
+<div tabindex="0" aria-label="Categoría"><h3 tabindex="0" class="title">{{ category }}</h3></div>
+<div tabindex="0" aria-label="recetas de esta categoría" class="slider">
   <div class="container-card" *ngFor="let recipe of recipes">
     <app-card-recipe
       [recipe]="recipe"
       [cardWidth]="cardWidth"
     ></app-card-recipe>
   </div>
-  <a class="more-recipes" routerLink="/">
+  <a tabindex="0" role="link" aria-label="Encontrar más almuerzos Ancestrales" class="more-recipes" routerLink="/">
       <div class="background-image"></div>
       <p>Encontrar más recetas {{category}}</p>
       <mat-icon> local_dining</mat-icon>

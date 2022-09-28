@@ -1,22 +1,26 @@
 <div class="wrapper">
   <section *ngFor="let message of messages" class="container">
-    <div class="commentary">
+    <div tabindex="0" aria-label="reseña" class="commentary">
       <div class="head">
         <div class="user">
           <img 
-            *ngIf="message.photoUser"
-            src="{{ message.photoUser }}"
+            tabindex="0"
+            *ngIf="message.profilePhoto"
+            src="{{ message.profilePhoto }}"
             alt="Imagen de usuario"
           />
-          <span>{{ message.user.userName }}</span>
+          <span tabindex="0" *ngIf="!message.profilePhoto" class="defaultPhoto">
+            {{ message.userName[0] }}
+          </span>
+          <span>{{ message.userName }}</span>
         </div>
-        <div class="date">
+        <div tabindex="0" aria-label="fecha de la reseña" class="date">
           <span>{{ message.createdAt | date: 'dd/MM/yyyy' }}</span> /
         </div>
       </div>
-      <div class="content">
+      <div tabindex="0" aria-label="Descripción de la reseña" class="content">
         <p>{{ message.appFeedbackComment }}</p>
-        <app-score class="score" [score]="message.stars"></app-score>
+        <app-score tabindex="0" aria-label="número de estrellas" class="score" [score]="message.stars"></app-score>
       </div>
     </div>
   </section>

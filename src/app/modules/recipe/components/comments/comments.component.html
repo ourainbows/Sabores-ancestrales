@@ -1,4 +1,4 @@
-<div class="container" *ngFor="let commentary of comments; index as i">
+<div tabindex="0" aria-label="comentario" class="container" *ngFor="let commentary of comments; index as i">
   <div class="commentary">
     <div class="head">
       <div class="user">
@@ -8,7 +8,7 @@
         <span>{{ commentary.userName }}</span>
       </div>
       <div class="date">
-        <span>{{ commentary.createdAt | date: 'dd/MM/yyyy' }}</span>
+        <span tabindex="0" aria-label="fecha del comentario">{{ commentary.createdAt | date: 'dd/MM/yyyy' }}</span>
       </div>
     </div>
     <div class="content">
@@ -31,6 +31,8 @@
       </app-report>
       <p (click)="deleteCommentary(commentary.commentId)" *ngIf="userId === userId">Eliminar</p>
       <div
+        tabindex="0"
+        aria-label="agregar un me gusta a este comentario"
         class="likes"
         [class.active]="commentary.likes.includes(userId)"
         (click)="likeComment(i)"

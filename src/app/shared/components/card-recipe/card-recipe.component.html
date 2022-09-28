@@ -1,23 +1,23 @@
-<div class="cardRecipe" [ngStyle]="{width: cardWidth, margin: cardMargin}">
+<div tabindex="0" aria-label="Haz click para ingresar a esta receta" class="cardRecipe" [ngStyle]="{width: cardWidth, margin: cardMargin}">
   <div [routerLink]="['/recipe/' + recipe.recipeId]" class="containerImg">
     <img src="{{ recipe.recipePhoto }}" alt="" />
   </div>
   <div class="infoRecipe">
     <div class="infoOne">
-      <p>{{ recipe.recipeName }}</p>
-      <div><span>★</span>{{ recipe.score }}</div>
+      <p tabindex="0" aria-label="nombre de receta">{{ recipe.recipeName }}</p>
+      <div  tabindex="0" aria-label="calificación"><span>★</span>{{ recipe.score }}</div>
     </div>
     <div class="infoTwo">
-      <div><span><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.recipeTime}}</span></div>
-      <span>{{recipe.priceSufix}}</span>
-      <!-- <span (click)='likeRecipe()' class="favorite">
-        <mat-icon class="border" *ngIf="!this.user.recipes.likedRecipes.includes(recipe.id)">
+      <div><span tabindex="0" aria-label="presupuesto"><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.recipeTime}}</span></div>
+      <span tabindex="0" aria-label="presupuesto">{{recipe.priceSufix}}</span>
+      <span tabindex="0" aria-label="agregar receta a favoritas" (click)='!existInFavorites() ? saveRecipe() : deleteRecipe()' class="favorite">
+        <mat-icon class="border" *ngIf="!existInFavorites()">
           favorite_border
         </mat-icon>
-        <mat-icon *ngIf="this.user.recipes.likedRecipes.includes(recipe.id)">
+        <mat-icon *ngIf="existInFavorites()">
           favorite
         </mat-icon>
-      </span> -->
+      </span>
     </div>
   </div>
 </div>

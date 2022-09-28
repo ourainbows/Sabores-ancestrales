@@ -2,12 +2,14 @@
   [imagePath]="recipe.imagePath"
   [name]="recipe.name"
   [recipeId]="recipe.recipeId"
+  [idOwnerRecipe]="recipe.userId"
 ></app-hero>
 <div class="container">
   <app-title
     [score]="recipe.recipeScore"
     [name]="recipe.name"
     [id]="recipe.recipeId"
+    [recipe]="recipe"
   ></app-title>
   <app-info-card
     [userId]="recipe.userId"
@@ -28,11 +30,11 @@
   ></app-step>
   <app-tags [tags]="recipe.tags"></app-tags>
   <app-magic-recipes [magicRecipes]="recipe.recomendations"></app-magic-recipes>
-  <app-comments-section
+  <!-- <app-comments-section
     [comments]="recipe.comments"
     [recipeId]="recipe.recipeId"
     [userId]="recipe.userId"
-  ></app-comments-section>
+  ></app-comments-section> -->
 
   <app-modal [show]="showFeedback" *ngIf="viewedRecipes.showModal">
     <h3 class="feedbackTitle">Cuéntanos tú experiencia</h3>

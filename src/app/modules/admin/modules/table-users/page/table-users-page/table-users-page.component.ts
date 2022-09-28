@@ -18,13 +18,7 @@ export class TableUsersPageComponent implements OnInit {
       this.users = users;
     });
   }
-  loadMore() {
-    this.offset += 10;
-    this.userService.getUsers(this.offset).subscribe((users) => {
-      this.users = [...this.users, ...users];
-    });
-  }
-  toggleSuspend(id: number) {
+  toggleSuspend(id: any) {
     const user = this.users.find((user) => user.user.userId === id);
     if (user) {
       this.userService
@@ -34,7 +28,7 @@ export class TableUsersPageComponent implements OnInit {
         });
     }
   }
-  deleteUser(id: number) {
+  deleteUser(id: any) {
     this.userService.deleteUser(id).subscribe(() => {
       this.users = this.users.filter((user) => user.user.userId !== id);
     });

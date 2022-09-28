@@ -45,7 +45,7 @@ export class StepsPageComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.formBuilder.group({
-      description: ['', Validators.required],
+      stepDescription: ['', Validators.required],
       ingredientQuantity: [''],
       ingredientName: [''],
       ingredientUnit: [''],
@@ -76,7 +76,6 @@ export class StepsPageComponent implements OnInit {
     this.tools = this.tools.filter((item: any) => item !== tag);
   };
 
-
   addIngredient() {
     this.ingredients.push({
       quantity: this.formSteps.value.ingredientQuantity,
@@ -102,8 +101,8 @@ export class StepsPageComponent implements OnInit {
       {
         stepNumber: this.steps.length + 1,
         imagePreview: this.imageSrc,
-        imagePath: this.fileImg,
-        description: this.formSteps.value.description,
+        stepImage: this.fileImg,
+        stepDescription: this.formSteps.value.stepDescription,
         ingredients: this.ingredients,
         tools: this.tools,
       },
@@ -127,12 +126,12 @@ export class StepsPageComponent implements OnInit {
 
   loadStepOnForm(step: any, stepPosition: number) {
     this.formSteps.patchValue({
-      description: step.description,
+      stepDescription: step.stepDescription ? step.stepDescription : step.description,
     });
     this.ingredients = step.ingredients;
     this.tools = step.tools;
-    this.imageSrc = step.imagePreview || step.imagePath;
-    this.fileImg = step.imagePath;
+    this.imageSrc = step.imagePreview || step.stepImage || step.imagePath;
+    this.fileImg = step.stepImage;
     this.editing = true;
     this.stepPostion = stepPosition;
   }
@@ -141,20 +140,21 @@ export class StepsPageComponent implements OnInit {
     this.steps[this.stepPostion] = {
       stepNumber: this.stepPostion + 1,
       imagePreview:
-        this.steps[this.stepPostion].imagePath !== this.imageSrc
+        this.steps[this.stepPostion].stepImage !== this.imageSrc
           ? this.imageSrc
           : this.steps[this.stepPostion].imagePreview,
-      imagePath:
-        this.steps[this.stepPostion].imagePath !== this.imageSrc
+      stepImage:
+        this.steps[this.stepPostion].stepImage !== this.imageSrc
           ? this.fileImg
-          : this.steps[this.stepPostion].imagePath,
-      description: this.formSteps.value.description,
+          : this.steps[this.stepPostion].stepImage,
+      stepDescription: this.formSteps.value.stepDescription,
       ingredients: this.ingredients,
       tools: this.tools,
     };
     this.recipeService.newRecipe.steps = this.steps;
     this.formSteps.reset();
     this.ingredients = [];
+    this.tools = [];
     this.imageSrc = '';
     this.fileImg = '';
     this.editing = false;
@@ -179,7 +179,7 @@ export class StepsPageComponent implements OnInit {
   }
 
   submit() {
-    this.recipeService.newRecipe.public = this.formSteps.value.isPublic;
+    this.recipeService.newRecipe.isPrivate = this.formSteps.value.isPublic;
     if (typeof this.recipeService.newRecipe.imagePath === 'string') {
       this.submitSteps();
     } else {
@@ -194,10 +194,11 @@ export class StepsPageComponent implements OnInit {
 
   submitSteps() {
     this.recipeService.newRecipe.steps.forEach((step, i) => {
+      console.log(step)
       delete step.imagePreview;
-      if (typeof (step.imagePath !== 'string')) {
-        this.uploadImage(step.imagePath).subscribe((url) => {
-          this.recipeService.newRecipe.steps[i].imagePath = url;
+      if (typeof (step.stepImage !== Object)) {
+        this.uploadImage(step.stepImage).subscribe((url) => {
+          this.recipeService.newRecipe.steps[i].stepImage = url;
           if (i === this.recipeService.newRecipe.steps.length - 1) {
             this.edit ? this.editRecipe() : this.uploadRecipe();
           }
@@ -213,19 +214,56 @@ export class StepsPageComponent implements OnInit {
   }
 
   uploadRecipe() {
-    this.recipeService.createRecipe().subscribe((createdRecipe) => {
-      // this.router.navigate(['/']);
-      console.log(createdRecipe);
+    this.recipeService.createRecipe().subscribe((createdRecipe: any) => {
+      this.router.navigate(['/recipe/' + createdRecipe.message]);
       this.emptyNewRecipe();
     });
   }
 
   editRecipe() {
+    let recipeInfo = {
+      userId: this.recipeService.newRecipe.userId,
+      priceId: this.recipeService.newRecipe.price,
+      recipeDificult: this.recipeService.newRecipe.difficulty,
+      recipeName: this.recipeService.newRecipe.name,
+      recipePhoto: this.recipeService.newRecipe.imagePath,
+      recipePortions: 1,
+      recipeTime: this.recipeService.newRecipe.time,
+      recipeDescription: this.recipeService.newRecipe.description,
+    };
     this.recipeService
-      .updateRecipe(this.recipeService.recipeToEdit?.id, this.recipeService.newRecipe)
-      .subscribe((editedRecipe) => {
-        // this.router.navigate(['/']);
-        console.log(editedRecipe);
+      .updateRecipe(this.recipeService.recipeToEdit?.recipeId, recipeInfo)
+      .subscribe(() => {
+        this.createStepsRecipe();
+      });
+  }
+
+  createStepsRecipe() {
+    this.recipeService.newRecipe.steps.forEach((step, i) => {
+      if (step.id) {
+        let newStep = {
+          stepDescription: step.stepDescription ? step.stepDescription : step.description,
+          stepImage: step.stepImage ? step.stepImage : step.imagePath,
+          stepNumber: i
+        }
+        this.recipeService.deleteStep(step.id).subscribe(() => {
+          this.recipeService.createStep(this.recipeService.recipeToEdit?.recipeId, newStep).subscribe(() => {
+            if (i === this.recipeService.newRecipe.steps.length - 1) {
+              this.updatePrivacityRecipe();
+            }
+          });
+        });
+      }
+    });
+  }
+
+  updatePrivacityRecipe() {
+    this.recipeService
+      .updatePrivacity(this.recipeService.recipeToEdit?.recipeId, {
+        recipePrivacity: this.recipeService.newRecipe.isPrivate,
+      })
+      .subscribe(() => {
+        this.router.navigate(['/']);
         this.emptyNewRecipe();
       });
   }
@@ -239,11 +277,10 @@ export class StepsPageComponent implements OnInit {
       time: 0,
       difficulty: '',
       price: '',
-      ingredients: [],
+      portions: 0,
       steps: [],
       tags: [],
-      tools: [],
-      public: true,
+      isPrivate: true,
     };
   }
 }

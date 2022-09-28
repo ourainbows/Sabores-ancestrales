@@ -20,7 +20,7 @@ export interface User {
   updatedAt?: string;
   userId: number;
   user: {
-    userId: number;
+    userId: number | string;
     userName: string;
     userEmail: string;
     userIsAdmin: boolean;
@@ -58,3 +58,7 @@ export interface UserRegister {
   email: string;
   password: string;
 }
+  export interface userRecipes {
+    recipesUser: any[];
+    recipesFav: any[];
+  }
