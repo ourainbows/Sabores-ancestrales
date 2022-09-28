@@ -44,12 +44,12 @@ export class FormComponent implements OnInit {
     this.initForm();
   }
 
-  async onGoogleForm(): Promise<void> { // TODO: fix data 
+  async onGoogleForm(): Promise<void> { // TODO: fix data
     this.authSvc
       .onGoogle()
       .then(async (res: any) => {
         if (res.additionalUserInfo.isNewUser) {
-          this.user = {
+          /* this.user = {
             id: res.user.multiFactor.user.uid,
             name: res.user.multiFactor.user.displayName,
             email: res.user.multiFactor.user.email,
@@ -62,7 +62,7 @@ export class FormComponent implements OnInit {
               likedRecipes: [],
             },
           };
-          this.userSvc.postUser(this.user).subscribe();  // TODO: save user
+          this.userSvc.postUser(this.user).subscribe(); */  // TODO: save user
         } else {
           this.authSvc.saveToken(res.user.multiFactor.user.uid);
         }

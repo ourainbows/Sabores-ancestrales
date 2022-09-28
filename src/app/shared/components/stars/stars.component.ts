@@ -30,10 +30,6 @@ export class StarsComponent implements OnInit {
       const decodedToken = jwtHelper.decodeToken(TOKEN || '')
       const userId = decodedToken.id
 
-      console.table({userId: userId,
-        recipeId: this.recipeId,
-        recipeStartQuantity: this.rate})
-
       this.recipeService
         .updateScore({
           userId: userId,

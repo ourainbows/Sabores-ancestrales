@@ -5,7 +5,7 @@
   <div class="infoRecipe">
     <div class="infoOne">
       <p tabindex="0" aria-label="nombre de receta">{{ recipe.recipeName }}</p>
-      <div  tabindex="0" aria-label="calificación"><span>★</span>{{ recipe.score }}</div>
+      <div  tabindex="0" aria-label="calificación"><span>★</span>{{ recipe.score?.toFixed(1) }}</div>
     </div>
     <div class="infoTwo">
       <div><span tabindex="0" aria-label="presupuesto"><mat-icon class="iconTime">query_builder</mat-icon>{{recipe.recipeTime}}</span></div>
